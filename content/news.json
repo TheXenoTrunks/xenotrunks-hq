@@ -104,6 +104,19 @@
       "summary": "Bandai Namco’s final post-launch DLC for Xenoverse 2. Officially includes playable Goku (Ultra Supervillain Quelled) and Supreme Kai of Time (Ultra Supervillain), Ultra Time Patrol Battles, and the Gallery of Time.",
       "source_label": "Bandai Namco Entertainment",
       "source_url": "https://www.bandainamcoent.com/news/dragon-ball-xenoverse-2-final-dlc-future-saga-chapter-4-is-available-now"
+    },
+    {
+      "id": "xv3-announce",
+      "kind": "announcement",
+      "hidden": false,
+      "kicker": "Announcement",
+      "title": "Dragon Ball Xenoverse 3 announced for 2027",
+      "date_label": "Announced 18–19 Apr 2026",
+      "starts_at": "2026-04-19T00:00:00+00:00",
+      "ends_at": "",
+      "summary": "Unveiled at Dragon Ball Games Battle Hour 2026. Planned for PlayStation 5, Xbox Series X and PC (Steam) in 2027.",
+      "source_label": "Bandai Namco Entertainment",
+      "source_url": "https://www.bandainamcoent.com/news/dragon-ball-xenoverse-3-unveiling-headlines-news-and-reveals-at-dragon-ball-games-battle-hour-2026"
     }
   ]
 }
