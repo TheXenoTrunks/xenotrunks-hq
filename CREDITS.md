@@ -34,3 +34,12 @@ These images are Xeno Trunks’s own custom character (long lavender hair, scar 
 ## Licensing caveat
 
 This is an independent fan community site. Official Dragon Ball / Xenoverse 2 names and game imagery belong to Bandai Namco Entertainment, Toei Animation, Shueisha and other rights holders. Those assets are used here only to report official events and to show existing Time Patrol posts. They are not free for reuse. Custom-character images belong to Xeno Trunks and should not be treated as official Bandai art.
+
+## Update 1 (10 Nov 2026)
+
+- `assets/uploads/7071.jpg` (original 4096×2304) and web copy `7071-web.jpg` (1600×900): Xeno Trunks’ custom character with the Xeno Time Patrol TP logo, uploaded by Xeno Trunks.
+- `assets/uploads/137225.jpg`: official Dragon Ball Xenoverse 2 trailer thumbnail, uploaded by Xeno Trunks. © Bandai Namco Entertainment.
+- News card images are official Xenoverse 2 images from the official information posts, resized to 1280×720. ©Bird Studio/Shueisha, Toei Animation ©Bandai Namco Entertainment Inc.
+  - `raid-broly-fpssj-lite.jpg`: https://dbx.bn-ent.net/02/maintenance/img/4373d5c041e20a98cd04597712fac644cfc89f25.png (post id1853)
+  - `festival-last-world-tournament.jpg`: https://dbx.bn-ent.net/02/maintenance/img/15578eddece559c18b5ed30c7a3765c08a8f5989.png (post id1857)
+  - `login-bonus-10th-anniversary.jpg`: https://dbx.bn-ent.net/02/maintenance/img/51a96e8b522259a17c5857e2d1aacf37f6d6d4d4.png (post id1856), centred on a navy 16:9 background

@@ -77,7 +77,7 @@
     if (!iso) return "";
     var d = new Date(iso);
     if (isNaN(d)) return iso;
-    return new Intl.DateTimeFormat("en-AU", { timeZone: TZ, day: "numeric", month: "short", year: "numeric" }).format(d);
+    return new Intl.DateTimeFormat("en-GB", { timeZone: TZ, day: "numeric", month: "short", year: "numeric" }).format(d);
   }
   function extLink(href, label) {
     href = safeUrl(href);
@@ -254,7 +254,13 @@
         if (item.weeks_note) weeks += '<p style="margin-top:8px;font-size:0.88rem">' + esc(item.weeks_note) + "</p>";
       }
       var src = extLink(item.source_url, item.source_label || "Source");
-      return '<article class="news-card"><div class="news-meta"><span class="badge ' + badgeClass[state] + '">' + badgeText[state] + "</span><span>" + esc(item.kicker || "") + "</span><span>" + esc(item.date_label || "") + "</span></div><h3>" + esc(displayTitle(item, state, now)) + "</h3><p>" + esc(item.summary) + "</p>" + weeks + src + "</article>";
+      var img = mediaPath(item.image);
+      var media = "";
+      if (img) {
+        media = '<figure class="news-media"><img src="' + esc(img) + '" alt="' + esc(item.image_alt || "") + '" width="1280" height="720" loading="lazy" decoding="async">' +
+          (item.image_credit ? "<figcaption>" + esc(item.image_credit) + "</figcaption>" : "") + "</figure>";
+      }
+      return '<article class="news-card' + (media ? " has-media" : "") + '">' + media + '<div class="news-body"><div class="news-meta"><span class="badge ' + badgeClass[state] + '">' + badgeText[state] + "</span><span>" + esc(item.kicker || "") + "</span><span>" + esc(item.date_label || "") + "</span></div><h3>" + esc(displayTitle(item, state, now)) + "</h3><p>" + esc(item.summary) + "</p>" + (media ? "</div><div class=\"news-extra\">" : "") + weeks + src + "</div></article>";
     }
     function endTime(e) {
       var it = e.item, ends = [];
@@ -297,7 +303,7 @@
     var cdn = "https://i.ytimg.com/vi/" + encodeURIComponent(v.id) + "/hqdefault.jpg";
     var thumb = mediaPath(v.thumb || v.thumb_cdn || cdn) || cdn;
     var watch = safeUrl(v.url) || ("https://www.youtube.com/watch?v=" + encodeURIComponent(v.id));
-    return '<article class="yt-card"><button class="yt-thumb" type="button" data-yt="' + esc(v.id) + '" data-title="' + esc(v.title) + '" aria-label="Play ' + esc(v.title) + '"><img src="' + esc(thumb) + '" data-cdn="' + esc(cdn) + '" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="play"><span aria-hidden="true">▶</span></span></button><h3><a href="' + esc(watch) + '" target="_blank" rel="noopener noreferrer">' + esc(v.title) + "</a></h3><time datetime=\"" + esc(v.published || "") + "\">" + (v.published ? perthDate(v.published) + " · Australia/Perth" : "") + "</time></article>";
+    return '<article class="yt-card"><button class="yt-thumb" type="button" data-yt="' + esc(v.id) + '" data-title="' + esc(v.title) + '" aria-label="Play ' + esc(v.title) + '"><img src="' + esc(thumb) + '" data-cdn="' + esc(cdn) + '" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="play"><span aria-hidden="true">▶</span></span></button><h3><a href="' + esc(watch) + '" target="_blank" rel="noopener noreferrer">' + esc(v.title) + "</a></h3><time datetime=\"" + esc(v.published || "") + "\">" + (v.published ? perthDate(v.published) : "") + "</time></article>";
   }
 
   function renderVideos(manual, auto) {
