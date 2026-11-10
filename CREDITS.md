@@ -34,3 +34,12 @@ These images are Xeno Trunks’s own custom character (long lavender hair, scar 
 ## Licensing caveat
 
 This is an independent fan community site. Official Dragon Ball / Xenoverse 2 names and game imagery belong to Bandai Namco Entertainment, Toei Animation, Shueisha and other rights holders. Those assets are used here only to report official events and to show existing Time Patrol posts. They are not free for reuse. Custom-character images belong to Xeno Trunks and should not be treated as official Bandai art.
+
+## Update 1 (10 Nov 2026)
+
+- `assets/uploads/7071.jpg` (original 4096×2304) and web copy `7071-web.jpg` (1600×900): Xeno Trunks’ custom character with the Xeno Time Patrol TP logo, uploaded by Xeno Trunks.
+- `assets/uploads/137225.jpg`: official Dragon Ball Xenoverse 2 trailer thumbnail, uploaded by Xeno Trunks. © Bandai Namco Entertainment.
+- News card images (Update 1b) are Xeno Time Patrol designs in theme tp_a (navy, cyan and magenta, TP logo), 1600×900 WebP, with official character art inside the frame. Credit on the page: “Xeno Time Patrol design; character art © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation”.
+  - `raid-broly-fpssj-lite.webp`: official Broly (Full Power Super Saiyan) art from https://dbx.bn-ent.net/02/maintenance/img/4373d5c041e20a98cd04597712fac644cfc89f25.png (post id1853)
+  - `festival-last-world-tournament.webp`: official Last World Tournament stage from https://dbx.bn-ent.net/02/maintenance/img/15578eddece559c18b5ed30c7a3765c08a8f5989.png (post id1857)
+  - `login-bonus-10th-anniversary.webp`: official 10th-anniversary login-bonus loading-screen art (Saiyan Patroller vs Goku) from https://dbx.bn-ent.net/02/maintenance/img/c4c58520c9a75f7604704fcc9f51f42ba5fa0505.png (post id1856). The official XV2 10th Anniversary logo on that still (which includes official Trunks) was not used.

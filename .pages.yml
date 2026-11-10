@@ -314,6 +314,19 @@ content:
             description: "Example: 2026-11-12T14:00:00+08:00. Leave blank for announcements that should stay visible. After this time the card moves to Past events automatically."
           - name: summary
             type: text
+          - name: image
+            label: Card image (optional)
+            type: image
+            options:
+              media: images
+            description: Official Bandai image or a Time Patrol card. Use a 16:9 image about 1280×720 and under 300 KB.
+          - name: image_alt
+            label: Image description (for screen readers)
+            type: string
+          - name: image_credit
+            label: Image credit (optional)
+            type: string
+            description: "Example: Official Xenoverse 2 image © Bandai Namco Entertainment Inc."
           - name: source_label
             type: string
           - name: source_url

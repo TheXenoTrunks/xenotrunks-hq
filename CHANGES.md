@@ -1,3 +1,14 @@
+# Update 1b (10 Nov 2026, preview branch)
+
+- The Festival, Broly Lite raid and 10th-anniversary login bonus news cards now use Xeno Time Patrol style images (theme tp_a: navy, cyan and magenta, TP logo watermark) instead of plain official Bandai stills. Official character art is kept inside our frame. Alt text and credits were updated. Image size is 1600×900 (WebP, under 250 KB).
+
+# Update 1 (10 Nov 2026, preview branch)
+
+- Video dates in the YouTube section now show only the date (e.g. “18 Oct 2026”), with no “Australia/Perth” label.
+- News and raid cards can have an optional image (`image`, `image_alt`, `image_credit`; also in Pages CMS). On desktop the image sits on the left; on phones it sits on top. The Festival, Broly Lite raid and login bonus cards use official Bandai Namco images from the official information posts (see CREDITS.md).
+- The Discord card now uses a 1600 px web copy of Xeno Trunks’ new upload (`7071-web.jpg`, 177 KB; the 2.4 MB original is kept). Alt texts were updated for the Discord card and the Frieza’s Nightmare image.
+- The site keeps working when Pages CMS leaves out empty fields (PayPal URL, FN updates, trailer/download URLs, progress percent/note); this was tested.
+
 # Phase 4 (connect, test & launch prep), 10 Nov 2026
 
 v3 design, artwork, content and features are unchanged. Launch-prep changes only:

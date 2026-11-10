@@ -145,6 +145,13 @@
     .news-card { padding: 26px 28px; background: linear-gradient(165deg, var(--panel-2), var(--panel)); border: 1px solid rgba(196, 44, 116, 0.55); border-radius: var(--radius); position: relative; overflow: hidden; }
     .news-card::before { content: ""; position: absolute; top: 0; left: 0; width: 72px; height: 3px; background: linear-gradient(90deg, var(--cyan), var(--magenta)); }
     .news-card h3 { margin: 6px 0 8px; }
+    .news-card.has-media { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 24px; align-items: start; }
+    .news-media { margin: 0; }
+    .news-media img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid rgba(76,165,221,0.35); background: var(--frame); }
+    .news-media figcaption { margin-top: 6px; font-size: 0.74rem; letter-spacing: 0.04em; color: var(--muted); }
+    .news-body { min-width: 0; }
+    .news-card.has-media .news-extra { grid-column: 1 / -1; min-width: 0; }
+    .news-card.has-media .weeks { margin-top: 0; }
     .news-card p { margin: 0 0 12px; color: var(--muted); }
     .news-meta { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; font-size: 0.88rem; color: var(--muted); margin-bottom: 8px; }
     .badge { display: inline-block; padding: 3px 10px; border: 1px solid rgba(76, 165, 221, 0.6); border-radius: 999px; color: var(--cyan); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
@@ -245,6 +252,7 @@
       .hero-media img { width: 72%; }
     }
     @media (max-width: 820px) {
+      .news-card.has-media { grid-template-columns: 1fr; gap: 16px; }
       .navlinks { display: none; position: absolute; left: 0; right: 0; top: var(--nav-h); background: rgba(7, 13, 25, 0.98); border-bottom: 1px solid var(--magenta); padding: 18px 24px 24px; flex-direction: column; align-items: stretch; gap: 4px; }
       .navlinks.open { display: flex; }
       .navlinks a { padding: 12px 4px; }
@@ -383,7 +391,7 @@
     <section id="nightmare" class="feature">
       <div class="wrap feature-grid">
         <figure class="feature-art">
-          <img id="fn-image" src="assets/fn-turles-slug.jpg" width="1080" height="608" alt="Turles and Lord Slug in a custom Parallel Quest scene from Frieza’s Nightmare." loading="lazy">
+          <img id="fn-image" src="assets/uploads/137225.jpg" width="1280" height="720" alt="Official Dragon Ball Xenoverse 2 trailer thumbnail showing Super Saiyan Goku, Frieza and Super Saiyan Vegeta." loading="lazy">
         </figure>
         <div>
           <span class="badge" id="fn-badge">In development</span>
@@ -438,7 +446,7 @@
         <div class="split">
           <a class="panel-link" id="community-discord" href="https://dsc.gg/xenotimepatrol" target="_blank" rel="noopener noreferrer">
             <div class="panel-shot">
-              <img src="assets/festival-trunks.jpg" width="1400" height="788" alt="Festival of Universes graphic featuring official Xenoverse 2 Trunks camaraderie art, branded by Xeno Time Patrol." loading="lazy">
+              <img src="assets/uploads/7071-web.jpg" width="1600" height="900" alt="Xeno Trunks (custom character) gripping his sword in the rain beside the Xeno Time Patrol TP logo." loading="lazy">
             </div>
             <div class="panel-copy">
               <p class="kicker">Discord</p>
