@@ -63,7 +63,6 @@
   },
   "paypal": {
     "enabled": false,
-    "url": "",
     "kicker": "PayPal",
     "title": "Support coming soon",
     "text": "A PayPal option will be added here once the Business account is verified. There is no payment link yet.",
@@ -82,7 +81,7 @@
       "text": "Raid alerts, install help, sneak peeks and a place to talk Xenoverse 2.",
       "url": "https://dsc.gg/xenotimepatrol",
       "button_label": "Join the Discord",
-      "image": "assets/festival-trunks.jpg",
+      "image": "assets/uploads/7071.jpg",
       "image_alt": "Festival of Universes graphic featuring official Xenoverse 2 Trunks camaraderie art, branded by Xeno Time Patrol."
     },
     "facebook_group": {

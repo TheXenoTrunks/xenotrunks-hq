@@ -3,33 +3,26 @@
   "title": "Frieza’s Nightmare 2.0",
   "badge": "In development",
   "intro": "A featured custom Parallel Quest for Dragon Ball Xenoverse 2, rebuilt around villainous encounters, Super Saiyan paths and custom cutscenes.",
-  "image": "assets/fn-turles-slug.jpg",
+  "image": "assets/uploads/137225.jpg",
   "image_alt": "Turles and Lord Slug in a custom Parallel Quest scene from Frieza’s Nightmare.",
   "progress": [
     {
       "item": "Turles and Slug (XFN043 intro)",
-      "percent": null,
-      "note": ""
+      "hidden": false
     },
     {
       "item": "Cooler enters the fight",
-      "percent": null,
-      "note": ""
+      "hidden": false
     },
     {
       "item": "Goku and Vegeta branching Super Saiyan paths",
-      "percent": null,
-      "note": ""
+      "hidden": false
     },
     {
       "item": "Custom cutscenes",
-      "percent": null,
-      "note": ""
+      "hidden": false
     }
   ],
-  "updates": [],
-  "trailer_url": "",
-  "download_url": "",
   "trailer_label": "Trailer — coming when released",
   "download_label": "Download — coming when released",
   "note": "No download is available yet."
