@@ -314,7 +314,7 @@
     if (manual.kicker || manual.title || manual.intro) {
       var heading = document.getElementById("yt-heading");
       if (heading) {
-        heading.innerHTML = '<p class="kicker">' + esc(manual.kicker || "Xeno Trunks YouTube") + "</p><h2>" + esc(manual.title || "Latest videos & Shorts.") + "</h2><p>" + esc(manual.intro || "") + "</p>";
+        heading.innerHTML = '<p class="kicker">' + esc(manual.kicker || "Xeno Trunks YouTube") + "</p><h2>" + esc(manual.title || "Mod Trailers.") + "</h2><p>" + esc(manual.intro || "") + "</p>";
       }
     }
     var seen = {};
@@ -336,7 +336,7 @@
     featured.forEach(function (v) { featuredIds[v.id] = true; });
     var rest = autoItems.filter(function (v) { return !featuredIds[v.id]; });
     // If featured videos are already in the auto list, keep a single grid of unique items (featured first).
-    var list = featured.concat(rest).slice(0, 10);
+    var list = featured.concat(rest).slice(0, 16);
     root.innerHTML = list.map(videoCard).join("");
     // If a saved thumbnail file is missing, fall back to YouTube's own thumbnail.
     root.querySelectorAll("img[data-cdn]").forEach(function (img) {

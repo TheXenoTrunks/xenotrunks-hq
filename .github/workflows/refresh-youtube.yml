@@ -1,4 +1,5 @@
-# Refresh the YouTube "latest" list from the public RSS feed.
+# Refresh the YouTube "Mod Trailers" list from the public RSS feed.
+# The script keeps only Xenoverse 2 mod trailers and showcases.
 #
 # SAFETY
 # - Manual runs only (Actions tab → "Refresh YouTube list" → Run workflow).

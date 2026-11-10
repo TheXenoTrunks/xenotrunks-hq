@@ -1,38 +1,11 @@
 {
-  "fetched_at": "2026-11-10T03:00:00Z",
+  "fetched_at": "2026-11-10T08:00:00Z",
   "channel_id": "UCFpwz174y2HmOdL1DUCLjCw",
-  "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFpwz174y2HmOdL1DUCLjCw",
+  "feed": "https://www.youtube.com/@Xeno_Trunks/videos + /shorts (mod trailers only)",
   "items": [
     {
-      "id": "OIJ2hVLjSxI",
-      "title": "Gohan vs Kefla: The Final Battle! | DBS Manga Motion (Part 2)",
-      "published": "2026-10-18T15:37:26+00:00",
-      "type": "short",
-      "url": "https://www.youtube.com/shorts/OIJ2hVLjSxI",
-      "thumb": "assets/yt/OIJ2hVLjSxI.jpg",
-      "thumb_cdn": "https://i.ytimg.com/vi/OIJ2hVLjSxI/hqdefault.jpg"
-    },
-    {
-      "id": "oLeEIqszuqU",
-      "title": "Goku vs Beerus REMAKE is INSANE",
-      "published": "2026-10-03T20:00:21+00:00",
-      "type": "short",
-      "url": "https://www.youtube.com/shorts/oLeEIqszuqU",
-      "thumb": "assets/yt/oLeEIqszuqU.jpg",
-      "thumb_cdn": "https://i.ytimg.com/vi/oLeEIqszuqU/hqdefault.jpg"
-    },
-    {
-      "id": "5cuSnpc0MEg",
-      "title": "LEGENDS SSG Shallot Is INSANE! | Dragon Ball Legends 8th Anniversary",
-      "published": "2026-06-17T07:16:19+00:00",
-      "type": "short",
-      "url": "https://www.youtube.com/shorts/5cuSnpc0MEg",
-      "thumb": "assets/yt/5cuSnpc0MEg.jpg",
-      "thumb_cdn": "https://i.ytimg.com/vi/5cuSnpc0MEg/hqdefault.jpg"
-    },
-    {
       "id": "5HMLm5NnlXw",
-      "title": "This Goku Mod Is INSANE | Xenoverse 2 Custom Transformation",
+      "title": "This Goku Mod Is INSANE 🔥💥 | Xenoverse 2 Custom Transformation",
       "published": "2025-09-06T15:12:31+00:00",
       "type": "short",
       "url": "https://www.youtube.com/shorts/5HMLm5NnlXw",
@@ -40,40 +13,94 @@
       "thumb_cdn": "https://i.ytimg.com/vi/5HMLm5NnlXw/hqdefault.jpg"
     },
     {
-      "id": "akZhBMs9mqg",
-      "title": "DRAGON BALL: Sparking! ZERO - Combos and Features Guide",
-      "published": "2024-08-28T15:10:13+00:00",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=akZhBMs9mqg",
-      "thumb": "assets/yt/akZhBMs9mqg.jpg",
-      "thumb_cdn": "https://i.ytimg.com/vi/akZhBMs9mqg/hqdefault.jpg"
-    },
-    {
-      "id": "6OEnj3JIhAQ",
-      "title": "DRAGON BALL XENOVERSE 2 - WHO IS FU?",
-      "published": "2024-05-24T15:08:38+00:00",
-      "type": "trailer",
-      "url": "https://www.youtube.com/watch?v=6OEnj3JIhAQ",
-      "thumb": "assets/yt/6OEnj3JIhAQ.jpg",
-      "thumb_cdn": "https://i.ytimg.com/vi/6OEnj3JIhAQ/hqdefault.jpg"
-    },
-    {
       "id": "BLg2lDzucoc",
       "title": "DRAGON BALL XENOVERSE 2 - GOKU DAY LAUNCH TRAILER",
       "published": "2024-05-08T18:00:07+00:00",
-      "type": "trailer",
+      "type": "video",
       "url": "https://www.youtube.com/watch?v=BLg2lDzucoc",
       "thumb": "assets/yt/BLg2lDzucoc.jpg",
       "thumb_cdn": "https://i.ytimg.com/vi/BLg2lDzucoc/hqdefault.jpg"
     },
     {
       "id": "82E0QS-yvz4",
-      "title": "DRAGON BALL XENOVERSE 2 - The Heroes Marvellous Show | Parallel Quest",
+      "title": "DRAGON BALL XENOVERSE  2 - The Heroes Marvellous Show | Parrellel Quest",
       "published": "2024-05-04T19:00:07+00:00",
       "type": "video",
       "url": "https://www.youtube.com/watch?v=82E0QS-yvz4",
       "thumb": "assets/yt/82E0QS-yvz4.jpg",
       "thumb_cdn": "https://i.ytimg.com/vi/82E0QS-yvz4/hqdefault.jpg"
+    },
+    {
+      "id": "VCiOIS7yiaE",
+      "title": "DRAGON BALL XENOVERSE 2 - itsErichDUH's Corruption Crisis! Parallel Quest Trailer!",
+      "published": "2024-04-10T00:00:07+00:00",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=VCiOIS7yiaE",
+      "thumb": "assets/yt/VCiOIS7yiaE.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/VCiOIS7yiaE/hqdefault.jpg"
+    },
+    {
+      "id": "xTJidaa_GkE",
+      "title": "DRAGON BALL XENOVERSE 2 - Banana Blitz Showdown | Parrellel Quest Trailer #DBXV2 #Xenoverse2 #DLC",
+      "published": "2024-04-04T19:30:28+00:00",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=xTJidaa_GkE",
+      "thumb": "assets/yt/xTJidaa_GkE.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/xTJidaa_GkE/hqdefault.jpg"
+    },
+    {
+      "id": "KXJkr4EVsHo",
+      "title": "DRAGONBALL XENOVERSE 2 - Fieza's Nightmare (Update 1.7)",
+      "published": "2023-09-25T18:00:09+00:00",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=KXJkr4EVsHo",
+      "thumb": "assets/yt/KXJkr4EVsHo.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/KXJkr4EVsHo/hqdefault.jpg"
+    },
+    {
+      "id": "ypOqf89fiyE",
+      "title": "DRAGONBALL XENOVERSE 2 - Nameless Namekian Trailer (Custom Parallel Quest)",
+      "published": "2023-08-31T09:13:11+00:00",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=ypOqf89fiyE",
+      "thumb": "assets/yt/ypOqf89fiyE.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/ypOqf89fiyE/hqdefault.jpg"
+    },
+    {
+      "id": "O3eTbgvBXMI",
+      "title": "Vegeta's Humiliation?!  Trailer (What if Parallel Quest)",
+      "published": "2023-06-07T18:00:11+00:00",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=O3eTbgvBXMI",
+      "thumb": "assets/yt/O3eTbgvBXMI.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/O3eTbgvBXMI/hqdefault.jpg"
+    },
+    {
+      "id": "HUdlUZ0_x6k",
+      "title": "Yamcha's Resolve Trailer (What-if Custom PQ)",
+      "published": "2023-03-13T18:00:07+00:00",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=HUdlUZ0_x6k",
+      "thumb": "assets/yt/HUdlUZ0_x6k.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/HUdlUZ0_x6k/hqdefault.jpg"
+    },
+    {
+      "id": "NrZrQdJp3lQ",
+      "title": "When Raging Blast meets Xenoverse 2!?",
+      "published": "2023-02-10T22:23:29+00:00",
+      "type": "short",
+      "url": "https://www.youtube.com/shorts/NrZrQdJp3lQ",
+      "thumb": "assets/yt/NrZrQdJp3lQ.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/NrZrQdJp3lQ/hqdefault.jpg"
+    },
+    {
+      "id": "SlewJfIDFxA",
+      "title": "World Tournament - Couple's Division Trailer (What if Custom PQ)",
+      "published": "2023-02-09T06:35:28+00:00",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=SlewJfIDFxA",
+      "thumb": "assets/yt/SlewJfIDFxA.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/SlewJfIDFxA/hqdefault.jpg"
     }
   ]
 }

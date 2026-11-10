@@ -13,12 +13,16 @@ What it does
 - If YouTube's RSS feeds are down (they returned 404 for every channel on
   10 Nov 2026), falls back to the public channel pages (/videos and /shorts tabs)
   and reads each video's public watch page for its exact title and date.
-- Removes duplicates by video ID, newest first, and keeps older entries that are
-  already in the file (so the list does not shrink) up to MAX_ITEMS.
+- Keeps only Xenoverse 2 mod trailers and showcases (title and, when needed,
+  description). Official DLC trailers, other-game uploads and memes are dropped.
+- Removes duplicates by video ID, newest first, and keeps older *mod trailers*
+  that are already in the file (so older trailers do not fall off the RSS window)
+  up to MAX_ITEMS.
 - Thumbnails: https://i.ytimg.com/vi/<ID>/hqdefault.jpg (saved to assets/yt/<ID>.jpg).
 - Links: https://www.youtube.com/shorts/<ID> for Shorts, https://www.youtube.com/watch?v=<ID> otherwise.
 
 Used by .github/workflows/refresh-youtube.yml (manual runs only, never commits to main).
+The daily schedule in that workflow stays commented out until Xeno Trunks approves it.
 """
 from __future__ import annotations
 
@@ -41,7 +45,7 @@ FEED_FALLBACKS = [
 ]
 SHORTS_FEED = f"https://www.youtube.com/feeds/videos.xml?playlist_id=UUSH{TAIL}"
 LONG_FEED = f"https://www.youtube.com/feeds/videos.xml?playlist_id=UULF{TAIL}"
-MAX_ITEMS = 12
+MAX_ITEMS = 16
 PER_TAB = 8
 CHANNEL_PAGE = f"https://www.youtube.com/channel/{CHANNEL_ID}"
 BROWSER_HEADERS = {
@@ -56,9 +60,94 @@ NS = {
     "media": "http://search.yahoo.com/mrss/",
 }
 
+# Title-only hard exclusions (official recaps, channel intro, other games).
+TITLE_EXCLUDE = re.compile(
+    r"(?:"
+    r"\bchannel\s+trailer\b|"
+    r"\bofficial\s+(?:character\s+)?teaser\b|"
+    r"\bofficial\s+trailer\b|"
+    r"\bfuture\s+saga\b|"
+    r"\bhero\s+of\s+justice\b|"
+    r"\bhero\s+vote\b|"
+    r"\bconton\s+city\s+vote\b|"
+    r"\bsparking!?\s*zero\b|"
+    r"\bbudokai\s+tenkaichi\b|"
+    r"\bdb\s*legends\b|"
+    r"\bdragon\s*ball\s+legends\b|"
+    r"\bthe\s+breakers\b|"
+    r"\bkakarot\b|"
+    r"\bdokkan\b|"
+    r"\bmanga\s+motion\b|"
+    r"\btheme\s+park\b|"
+    r"\bjump\s+assemble\b"
+    r")",
+    re.I,
+)
+# Strong title signals that this upload itself is a Xenoverse 2 mod trailer/showcase.
+# Includes the common typo "Parrellel Quest".
+TITLE_INCLUDE = re.compile(
+    r"(?:"
+    r"\bmods?\b|"
+    r"\bmodded\b|"
+    r"\bx2m\b|"
+    r"custom\s+transformation|"
+    r"custom(?:\s+made)?\s+p[ae]r+[ae]?llel\s+quest|"
+    r"custom\s+pq\b|"
+    r"what[\s-]*if\s+(?:custom\s+)?(?:pq|p[ae]r+[ae]?llel\s+quest)\b|"
+    r"p[ae]r+[ae]?llel\s+quest\s+trailer|"
+    r"modded\s+p[ae]r+[ae]?llel\s+quest"
+    r")",
+    re.I,
+)
+DESC_INCLUDE = re.compile(
+    r"(?:"
+    r"new\s+modded\s+p[ae]r+[ae]?llel\s+quest|"
+    r"custom(?:\s+made)?\s+p[ae]r+[ae]?llel\s+quest|"
+    r"custom\s+modded\s+p[ae]r+[ae]?llel\s+quest|"
+    r"modded\s+p[ae]r+[ae]?llel\s+quest|"
+    r"modded\s+into\s+dragon\s*ball\s+xenoverse|"
+    r"first\s+custom\s+p[ae]r+[ae]?llel\s+quest|"
+    r"custom\s+fan-?made|"
+    r"custom\s+dragon\s+ball\s+xenoverse\s*2\s+mod|"
+    r"xenoverse\s*2\s+custom\s+transformation|"
+    r"what[\s-]*if\s+(?:custom\s+)?(?:pq|p[ae]r+[ae]?llel\s+quest)|"
+    r"mod:\s*custom|"
+    r"mod\s+download\s+link"
+    r")",
+    re.I,
+)
+XV2_RE = re.compile(r"xenoverse\s*2|xenoverse2|\bdbxv2\b|\bxv2\b|\bx2m\b", re.I)
+
 
 def site_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def classify_mod_trailer(title: str, description: str | None) -> str:
+    """Return 'yes', 'no', or 'need_desc'.
+
+    'need_desc' means the title is not enough; a description is required to decide.
+    Official DLC trailers, other-game uploads and the channel intro are 'no'.
+    """
+    title = title or ""
+    if TITLE_EXCLUDE.search(title):
+        return "no"
+    if TITLE_INCLUDE.search(title):
+        # "This Goku Mod … Xenoverse 2 Custom Transformation" and
+        # "Yamcha's Resolve Trailer (What-if Custom PQ)" etc.
+        return "yes"
+    if description is None:
+        return "need_desc"
+    blob = f"{title}\n{description}"
+    if not XV2_RE.search(blob) and not DESC_INCLUDE.search(description):
+        return "no"
+    if DESC_INCLUDE.search(description):
+        return "yes"
+    return "no"
+
+
+def public_item(item: dict) -> dict:
+    return {k: v for k, v in item.items() if not k.startswith("_")}
 
 
 def fetch(url: str, timeout: int = 30, browser: bool = False) -> bytes:
@@ -88,8 +177,8 @@ def fetch_feed(url: str) -> list[dict] | None:
         return None
 
 
-def make_item(vid: str, title: str, published: str, is_short: bool) -> dict:
-    return {
+def make_item(vid: str, title: str, published: str, is_short: bool, description: str = "") -> dict:
+    item = {
         "id": vid,
         "title": title,
         "published": published,
@@ -98,6 +187,17 @@ def make_item(vid: str, title: str, published: str, is_short: bool) -> dict:
         "thumb": f"assets/yt/{vid}.jpg",
         "thumb_cdn": f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg",
     }
+    if description:
+        item["_description"] = description
+    return item
+
+
+def _entry_description(entry: ET.Element) -> str:
+    for path in ("media:group/media:description", "media:description", "atom:summary", "atom:content"):
+        el = entry.find(path, NS)
+        if el is not None and (el.text or "").strip():
+            return el.text.strip()
+    return ""
 
 
 def parse_feed(xml_bytes: bytes) -> list[dict]:
@@ -111,7 +211,7 @@ def parse_feed(xml_bytes: bytes) -> list[dict]:
         published = (entry.findtext("atom:published", default="", namespaces=NS) or "").strip()
         link_el = entry.find("atom:link", NS)
         href = (link_el.get("href") if link_el is not None else "") or ""
-        items.append(make_item(vid, title, published, "/shorts/" in href))
+        items.append(make_item(vid, title, published, "/shorts/" in href, _entry_description(entry)))
     return items
 
 
@@ -152,8 +252,8 @@ def tab_ids(tab: str) -> list[str]:
     return list(dict.fromkeys(ids))[:PER_TAB]
 
 
-def watch_details(vid: str) -> tuple[str, str, str] | None:
-    """Return (title, publish date, channel id) from the public watch page."""
+def watch_details(vid: str) -> tuple[str, str, str, str] | None:
+    """Return (title, publish date, channel id, description) from the public watch page."""
     try:
         html = fetch(f"https://www.youtube.com/watch?v={vid}", browser=True).decode("utf-8", "replace")
     except Exception as exc:
@@ -162,10 +262,27 @@ def watch_details(vid: str) -> tuple[str, str, str] | None:
     title = re.search(r'<meta name="title" content="([^"]*)"', html)
     date = re.search(r'"publishDate":"([^"]+)"', html) or re.search(r'<meta itemprop="datePublished" content="([^"]+)"', html)
     chan = re.search(r'"channelId":"(UC[A-Za-z0-9_-]{22})"', html)
+    desc = re.search(r'<meta name="description" content="([^"]*)"', html)
+    if not desc:
+        short = re.search(r'"shortDescription":("(?:\\.|[^"\\])*")', html)
+        if short:
+            try:
+                desc_text = json.loads(short.group(1))
+            except json.JSONDecodeError:
+                desc_text = ""
+        else:
+            desc_text = ""
+    else:
+        desc_text = desc.group(1)
     if not title:
         return None
     import html as _h
-    return _h.unescape(title.group(1)).strip(), (date.group(1) if date else ""), (chan.group(1) if chan else "")
+    return (
+        _h.unescape(title.group(1)).strip(),
+        (date.group(1) if date else ""),
+        (chan.group(1) if chan else ""),
+        _h.unescape(desc_text or "").strip(),
+    )
 
 
 def from_channel_pages() -> list[dict]:
@@ -175,12 +292,62 @@ def from_channel_pages() -> list[dict]:
             det = watch_details(vid)
             if not det:
                 continue
-            title, published, chan = det
+            title, published, chan, desc = det
             if chan and chan != CHANNEL_ID:  # never import someone else's video
                 print(f"  skipped {vid}: belongs to another channel", file=sys.stderr)
                 continue
-            items.append(make_item(vid, title, published, is_short))
+            items.append(make_item(vid, title, published, is_short, desc))
     return items
+
+
+def ensure_description(item: dict) -> None:
+    if item.get("_description"):
+        return
+    det = watch_details(item["id"])
+    if not det:
+        return
+    title, published, chan, desc = det
+    if chan and chan != CHANNEL_ID:
+        item["_foreign"] = True
+        return
+    if desc:
+        item["_description"] = desc
+    if title and not item.get("title"):
+        item["title"] = title
+    if published and not item.get("published"):
+        item["published"] = published
+
+
+def decide_item(item: dict, fetch_if_needed: bool = True) -> str:
+    """Return 'yes', 'no', or 'undecided' (needed a description that could not be fetched)."""
+    if item.get("_foreign"):
+        return "no"
+    verdict = classify_mod_trailer(item.get("title") or "", item.get("_description"))
+    if verdict != "need_desc" or not fetch_if_needed:
+        return "undecided" if verdict == "need_desc" else verdict
+    ensure_description(item)
+    if item.get("_foreign"):
+        return "no"
+    verdict = classify_mod_trailer(item.get("title") or "", item.get("_description") if item.get("_description") is not None else None)
+    if verdict == "need_desc":
+        return "undecided"
+    return verdict
+
+
+def filter_mod_trailers(items: list[dict], *, keep_undecided: bool) -> tuple[list[dict], list[dict], list[dict]]:
+    """Return (kept, dropped, undecided)."""
+    kept, dropped, undecided = [], [], []
+    for it in items:
+        verdict = decide_item(it, fetch_if_needed=True)
+        if verdict == "yes":
+            kept.append(it)
+        elif verdict == "undecided":
+            undecided.append(it)
+            if keep_undecided:
+                kept.append(it)
+        else:
+            dropped.append(it)
+    return kept, dropped, undecided
 
 
 def dedupe(items: list[dict]) -> tuple[list[dict], list[str]]:
@@ -230,40 +397,54 @@ def main() -> int:
     long_ids = {i["id"] for i in longs}
     for it in feed_items:
         if it["id"] in short_ids and it["type"] != "short":
-            it.update(make_item(it["id"], it["title"], it["published"], True))
+            it.update(make_item(it["id"], it["title"], it["published"], True, it.get("_description", "")))
         elif it["id"] in long_ids and it["type"] == "short":
-            it.update(make_item(it["id"], it["title"], it["published"], False))
+            it.update(make_item(it["id"], it["title"], it["published"], False, it.get("_description", "")))
 
     feed_items, feed_dups = dedupe(feed_items)
-    fresh_ids = {i["id"] for i in feed_items}
-    kept = [i for i in old.get("items", []) if i.get("id") and i["id"] not in fresh_ids]
-    merged, merge_dups = dedupe(feed_items + kept)
+    trailer_new, dropped_new, undecided_new = filter_mod_trailers(feed_items, keep_undecided=False)
+    fresh_ids = {i["id"] for i in trailer_new}
+    # Re-evaluate older stored entries so official/non-mod uploads are not kept,
+    # but do not drop a previously listed trailer if its description cannot be fetched.
+    kept_old = [i for i in old.get("items", []) if i.get("id") and i["id"] not in fresh_ids]
+    trailer_old, dropped_old, undecided_old = filter_mod_trailers(kept_old, keep_undecided=True)
+    merged, merge_dups = dedupe(trailer_new + trailer_old)
     merged.sort(key=lambda i: i.get("published") or "", reverse=True)
     merged = merged[:MAX_ITEMS]
+    public_items = [public_item(i) for i in merged]
 
     payload = {
         "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "channel_id": CHANNEL_ID,
         "feed": used,
-        "items": merged,
+        "items": public_items,
     }
     old_ids = [i.get("id") for i in old.get("items", [])]
-    new_ids = [i["id"] for i in merged]
+    new_ids = [i["id"] for i in public_items]
+    dropped_ids = [i["id"] for i in dropped_new + dropped_old]
     summary = {
         "feed_used": used,
         "feed_count": len(feed_items),
         "shorts_feed_count": len(shorts),
         "long_feed_count": len(longs),
-        "shorts_in_result": sum(1 for i in merged if i["type"] == "short"),
+        "shorts_in_result": sum(1 for i in public_items if i["type"] == "short"),
         "duplicates_removed": feed_dups + merge_dups,
         "added": [i for i in new_ids if i not in old_ids],
         "dropped": [i for i in old_ids if i not in new_ids],
-        "result_count": len(merged),
+        "filtered_out": dropped_ids,
+        "undecided_skipped": [i["id"] for i in undecided_new],
+        "undecided_kept": [i["id"] for i in undecided_old],
+        "result_count": len(public_items),
+        "filter": "xenoverse-2-mod-trailers",
     }
 
     print(json.dumps(summary, indent=2))
-    for it in merged:
+    for it in public_items:
         print(f"  {it['id']}  {it['type']:5}  {it['published']}  {it['title']}")
+    if dropped_ids:
+        print("Filtered out (not mod trailers):")
+        for it in dropped_new + dropped_old:
+            print(f"  drop {it['id']}  {it.get('title')}")
 
     text = json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
     if args.dry_run:
@@ -278,7 +459,7 @@ def main() -> int:
 
     thumb_dir = root / "assets" / "yt"
     thumb_dir.mkdir(parents=True, exist_ok=True)
-    for it in merged:
+    for it in public_items:
         dest = thumb_dir / f"{it['id']}.jpg"
         if dest.exists():
             continue
@@ -289,7 +470,7 @@ def main() -> int:
         except Exception as exc:  # the page falls back to the CDN thumbnail
             print(f"  thumb warning {it['id']}: {exc}", file=sys.stderr)
     out.write_text(text, encoding="utf-8")
-    print(f"Wrote {len(merged)} videos to {out}")
+    print(f"Wrote {len(public_items)} videos to {out}")
     return 0
 
 

@@ -38,6 +38,8 @@ This is an independent fan community site. Official Dragon Ball / Xenoverse 2 na
 ## Update 1 (10 Nov 2026)
 
 - `assets/uploads/7071.jpg` (original 4096×2304) and web copy `7071-web.jpg` (1600×900): Xeno Trunks’ custom character with the Xeno Time Patrol TP logo, uploaded by Xeno Trunks.
+- `assets/uploads/discord-invite-bg-web.jpg` (1600×900, 119 KB): web copy of the live Xeno Time Patrol Discord Server Invite Background, from `/workspace/xeno-trunks/discord/perks/invite-bg-1920x1080.png`.
+- `assets/uploads/fb-group-cover-v6-1-web.jpg` (1600×900, 209 KB): web copy of the live dbxv2mods Facebook group cover (v6.1, approved 8 Oct 2026), from `/workspace/xeno-trunks/branding/v6/group-cover-v6-1.png`.
 - `assets/uploads/137225.jpg`: official Dragon Ball Xenoverse 2 trailer thumbnail, uploaded by Xeno Trunks. © Bandai Namco Entertainment.
 - News card images (Update 1b) are Xeno Time Patrol designs in theme tp_a (navy, cyan and magenta, TP logo), 1600×900 WebP, with official character art inside the frame. Credit on the page: “Xeno Time Patrol design; character art © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation”.
   - `raid-broly-fpssj-lite.webp`: official Broly (Full Power Super Saiyan) art from https://dbx.bn-ent.net/02/maintenance/img/4373d5c041e20a98cd04597712fac644cfc89f25.png (post id1853)
