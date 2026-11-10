@@ -1,3 +1,9 @@
+# Update 7 (10 Nov 2026, preview branch)
+
+- Every card in **My quests** now has a picture, framed in a new **Xeno Time Patrol** card style: a cyan and magenta edge, a black-and-white grunge overlay, the TP logo in the corner, and the quest title on a coloured bar (CSS, not baked into the images). The approved homepage layout is unchanged.
+- Frieza’s Nightmare 2.0 uses the pointing-pose frame from the 1.7 trailer (35.90s), file `assets/fn-frieza-trailer.jpg`, in the same frame. Alt text: “Frieza pointing, from Frieza’s Nightmare trailer.”
+- Quest pictures (all 1600×900, under 250 KB) come from Xeno Trunks’ own trailers, except Couple’s Division, which uses a crop of his own 2023 poster (characters and TP logo only; official logos and legal line cropped off). Image paths are editable in Pages CMS (`content/work.json` `image` / `image_alt`).
+
 # Update 6 (10 Nov 2026, preview branch)
 
 - The Frieza’s Nightmare 2.0 featured card now uses a hype frame of Frieza from Xeno Trunks’ own 1.7 trailer (https://www.youtube.com/watch?v=KXJkr4EVsHo), instead of the Turles and Lord Slug still. The chosen frame is at 35.90s: Frieza pointing (picked by Xeno Trunks). File: `assets/fn-frieza-trailer.jpg` (1600×900, under 250 KB). Alt text: “Frieza in front of Namek, from Frieza’s Nightmare trailer.” The previous Turles/Slug image is kept in the repo but is no longer used on the page.

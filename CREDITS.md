@@ -45,3 +45,18 @@ This is an independent fan community site. Official Dragon Ball / Xenoverse 2 na
   - `raid-broly-fpssj-lite.webp`: official Broly (Full Power Super Saiyan) art from https://dbx.bn-ent.net/02/maintenance/img/4373d5c041e20a98cd04597712fac644cfc89f25.png (post id1853)
   - `festival-last-world-tournament.webp`: official Last World Tournament stage from https://dbx.bn-ent.net/02/maintenance/img/15578eddece559c18b5ed30c7a3765c08a8f5989.png (post id1857)
   - `login-bonus-10th-anniversary.webp`: official 10th-anniversary login-bonus loading-screen art (Saiyan Patroller vs Goku) from https://dbx.bn-ent.net/02/maintenance/img/c4c58520c9a75f7604704fcc9f51f42ba5fa0505.png (post id1856). The official XV2 10th Anniversary logo on that still (which includes official Trunks) was not used.
+
+## Update 7 (10 Nov 2026)
+
+Quest card pictures are Xeno Trunks’ own work, shown in a CSS Xeno Time Patrol frame (grunge overlay `assets/xtp-grunge.jpg`, cyan/magenta edge, TP logo, title bar). Game characters © their rights holders.
+
+- `assets/fn-frieza-trailer.jpg`: Frieza pointing, frame at 35.90s from the 1.7 trailer (https://www.youtube.com/watch?v=KXJkr4EVsHo).
+- `assets/quests/goku-day.jpg`: Super Saiyan God Goku, frame at 72s from https://www.youtube.com/watch?v=BLg2lDzucoc (top banner cropped).
+- `assets/quests/heroes-marvellous.jpg`: Hercule (World Saviour), frame from https://www.youtube.com/watch?v=82E0QS-yvz4.
+- `assets/quests/corruption-crisis.jpg`: itsErichDUH’s corrupted form, frame from https://www.youtube.com/watch?v=VCiOIS7yiaE.
+- `assets/quests/banana-blitz.jpg`: Super Saiyan close-up, frame from https://www.youtube.com/watch?v=xTJidaa_GkE.
+- `assets/quests/nameless-namekian.jpg`: Giant Piccolo’s Namekian symbol, frame from https://www.youtube.com/watch?v=ypOqf89fiyE (top banner cropped).
+- `assets/quests/vegeta-humiliation.jpg`: Vegeta close-up, frame from https://www.youtube.com/watch?v=O3eTbgvBXMI.
+- `assets/quests/yamcha-resolve.jpg`: Yamcha at Capsule Corporation, frame from https://www.youtube.com/watch?v=HUdlUZ0_x6k.
+- `assets/quests/couples-division.jpg`: crop of Xeno Trunks’ 2023 World Tournament Couple’s Division poster (Android 18, Krillin, Videl, Gohan and the TP logo). Official Xenoverse 2 logos, ratings and store marks were cropped out.
+- `assets/xtp-grunge.jpg`: black-and-white grunge overlay used only as a CSS blend on the card frame (not a photograph of official art).

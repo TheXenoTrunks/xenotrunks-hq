@@ -459,6 +459,7 @@
   function renderFn(data) {
     if (!data) return;
     setImg("fn-image", data.image, data.image_alt);
+    setText("fn-image-title", data.title);
     setText("fn-badge", data.badge);
     setText("fn-kicker", data.kicker);
     setText("fn-title", data.title);
@@ -514,8 +515,8 @@
       if (safeUrl(w.trailer_url)) links.push('<a class="work-tr" ' + linkAttrs(w.trailer_url) + ' aria-label="Trailer: ' + esc(w.title) + ', opens YouTube">▶ Trailer</a>');
       var img = mediaPath(w.image);
       var tile = img
-        ? '<div class="work-tile" style="padding:0"><img src="' + esc(img) + '" alt="' + esc(w.image_alt || "") + '" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>'
-        : '<div class="work-tile" aria-hidden="true"><span class="wt-type">' + esc(w.type || "") + '</span><span class="wt-year">' + esc(w.year || "") + "</span></div>";
+        ? '<div class="work-tile xtp-frame"><img src="' + esc(img) + '" alt="' + esc(w.image_alt || "") + '" width="1600" height="900" loading="lazy" decoding="async"><span class="xtp-logo" aria-hidden="true"></span><span class="xtp-bar">' + esc(w.title) + "</span></div>"
+        : '<div class="work-tile xtp-frame xtp-placeholder" aria-hidden="true"><span class="xtp-logo"></span><span class="wt-type">' + esc(w.type || "") + '</span><span class="wt-year">' + esc(w.year || "") + '</span><span class="xtp-bar">' + esc(w.title) + "</span></div>";
       var meta = [];
       if (img && w.type) meta.push(esc(w.type));
       if (img && w.year) meta.push(esc(w.year));
