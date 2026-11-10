@@ -16,7 +16,9 @@
       "download_host": "VGM",
       "hidden": false,
       "commission": false,
-      "show_download": true
+      "show_download": true,
+      "image": "assets/quests/goku-day.jpg",
+      "image_alt": "Super Saiyan God Goku in the desert, from the Goku Day Pack trailer."
     },
     {
       "title": "The Heroes Marvellous Show",
@@ -31,7 +33,9 @@
       "download_host": "VGM · in BBVenom’s Ascended Warriors",
       "hidden": false,
       "commission": false,
-      "show_download": true
+      "show_download": true,
+      "image": "assets/quests/heroes-marvellous.jpg",
+      "image_alt": "Hercule (World Saviour) in space, from The Heroes Marvellous Show trailer."
     },
     {
       "title": "itsErichDUH’s Corruption Crisis!",
@@ -46,7 +50,9 @@
       "download_host": "VGM",
       "hidden": false,
       "commission": false,
-      "show_download": true
+      "show_download": true,
+      "image": "assets/quests/corruption-crisis.jpg",
+      "image_alt": "itsErichDUH in his corrupted form, from the Corruption Crisis trailer."
     },
     {
       "title": "Banana Blitz Showdown",
@@ -61,7 +67,9 @@
       "download_host": "VGM",
       "hidden": false,
       "commission": true,
-      "show_download": true
+      "show_download": true,
+      "image": "assets/quests/banana-blitz.jpg",
+      "image_alt": "A Super Saiyan from the Banana Blitz Showdown trailer."
     },
     {
       "title": "The Nameless Namekian",
@@ -76,7 +84,9 @@
       "download_host": "VGM",
       "hidden": false,
       "commission": false,
-      "show_download": true
+      "show_download": true,
+      "image": "assets/quests/nameless-namekian.jpg",
+      "image_alt": "The Namekian symbol on Giant Piccolo’s back, from The Nameless Namekian trailer."
     },
     {
       "title": "Vegeta’s Humiliation?!",
@@ -91,7 +101,9 @@
       "download_host": "VGM",
       "hidden": false,
       "commission": false,
-      "show_download": true
+      "show_download": true,
+      "image": "assets/quests/vegeta-humiliation.jpg",
+      "image_alt": "Vegeta mid-shout, from the Vegeta’s Humiliation trailer."
     },
     {
       "title": "Yamcha’s Resolve!?",
@@ -106,7 +118,9 @@
       "download_host": "VGM",
       "hidden": false,
       "commission": false,
-      "show_download": true
+      "show_download": true,
+      "image": "assets/quests/yamcha-resolve.jpg",
+      "image_alt": "Yamcha at Capsule Corporation, from the Yamcha’s Resolve trailer."
     },
     {
       "title": "The World Tournament: Couple’s Division",
@@ -121,7 +135,9 @@
       "download_host": "VGM",
       "hidden": false,
       "commission": false,
-      "show_download": true
+      "show_download": true,
+      "image": "assets/quests/couples-division.jpg",
+      "image_alt": "Android 18, Krillin, Videl and Gohan with the Time Patrol logo, from Xeno Trunks’ Couple’s Division poster."
     }
   ],
   "download_note": "Released quests: free to download for now. No account or membership needed.",

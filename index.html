@@ -427,6 +427,24 @@
       .work-body .host { font-size: 0.95rem; }
     }
     .yt-card h3 a { display: flex; align-items: center; min-height: 44px; }
+
+    /* Update 7 (preview): Xeno Time Patrol frame on quest card images */
+    .xtp-frame { position: relative; overflow: hidden; isolation: isolate; padding: 0; background: var(--frame); border-bottom: none; }
+    .xtp-frame > img { width: 100%; height: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center center; display: block; }
+    .xtp-frame::before { content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; box-shadow: inset 0 0 0 2px var(--cyan), inset 0 0 0 5px var(--magenta), inset 0 0 28px rgba(7, 13, 25, 0.28); }
+    .xtp-frame::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: url("assets/xtp-grunge.jpg") center / cover; mix-blend-mode: overlay; opacity: 0.38; }
+    .xtp-logo { position: absolute; top: 10px; right: 10px; z-index: 4; width: 18%; max-width: 72px; min-width: 36px; aspect-ratio: 1; background: url("assets/logo-tp-sm.png") center / contain no-repeat; pointer-events: none; opacity: 0.92; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6)); }
+    .xtp-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; pointer-events: none; background: linear-gradient(90deg, var(--magenta) 0%, #9B2058 58%, rgba(7,13,25,0.94) 100%); border-top: 2px solid var(--cyan); color: #fff; font-family: var(--font-display); font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.08; font-size: clamp(0.82rem, 1.35vw, 1.2rem); padding: 0.42em 0.7em 0.48em; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+    .xtp-placeholder { display: flex; flex-direction: column; justify-content: space-between; background: radial-gradient(ellipse at 85% 20%, rgba(196,44,116,0.45), transparent 55%), linear-gradient(150deg, #13284A, #0A1222 70%); }
+    .xtp-placeholder .wt-type, .xtp-placeholder .wt-year { position: relative; z-index: 4; padding: 14px 16px; }
+    .feature-art.xtp-frame { border: 0; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+    .feature-art.xtp-frame > img { object-position: center center; }
+    .feature-art.xtp-frame .xtp-bar { font-size: clamp(1.05rem, 2.2vw, 1.7rem); padding: 0.5em 0.85em 0.55em; }
+    .feature-art.xtp-frame .xtp-logo { max-width: 88px; top: 14px; right: 14px; }
+    @media (max-width: 680px) {
+      .work-tile.xtp-frame { aspect-ratio: 16/9; }
+      .xtp-bar { font-size: 1rem; padding: 0.5em 0.75em 0.55em; }
+    }
   </style>
 </head>
 <body>
@@ -491,8 +509,10 @@
 
     <section id="nightmare" class="feature">
       <div class="wrap feature-grid">
-        <figure class="feature-art">
+        <figure class="feature-art xtp-frame">
           <img id="fn-image" src="assets/fn-frieza-trailer.jpg" width="1600" height="900" alt="Frieza pointing, from Frieza’s Nightmare trailer." loading="lazy">
+          <span class="xtp-logo" aria-hidden="true"></span>
+          <span class="xtp-bar" id="fn-image-title">Frieza’s Nightmare 2.0</span>
         </figure>
         <div>
           <span class="badge" id="fn-badge">In development</span>
