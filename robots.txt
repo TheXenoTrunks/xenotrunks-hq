@@ -1,0 +1,4 @@
+# Xeno Trunks HQ
+User-agent: *
+Allow: /
+Sitemap: https://thexenotrunks.github.io/xenotrunks-hq/sitemap.xml

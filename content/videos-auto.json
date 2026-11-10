@@ -1,0 +1,79 @@
+{
+  "fetched_at": "2026-11-10T03:00:00Z",
+  "channel_id": "UCFpwz174y2HmOdL1DUCLjCw",
+  "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFpwz174y2HmOdL1DUCLjCw",
+  "items": [
+    {
+      "id": "OIJ2hVLjSxI",
+      "title": "Gohan vs Kefla: The Final Battle! | DBS Manga Motion (Part 2)",
+      "published": "2026-10-18T15:37:26+00:00",
+      "type": "short",
+      "url": "https://www.youtube.com/shorts/OIJ2hVLjSxI",
+      "thumb": "assets/yt/OIJ2hVLjSxI.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/OIJ2hVLjSxI/hqdefault.jpg"
+    },
+    {
+      "id": "oLeEIqszuqU",
+      "title": "Goku vs Beerus REMAKE is INSANE",
+      "published": "2026-10-03T20:00:21+00:00",
+      "type": "short",
+      "url": "https://www.youtube.com/shorts/oLeEIqszuqU",
+      "thumb": "assets/yt/oLeEIqszuqU.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/oLeEIqszuqU/hqdefault.jpg"
+    },
+    {
+      "id": "5cuSnpc0MEg",
+      "title": "LEGENDS SSG Shallot Is INSANE! | Dragon Ball Legends 8th Anniversary",
+      "published": "2026-06-17T07:16:19+00:00",
+      "type": "short",
+      "url": "https://www.youtube.com/shorts/5cuSnpc0MEg",
+      "thumb": "assets/yt/5cuSnpc0MEg.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/5cuSnpc0MEg/hqdefault.jpg"
+    },
+    {
+      "id": "5HMLm5NnlXw",
+      "title": "This Goku Mod Is INSANE | Xenoverse 2 Custom Transformation",
+      "published": "2025-09-06T15:12:31+00:00",
+      "type": "short",
+      "url": "https://www.youtube.com/shorts/5HMLm5NnlXw",
+      "thumb": "assets/yt/5HMLm5NnlXw.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/5HMLm5NnlXw/hqdefault.jpg"
+    },
+    {
+      "id": "akZhBMs9mqg",
+      "title": "DRAGON BALL: Sparking! ZERO - Combos and Features Guide",
+      "published": "2024-08-28T15:10:13+00:00",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=akZhBMs9mqg",
+      "thumb": "assets/yt/akZhBMs9mqg.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/akZhBMs9mqg/hqdefault.jpg"
+    },
+    {
+      "id": "6OEnj3JIhAQ",
+      "title": "DRAGON BALL XENOVERSE 2 - WHO IS FU?",
+      "published": "2024-05-24T15:08:38+00:00",
+      "type": "trailer",
+      "url": "https://www.youtube.com/watch?v=6OEnj3JIhAQ",
+      "thumb": "assets/yt/6OEnj3JIhAQ.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/6OEnj3JIhAQ/hqdefault.jpg"
+    },
+    {
+      "id": "BLg2lDzucoc",
+      "title": "DRAGON BALL XENOVERSE 2 - GOKU DAY LAUNCH TRAILER",
+      "published": "2024-05-08T18:00:07+00:00",
+      "type": "trailer",
+      "url": "https://www.youtube.com/watch?v=BLg2lDzucoc",
+      "thumb": "assets/yt/BLg2lDzucoc.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/BLg2lDzucoc/hqdefault.jpg"
+    },
+    {
+      "id": "82E0QS-yvz4",
+      "title": "DRAGON BALL XENOVERSE 2 - The Heroes Marvellous Show | Parallel Quest",
+      "published": "2024-05-04T19:00:07+00:00",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=82E0QS-yvz4",
+      "thumb": "assets/yt/82E0QS-yvz4.jpg",
+      "thumb_cdn": "https://i.ytimg.com/vi/82E0QS-yvz4/hqdefault.jpg"
+    }
+  ]
+}

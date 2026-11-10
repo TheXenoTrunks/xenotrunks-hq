@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+youtube-dry-run/
+.DS_Store

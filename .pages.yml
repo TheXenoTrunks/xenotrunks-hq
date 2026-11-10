@@ -1,0 +1,560 @@
+# Pages CMS config for the Xeno Trunks site.
+# Sign in at https://app.pagescms.org with GitHub, install the app on THIS repo only (xenotrunks-hq).
+# Preview workflow: pick the `preview` branch in Pages CMS, edit and save there, then open a pull
+# request preview → main on GitHub and merge it to go live. See UPDATING-ON-SAMSUNG.md.
+media:
+  - name: images
+    label: Images
+    input: assets/uploads
+    output: assets/uploads
+    extensions: [png, jpg, jpeg, webp, gif, svg]
+    rename: safe
+  - name: files
+    label: Files
+    input: assets/uploads
+    output: assets/uploads
+    categories: [document, compressed]
+    rename: safe
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      create: "content: add {path}"
+      update: "content: update {path}"
+      delete: "content: remove {path}"
+      rename: "content: rename {oldPath} to {newPath}"
+
+content:
+  - name: settings
+    label: Site settings
+    type: file
+    path: content/settings.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: site
+        label: Site
+        type: object
+        fields:
+          - name: name
+            type: string
+            required: true
+          - name: tagline
+            type: string
+          - name: title
+            label: Browser title
+            type: string
+          - name: description
+            type: text
+          - name: canonical
+            label: Canonical URL (the live site address)
+            type: string
+          - name: og_image
+            type: image
+            options:
+              media: images
+          - name: logo
+            type: image
+            options:
+              media: images
+          - name: favicon
+            type: image
+            options:
+              media: images
+      - name: hero
+        label: Homepage hero
+        type: object
+        fields:
+          - name: kicker
+            type: string
+          - name: headline
+            type: string
+          - name: headline_accent
+            label: Headline accent (second line)
+            type: string
+          - name: intro
+            type: text
+          - name: image
+            label: Banner image
+            type: image
+            options:
+              media: images
+          - name: image_alt
+            type: string
+          - name: buttons
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: label
+                type: string
+              - name: url
+                type: string
+              - name: style
+                type: select
+                options:
+                  values:
+                    - name: primary
+                      label: Primary (filled)
+                    - name: outline
+                      label: Outline
+      - name: ticker
+        label: Ticker items
+        type: object
+        list: true
+        fields:
+          - name: number
+            type: string
+          - name: label
+            type: string
+      - name: nav_cta
+        label: Navigation button
+        type: object
+        fields:
+          - name: label
+            type: string
+          - name: url
+            type: string
+      - name: patreon
+        label: Patreon button
+        type: object
+        fields:
+          - name: enabled
+            type: boolean
+          - name: url
+            type: string
+          - name: kicker
+            type: string
+          - name: title
+            type: string
+          - name: text
+            type: text
+          - name: button_label
+            type: string
+          - name: image
+            type: image
+            options:
+              media: images
+          - name: image_alt
+            type: string
+      - name: paypal
+        label: PayPal button (OFF until approved)
+        type: object
+        fields:
+          - name: enabled
+            label: Show the PayPal button
+            type: boolean
+            description: Leave OFF until the PayPal Business account is verified and Xeno Trunks has approved what supporters see. While off, no payment link is shown and no PayPal code ever loads.
+          - name: url
+            label: PayPal donate link (public link only)
+            type: string
+            description: Only a public https://www.paypal.com/donate/... or https://paypal.me/... link. NEVER put passwords, client IDs, secrets or bank details here — this repository is public.
+          - name: kicker
+            type: string
+          - name: title
+            label: Title while off
+            type: string
+          - name: text
+            label: Text while off
+            type: text
+          - name: button_label
+            label: Button text while off
+            type: string
+          - name: live_title
+            label: Title when on
+            type: string
+          - name: live_text
+            label: Text when on
+            type: text
+          - name: live_button_label
+            label: Button text when on
+            type: string
+            description: "Default: Support Xeno Trunks on PayPal"
+      - name: community
+        label: Community cards
+        type: object
+        fields:
+          - name: kicker
+            type: string
+          - name: title
+            type: string
+          - name: intro
+            type: text
+          - name: discord
+            type: object
+            fields:
+              - name: kicker
+                type: string
+              - name: title
+                type: string
+              - name: text
+                type: text
+              - name: url
+                type: string
+              - name: button_label
+                type: string
+              - name: image
+                type: image
+                options:
+                  media: images
+              - name: image_alt
+                type: string
+          - name: facebook_group
+            type: object
+            fields:
+              - name: kicker
+                type: string
+              - name: title
+                type: string
+              - name: text
+                type: text
+              - name: url
+                type: string
+              - name: button_label
+                type: string
+              - name: image
+                type: image
+                options:
+                  media: images
+              - name: image_alt
+                type: string
+      - name: socials
+        label: Social links
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            type: string
+          - name: handle
+            type: string
+          - name: url
+            type: string
+      - name: connect
+        type: object
+        fields:
+          - name: kicker
+            type: string
+          - name: title
+            type: string
+          - name: intro
+            type: text
+      - name: footer
+        type: object
+        fields:
+          - name: tagline
+            type: string
+          - name: disclaimer
+            type: text
+
+  - name: news
+    label: News & raids
+    type: file
+    path: content/news.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: updated
+        label: Last checked (YYYY-MM-DD)
+        type: string
+      - name: updated_note
+        type: text
+      - name: items
+        label: Entries
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: id
+            type: string
+            required: true
+            description: Short unique id, e.g. raid-broly-lite
+          - name: kind
+            type: select
+            options:
+              values:
+                - name: raid
+                  label: Raid
+                - name: event
+                  label: Event
+                - name: announcement
+                  label: Announcement (does not expire unless you set an end date)
+          - name: hidden
+            type: boolean
+            description: Turn on to hide this entry without deleting it.
+          - name: kicker
+            type: string
+          - name: title
+            type: string
+            required: true
+          - name: title_prefix
+            label: Title prefix (optional, used with festival weeks)
+            type: string
+          - name: date_label
+            label: Date label (shown on the card)
+            type: string
+          - name: starts_at
+            label: Start (ISO with timezone)
+            type: string
+            description: "Example: 2026-11-06T12:00:00+08:00. Used for Live now / Upcoming."
+          - name: ends_at
+            label: End (ISO with timezone)
+            type: string
+            description: "Example: 2026-11-12T14:00:00+08:00. Leave blank for announcements that should stay visible. After this time the card moves to Past events automatically."
+          - name: summary
+            type: text
+          - name: source_label
+            type: string
+          - name: source_url
+            type: string
+          - name: weeks_note
+            type: text
+          - name: weeks
+            label: Festival weeks (optional)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{id} · {mode}"
+            fields:
+              - name: id
+                type: string
+              - name: mode
+                type: string
+              - name: dates
+                type: string
+              - name: starts_at
+                type: string
+              - name: ends_at
+                type: string
+          - name: windows
+            label: Platform time windows (optional, for raids)
+            type: object
+            list: true
+            fields:
+              - name: platforms
+                type: string
+              - name: starts_at
+                type: string
+              - name: ends_at
+                type: string
+
+  - name: videos
+    label: YouTube (featured)
+    type: file
+    path: content/videos.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: channel_id
+        type: string
+      - name: channel_handle
+        type: string
+      - name: channel_url
+        type: string
+      - name: rss_url
+        type: string
+      - name: kicker
+        type: string
+      - name: title
+        type: string
+      - name: intro
+        type: text
+      - name: featured
+        label: Featured videos / Shorts (manual)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: id
+            label: YouTube video ID
+            type: string
+            required: true
+          - name: title
+            type: string
+          - name: note
+            type: string
+
+  - name: videos_auto
+    label: YouTube (auto list)
+    type: file
+    path: content/videos-auto.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: fetched_at
+        type: string
+        readonly: true
+      - name: channel_id
+        type: string
+        readonly: true
+      - name: feed
+        type: string
+        readonly: true
+      - name: items
+        label: Auto list (updated by the optional GitHub Action — you can also edit or delete entries)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: id
+            type: string
+          - name: title
+            type: string
+          - name: published
+            type: string
+          - name: type
+            type: string
+          - name: url
+            type: string
+          - name: thumb
+            type: image
+            options:
+              media: images
+          - name: thumb_cdn
+            type: string
+
+  - name: mods
+    label: Mod workshop
+    type: file
+    path: content/mods.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: kicker
+        type: string
+      - name: title
+        type: string
+      - name: intro
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+      - name: image_alt
+        type: string
+      - name: button_label
+        type: string
+      - name: button_url
+        type: string
+      - name: items
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            type: string
+            required: true
+          - name: description
+            type: text
+          - name: image
+            type: image
+            options:
+              media: images
+          - name: download_url
+            type: string
+            description: Leave blank until a real download exists. Large files are better on Patreon, Google Drive or GitHub Releases than in this repo.
+          - name: tutorial_url
+            type: string
+          - name: video_url
+            label: Video link (optional)
+            type: string
+            description: Optional YouTube showcase link for this mod.
+          - name: hidden
+            type: boolean
+            description: Turn on to hide this entry without deleting it.
+          - name: status
+            type: select
+            options:
+              values:
+                - name: available
+                  label: Available
+                - name: in-development
+                  label: In development
+                - name: coming-soon
+                  label: Coming soon
+
+  - name: fn
+    label: Frieza’s Nightmare
+    type: file
+    path: content/fn.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: kicker
+        type: string
+      - name: title
+        type: string
+      - name: badge
+        type: string
+      - name: intro
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+      - name: image_alt
+        type: string
+      - name: progress
+        label: Progress items
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{item}"
+        fields:
+          - name: item
+            type: string
+          - name: percent
+            type: number
+            description: 0–100. Leave empty if you do not want a percentage bar.
+            options:
+              min: 0
+              max: 100
+          - name: note
+            type: string
+          - name: hidden
+            type: boolean
+            description: Turn on to hide this row without deleting it.
+      - name: updates
+        label: Updates
+        type: object
+        list: true
+        fields:
+          - name: date
+            type: string
+          - name: text
+            type: text
+      - name: trailer_url
+        type: string
+        description: Leave blank until a real trailer is published.
+      - name: download_url
+        type: string
+        description: Leave blank until a real download is published.
+      - name: trailer_label
+        type: string
+      - name: download_label
+        type: string
+      - name: note
+        type: string

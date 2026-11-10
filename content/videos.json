@@ -1,0 +1,21 @@
+{
+  "channel_id": "UCFpwz174y2HmOdL1DUCLjCw",
+  "channel_handle": "@Xeno_Trunks",
+  "channel_url": "https://www.youtube.com/@Xeno_Trunks",
+  "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFpwz174y2HmOdL1DUCLjCw",
+  "kicker": "Xeno Trunks YouTube",
+  "title": "Latest videos & Shorts.",
+  "intro": "Featured videos are chosen in content/videos.json. The latest list is filled from the public RSS feed (content/videos-auto.json). Thumbnails open a player only when you click — no YouTube script loads first.",
+  "featured": [
+    {
+      "id": "6OEnj3JIhAQ",
+      "title": "DRAGON BALL XENOVERSE 2 - WHO IS FU?",
+      "note": "Featured trailer"
+    },
+    {
+      "id": "BLg2lDzucoc",
+      "title": "DRAGON BALL XENOVERSE 2 - GOKU DAY LAUNCH TRAILER",
+      "note": "Featured trailer"
+    }
+  ]
+}

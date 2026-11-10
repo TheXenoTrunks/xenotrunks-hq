@@ -1,0 +1,149 @@
+{
+  "site": {
+    "name": "Xeno Trunks",
+    "tagline": "Time Patrol",
+    "title": "Xeno Trunks | Xeno Time Patrol — Community HQ",
+    "description": "Independent Xenoverse 2 fan community from Xeno Trunks. Raid alerts, mods, install guides, Frieza’s Nightmare and the Time Patrol Discord.",
+    "canonical": "https://thexenotrunks.github.io/xenotrunks-hq/",
+    "og_image": "assets/og-image.jpg",
+    "logo": "assets/logo-tp-sm.png",
+    "favicon": "assets/favicon-32.png"
+  },
+  "hero": {
+    "kicker": "Xeno Time Patrol · Community HQ",
+    "headline": "Protect the",
+    "headline_accent": "timeline.",
+    "intro": "Join the Time Patrol. Raid alerts, Xenoverse 2 mods, install guides and custom quests from Xeno Trunks, plus a community of Time Patrollers.",
+    "image": "assets/hero-xeno-trunks.jpg",
+    "image_alt": "Xeno Trunks (custom character) in Xenoverse 2: long lavender hair, scar and beard, purple Time Patrol armour with a green undersuit, and a sword on his back.",
+    "buttons": [
+      {
+        "label": "Join Discord",
+        "url": "https://dsc.gg/xenotimepatrol",
+        "style": "primary"
+      },
+      {
+        "label": "Watch on YouTube",
+        "url": "https://www.youtube.com/@Xeno_Trunks",
+        "style": "outline"
+      }
+    ]
+  },
+  "ticker": [
+    {
+      "number": "01",
+      "label": "Xenoverse 2"
+    },
+    {
+      "number": "02",
+      "label": "Raid alerts & events"
+    },
+    {
+      "number": "03",
+      "label": "Mods & custom quests"
+    },
+    {
+      "number": "04",
+      "label": "Time Patrol community"
+    }
+  ],
+  "nav_cta": {
+    "label": "Join Discord",
+    "url": "https://dsc.gg/xenotimepatrol"
+  },
+  "patreon": {
+    "enabled": true,
+    "url": "https://www.patreon.com/XenoTrunks",
+    "kicker": "Support the workshop",
+    "title": "Patreon.",
+    "text": "Get early access, install guides and behind-the-scenes updates on new mods and quests from Xeno Trunks on Patreon.",
+    "button_label": "Join the Patreon",
+    "image": "assets/xeno-trunks-portrait.jpg",
+    "image_alt": "Illustrated portrait of Xeno Trunks (custom character)."
+  },
+  "paypal": {
+    "enabled": false,
+    "url": "",
+    "kicker": "PayPal",
+    "title": "Support coming soon",
+    "text": "A PayPal option will be added here once the Business account is verified. There is no payment link yet.",
+    "button_label": "Coming soon",
+    "live_title": "Support Xeno Trunks",
+    "live_text": "Help keep the mods, guides and Time Patrol events going with a one-off PayPal contribution.",
+    "live_button_label": "Support Xeno Trunks on PayPal"
+  },
+  "community": {
+    "kicker": "Community",
+    "title": "Join the Time Patrol.",
+    "intro": "Whether you’re new to Xenoverse 2 or already running mods, this is where the patrol meets.",
+    "discord": {
+      "kicker": "Discord",
+      "title": "Xeno Time Patrol",
+      "text": "Raid alerts, install help, sneak peeks and a place to talk Xenoverse 2.",
+      "url": "https://dsc.gg/xenotimepatrol",
+      "button_label": "Join the Discord",
+      "image": "assets/festival-trunks.jpg",
+      "image_alt": "Festival of Universes graphic featuring official Xenoverse 2 Trunks camaraderie art, branded by Xeno Time Patrol."
+    },
+    "facebook_group": {
+      "kicker": "Facebook group",
+      "title": "Xenoverse 2 Mods",
+      "text": "The public workshop for sharing, finding and talking about XV2 mods.",
+      "url": "https://www.facebook.com/groups/dbxv2mods",
+      "button_label": "Open the group",
+      "image": "assets/festival-skot.jpg",
+      "image_alt": "Festival of Universes graphic featuring official Xenoverse 2 Supreme Kai of Time camaraderie art, branded by Xeno Time Patrol."
+    }
+  },
+  "socials": [
+    {
+      "name": "YouTube",
+      "handle": "@Xeno_Trunks",
+      "url": "https://www.youtube.com/@Xeno_Trunks"
+    },
+    {
+      "name": "X",
+      "handle": "@TheXenoTrunks",
+      "url": "https://x.com/TheXenoTrunks"
+    },
+    {
+      "name": "TikTok",
+      "handle": "@xenotrunksofficial",
+      "url": "https://www.tiktok.com/@xenotrunksofficial"
+    },
+    {
+      "name": "Instagram",
+      "handle": "@xeno_trunks_ig",
+      "url": "https://www.instagram.com/xeno_trunks_ig/"
+    },
+    {
+      "name": "Patreon",
+      "handle": "XenoTrunks",
+      "url": "https://www.patreon.com/XenoTrunks"
+    },
+    {
+      "name": "Discord",
+      "handle": "dsc.gg/xenotimepatrol",
+      "url": "https://dsc.gg/xenotimepatrol"
+    },
+    {
+      "name": "Facebook Page",
+      "handle": "Xeno Time Patrol",
+      "url": "https://www.facebook.com/profile.php?id=61595489698900"
+    },
+    {
+      "name": "Facebook",
+      "handle": "Xeno Trunks",
+      "url": "https://www.facebook.com/profile.php?id=61566764950511"
+    }
+  ],
+  "connect": {
+    "kicker": "Official channels",
+    "title": "Find Xeno Trunks.",
+    "intro": "Follow the existing channels for videos, updates and Time Patrol posts."
+  },
+  "footer": {
+    "tagline": "Protect the timeline. Join the Time Patrol.",
+    "disclaimer": "Independent fan community. Not affiliated with or endorsed by Bandai Namco Entertainment, Toei Animation, Shueisha or other Dragon Ball rights holders. Dragon Ball and Xenoverse names and official game imagery belong to their respective owners. Official Xenoverse 2 imagery © Bandai Namco Entertainment. Character portraits of Xeno Trunks on this site are Xeno Trunks (custom character), except where a caption credits official Xenoverse 2 Festival artwork."
+  }
+}

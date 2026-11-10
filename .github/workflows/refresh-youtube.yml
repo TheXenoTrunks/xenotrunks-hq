@@ -1,0 +1,92 @@
+# Refresh the YouTube "latest" list from the public RSS feed.
+#
+# SAFETY
+# - Manual runs only (Actions tab → "Refresh YouTube list" → Run workflow).
+# - The daily schedule below stays commented out until Xeno Trunks approves it.
+# - This workflow NEVER commits to main.
+#     mode = dry-run (default): changes nothing, uploads a report you can download.
+#     mode = pr-to-preview:     pushes a new youtube-refresh/<run> branch and opens a
+#                               pull request into `preview` for you to check and merge.
+# - No secrets are needed. It uses the built-in, short-lived GITHUB_TOKEN.
+
+name: Refresh YouTube list
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry-run (report only) or pr-to-preview (open a PR into the preview branch)"
+        type: choice
+        options: [dry-run, pr-to-preview]
+        default: dry-run
+  # schedule:
+  #   - cron: "0 6 * * *"   # 06:00 UTC (2 PM Perth). Enable only after approval.
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh-youtube
+  cancel-in-progress: false
+
+jobs:
+  dry-run:
+    if: ${{ inputs.mode == 'dry-run' || inputs.mode == '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: preview
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch feeds (no changes)
+        run: python3 scripts/refresh-youtube.py --dry-run --report-dir "$RUNNER_TEMP/youtube-report"
+      - name: Show the proposed change
+        run: |
+          diff -u content/videos-auto.json "$RUNNER_TEMP/youtube-report/videos-auto.proposed.json" > "$RUNNER_TEMP/youtube-report/videos-auto.diff" || true
+          cat "$RUNNER_TEMP/youtube-report/videos-auto.diff"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: youtube-dry-run
+          path: ${{ runner.temp }}/youtube-report
+          retention-days: 7
+
+  pr-to-preview:
+    if: ${{ inputs.mode == 'pr-to-preview' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      BASE: preview
+      BRANCH: youtube-refresh/${{ github.run_id }}
+    steps:
+      - name: Refuse to target main
+        run: |
+          if [ "$BASE" = "main" ]; then echo "This workflow must never target main."; exit 1; fi
+      - uses: actions/checkout@v4
+        with:
+          ref: preview
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch feeds and update the list
+        run: |
+          python3 scripts/refresh-youtube.py
+          python3 scripts/build-fallback.py
+      - name: Open a pull request into preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/videos-auto.json content/fallback.js data/fallback.js assets/yt
+          if git diff --staged --quiet; then echo "No YouTube changes."; exit 0; fi
+          git switch -c "$BRANCH"
+          git commit -m "content: refresh YouTube auto list (run ${{ github.run_id }})"
+          git push origin "$BRANCH"
+          gh pr create --base "$BASE" --head "$BRANCH" \
+            --title "YouTube refresh (run ${{ github.run_id }})" \
+            --body "Automatic YouTube list refresh. Check the videos, then merge into preview. Nothing goes live until preview is merged into main." \
+          || echo "Could not open the PR automatically (repo setting 'Allow GitHub Actions to create pull requests' is off). Open it here: https://github.com/${{ github.repository }}/compare/$BASE...$BRANCH"

@@ -1,0 +1,43 @@
+{
+  "kicker": "XV2 Mod Workshop",
+  "title": "Mods, guides & progress.",
+  "intro": "Custom character work, install help and quest development. Public downloads are listed here only when a release is actually available.",
+  "image": "assets/xv2-xeno-trunks.jpg",
+  "image_alt": "Xeno Trunks (custom character) in Dragon Ball Xenoverse 2: long lavender hair, scar and beard, purple Time Patrol armour with a green undersuit, and a sword on his back.",
+  "button_label": "Visit the Patreon",
+  "button_url": "https://www.patreon.com/XenoTrunks",
+  "items": [
+    {
+      "title": "Install guides",
+      "description": "Available on Patreon and in the Discord help channels.",
+      "image": "",
+      "download_url": "",
+      "tutorial_url": "https://www.patreon.com/XenoTrunks",
+      "status": "available"
+    },
+    {
+      "title": "Couple’s Division",
+      "description": "Thumbnail and layout work is in progress. No download yet.",
+      "image": "",
+      "download_url": "",
+      "tutorial_url": "",
+      "status": "in-development"
+    },
+    {
+      "title": "Custom character: Xeno Trunks",
+      "description": "The CaC used across this site (custom character, not official Dragon Ball Heroes art).",
+      "image": "",
+      "download_url": "",
+      "tutorial_url": "",
+      "status": "available"
+    },
+    {
+      "title": "Early access and sneak peeks",
+      "description": "Posted on Patreon as they are ready.",
+      "image": "",
+      "download_url": "",
+      "tutorial_url": "https://www.patreon.com/XenoTrunks",
+      "status": "available"
+    }
+  ]
+}
