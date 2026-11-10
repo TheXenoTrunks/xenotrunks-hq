@@ -3,8 +3,8 @@
   "title": "Frieza’s Nightmare 2.0",
   "badge": "In development",
   "intro": "My first custom Parallel Quest, now being rebuilt. Frieza’s Nightmare started in 2022 as a what-if quest. Version 2.0 adds new villain encounters, branching Super Saiyan paths and custom cutscenes.",
-  "image": "assets/fn-turles-slug.jpg",
-  "image_alt": "Gameplay still from Xeno Trunks’ Frieza’s Nightmare quest: Turles and Lord Slug face off in Xenoverse 2.",
+  "image": "assets/fn-frieza-trailer.jpg",
+  "image_alt": "Frieza in front of Namek, from Frieza’s Nightmare trailer.",
   "progress": [
     {
       "item": "Turles and Slug (XFN043 intro)",

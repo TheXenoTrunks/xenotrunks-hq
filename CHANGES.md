@@ -1,3 +1,7 @@
+# Update 6 (10 Nov 2026, preview branch)
+
+- The Frieza’s Nightmare 2.0 featured card now uses a hype frame of Frieza from Xeno Trunks’ own 1.7 trailer (https://www.youtube.com/watch?v=KXJkr4EVsHo), instead of the Turles and Lord Slug still. The chosen frame is at 19.50s: first-form Frieza in front of Namek. File: `assets/fn-frieza-trailer.jpg` (1600×900, under 250 KB). Alt text: “Frieza in front of Namek, from Frieza’s Nightmare trailer.” The previous Turles/Slug image is kept in the repo but is no longer used on the page.
+
 # Update 2 (10 Nov 2026, preview branch)
 
 - The YouTube section is now **Mod Trailers** and lists only Xenoverse 2 mod trailers and showcases from @Xeno_Trunks (newest first). Other uploads (official DLC trailers, Sparking Zero, Legends, memes, and the channel intro) are not shown.
