@@ -1,7 +1,7 @@
 {
   "kicker": "Original work",
   "title": "My quests.",
-  "intro": "Custom Parallel Quests I’ve scripted and released, newest first. Every one is a free download for PC: install the .x2m file with the XV2 Mods Installer (needs the XV2 Patcher).",
+  "intro": "Custom Parallel Quests I’ve scripted and released, newest first. For PC: install the .x2m file with the XV2 Mods Installer (needs the XV2 Patcher).",
   "items": [
     {
       "title": "Goku Day Pack: Goku’s Blazing Spirit Duo Duel",
@@ -14,7 +14,9 @@
       "trailer_url": "https://www.youtube.com/watch?v=BLg2lDzucoc",
       "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/goku-day-pack",
       "download_host": "VGM",
-      "hidden": false
+      "hidden": false,
+      "commission": false,
+      "show_download": true
     },
     {
       "title": "The Heroes Marvellous Show",
@@ -27,7 +29,9 @@
       "trailer_url": "https://www.youtube.com/watch?v=82E0QS-yvz4",
       "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/ascended-warriors",
       "download_host": "VGM · in BBVenom’s Ascended Warriors",
-      "hidden": false
+      "hidden": false,
+      "commission": false,
+      "show_download": true
     },
     {
       "title": "itsErichDUH’s Corruption Crisis!",
@@ -40,7 +44,9 @@
       "trailer_url": "https://www.youtube.com/watch?v=VCiOIS7yiaE",
       "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/itserichduhs-corruption-crisis-parrellel-quest-1v1",
       "download_host": "VGM",
-      "hidden": false
+      "hidden": false,
+      "commission": false,
+      "show_download": true
     },
     {
       "title": "Banana Blitz Showdown",
@@ -53,7 +59,9 @@
       "trailer_url": "https://www.youtube.com/watch?v=xTJidaa_GkE",
       "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/banana-blitz-showdown-parrellel-quest-1v1",
       "download_host": "VGM",
-      "hidden": false
+      "hidden": false,
+      "commission": true,
+      "show_download": true
     },
     {
       "title": "The Nameless Namekian",
@@ -66,7 +74,9 @@
       "trailer_url": "https://www.youtube.com/watch?v=ypOqf89fiyE",
       "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/the-nameless-namekian-custom-parallel-quest",
       "download_host": "VGM",
-      "hidden": false
+      "hidden": false,
+      "commission": false,
+      "show_download": true
     },
     {
       "title": "Vegeta’s Humiliation?!",
@@ -79,7 +89,9 @@
       "trailer_url": "https://www.youtube.com/watch?v=O3eTbgvBXMI",
       "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/vegetas-humiliation-what-if-parallel-quest",
       "download_host": "VGM",
-      "hidden": false
+      "hidden": false,
+      "commission": false,
+      "show_download": true
     },
     {
       "title": "Yamcha’s Resolve!?",
@@ -92,7 +104,9 @@
       "trailer_url": "https://www.youtube.com/watch?v=HUdlUZ0_x6k",
       "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/yamchas-resolve-what-if-parallel-quest",
       "download_host": "VGM",
-      "hidden": false
+      "hidden": false,
+      "commission": false,
+      "show_download": true
     },
     {
       "title": "The World Tournament: Couple’s Division",
@@ -105,8 +119,11 @@
       "trailer_url": "https://www.youtube.com/watch?v=SlewJfIDFxA",
       "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/world-tournament-couples-division-what-if-pq",
       "download_host": "VGM",
-      "hidden": false
+      "hidden": false,
+      "commission": false,
+      "show_download": true
     }
   ],
-  "download_note": "Free downloads, no account or membership needed. Commissions are a separate service, below."
+  "download_note": "Released quests: free to download for now. No account or membership needed.",
+  "future_note": "Future projects aren’t promised as free releases. Availability and distribution are decided per project. Paid commissions are a separate service, below."
 }

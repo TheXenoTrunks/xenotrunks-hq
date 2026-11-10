@@ -144,7 +144,8 @@ content:
           - name: image_alt
             type: string
           - name: free_note
-            label: What free members get (one line)
+            label: Released quests note (one line under the ranks)
+            description: Don't promise that future projects will be free. Availability is decided per project.
             type: string
           - name: price_note
             label: Currency note
@@ -173,6 +174,10 @@ content:
                 fields:
                   - name: text
                     type: string
+                  - name: verified
+                    label: Verified on the live Patreon page
+                    type: boolean
+                    description: Off = TO CONFIRM. Hidden from the public site until it's checked against Patreon and switched on.
       - name: about
         label: About Xeno Trunks
         type: object
@@ -667,8 +672,13 @@ content:
       - name: intro
         type: text
       - name: download_note
-        label: Free download note (green line under the heading)
+        label: Released quests note (green line under the heading)
         type: string
+        description: About already released quests only (free to download for now). Don't promise future free releases.
+      - name: future_note
+        label: Future projects note (line under the green note)
+        type: text
+        description: Future projects are decided per project. Don't add release dates or promise free releases.
       - name: items
         label: Quests
         type: object
@@ -714,6 +724,14 @@ content:
           - name: download_host
             label: Download site name (e.g. VGM)
             type: string
+          - name: commission
+            label: Commission (client project)
+            type: boolean
+            description: On adds a small Commission tag. Only switch on when it was really a paid client project.
+          - name: show_download
+            label: Show the download button
+            type: boolean
+            description: Off hides the download (e.g. a client project not cleared for public release). The card and trailer stay.
           - name: hidden
             type: boolean
 
@@ -773,6 +791,56 @@ content:
                 type: string
               - name: value
                 type: string
+      - name: time_note
+        label: Why custom work takes time
+        type: object
+        fields:
+          - name: title
+            type: string
+          - name: text
+            type: text
+      - name: portfolio
+        label: Portfolio (past commission work)
+        description: Shown in Work with me. Never add download links for client projects. Only entries with status "confirmed" are public.
+        type: object
+        fields:
+          - name: enabled
+            type: boolean
+          - name: kicker
+            type: string
+          - name: title
+            type: string
+          - name: intro
+            type: text
+          - name: items
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title} · {status}"
+            fields:
+              - name: title
+                type: string
+                required: true
+              - name: client
+                label: Client (only if they're happy to be named)
+                type: string
+              - name: role
+                label: What I did
+                type: text
+              - name: year
+                type: string
+              - name: trailer_url
+                label: Trailer link (YouTube)
+                type: string
+              - name: status
+                label: Status
+                type: select
+                options:
+                  values: [confirmed, to_confirm]
+                description: to_confirm = hidden from the public until it's confirmed as a commission and the client is OK with it being shown.
+              - name: hidden
+                type: boolean
       - name: steps
         type: object
         list: true
@@ -814,3 +882,25 @@ content:
           - name: agree_text
             label: Rules checkbox text
             type: text
+
+  - name: products
+    label: Digital products (coming later)
+    type: file
+    path: content/products.json
+    format: json
+    operations:
+      delete: false
+    description: Teaser only. No products, prices or buy buttons. Only original content Xeno Trunks has the rights to sell.
+    fields:
+      - name: enabled
+        label: Show the section
+        type: boolean
+      - name: kicker
+        type: string
+      - name: title
+        type: string
+      - name: intro
+        type: text
+      - name: rights_note
+        label: Rights note
+        type: text

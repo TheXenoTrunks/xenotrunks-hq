@@ -360,6 +360,17 @@
     .paypal-off b { color: var(--ink); }
     .free-note { display: inline-block; margin-top: 14px !important; padding: 6px 12px; border-left: 3px solid #22C55E; background: rgba(34,197,94,0.08); color: var(--ink) !important; font-size: 1rem; }
     .work-meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin: 0 !important; font-size: 0.82rem !important; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan) !important; }
+    .future-note { margin-top: 10px !important; color: var(--muted) !important; font-size: 1rem; }
+    .time-note { margin-top: 22px; padding: 14px 18px; border-left: 3px solid var(--cyan); background: var(--frame); border-radius: 0 8px 8px 0; }
+    .time-note h4 { margin: 0 0 4px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink); }
+    .time-note p { margin: 0; color: var(--muted); line-height: 1.5; }
+    .portfolio { margin-top: 32px; }
+    .portfolio .pf-intro { color: var(--muted); max-width: 46rem; margin: 6px 0 16px; }
+    .pf-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    @media (max-width: 980px) { .pf-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 680px) { .pf-grid { grid-template-columns: 1fr; } }
+    .products .heading { margin-bottom: 0; }
+    .rights-note { color: var(--muted) !important; font-size: 0.95rem; border-left: 3px solid var(--magenta); padding-left: 12px; }
     .free-tag { padding: 1px 8px; border: 1px solid #22C55E; border-radius: 999px; color: #22C55E; }
     .work-body .req { font-size: 0.95rem; }
     .work-body .req b { color: var(--ink); font-weight: 700; }
@@ -550,6 +561,15 @@
           <div class="paypal-off" id="paypal">
             <p><b>PayPal:</b> PayPal support will be added once the Business account is verified. There is no payment link yet.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="products" hidden>
+      <div class="wrap">
+        <div class="heading" id="products-root">
+          <p class="kicker">Coming later</p>
+          <h2>Guides &amp; scripting resources.</h2>
         </div>
       </div>
     </section>

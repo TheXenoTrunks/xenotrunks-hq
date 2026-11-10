@@ -186,7 +186,7 @@
       var tiersEl = document.getElementById("patreon-tiers");
       if (tiersEl) {
         tiersEl.innerHTML = (p.tiers || []).filter(function (t) { return t && !t.hidden; }).map(function (t) {
-          return '<article class="tier' + (t.note && /popular/i.test(t.note) ? " hot" : "") + '">' + (t.note ? '<span class="tnote">' + txt(t.note) + "</span>" : "") + "<h3>" + esc(t.name) + '</h3><p class="price">' + txt(t.price || "") + "</p>" + ticks(t.perks) + "</article>";
+          return '<article class="tier' + (t.note && /popular/i.test(t.note) ? " hot" : "") + '">' + (t.note ? '<span class="tnote">' + txt(t.note) + "</span>" : "") + "<h3>" + esc(t.name) + '</h3><p class="price">' + txt(t.price || "") + "</p>" + ticks((t.perks || []).filter(function (k) { return k && k.verified !== false; })) + "</article>";
         }).join("");
       }
       var notesEl = document.getElementById("patreon-notes");
@@ -494,7 +494,7 @@
       }).join("");
       var later = "";
       if (safeUrl(data.trailer_url)) links += actionBtn(data.trailer_url, data.trailer_label || "Watch the 2.0 trailer");
-      if (safeUrl(data.download_url)) links += actionBtn(data.download_url, data.download_label || "Download 2.0 free");
+      if (safeUrl(data.download_url)) links += actionBtn(data.download_url, data.download_label || "Download 2.0");
       else if (data.coming_note) later = '<p class="coming-note">' + esc(data.coming_note) + "</p>";
       actions.innerHTML = extra + links + later;
     }
@@ -504,11 +504,13 @@
     var root = document.getElementById("work-root");
     if (!root || !data) return;
     var head = document.getElementById("work-heading");
-    if (head && data.title) head.innerHTML = '<p class="kicker">' + esc(data.kicker || "") + "</p><h2>" + esc(data.title) + "</h2>" + (data.intro ? "<p>" + txt(data.intro) + "</p>" : "") + (data.download_note ? '<p class="free-note">' + txt(data.download_note) + "</p>" : "");
+    if (head && data.title) head.innerHTML = '<p class="kicker">' + esc(data.kicker || "") + "</p><h2>" + esc(data.title) + "</h2>" + (data.intro ? "<p>" + txt(data.intro) + "</p>" : "") + (data.download_note ? '<p class="free-note">' + txt(data.download_note) + "</p>" : "") + (data.future_note ? '<p class="future-note">' + txt(data.future_note) + "</p>" : "");
     root.innerHTML = (data.items || []).filter(function (w) { return w && !w.hidden && w.title; }).map(function (w) {
       var links = [];
       // Only real, checked links render. An empty URL hides the button (no dead or guessed links).
-      if (safeUrl(w.download_url)) links.push('<a class="work-dl" ' + linkAttrs(w.download_url) + ' aria-label="Free download: ' + esc(w.title) + (w.download_host ? " (" + esc(w.download_host) + ")" : "") + ', opens in a new tab">Free download ↗</a>');
+      // show_download: false hides the download (e.g. a client project that isn't cleared for public release).
+      var dl = w.show_download !== false && safeUrl(w.download_url);
+      if (dl) links.push('<a class="work-dl" ' + linkAttrs(w.download_url) + ' aria-label="Free download: ' + esc(w.title) + (w.download_host ? " (" + esc(w.download_host) + ")" : "") + ', opens in a new tab">Free download ↗</a>');
       if (safeUrl(w.trailer_url)) links.push('<a class="work-tr" ' + linkAttrs(w.trailer_url) + ' aria-label="Trailer: ' + esc(w.title) + ', opens YouTube">▶ Trailer</a>');
       var img = mediaPath(w.image);
       var tile = img
@@ -518,13 +520,39 @@
       if (img && w.type) meta.push(esc(w.type));
       if (img && w.year) meta.push(esc(w.year));
       if (w.version) meta.push("v" + esc(String(w.version).replace(/^v/i, "")));
-      var tags = '<p class="work-meta"><span class="free-tag">Free</span>' + meta.map(function (m) { return "<span>" + m + "</span>"; }).join("") + "</p>";
+      if (w.commission === true) meta.unshift("Commission");
+      var tags = '<p class="work-meta">' + (dl ? '<span class="free-tag">Free</span>' : "") + meta.map(function (m) { return "<span>" + m + "</span>"; }).join("") + "</p>";
       return '<article class="work-card">' + tile + '<div class="work-body">' + tags + "<h3>" + esc(w.title) + "</h3>" + (w.summary ? "<p>" + txt(w.summary) + "</p>" : "") +
         (w.requirements ? '<p class="req"><b>Needs:</b> ' + txt(w.requirements) + "</p>" : "") +
         (w.credit ? '<p class="credit">' + txt(w.credit) + "</p>" : "") +
         (links.length ? '<div class="work-links">' + links.join("") + "</div>" : "") +
-        (safeUrl(w.download_url) && w.download_host ? '<p class="host">Hosted on ' + esc(w.download_host) + "</p>" : "") + "</div></article>";
+        (dl && w.download_host ? '<p class="host">Hosted on ' + esc(w.download_host) + "</p>" : "") + "</div></article>";
     }).join("");
+  }
+
+  // Portfolio of past commission work. Only entries with status "confirmed" (and not hidden) are shown.
+  // Never renders a download link: title, client, role, year and trailer only.
+  function portfolioHtml(pf) {
+    if (!pf || pf.enabled === false) return "";
+    var items = (pf.items || []).filter(function (it) { return it && it.title && !it.hidden && it.status === "confirmed"; });
+    if (!items.length) return "";
+    return '<div class="portfolio" id="portfolio"><p class="kicker" style="margin:0 0 6px">' + esc(pf.kicker || "Portfolio") + "</p><h3>" + esc(pf.title || "Past commission work") + "</h3>" + (pf.intro ? '<p class="pf-intro">' + txt(pf.intro) + "</p>" : "") +
+      '<div class="work-grid pf-grid">' + items.map(function (it) {
+        var tr = safeUrl(it.trailer_url);
+        return '<article class="work-card"><div class="work-body"><p class="work-meta"><span>Commission</span>' + (it.year ? "<span>" + esc(it.year) + "</span>" : "") + "</p><h3>" + esc(it.title) + "</h3>" +
+          (it.client ? '<p class="credit">For ' + esc(it.client) + "</p>" : "") + (it.role ? "<p>" + txt(it.role) + "</p>" : "") +
+          (tr ? '<div class="work-links"><a class="work-tr" ' + linkAttrs(tr) + ' aria-label="Trailer: ' + esc(it.title) + ', opens YouTube">▶ Trailer</a></div>' : "") + "</div></article>";
+      }).join("") + "</div></div>";
+  }
+
+  // "Coming later" digital products teaser. No products, prices or buy buttons are rendered.
+  function renderProducts(data) {
+    var sec = document.getElementById("products");
+    if (!sec) return;
+    if (!data || data.enabled === false) { sec.hidden = true; return; }
+    var root = document.getElementById("products-root");
+    if (root) root.innerHTML = '<p class="kicker">' + esc(data.kicker || "Coming later") + "</p><h2>" + esc(data.title || "") + "</h2>" + (data.intro ? "<p>" + txt(data.intro) + "</p>" : "") + (data.rights_note ? '<p class="rights-note">' + txt(data.rights_note) + "</p>" : "");
+    sec.hidden = false;
   }
 
   function renderHire(data) {
@@ -554,7 +582,7 @@
         field("enq-idea", "Your quest idea", '<textarea id="enq-idea" name="idea" rows="5" maxlength="1500" required></textarea>', true, "The what-if, the fight, how it should end. A few sentences is fine.") +
         '<div class="fgrid">' +
           field("enq-chars", "Characters", '<input id="enq-chars" name="characters" type="text" maxlength="200">', false, "Game characters, your CaC, or free mods.") +
-          field("enq-release", "Release", '<select id="enq-release" name="release"><option value="Not sure yet">Not sure yet</option><option value="Private, just for me">Private, just for me</option><option value="Free public release, with credit to me">Free public release, with credit to me</option></select>', false) +
+          field("enq-release", "Release", '<select id="enq-release" name="release"><option value="Not sure yet">Not sure yet</option><option value="Private, just for me">Private, just for me</option><option value="Public release, with credit to me">Public release, with credit to me</option></select>', false) +
           field("enq-deadline", "Deadline", '<input id="enq-deadline" name="deadline" type="text" maxlength="80" placeholder="No rush">', false) +
           field("enq-budget", "Budget", '<input id="enq-budget" name="budget" type="text" maxlength="80" placeholder="To discuss">', false, "Optional. Nothing is paid now.") +
         "</div>" +
@@ -579,7 +607,9 @@
     }
     root.innerHTML = '<div class="service"><div class="service-head"><div><p class="kicker" style="margin:0 0 6px">The service</p><h3>' + esc(sv.name || "") + "</h3>" + (sv.tagline ? "<p>" + txt(sv.tagline) + "</p>" : "") + "</div></div>" +
       '<div class="service-cols"><div><h4>What you get</h4>' + ticks(sv.includes) + "</div><div><h4>What you send me</h4>" + ticks(sv.provide) + '</div><div><h4>What I won’t do</h4>' + ticks(sv.excludes, "cross") + "</div></div>" +
-      (facts ? '<dl class="facts">' + facts + "</dl>" : "") + "</div>" +
+      (facts ? '<dl class="facts">' + facts + "</dl>" : "") +
+      (data.time_note && data.time_note.text ? '<div class="time-note">' + (data.time_note.title ? "<h4>" + esc(data.time_note.title) + "</h4>" : "") + "<p>" + txt(data.time_note.text) + "</p></div>" : "") + "</div>" +
+      portfolioHtml(data.portfolio) +
       (steps ? '<h3 class="steps-title">How it works</h3><ol class="hire-steps">' + steps + "</ol>" : "") +
       formHtml +
       (data.rules ? '<p class="rules">' + txt(data.rules) + "</p>" : "");
@@ -728,7 +758,8 @@
     loadJSON("content/mods.json", fb.mods || null),
     loadJSON("content/fn.json", fb.fn || null),
     loadJSON("content/work.json", fb.work || null),
-    loadJSON("content/hire.json", fb.hire || null)
+    loadJSON("content/hire.json", fb.hire || null),
+    loadJSON("content/products.json", fb.products || null)
   ]).then(function (all) {
     applySettings(all[0]);
     renderNews(all[1]);
@@ -737,6 +768,7 @@
     renderFn(all[5]);
     renderWork(all[6]);
     renderHire(all[7]);
+    renderProducts(all[8]);
   });
   }
   // Online, content comes from content/*.json. When the page is opened as a local file

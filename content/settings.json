@@ -13,7 +13,7 @@
     "kicker": "Custom quest creator · Mod scripter · Cinematic storyteller",
     "headline": "Rewrite",
     "headline_accent": "the timeline.",
-    "intro": "I’m Xeno Trunks. I build custom Parallel Quests for Xenoverse 2: what-if stories, scripted boss fights and cutscenes, all tested on my own setup. Every quest I’ve released so far is free to play, and Frieza’s Nightmare 2.0 is next.",
+    "intro": "I’m Xeno Trunks. I build custom Parallel Quests for Xenoverse 2: what-if stories, boss fights and cutscenes, scripted by hand and tested on my own setup. My released quests are free to download for now, and Frieza’s Nightmare 2.0 is in development.",
     "image": "assets/hero-xeno-trunks.jpg",
     "image_alt": "Xeno Trunks (custom character) in Xenoverse 2: long lavender hair, scar and beard, purple Time Patrol armour with a green undersuit, and a sword on his back.",
     "buttons": [
@@ -56,11 +56,11 @@
     "url": "https://www.patreon.com/XenoTrunks",
     "kicker": "Support the work",
     "title": "Join the Patreon.",
-    "text": "Patreon is how you back the next quest. Here’s exactly what each rank gets.",
+    "text": "Every custom quest takes weeks of scripting, debugging, testing and trial and error. Patreon supports that ongoing development work. Here’s what each rank gets.",
     "button_label": "See the ranks on Patreon",
     "image": "assets/xeno-trunks-portrait.jpg",
     "image_alt": "Illustrated portrait of Xeno Trunks (custom character).",
-    "free_note": "Every released quest stays a free download for everyone. Patreon is optional support.",
+    "free_note": "My already released quests are free to download for now, with or without Patreon.",
     "price_note": "Prices are in Australian dollars. Patreon may show the price in your own currency.",
     "tiers": [
       {
@@ -69,13 +69,16 @@
         "note": "",
         "perks": [
           {
-            "text": "Selected Patreon mods tagged [Patroller]"
+            "text": "Selected Patreon releases tagged [Patroller]",
+            "verified": true
           },
           {
-            "text": "Patrol Logs: see what I’m working on first"
+            "text": "Patrol Logs: development updates and previews",
+            "verified": true
           },
           {
-            "text": "Time Patroller role in Discord"
+            "text": "Time Patroller role in Discord",
+            "verified": true
           }
         ]
       },
@@ -85,16 +88,20 @@
         "note": "Most popular",
         "perks": [
           {
-            "text": "Every Patreon mod"
+            "text": "Every release in the Patreon members’ library",
+            "verified": true
           },
           {
-            "text": "Early access: play new quests before the public"
+            "text": "Early access when a project is released to members first",
+            "verified": true
           },
           {
-            "text": "Polls: vote on what I make next"
+            "text": "Polls: have a say in upcoming projects",
+            "verified": true
           },
           {
-            "text": "Patrol Logs and the Elite role in Discord"
+            "text": "Patrol Logs and the Elite role in Discord",
+            "verified": true
           }
         ]
       },
@@ -104,13 +111,16 @@
         "note": "Only 5 spots",
         "perks": [
           {
-            "text": "Everything in Elite"
+            "text": "Everything in Elite",
+            "verified": true
           },
           {
-            "text": "1 small mod request a month (about 1–2 hours of work)"
+            "text": "1 small mod request a month (about 1–2 hours of work)",
+            "verified": false
           },
           {
-            "text": "Your own numbered Hero Society role in Discord"
+            "text": "Your own numbered Hero Society role in Discord",
+            "verified": true
           }
         ]
       }
@@ -199,7 +209,7 @@
   },
   "footer": {
     "tagline": "Custom quests for the Time Patrol.",
-    "disclaimer": "Independent fan creator. Not affiliated with or endorsed by Bandai Namco Entertainment, Toei Animation, Shueisha, Bird Studio or the Revamp team. Dragon Ball and Xenoverse names and official game imagery belong to their respective owners. Mods are fan-made and free to play; paid work covers my time and never includes selling official game assets. Images of Xeno Trunks on this site are my own custom character."
+    "disclaimer": "Independent fan creator. Not affiliated with or endorsed by Bandai Namco Entertainment, Toei Animation, Shueisha, Bird Studio or the Revamp team. Dragon Ball and Xenoverse names and official game imagery belong to their respective owners. Mods are fan-made. Paid work covers my time and skills and never includes selling official game assets or other modders’ work. Images of Xeno Trunks on this site are my own custom character."
   },
   "about": {
     "kicker": "Who’s behind the quests",
@@ -216,7 +226,7 @@
         "text": "Trailers and thumbnails for every release."
       },
       {
-        "text": "Fan-made and free to play. Every asset author gets credited."
+        "text": "Fan-made, with every asset author credited."
       }
     ],
     "image": "assets/uploads/7071-web.jpg",

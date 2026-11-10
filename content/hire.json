@@ -2,7 +2,7 @@
   "kicker": "Commissions · Work with me",
   "title": "Your quest, scripted.",
   "status": "Enquiries only. Not yet open for bookings.",
-  "intro": "Got a what-if you want to play? I script custom Parallel Quests for Xenoverse 2 on PC. This is a paid service once bookings open, and it’s separate from my free quest downloads. For now, send me your idea and I’ll tell you if I can build it.",
+  "intro": "Got a what-if you want to play? Custom Parallel Quest scripting for Xenoverse 2 on PC is a paid service. Every commission is quoted individually, after I’ve reviewed the scope and the licensing and IP requirements: whose assets it would use and whether their authors allow it. For now, send me your idea and I’ll tell you if I can build it.",
   "service": {
     "name": "Custom Parallel Quest",
     "tagline": "A playable quest built from your idea, scripted and tested by me.",
@@ -28,7 +28,7 @@
         "text": "Your idea, characters and any reference pictures"
       },
       {
-        "text": "Whether it stays private or can be released free for everyone, with credit to you"
+        "text": "Whether it stays private or can be released publicly, with credit to you"
       },
       {
         "text": "Your setup: PC, XV2 Patcher version, and whether you use Revamp"
@@ -63,7 +63,7 @@
       },
       {
         "label": "Price",
-        "value": "On request. No payment is taken through this site."
+        "value": "Quoted individually after I review scope and licensing. No payment is taken through this site."
       }
     ]
   },
@@ -74,8 +74,8 @@
       "text": "Fill in the form below. It writes the message for you to copy and send me on Discord."
     },
     {
-      "title": "I reply to talk scope",
-      "text": "I’ll tell you if I can build it, what it would involve and roughly how long it would take."
+      "title": "I review scope and licensing",
+      "text": "I check what it needs, which assets it would use and whether their authors allow it. Then I tell you if I can build it and roughly how long it would take."
     },
     {
       "title": "Nothing is booked or paid yet",
@@ -93,5 +93,44 @@
     "email_label": "Email it instead",
     "copy_label": "Copy enquiry",
     "agree_text": "I understand this is fan-made work. No official game files, ripped models or other modders’ work will be sold, and nothing is booked or paid yet."
+  },
+  "time_note": {
+    "title": "Why custom work takes time",
+    "text": "A custom quest isn’t a quick edit. Each one is scripted by hand, then debugged, tested and revised, often with a lot of trial and error, until it plays right. Timeframes are agreed per project once I’ve reviewed the scope."
+  },
+  "portfolio": {
+    "enabled": true,
+    "kicker": "Portfolio",
+    "title": "Past commission work",
+    "intro": "Quests I’ve built for clients, shown as examples of my work. Client projects aren’t distributed here. A file is only shared if the client has agreed to a public release.",
+    "items": [
+      {
+        "title": "Banana Blitz Showdown",
+        "client": "YouTuber Simply Platano",
+        "role": "Commissioned 1v1 Parallel Quest: quest design, scripting, the Complex Banana boss in 3 forms (Base, SSG and SSB) and testing. Trailer on my channel.",
+        "year": "2024",
+        "trailer_url": "https://www.youtube.com/watch?v=xTJidaa_GkE",
+        "status": "confirmed",
+        "hidden": false
+      },
+      {
+        "title": "Goku Day Pack: Goku’s Blazing Spirit Duo Duel",
+        "client": "BlazingSpirit (YouTuber)",
+        "role": "2v1 online Parallel Quest: quest design, scripting and testing.",
+        "year": "2024",
+        "trailer_url": "https://www.youtube.com/watch?v=BLg2lDzucoc",
+        "status": "to_confirm",
+        "hidden": false
+      },
+      {
+        "title": "itsErichDUH’s Corruption Crisis!",
+        "client": "YouTuber itsErichDUH",
+        "role": "1v1 Parallel Quest: quest design, scripting and testing.",
+        "year": "2024",
+        "trailer_url": "https://www.youtube.com/watch?v=VCiOIS7yiaE",
+        "status": "to_confirm",
+        "hidden": false
+      }
+    ]
   }
 }
