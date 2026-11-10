@@ -35,3 +35,9 @@ The public RSS URL `https://www.youtube.com/feeds/videos.xml?channel_id=UCFpwz17
 - **Facebook group** `https://www.facebook.com/groups/dbxv2mods` shows a login wall to automated checks. Xeno Trunks to confirm.
 - Facebook Page `profile.php?id=61595489698900` resolves to “Xeno Time Patrol” and personal profile `profile.php?id=61566764950511` resolves to “Xeno Trunks”. The old Archive Page (61567187334380) is not used anywhere.
 - GitHub Pages is **not enabled**. Pages CMS app is **not installed**. PayPal is **off**. The YouTube schedule is **off**.
+
+## YouTube import test (10 Nov 2026)
+
+- YouTube’s public RSS feeds returned **HTTP 404 for every channel** (also Google’s own channels) from both this machine and GitHub’s runners. The one manual GitHub run (dry-run) failed for that reason and changed nothing.
+- `scripts/refresh-youtube.py` now falls back to the public channel pages (`/videos` and `/shorts`) plus each video’s public watch page. Local dry run: 12 items (8 Shorts, 4 videos), 0 duplicates, 4 new Shorts, all thumbnails and links return 200. It has **not** been re-run on GitHub yet; YouTube can show consent or bot-check pages to cloud runners, so the first GitHub run of the fallback still needs checking.
+- `content/videos-auto.json` was **not** updated. Automatic publishing stays off.
