@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-10",
-  "updated_note": "Checked 10 Nov 2026, Australia/Perth (UTC+8). Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
+  "updated_note": "Checked 10 Nov 2026, Australia/Perth (UTC+8). Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible. [TEMP launch test — will be reverted]",
   "items": [
     {
       "id": "festival-week-2",
