@@ -1,0 +1,88 @@
+{
+  "kicker": "Commissions · Work with me",
+  "title": "Your quest, scripted.",
+  "status": "Enquiries only. Not yet open for bookings.",
+  "intro": "Got a what-if you want to play? I script custom Parallel Quests for Xenoverse 2 on PC. Commissions aren’t open yet, but you can send me your idea now and I’ll tell you if I can build it.",
+  "service": {
+    "name": "Custom Parallel Quest",
+    "tagline": "A playable quest built from your idea, scripted and tested by me.",
+    "includes": [
+      {
+        "text": "Quest design from your idea: story, stages, enemies and allies"
+      },
+      {
+        "text": "Scripting: dialogue, events, win and lose conditions, rewards set up"
+      },
+      {
+        "text": "Built with existing game characters, your CaC, or free mods whose authors allow it"
+      },
+      {
+        "text": "Tested on my setup, delivered as an .x2m with install notes"
+      },
+      {
+        "text": "A short bug-fix window after delivery"
+      }
+    ],
+    "provide": [
+      {
+        "text": "Your idea, characters and any reference pictures"
+      },
+      {
+        "text": "Whether it stays private or can be released free for everyone, with credit to you"
+      },
+      {
+        "text": "Your setup: PC, XV2 Patcher version, and whether you use Revamp"
+      }
+    ],
+    "excludes": [
+      {
+        "text": "Selling or reuploading official game files, ripped models or other modders’ work"
+      },
+      {
+        "text": "Paywalling someone else’s free mod"
+      },
+      {
+        "text": "Console versions, online-only or cheat content"
+      },
+      {
+        "text": "NSFW or hateful content"
+      }
+    ],
+    "facts": [
+      {
+        "label": "Turnaround",
+        "value": "Agreed per quest [to confirm]"
+      },
+      {
+        "label": "Revisions",
+        "value": "[to confirm] rounds of small changes"
+      },
+      {
+        "label": "Platform",
+        "value": "PC, XV2 Patcher"
+      },
+      {
+        "label": "Price",
+        "value": "On request. No payment is taken through this site."
+      }
+    ]
+  },
+  "rules": "Fan-made work: you’re paying for my time and skills, not for Dragon Ball or Xenoverse assets. Every asset author gets credited, and I only use mods whose authors allow it. Not affiliated with Bandai Namco, Toei Animation or the Revamp team.",
+  "steps": [
+    {
+      "title": "Send your idea",
+      "text": "Message me on the Time Patrol Discord with your idea and setup."
+    },
+    {
+      "title": "I reply",
+      "text": "I’ll tell you if I can build it and what it would involve."
+    },
+    {
+      "title": "Bookings later",
+      "text": "When commissions open, enquiries get first look. Nothing is booked or paid yet."
+    }
+  ],
+  "button_label": "Send an enquiry on Discord",
+  "button_url": "https://dsc.gg/xenotimepatrol",
+  "button_note": "Opens the Xeno Time Patrol Discord. Message Xeno Trunks directly. Please don’t send passwords or payment details."
+}

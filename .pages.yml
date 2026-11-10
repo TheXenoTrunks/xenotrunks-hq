@@ -143,6 +143,58 @@ content:
               media: images
           - name: image_alt
             type: string
+          - name: free_note
+            label: What free members get (one line)
+            type: string
+          - name: price_note
+            label: Currency note
+            type: string
+          - name: tiers
+            label: Patreon ranks (copy exactly what Patreon shows)
+            description: Only list benefits that are really on Patreon. Changing this text does NOT change Patreon itself.
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name} · {price}"
+            fields:
+              - name: name
+                type: string
+              - name: price
+                type: string
+              - name: note
+                label: Small label (e.g. Most popular)
+                type: string
+              - name: hidden
+                type: boolean
+              - name: perks
+                type: object
+                list: true
+                fields:
+                  - name: text
+                    type: string
+      - name: about
+        label: About Xeno Trunks
+        type: object
+        fields:
+          - name: kicker
+            type: string
+          - name: title
+            type: string
+          - name: text
+            type: text
+          - name: points
+            type: object
+            list: true
+            fields:
+              - name: text
+                type: string
+          - name: image
+            type: image
+            options:
+              media: images
+          - name: image_alt
+            type: string
       - name: paypal
         label: PayPal button (OFF until approved)
         type: object
@@ -238,6 +290,9 @@ content:
             type: string
           - name: url
             type: string
+          - name: hidden
+            type: boolean
+            description: Turn on to remove this link from the footer.
       - name: connect
         type: object
         fields:
@@ -263,6 +318,16 @@ content:
     operations:
       delete: false
     fields:
+      - name: kicker
+        type: string
+      - name: title
+        type: string
+      - name: intro
+        type: text
+      - name: show_images
+        label: Show card images
+        type: boolean
+        description: Off keeps the news section compact (text only), so official art does not lead the page.
       - name: updated
         label: Last checked (YYYY-MM-DD)
         type: string
@@ -445,7 +510,7 @@ content:
             type: string
 
   - name: mods
-    label: Mod workshop
+    label: Mod workshop (not shown on the redesigned homepage)
     type: file
     path: content/mods.json
     format: json
@@ -559,6 +624,15 @@ content:
             type: string
           - name: text
             type: text
+      - name: links
+        label: Buttons (e.g. the 1.7 trailer and free download)
+        type: object
+        list: true
+        fields:
+          - name: label
+            type: string
+          - name: url
+            type: string
       - name: trailer_url
         type: string
         description: Leave blank until a real trailer is published.
@@ -571,3 +645,129 @@ content:
         type: string
       - name: note
         type: string
+
+  - name: work
+    label: My quests (original work)
+    type: file
+    path: content/work.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: kicker
+        type: string
+      - name: title
+        type: string
+      - name: intro
+        type: text
+      - name: items
+        label: Quests
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} · {year}"
+        fields:
+          - name: title
+            type: string
+            required: true
+          - name: type
+            label: Type (e.g. What-if Parallel Quest)
+            type: string
+          - name: year
+            type: string
+          - name: summary
+            type: text
+          - name: credit
+            label: Credits (asset authors, collaborators)
+            type: string
+          - name: image
+            label: Image (optional, your own screenshot only)
+            type: image
+            options:
+              media: images
+            description: Leave empty to show the Time Patrol title tile. Do not use official Bandai posters or Official Trailer thumbnails here.
+          - name: image_alt
+            type: string
+          - name: trailer_url
+            type: string
+          - name: download_url
+            label: Free download link
+            type: string
+          - name: hidden
+            type: boolean
+
+  - name: hire
+    label: Commissions (enquiries only)
+    type: file
+    path: content/hire.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: kicker
+        type: string
+      - name: title
+        type: string
+      - name: status
+        label: Status line
+        type: string
+        description: Keep "Enquiries only. Not yet open for bookings." until Xeno Trunks approves opening commissions.
+      - name: intro
+        type: text
+      - name: service
+        type: object
+        fields:
+          - name: name
+            type: string
+          - name: tagline
+            type: string
+          - name: includes
+            label: What you get
+            type: object
+            list: true
+            fields:
+              - name: text
+                type: string
+          - name: provide
+            label: What the client sends
+            type: object
+            list: true
+            fields:
+              - name: text
+                type: string
+          - name: excludes
+            label: What I won't do
+            type: object
+            list: true
+            fields:
+              - name: text
+                type: string
+          - name: facts
+            label: Key facts
+            description: Do not add prices or payment links here. Write [to confirm] for anything not decided.
+            type: object
+            list: true
+            fields:
+              - name: label
+                type: string
+              - name: value
+                type: string
+      - name: steps
+        type: object
+        list: true
+        fields:
+          - name: title
+            type: string
+          - name: text
+            type: string
+      - name: rules
+        label: IP and modding rules
+        type: text
+      - name: button_label
+        type: string
+      - name: button_url
+        label: Enquiry link (public link only, never an email password or payment link)
+        type: string
+      - name: button_note
+        type: text

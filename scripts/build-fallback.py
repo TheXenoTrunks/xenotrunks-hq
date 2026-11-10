@@ -9,7 +9,7 @@ def main() -> None:
     root = Path(__file__).resolve().parents[1]
     content = root / "content"
     data = {}
-    for name in ("settings", "news", "videos", "videos-auto", "mods", "fn"):
+    for name in ("settings", "news", "videos", "videos-auto", "mods", "fn", "work", "hire"):
         path = content / f"{name}.json"
         data[name.replace("-", "_")] = json.loads(path.read_text(encoding="utf-8"))
     js = (

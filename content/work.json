@@ -1,0 +1,87 @@
+{
+  "kicker": "Original work",
+  "title": "My quests.",
+  "intro": "Custom Parallel Quests I’ve scripted and released, newest first. All free to play on PC with the XV2 Patcher.",
+  "items": [
+    {
+      "title": "Goku Day Pack: Goku’s Blazing Spirit Duo Duel",
+      "type": "2v1 Parallel Quest",
+      "year": "2024",
+      "summary": "A Goku Day duo duel with custom skills and a hard mode.",
+      "credit": "With BlazingSpirit, Unleashed (skills) and BBVenom",
+      "trailer_url": "https://www.youtube.com/watch?v=BLg2lDzucoc",
+      "download_url": "https://www.patreon.com/posts/goku-day-pack-103713229",
+      "hidden": false
+    },
+    {
+      "title": "The Heroes Marvellous Show",
+      "type": "Parallel Quest · collab",
+      "year": "2024",
+      "summary": "A Parallel Quest co-created with BBVenom.",
+      "credit": "Co-created with BBVenom",
+      "trailer_url": "https://www.youtube.com/watch?v=82E0QS-yvz4",
+      "download_url": "",
+      "hidden": false
+    },
+    {
+      "title": "itsErichDUH’s Corruption Crisis!",
+      "type": "Parallel Quest",
+      "year": "2024",
+      "summary": "A Parallel Quest built around creator itsErichDUH, with a 1v1 version too.",
+      "credit": "Starring itsErichDUH",
+      "trailer_url": "https://www.youtube.com/watch?v=VCiOIS7yiaE",
+      "download_url": "https://www.patreon.com/posts/itserichduhs-101615685",
+      "hidden": false
+    },
+    {
+      "title": "Banana Blitz Showdown",
+      "type": "1v1 Parallel Quest",
+      "year": "2024",
+      "summary": "A 1v1 showdown Parallel Quest.",
+      "credit": "With BBVenom and Nevox",
+      "trailer_url": "https://www.youtube.com/watch?v=xTJidaa_GkE",
+      "download_url": "https://www.patreon.com/posts/banana-blitz-101690520",
+      "hidden": false
+    },
+    {
+      "title": "The Nameless Namekian",
+      "type": "Custom Parallel Quest",
+      "year": "2023",
+      "summary": "A 1v1 custom quest featuring the Nameless Namekian.",
+      "credit": "Giant Orange Piccolo model by AleWarrior89, used with permission",
+      "trailer_url": "https://www.youtube.com/watch?v=ypOqf89fiyE",
+      "download_url": "https://www.patreon.com/posts/nameless-custom-88491809",
+      "hidden": false
+    },
+    {
+      "title": "Vegeta’s Humiliation?!",
+      "type": "What-if Parallel Quest",
+      "year": "2023",
+      "summary": "A what-if quest that puts Vegeta’s pride on the line.",
+      "credit": "",
+      "trailer_url": "https://www.youtube.com/watch?v=O3eTbgvBXMI",
+      "download_url": "",
+      "hidden": false
+    },
+    {
+      "title": "Yamcha’s Resolve!?",
+      "type": "What-if Parallel Quest",
+      "year": "2023",
+      "summary": "A what-if quest where Yamcha gets his moment.",
+      "credit": "",
+      "trailer_url": "https://www.youtube.com/watch?v=HUdlUZ0_x6k",
+      "download_url": "https://www.patreon.com/posts/yamchas-resolve-79948001",
+      "hidden": false
+    },
+    {
+      "title": "The World Tournament: Couple’s Division",
+      "type": "What-if Parallel Quest",
+      "year": "2023",
+      "summary": "A what-if World Tournament with a Couple’s Division.",
+      "credit": "",
+      "trailer_url": "https://www.youtube.com/watch?v=SlewJfIDFxA",
+      "download_url": "https://www.patreon.com/posts/world-tournament-78441534",
+      "hidden": false
+    }
+  ]
+}

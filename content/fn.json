@@ -1,10 +1,10 @@
 {
-  "kicker": "Creator workshop",
+  "kicker": "Featured project",
   "title": "Frieza’s Nightmare 2.0",
   "badge": "In development",
-  "intro": "A featured custom Parallel Quest for Dragon Ball Xenoverse 2, rebuilt around villainous encounters, Super Saiyan paths and custom cutscenes.",
-  "image": "assets/uploads/137225.jpg",
-  "image_alt": "Official Dragon Ball Xenoverse 2 trailer thumbnail showing Super Saiyan Goku, Frieza and Super Saiyan Vegeta.",
+  "intro": "My first custom Parallel Quest, now being rebuilt. Frieza’s Nightmare started in 2022 as a what-if quest. Version 2.0 adds new villain encounters, branching Super Saiyan paths and custom cutscenes.",
+  "image": "assets/fn-turles-slug.jpg",
+  "image_alt": "Gameplay still from Xeno Trunks’ Frieza’s Nightmare quest: Turles and Lord Slug face off in Xenoverse 2.",
   "progress": [
     {
       "item": "Turles and Slug (XFN043 intro)",
@@ -23,7 +23,17 @@
       "hidden": false
     }
   ],
-  "trailer_label": "Trailer — coming when released",
-  "download_label": "Download — coming when released",
-  "note": "No download is available yet."
+  "trailer_label": "2.0 trailer: coming when released",
+  "download_label": "2.0 download: coming when released",
+  "note": "No release date yet. Version 1.7 is free to play right now.",
+  "links": [
+    {
+      "label": "Watch the 1.7 trailer",
+      "url": "https://www.youtube.com/watch?v=KXJkr4EVsHo"
+    },
+    {
+      "label": "Play 1.7 free",
+      "url": "https://www.patreon.com/posts/friezas-my-1st-1-73964937"
+    }
+  ]
 }

@@ -84,6 +84,23 @@
     if (!href) return "";
     return '<a href="' + esc(href) + '" target="_blank" rel="noopener noreferrer">' + esc(label || "Source") + " ↗</a>";
   }
+  // Internal links (#section) open in the same tab; external links open in a new tab.
+  function linkAttrs(u) {
+    u = safeUrl(u);
+    if (!u) return "";
+    if (u.charAt(0) === "#") return 'href="' + esc(u) + '"';
+    return 'href="' + esc(u) + '" target="_blank" rel="noopener noreferrer"';
+  }
+  // Escape text, then show "[to confirm]" markers as a visible tag (for preview review).
+  function txt(s) {
+    return esc(s).replace(/\[to confirm\]/gi, '<mark class="tbc">to confirm</mark>');
+  }
+  function ticks(items, cls) {
+    if (!items || !items.length) return "";
+    return '<ul class="ticks' + (cls ? " " + cls : "") + '">' + items.map(function (i) {
+      return "<li>" + txt(typeof i === "string" ? i : i.text) + "</li>";
+    }).join("") + "</ul>";
+  }
   function setText(id, value, html) {
     var el = document.getElementById(id);
     if (!el || value == null || value === "") return el;
@@ -115,7 +132,12 @@
     }
     if (s.nav_cta && s.nav_cta.url) {
       var cta = document.getElementById("nav-cta");
-      if (cta) { cta.href = s.nav_cta.url; cta.textContent = s.nav_cta.label || "Join Discord"; }
+      if (cta) {
+        cta.href = safeUrl(s.nav_cta.url) || "#hire";
+        cta.textContent = s.nav_cta.label || "Work with me";
+        if (cta.getAttribute("href").charAt(0) === "#") { cta.removeAttribute("target"); cta.removeAttribute("rel"); }
+        else { cta.target = "_blank"; cta.rel = "noopener noreferrer"; }
+      }
     }
     setImg("hero-image", hero.image, hero.image_alt);
     setText("hero-kicker", hero.kicker);
@@ -128,7 +150,7 @@
       if (actions) {
         actions.innerHTML = hero.buttons.map(function (b) {
           var cls = b.style === "outline" ? "btn outline" : "btn";
-          return '<a class="' + cls + '" href="' + esc(safeUrl(b.url)) + '" target="_blank" rel="noopener noreferrer">' + esc(b.label) + "</a>";
+          return '<a class="' + cls + '" ' + linkAttrs(b.url) + ">" + esc(b.label) + "</a>";
         }).join("");
       }
     }
@@ -149,8 +171,18 @@
         if (p.enabled && p.url) {
           btn = '<a class="btn" href="' + esc(safeUrl(p.url)) + '" target="_blank" rel="noopener noreferrer">' + esc(p.button_label || "Join the Patreon") + "</a>";
         }
-        copy.innerHTML = '<p class="kicker">' + esc(p.kicker || "") + "</p><h2>" + esc(p.title || "Patreon.") + "</h2><p>" + esc(p.text || "") + "</p>" + btn;
+        copy.innerHTML = '<p class="kicker">' + esc(p.kicker || "") + "</p><h2>" + esc(p.title || "Patreon.") + "</h2><p>" + txt(p.text || "") + "</p>" + (p.tiers && p.tiers.length ? "" : btn);
       }
+      var tiersEl = document.getElementById("patreon-tiers");
+      if (tiersEl) {
+        tiersEl.innerHTML = (p.tiers || []).filter(function (t) { return t && !t.hidden; }).map(function (t) {
+          return '<article class="tier' + (t.note && /popular/i.test(t.note) ? " hot" : "") + '">' + (t.note ? '<span class="tnote">' + txt(t.note) + "</span>" : "") + "<h3>" + esc(t.name) + '</h3><p class="price">' + txt(t.price || "") + "</p>" + ticks(t.perks) + "</article>";
+        }).join("");
+      }
+      var notesEl = document.getElementById("patreon-notes");
+      if (notesEl) notesEl.innerHTML = [p.free_note, p.price_note].filter(Boolean).map(txt).join(" ");
+      var pcta = document.getElementById("patreon-cta");
+      if (pcta) pcta.innerHTML = p.tiers && p.tiers.length ? btn : "";
     }
     if (s.paypal) {
       var pay = s.paypal;
@@ -171,6 +203,12 @@
         }
         box.innerHTML = '<p class="kicker">' + esc(pay.kicker || "PayPal") + "</p><h3>" + esc(title) + "</h3><p>" + esc(text) + "</p>" + payBtn;
       }
+    }
+    if (s.about) {
+      var a = s.about;
+      setImg("about-image", a.image, a.image_alt);
+      var ac = document.getElementById("about-copy");
+      if (ac) ac.innerHTML = '<p class="kicker">' + esc(a.kicker || "") + "</p><h2>" + esc(a.title || "") + "</h2><p>" + txt(a.text || "") + "</p>" + ticks(a.points);
     }
     if (s.community) {
       var ch = document.getElementById("community-heading");
@@ -204,7 +242,8 @@
       var root = document.getElementById("socials-root");
       if (root) {
         root.innerHTML = s.socials.map(function (item) {
-          return '<a class="social" href="' + esc(safeUrl(item.url)) + '" target="_blank" rel="noopener noreferrer"><span>' + esc(item.name) + "<small>" + esc(item.handle || "") + '</small></span><span class="arr" aria-hidden="true">↗</span></a>';
+          if (item.hidden || !safeUrl(item.url)) return "";
+          return "<li><a " + linkAttrs(item.url) + ">" + esc(item.name) + "</a></li>";
         }).join("");
       }
     }
@@ -230,6 +269,11 @@
   function renderNews(data) {
     var root = document.getElementById("news-root");
     if (!root || !data || !data.items) return;
+    var nh = document.getElementById("news-heading");
+    if (nh && (data.title || data.kicker)) {
+      nh.innerHTML = '<p class="kicker">' + esc(data.kicker || "") + "</p><h2>" + esc(data.title || "") + "</h2>" + (data.intro ? "<p>" + esc(data.intro) + "</p>" : "");
+    }
+    var showImages = data.show_images === true;
     var now = new Date();
     var groups = { live: [], upcoming: [], recent: [], announcement: [] };
     var labels = { live: "Live now", upcoming: "Upcoming", recent: "Past events", announcement: "Announcements" };
@@ -254,7 +298,7 @@
         if (item.weeks_note) weeks += '<p style="margin-top:8px;font-size:0.88rem">' + esc(item.weeks_note) + "</p>";
       }
       var src = extLink(item.source_url, item.source_label || "Source");
-      var img = mediaPath(item.image);
+      var img = showImages ? mediaPath(item.image) : "";
       var media = "";
       if (img) {
         media = '<figure class="news-media"><img src="' + esc(img) + '" alt="' + esc(item.image_alt || "") + '" width="1600" height="900" loading="lazy" decoding="async">' +
@@ -428,8 +472,45 @@
           return "<li>" + (u.date ? "<b>" + esc(u.date) + "</b> — " : "") + esc(u.text || "") + "</li>";
         }).join("") + "</ul>";
       }
-      actions.innerHTML = extra + actionBtn(data.trailer_url, data.trailer_label || "Trailer — coming when released") + actionBtn(data.download_url, data.download_label || "Download — coming when released");
+      var links = (data.links || []).filter(function (l) { return l && safeUrl(l.url); }).map(function (l, i) {
+        return '<a class="btn' + (i ? " outline" : "") + '" ' + linkAttrs(l.url) + ">" + esc(l.label || "Open") + "</a>";
+      }).join("");
+      actions.innerHTML = extra + links + actionBtn(data.trailer_url, data.trailer_label || "Trailer — coming when released") + actionBtn(data.download_url, data.download_label || "Download — coming when released");
     }
+  }
+
+  function renderWork(data) {
+    var root = document.getElementById("work-root");
+    if (!root || !data) return;
+    var head = document.getElementById("work-heading");
+    if (head && data.title) head.innerHTML = '<p class="kicker">' + esc(data.kicker || "") + "</p><h2>" + esc(data.title) + "</h2>" + (data.intro ? "<p>" + txt(data.intro) + "</p>" : "");
+    root.innerHTML = (data.items || []).filter(function (w) { return w && !w.hidden && w.title; }).map(function (w) {
+      var links = [];
+      if (safeUrl(w.trailer_url)) links.push("<a " + linkAttrs(w.trailer_url) + ">▶ Trailer</a>");
+      if (safeUrl(w.download_url)) links.push("<a " + linkAttrs(w.download_url) + ">Free download ↗</a>");
+      var img = mediaPath(w.image);
+      var tile = img
+        ? '<div class="work-tile" style="padding:0"><img src="' + esc(img) + '" alt="' + esc(w.image_alt || "") + '" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>'
+        : '<div class="work-tile" aria-hidden="true"><span class="wt-type">' + esc(w.type || "") + '</span><span class="wt-year">' + esc(w.year || "") + "</span></div>";
+      return '<article class="work-card">' + tile + '<div class="work-body">' + (img ? '<span class="kicker" style="margin:0">' + esc(w.type || "") + (w.year ? " · " + esc(w.year) : "") + "</span>" : "") + "<h3>" + esc(w.title) + "</h3>" + (w.summary ? "<p>" + txt(w.summary) + "</p>" : "") + (w.credit ? '<p class="credit">' + txt(w.credit) + "</p>" : "") + (links.length ? '<div class="work-links">' + links.join("") + "</div>" : "") + "</div></article>";
+    }).join("");
+  }
+
+  function renderHire(data) {
+    var root = document.getElementById("hire-root");
+    if (!root || !data) return;
+    var head = document.getElementById("hire-heading");
+    if (head) head.innerHTML = '<p class="kicker">' + esc(data.kicker || "Commissions") + "</p><h2>" + esc(data.title || "") + "</h2>" + (data.status ? '<p class="status-pill">' + txt(data.status) + "</p>" : "") + (data.intro ? "<p>" + txt(data.intro) + "</p>" : "");
+    var sv = data.service || {};
+    var facts = (sv.facts || []).map(function (f) { return "<div><dt>" + esc(f.label) + "</dt><dd>" + txt(f.value) + "</dd></div>"; }).join("");
+    var steps = (data.steps || []).map(function (st) { return "<li><h4>" + esc(st.title) + "</h4><p>" + txt(st.text) + "</p></li>"; }).join("");
+    var btn = safeUrl(data.button_url) ? '<a class="btn" ' + linkAttrs(data.button_url) + ">" + esc(data.button_label || "Send an enquiry") + "</a>" : "";
+    root.innerHTML = '<div class="service"><div class="service-head"><div><p class="kicker" style="margin:0 0 6px">The service</p><h3>' + esc(sv.name || "") + "</h3>" + (sv.tagline ? "<p>" + txt(sv.tagline) + "</p>" : "") + "</div></div>" +
+      '<div class="service-cols"><div><h4>What you get</h4>' + ticks(sv.includes) + "</div><div><h4>What you send me</h4>" + ticks(sv.provide) + '</div><div><h4>What I won’t do</h4>' + ticks(sv.excludes, "cross") + "</div></div>" +
+      (facts ? '<dl class="facts">' + facts + "</dl>" : "") + "</div>" +
+      (steps ? '<ol class="hire-steps">' + steps + "</ol>" : "") +
+      '<div class="hire-cta">' + btn + (data.button_note ? "<small>" + txt(data.button_note) + "</small>" : "") + "</div>" +
+      (data.rules ? '<p class="rules">' + txt(data.rules) + "</p>" : "");
   }
 
   function loadJSON(path, fallback) {
@@ -445,13 +526,17 @@
     loadJSON("content/videos.json", fb.videos || null),
     loadJSON("content/videos-auto.json", fb.videos_auto || window.YT_FALLBACK || null),
     loadJSON("content/mods.json", fb.mods || null),
-    loadJSON("content/fn.json", fb.fn || null)
+    loadJSON("content/fn.json", fb.fn || null),
+    loadJSON("content/work.json", fb.work || null),
+    loadJSON("content/hire.json", fb.hire || null)
   ]).then(function (all) {
     applySettings(all[0]);
     renderNews(all[1]);
     renderVideos(all[2], all[3]);
     renderMods(all[4]);
     renderFn(all[5]);
+    renderWork(all[6]);
+    renderHire(all[7]);
   });
   }
   // Online, content comes from content/*.json. When the page is opened as a local file

@@ -45,3 +45,16 @@ The v2 design, palette, typography, custom Xeno Trunks artwork and section layou
 - **PayPal** is still inactive. It is now a CMS toggle (`paypal.enabled`). While that flag is off, no payment link is rendered, even if a URL is stored.
 - **GitHub Action prepared but disabled:** `.github/workflows/refresh-youtube.yml` is `workflow_dispatch` only. The daily schedule is commented out. No secrets are required. It was not enabled.
 - Docs added/updated: `PUBLISHING.md`, `MAINTAINING.md`, `content/README.md`, this file and `MISSING.md`.
+
+## Update 3 (PREVIEW ONLY, 10 Nov 2026) — creator homepage restructure
+
+Not live. Needs Xeno Trunks' approval before merging preview → main.
+
+- Homepage reordered around Xeno Trunks as a creator: hero → Frieza's Nightmare (featured) → My quests (new `content/work.json`) → About → Commissions (new `content/hire.json`, enquiries only) → Patreon ranks → Mod Trailers → Community → Xenoverse 2 news (text-only, compact) → footer.
+- Frieza's Nightmare now uses his own gameplay still `assets/fn-turles-slug.jpg` instead of the official trailer thumbnail; buttons for the free 1.7 trailer and download.
+- Commissions: one service (Custom Parallel Quest). No prices, no booking, no payment. Status line "Enquiries only. Not yet open for bookings." Items marked [to confirm] show as a pink tag until decided.
+- Patreon: rank cards copied from the 16 Oct 2026 tier copy (A$5 / A$10 / A$22). Must be re-checked against the live Patreon page before going live.
+- Socials: the 8 big link tiles are gone; one compact Follow row in the footer. Hero/nav no longer push Discord first.
+- News: moved to the bottom, images off (`news.json → show_images: false`).
+- PayPal unchanged and still disabled.
+- `.pages.yml`: new "My quests" and "Commissions" collections; About, Patreon ranks, news heading and FN buttons are editable.
