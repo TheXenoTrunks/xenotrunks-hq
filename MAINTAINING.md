@@ -7,7 +7,7 @@ Yes. Once Xeno Trunks HQ is on GitHub, nobody needs to rebuild the website from 
 Use Pages CMS (see `PUBLISHING.md`) or edit the JSON files in `content/`. Typical jobs:
 
 - add, edit, expire or hide a raid (set `starts_at` / `ends_at`, or `hidden`)
-- feature a YouTube video or Short
+- feature a Xenoverse 2 mod trailer
 - upload a mod image and paste a download or tutorial link
 - update Frieza’s Nightmare progress, and fill `trailer_url` / `download_url` only when a release exists
 - change hero text, the banner image, social links, or the Patreon button

@@ -39,6 +39,8 @@ GitHub Pages only serves one branch, so `preview` is reviewed as a diff in the p
 - `dry-run` (default): changes nothing and uploads a report (`youtube-dry-run` artifact) with the proposed list and a diff.
 - `pr-to-preview`: commits the new list on a `youtube-refresh/<run>` branch and opens a pull request into `preview`. It never touches `main`. If GitHub’s “Allow GitHub Actions to create pull requests” setting is off (the default), the run prints a link to open the PR yourself.
 
+The importer keeps only Xenoverse 2 mod trailers and showcases (title and, when needed, description). Official DLC trailers and other uploads are dropped. Older trailers already in `content/videos-auto.json` are kept so they do not fall off the short RSS window.
+
 The daily schedule is commented out until approved.
 
 ## 5. Optional later: custom domain

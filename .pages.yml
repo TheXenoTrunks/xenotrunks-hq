@@ -364,7 +364,7 @@ content:
                 type: string
 
   - name: videos
-    label: YouTube (featured)
+    label: YouTube (featured mod trailers)
     type: file
     path: content/videos.json
     format: json
@@ -386,7 +386,7 @@ content:
       - name: intro
         type: text
       - name: featured
-        label: Featured videos / Shorts (manual)
+        label: Featured mod trailers (manual)
         type: object
         list:
           collapsible:
@@ -403,7 +403,7 @@ content:
             type: string
 
   - name: videos_auto
-    label: YouTube (auto list)
+    label: YouTube (mod trailers auto list)
     type: file
     path: content/videos-auto.json
     format: json
@@ -420,7 +420,7 @@ content:
         type: string
         readonly: true
       - name: items
-        label: Auto list (updated by the optional GitHub Action — you can also edit or delete entries)
+        label: Mod trailers auto list (updated by the optional GitHub Action — you can also edit or delete entries)
         type: object
         list:
           collapsible:

@@ -1,3 +1,13 @@
+# Update 2 (10 Nov 2026, preview branch)
+
+- The YouTube section is now **Mod Trailers** and lists only Xenoverse 2 mod trailers and showcases from @Xeno_Trunks (newest first). Other uploads (official DLC trailers, Sparking Zero, Legends, memes, and the channel intro) are not shown.
+- Featured entries are the Goku custom-transformation short and the Goku Day modded Parallel Quest trailer. “WHO IS FU?” was removed from featured because it is a Future Saga DLC promo, not a mod trailer.
+- Video dates still show only the date (no “Australia/Perth” label).
+- The manual YouTube importer (`scripts/refresh-youtube.py` and the Refresh YouTube list workflow) now filters to the same mod-trailer rule. The daily schedule stays off.
+
+- The Community Discord card now uses the live Xeno Time Patrol Discord invite artwork (`assets/uploads/discord-invite-bg-web.jpg`, from `discord/perks/invite-bg-1920x1080.png`). The Facebook group card now uses the live dbxv2mods group cover v6.1 (`assets/uploads/fb-group-cover-v6-1-web.jpg`). Both are 1600×900 and under 300 KB.
+- Xeno Trunks’ custom 7071 image was moved off the Discord card so the invite artwork can sit there. The original and `7071-web.jpg` are kept in `assets/uploads/`. Hero and workshop already use other custom Xeno Trunks shots, so 7071 is not shown on another card in this preview.
+
 # Update 1b (10 Nov 2026, preview branch)
 
 - The Festival, Broly Lite raid and 10th-anniversary login bonus news cards now use Xeno Time Patrol style images (theme tp_a: navy, cyan and magenta, TP logo watermark) instead of plain official Bandai stills. Official character art is kept inside our frame. Alt text and credits were updated. Image size is 1600×900 (WebP, under 250 KB).
