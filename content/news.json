@@ -53,9 +53,9 @@
         }
       ],
       "title_prefix": "Final Festival",
-      "image": "assets/uploads/festival-last-world-tournament.jpg",
-      "image_alt": "Official Xenoverse 2 Last World Tournament image: two Time Patrollers posing on the festival stage.",
-      "image_credit": "Official Xenoverse 2 image © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
+      "image": "assets/uploads/festival-last-world-tournament.webp",
+      "image_alt": "Xeno Time Patrol card: two Time Patrollers on the official Last World Tournament festival stage, titled Final Festival Week 2: Cross Versus.",
+      "image_credit": "Xeno Time Patrol design; character art © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
     },
     {
       "id": "raid-broly-lite",
@@ -81,9 +81,9 @@
           "ends_at": "2026-11-12T06:00:00+09:00"
         }
       ],
-      "image": "assets/uploads/raid-broly-fpssj-lite.jpg",
-      "image_alt": "Official Xenoverse 2 raid image: Broly (Full Power Super Saiyan) charging a green energy ball in a snowy field.",
-      "image_credit": "Official Xenoverse 2 image © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
+      "image": "assets/uploads/raid-broly-fpssj-lite.webp",
+      "image_alt": "Xeno Time Patrol card: Broly (Full Power Super Saiyan) charging a green energy ball, titled vs Broly (Full Power Super Saiyan) Lite.",
+      "image_credit": "Xeno Time Patrol design; character art © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
     },
     {
       "id": "login-bonus-10th",
@@ -97,9 +97,9 @@
       "summary": "A limited login bonus bundled with the 27 October free update (update #23) is still running. It ends on 16 November 2026 at 11:59 PM JST (10:59 PM Perth). Official rewards listed on the information post include loading-screen artwork, STP Medals and the Xenoverse 2 10th Anniversary celebration cake hat.",
       "source_label": "Official Xenoverse 2 information (id1856)",
       "source_url": "https://dbx.bn-ent.net/information/#id1856",
-      "image": "assets/uploads/login-bonus-10th-anniversary.jpg",
-      "image_alt": "Official Xenoverse 2 10th Anniversary and Festival of Universes logos with Trunks, Chronoa and Elder Kai.",
-      "image_credit": "Official Xenoverse 2 image © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
+      "image": "assets/uploads/login-bonus-10th-anniversary.webp",
+      "image_alt": "Xeno Time Patrol card: official login-bonus loading-screen art of a Saiyan Patroller clashing with Goku, titled 10th anniversary login bonus.",
+      "image_credit": "Xeno Time Patrol design; character art © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
     },
     {
       "id": "future-saga-ch4",

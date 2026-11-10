@@ -1,3 +1,7 @@
+# Update 1b (10 Nov 2026, preview branch)
+
+- The Festival, Broly Lite raid and 10th-anniversary login bonus news cards now use Xeno Time Patrol style images (theme tp_a: navy, cyan and magenta, TP logo watermark) instead of plain official Bandai stills. Official character art is kept inside our frame. Alt text and credits were updated. Image size is 1600×900 (WebP, under 250 KB).
+
 # Update 1 (10 Nov 2026, preview branch)
 
 - Video dates in the YouTube section now show only the date (e.g. “18 Oct 2026”), with no “Australia/Perth” label.

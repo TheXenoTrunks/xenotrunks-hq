@@ -39,7 +39,7 @@ This is an independent fan community site. Official Dragon Ball / Xenoverse 2 na
 
 - `assets/uploads/7071.jpg` (original 4096×2304) and web copy `7071-web.jpg` (1600×900): Xeno Trunks’ custom character with the Xeno Time Patrol TP logo, uploaded by Xeno Trunks.
 - `assets/uploads/137225.jpg`: official Dragon Ball Xenoverse 2 trailer thumbnail, uploaded by Xeno Trunks. © Bandai Namco Entertainment.
-- News card images are official Xenoverse 2 images from the official information posts, resized to 1280×720. ©Bird Studio/Shueisha, Toei Animation ©Bandai Namco Entertainment Inc.
-  - `raid-broly-fpssj-lite.jpg`: https://dbx.bn-ent.net/02/maintenance/img/4373d5c041e20a98cd04597712fac644cfc89f25.png (post id1853)
-  - `festival-last-world-tournament.jpg`: https://dbx.bn-ent.net/02/maintenance/img/15578eddece559c18b5ed30c7a3765c08a8f5989.png (post id1857)
-  - `login-bonus-10th-anniversary.jpg`: https://dbx.bn-ent.net/02/maintenance/img/51a96e8b522259a17c5857e2d1aacf37f6d6d4d4.png (post id1856), centred on a navy 16:9 background
+- News card images (Update 1b) are Xeno Time Patrol designs in theme tp_a (navy, cyan and magenta, TP logo), 1600×900 WebP, with official character art inside the frame. Credit on the page: “Xeno Time Patrol design; character art © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation”.
+  - `raid-broly-fpssj-lite.webp`: official Broly (Full Power Super Saiyan) art from https://dbx.bn-ent.net/02/maintenance/img/4373d5c041e20a98cd04597712fac644cfc89f25.png (post id1853)
+  - `festival-last-world-tournament.webp`: official Last World Tournament stage from https://dbx.bn-ent.net/02/maintenance/img/15578eddece559c18b5ed30c7a3765c08a8f5989.png (post id1857)
+  - `login-bonus-10th-anniversary.webp`: official 10th-anniversary login-bonus loading-screen art (Saiyan Patroller vs Goku) from https://dbx.bn-ent.net/02/maintenance/img/c4c58520c9a75f7604704fcc9f51f42ba5fa0505.png (post id1856). The official XV2 10th Anniversary logo on that still (which includes official Trunks) was not used.

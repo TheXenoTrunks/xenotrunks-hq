@@ -257,7 +257,7 @@
       var img = mediaPath(item.image);
       var media = "";
       if (img) {
-        media = '<figure class="news-media"><img src="' + esc(img) + '" alt="' + esc(item.image_alt || "") + '" width="1280" height="720" loading="lazy" decoding="async">' +
+        media = '<figure class="news-media"><img src="' + esc(img) + '" alt="' + esc(item.image_alt || "") + '" width="1600" height="900" loading="lazy" decoding="async">' +
           (item.image_credit ? "<figcaption>" + esc(item.image_credit) + "</figcaption>" : "") + "</figure>";
       }
       return '<article class="news-card' + (media ? " has-media" : "") + '">' + media + '<div class="news-body"><div class="news-meta"><span class="badge ' + badgeClass[state] + '">' + badgeText[state] + "</span><span>" + esc(item.kicker || "") + "</span><span>" + esc(item.date_label || "") + "</span></div><h3>" + esc(displayTitle(item, state, now)) + "</h3><p>" + esc(item.summary) + "</p>" + (media ? "</div><div class=\"news-extra\">" : "") + weeks + src + "</div></article>";
