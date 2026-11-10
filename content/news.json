@@ -1,4 +1,8 @@
 {
+  "kicker": "Xenoverse 2 news",
+  "title": "This week in the Time Patrol.",
+  "intro": "Official raids and events, in short. Full details are at each official source.",
+  "show_images": false,
   "updated": "2026-11-10",
   "updated_note": "Checked 10 Nov 2026, Australia/Perth (UTC+8). Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
   "items": [

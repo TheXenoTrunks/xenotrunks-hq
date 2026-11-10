@@ -6,17 +6,17 @@
   <meta name="theme-color" content="#0A1222">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://i.ytimg.com data:; font-src 'self'; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Xeno Trunks | Xeno Time Patrol</title>
-  <meta name="description" content="Xeno Trunks and the Xeno Time Patrol — Dragon Ball Xenoverse 2 raid alerts, mods, install guides, custom quests and community.">
-  <meta property="og:title" content="Xeno Trunks | Xeno Time Patrol">
-  <meta property="og:description" content="Protect the timeline. Join the Time Patrol.">
+  <title>Xeno Trunks | Custom Xenoverse 2 quests, scripting &amp; cinematics</title>
+  <meta name="description" content="Xeno Trunks makes custom Parallel Quests for Dragon Ball Xenoverse 2: what-if stories, scripted boss fights and cutscenes. Home of Frieza’s Nightmare. Independent fan creator.">
+  <meta property="og:title" content="Xeno Trunks | Custom Xenoverse 2 quests">
+  <meta property="og:description" content="Custom Parallel Quests, scripting and cinematics for Xenoverse 2. Rewrite the timeline.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://thexenotrunks.github.io/xenotrunks-hq/assets/og-image.jpg">
   <meta property="og:url" content="https://thexenotrunks.github.io/xenotrunks-hq/">
   <meta property="og:site_name" content="Xeno Trunks HQ">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Xeno Trunks | Xeno Time Patrol">
-  <meta name="twitter:description" content="Protect the timeline. Join the Time Patrol.">
+  <meta name="twitter:title" content="Xeno Trunks | Custom Xenoverse 2 quests">
+  <meta name="twitter:description" content="Custom Parallel Quests, scripting and cinematics for Xenoverse 2. Rewrite the timeline.">
   <meta name="twitter:image" content="https://thexenotrunks.github.io/xenotrunks-hq/assets/og-image.jpg">
   <link rel="canonical" href="https://thexenotrunks.github.io/xenotrunks-hq/">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -281,6 +281,152 @@
       .btn, .social, .panel-link img, .brand-ring, .hero-clock, .fade { animation: none; transition: none; }
       .btn:hover, .social:hover { transform: none; }
     }
+
+    /* Update 3 (preview): creator homepage */
+    .section-alt { background: #0B1428; border-block: 1px solid rgba(76, 165, 221, 0.18); }
+    .work-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+    .work-card { display: flex; flex-direction: column; background: var(--panel); border: 1px solid rgba(196,44,116,0.45); border-radius: var(--radius); overflow: hidden; }
+    .work-tile { position: relative; aspect-ratio: 16/9; padding: 14px 16px; display: flex; flex-direction: column; justify-content: space-between; background: radial-gradient(ellipse at 85% 20%, rgba(196,44,116,0.45), transparent 55%), linear-gradient(150deg, #13284A, #0A1222 70%); border-bottom: 1px solid rgba(76,165,221,0.35); }
+    .work-tile::after { content: ""; position: absolute; right: -18%; top: -30%; width: 70%; aspect-ratio: 1; border: 1px solid rgba(76,165,221,0.35); border-radius: 50%; border-top-color: var(--magenta); }
+    .work-tile .wt-type { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink); }
+    .work-tile .wt-year { font-family: var(--font-display); font-size: 2.6rem; line-height: 1; color: var(--cyan); }
+    .work-body { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .work-body h3 { font-size: 1.3rem; line-height: 1.05; }
+    .work-body p { margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.45; }
+    .work-body .credit { font-size: 0.85rem; }
+    .work-links { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: auto; padding-top: 8px; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .about-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 40px; align-items: center; }
+    .about-art { margin: 0; border: 1px solid var(--magenta); border-radius: var(--radius); overflow: hidden; background: var(--frame); }
+    .about-art img { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: 60% 30%; }
+    .about-grid p { color: var(--muted); }
+    .ticks { margin: 8px 0 0; padding: 0; list-style: none; }
+    .ticks li { position: relative; padding: 8px 0 8px 22px; border-bottom: 1px solid rgba(167,180,200,0.12); }
+    .ticks li::before { content: ""; position: absolute; left: 0; top: 1.05em; width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); }
+    .ticks.cross li::before { background: transparent; border: 2px solid var(--pink); width: 9px; height: 9px; }
+    .status-pill { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px; padding: 6px 14px; border: 1px dashed var(--pink); border-radius: 999px; color: var(--pink); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+    .status-pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pink); }
+    .service { padding: 30px; background: linear-gradient(165deg, var(--panel-2), var(--panel)); border: 1px solid rgba(76,165,221,0.5); border-radius: calc(var(--radius) + 4px); }
+    .service-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; align-items: end; margin-bottom: 22px; }
+    .service-head h3 { font-size: 2.2rem; color: var(--ink); }
+    .service-head p { margin: 6px 0 0; color: var(--muted); }
+    .service-cols { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; }
+    .service-cols h4, .hire-steps h4 { margin: 0 0 4px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink); }
+    .service-cols li { font-size: 1rem; line-height: 1.45; }
+    .facts { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin: 24px 0 0; }
+    .facts div { padding: 12px 14px; background: var(--frame); border: 1px solid rgba(196,44,116,0.35); border-radius: 8px; }
+    .facts dt { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); }
+    .facts dd { margin: 4px 0 0; font-size: 0.98rem; line-height: 1.35; }
+    .hire-steps { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin: 28px 0 0; padding: 0; list-style: none; counter-reset: step; }
+    .hire-steps li { counter-increment: step; padding: 16px 18px; border-left: 3px solid var(--cyan); background: var(--panel); border-radius: 0 8px 8px 0; }
+    .hire-steps li::before { content: "0" counter(step); display: block; font-family: var(--font-display); font-size: 1.5rem; color: var(--cyan); line-height: 1; margin-bottom: 6px; }
+    .hire-steps p { margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.45; }
+    .hire-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 26px; }
+    .hire-cta small { color: var(--muted); max-width: 32rem; line-height: 1.5; }
+    .rules { margin: 22px 0 0; padding: 14px 18px; border: 1px solid rgba(167,180,200,0.25); border-radius: 8px; color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
+    mark.tbc { background: rgba(240,98,168,0.16); color: var(--pink); border: 1px dashed var(--pink); border-radius: 4px; padding: 0 5px; font-size: 0.85em; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    .tiers { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 24px; }
+    .tier { padding: 22px 22px 24px; background: var(--panel); border: 1px solid rgba(196,44,116,0.45); border-radius: var(--radius); }
+    .tier.hot { border-color: var(--cyan); box-shadow: 0 0 0 1px rgba(76,165,221,0.35); }
+    .tier h3 { font-size: 1.45rem; }
+    .tier .price { margin: 4px 0 2px; font-family: var(--font-display); font-size: 1.7rem; color: var(--cyan); }
+    .tier .tnote { display: inline-block; margin-bottom: 6px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pink); }
+    .tier .ticks li { font-size: 1rem; line-height: 1.4; }
+    .tier-notes { margin: 16px 0 0; color: var(--muted); font-size: 0.95rem; }
+    .patreon-cta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .foot-socials { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 16px; padding: 0; list-style: none; }
+    .foot-socials a { color: var(--ink); font-weight: 700; letter-spacing: 0.06em; font-size: 0.92rem; }
+    .foot-socials a:hover { color: var(--cyan); }
+    .foot-socials small { color: var(--muted); font-weight: 500; margin-left: 4px; }
+    #news .news-card { padding: 18px 22px; }
+    #news .news-card h3 { font-size: 1.25rem; }
+    #news .heading h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); }
+    @media (max-width: 980px) {
+      .work-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .service-cols, .tiers { grid-template-columns: 1fr 1fr; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .work-grid, .service-cols, .tiers, .facts, .hire-steps { grid-template-columns: 1fr; }
+      .service { padding: 22px 18px; }
+      .work-tile { aspect-ratio: 21/8; }
+    }
+    /* Update 4 (preview): functional pass — quests, enquiry form, clutter, phone */
+    section[id], #enquiry, #enq-out { scroll-margin-top: calc(var(--nav-h) + 16px); }
+    .menu-btn { min-height: 44px; min-width: 64px; justify-content: center; align-items: center; }
+    .coming-note { margin: 4px 0 0; width: 100%; color: var(--muted); font-size: 1rem; }
+    .paypal-off { padding: 14px 18px; border: 1px dashed rgba(167,180,200,0.35); border-radius: 8px; background: var(--panel); }
+    .paypal-off p { margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.5; }
+    .paypal-off b { color: var(--ink); }
+    .free-note { display: inline-block; margin-top: 14px !important; padding: 6px 12px; border-left: 3px solid #22C55E; background: rgba(34,197,94,0.08); color: var(--ink) !important; font-size: 1rem; }
+    .work-meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin: 0 !important; font-size: 0.82rem !important; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan) !important; }
+    .future-note { margin-top: 10px !important; color: var(--muted) !important; font-size: 1rem; }
+    .time-note { margin-top: 22px; padding: 14px 18px; border-left: 3px solid var(--cyan); background: var(--frame); border-radius: 0 8px 8px 0; }
+    .time-note h4 { margin: 0 0 4px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink); }
+    .time-note p { margin: 0; color: var(--muted); line-height: 1.5; }
+    .portfolio { margin-top: 32px; }
+    .portfolio .pf-intro { color: var(--muted); max-width: 46rem; margin: 6px 0 16px; }
+    .pf-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    @media (max-width: 980px) { .pf-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 680px) { .pf-grid { grid-template-columns: 1fr; } }
+    .products .heading { margin-bottom: 0; }
+    .rights-note { color: var(--muted) !important; font-size: 0.95rem; border-left: 3px solid var(--magenta); padding-left: 12px; }
+    .free-tag { padding: 1px 8px; border: 1px solid #22C55E; border-radius: 999px; color: #22C55E; }
+    .work-body .req { font-size: 0.95rem; }
+    .work-body .req b { color: var(--ink); font-weight: 700; }
+    .work-body .host { font-size: 0.85rem; margin-top: 2px; }
+    .work-links { gap: 8px; }
+    .work-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 14px; border-radius: 8px; text-decoration: none; }
+    .work-links .work-dl { background: var(--cyan); color: var(--bg); }
+    .work-links .work-dl:hover { filter: brightness(1.08); color: var(--bg); }
+    .work-links .work-tr { border: 1px solid rgba(76,165,221,0.6); color: var(--ink); }
+    .work-links .work-tr:hover { border-color: var(--cyan); color: var(--cyan); }
+    .steps-title, .enq-title { margin: 36px 0 0; font-size: 1.6rem; color: var(--ink); }
+    .enquiry { margin-top: 32px; padding: 28px; background: var(--panel); border: 1px solid rgba(76,165,221,0.5); border-radius: calc(var(--radius) + 4px); }
+    .enquiry .enq-title { margin: 0; }
+    .enq-intro { margin: 8px 0 18px; color: var(--muted); }
+    .fgrid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 18px; }
+    .field { margin: 0 0 16px; min-width: 0; }
+    .flabel { display: block; margin: 0 0 6px; font-weight: 700; letter-spacing: 0.04em; color: var(--ink); font-size: 1rem; }
+    .flabel .opt { font-weight: 500; color: var(--muted); }
+    .req-star { color: var(--pink); }
+    .fhint { margin: -2px 0 6px; color: var(--muted); font-size: 0.95rem; line-height: 1.4; }
+    .enquiry input[type="text"], .enquiry input[type="email"], .enquiry select, .enquiry textarea { width: 100%; min-height: 48px; padding: 10px 12px; font: inherit; font-size: 1.05rem; letter-spacing: 0.02em; color: var(--ink); background: var(--frame); border: 1px solid rgba(167,180,200,0.4); border-radius: 8px; }
+    .enquiry textarea { resize: vertical; line-height: 1.5; }
+    .enquiry select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--cyan) 50%), linear-gradient(135deg, var(--cyan) 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 36px; }
+    .enquiry input:focus, .enquiry select:focus, .enquiry textarea:focus { outline: 3px solid var(--cyan); outline-offset: 1px; border-color: var(--cyan); }
+    .enquiry [aria-invalid="true"] { border-color: var(--pink); }
+    .ferr { margin: 6px 0 0; color: var(--pink); font-weight: 700; font-size: 0.95rem; }
+    .fcheck { display: grid; grid-template-columns: auto 1fr; gap: 10px 12px; align-items: start; margin: 6px 0 12px; }
+    .fcheck input { width: 26px; height: 26px; margin: 2px 0 0; accent-color: var(--cyan); }
+    .fcheck label { font-size: 1rem; line-height: 1.5; cursor: pointer; }
+    .fcheck .ferr { grid-column: 1 / -1; }
+    .fnote { margin: 0 0 16px; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
+    .enq-out { margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(196,44,116,0.4); }
+    .enq-out textarea { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.95rem; letter-spacing: 0; }
+    .enq-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+    .enq-actions button.btn { cursor: pointer; }
+    .btn.copied { background: #22C55E; border-color: #22C55E; }
+    .enq-status { min-height: 1.5em; margin: 12px 0 8px; font-weight: 700; color: var(--ink); }
+    .enq-status.ok { color: #22C55E; }
+    .enq-status.warn { color: var(--pink); }
+    .foot-socials a { display: inline-flex; align-items: center; min-height: 44px; }
+    .to-top { display: inline-flex; align-items: center; min-height: 44px; }
+    .news-card a { display: inline-flex; align-items: center; min-height: 44px; }
+    @media (max-width: 680px) {
+      .fgrid { grid-template-columns: 1fr; }
+      .enquiry { padding: 20px 16px; }
+      .enq-actions .btn { width: 100%; }
+      .enquiry button[type="submit"] { width: 100%; }
+      .work-body p, .work-body .credit, .work-body .req, .facts dd, .rules, .tier-notes, .service-cols li, .hire-steps p, .tier .ticks li { font-size: 1rem; }
+      .work-body .host { font-size: 0.9rem; }
+      .foot small { font-size: 0.95rem; }
+      .ticker .wrap { font-size: 0.8rem; }
+      .kicker { font-size: 0.85rem; }
+      .aside-note, .fhint, .fnote, .foot small, #news .news-card p, .status-pill { font-size: 1rem; }
+      .work-body .host { font-size: 0.95rem; }
+    }
+    .yt-card h3 a { display: flex; align-items: center; min-height: 44px; }
   </style>
 </head>
 <body>
@@ -292,17 +438,15 @@
           <span class="brand-ring" aria-hidden="true"></span>
           <img src="assets/logo-tp-sm.png" width="44" height="44" alt="" id="brand-logo">
         </span>
-        <span class="brand-name" id="brand-name">XENO TRUNKS<small>TIME PATROL</small></span>
+        <span class="brand-name" id="brand-name">XENO TRUNKS<small>CUSTOM QUESTS · XENOVERSE 2</small></span>
       </a>
       <button class="menu-btn" id="menu" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navigation">Menu</button>
       <nav class="navlinks" id="navigation" aria-label="Main">
+        <a href="#nightmare">Frieza’s Nightmare</a>
+        <a href="#work">Quests</a>
+        <a href="#patreon">Patreon</a>
         <a href="#news">News</a>
-        <a href="#youtube">YouTube</a>
-        <a href="#workshop">Workshop</a>
-        <a href="#nightmare">Nightmare</a>
-        <a href="#community">Community</a>
-        <a href="#connect">Links</a>
-        <a class="btn nav-cta" id="nav-cta" href="https://dsc.gg/xenotimepatrol" target="_blank" rel="noopener noreferrer">Join Discord</a>
+        <a class="btn nav-cta" id="nav-cta" href="#hire">Work with me</a>
       </nav>
     </div>
   </header>
@@ -326,113 +470,118 @@
         </svg>
       </div>
       <div class="wrap fade">
-        <p class="kicker" id="hero-kicker">Xeno Time Patrol &middot; Community HQ</p>
-        <h1 id="hero-title">Protect the <span>timeline.</span></h1>
-        <p class="lead" id="hero-lead">Join the Time Patrol. Raid alerts, Xenoverse 2 mods, install guides and custom quests from Xeno Trunks, plus a community of Time Patrollers.</p>
+        <p class="kicker" id="hero-kicker">Custom quest creator · Mod scripter · Cinematic storyteller</p>
+        <h1 id="hero-title">Rewrite <span>the timeline.</span></h1>
+        <p class="lead" id="hero-lead">I’m Xeno Trunks. I build custom Parallel Quests for Xenoverse 2: what-if stories, scripted boss fights and cutscenes, all tested on my own setup.</p>
         <div class="actions" id="hero-actions">
-          <a class="btn" href="https://dsc.gg/xenotimepatrol" target="_blank" rel="noopener noreferrer">Join Discord</a>
-          <a class="btn outline" href="https://www.youtube.com/@Xeno_Trunks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          <a class="btn" href="#work">See my quests</a>
+          <a class="btn outline" href="#hire">Work with me</a>
         </div>
       </div>
     </section>
 
     <div class="ticker" aria-hidden="true">
       <div class="wrap" id="ticker">
-        <span><b>01</b> &nbsp; Xenoverse 2</span>
-        <span><b>02</b> &nbsp; Raid alerts &amp; events</span>
-        <span><b>03</b> &nbsp; Mods &amp; custom quests</span>
-        <span><b>04</b> &nbsp; Time Patrol community</span>
+        <span><b>01</b> &nbsp; Custom Parallel Quests</span>
+        <span><b>02</b> &nbsp; Quest scripting</span>
+        <span><b>03</b> &nbsp; Cutscenes &amp; trailers</span>
+        <span><b>04</b> &nbsp; PC · XV2 Patcher</span>
       </div>
     </div>
-
-    <section id="news">
-      <div class="wrap">
-        <div class="heading">
-          <p class="kicker">Latest Xenoverse 2 news</p>
-          <h2>What’s on now.</h2>
-          <p>Verified official events and announcements. Dates are shown as published. This list is stored in <code>content/news.json</code> so it can be updated in Pages CMS without editing the HTML. Live now / Upcoming badges are calculated from each entry’s start and end times, and finished events move to Past events automatically.</p>
-        </div>
-        <div class="news-list" id="news-root"></div>
-      </div>
-    </section>
-
-    <section id="youtube" class="community">
-      <div class="wrap">
-        <div class="heading" id="yt-heading">
-          <p class="kicker">Xeno Trunks YouTube</p>
-          <h2>Mod Trailers.</h2>
-          <p>Xenoverse 2 mod trailers and showcases from <a href="https://www.youtube.com/@Xeno_Trunks" target="_blank" rel="noopener noreferrer">@Xeno_Trunks</a>. Thumbnails open a player only when you click — no YouTube script loads first.</p>
-        </div>
-        <div class="yt-grid" id="yt-root"></div>
-        <p style="margin-top:22px"><a class="btn outline" id="yt-channel" href="https://www.youtube.com/@Xeno_Trunks" target="_blank" rel="noopener noreferrer">Open the channel</a></p>
-      </div>
-    </section>
-
-    <section id="workshop">
-      <div class="wrap workshop">
-        <figure class="workshop-art">
-          <img id="workshop-image" src="assets/xv2-xeno-trunks.jpg" width="1280" height="720" alt="Xeno Trunks (custom character) in Dragon Ball Xenoverse 2: long lavender hair, scar and beard, purple Time Patrol armour with a green undersuit, and a sword on his back." loading="lazy">
-        </figure>
-        <div>
-          <p class="kicker" id="workshop-kicker">XV2 Mod Workshop</p>
-          <h2 id="workshop-title">Mods, guides &amp; progress.</h2>
-          <p id="workshop-intro" style="color:var(--muted)">Custom character work, install help and quest development. Public downloads are listed here only when a release is actually available.</p>
-          <ul id="workshop-list">
-            <li>Install guides — available on Patreon and in the Discord help channels.</li>
-            <li>Couple’s Division — thumbnail and layout work is in progress. No download yet.</li>
-            <li>Custom character: Xeno Trunks (the CaC used across this site).</li>
-            <li>Early access and sneak peeks on Patreon.</li>
-          </ul>
-          <p id="workshop-cta"><a class="btn" href="https://www.patreon.com/XenoTrunks" target="_blank" rel="noopener noreferrer">Visit the Patreon</a></p>
-        </div>
-      </div>
-    </section>
 
     <section id="nightmare" class="feature">
       <div class="wrap feature-grid">
         <figure class="feature-art">
-          <img id="fn-image" src="assets/uploads/137225.jpg" width="1280" height="720" alt="Official Dragon Ball Xenoverse 2 trailer thumbnail showing Super Saiyan Goku, Frieza and Super Saiyan Vegeta." loading="lazy">
+          <img id="fn-image" src="assets/fn-turles-slug.jpg" width="1080" height="608" alt="Gameplay still from Xeno Trunks’ Frieza’s Nightmare quest: Turles and Lord Slug face off in Xenoverse 2." loading="lazy">
         </figure>
         <div>
           <span class="badge" id="fn-badge">In development</span>
-          <p class="kicker" id="fn-kicker">Creator workshop</p>
+          <p class="kicker" id="fn-kicker" style="margin-top:14px">Featured project</p>
           <h2 id="fn-title">Frieza’s Nightmare 2.0</h2>
-          <p id="fn-intro">A featured custom Parallel Quest for Dragon Ball Xenoverse 2, rebuilt around villainous encounters, Super Saiyan paths and custom cutscenes.</p>
-          <ul id="fn-list">
-            <li>Turles and Slug (XFN043 intro)</li>
-            <li>Cooler enters the fight</li>
-            <li>Goku and Vegeta branching Super Saiyan paths</li>
-            <li>Custom cutscenes</li>
-          </ul>
-          <p class="aside-note" id="fn-note">No download is available yet.</p>
-          <div class="coming" id="fn-actions">
-            <span class="btn outline" aria-disabled="true">Trailer — coming when released</span>
-            <span class="btn outline" aria-disabled="true">Download — coming when released</span>
+          <p id="fn-intro">My first custom Parallel Quest, now being rebuilt.</p>
+          <ul id="fn-list"></ul>
+          <p class="aside-note" id="fn-note">No release date yet.</p>
+          <div class="coming" id="fn-actions"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="heading" id="work-heading">
+          <p class="kicker">Original work</p>
+          <h2>My quests.</h2>
+          <p>Custom Parallel Quests I’ve scripted and released, newest first.</p>
+        </div>
+        <div class="work-grid" id="work-root"></div>
+      </div>
+    </section>
+
+    <section id="about" class="section-alt">
+      <div class="wrap about-grid">
+        <figure class="about-art">
+          <img id="about-image" src="assets/uploads/7071-web.jpg" width="1600" height="900" alt="Xeno Trunks (custom character) drawing his sword beside the Xeno Time Patrol TP logo." loading="lazy">
+        </figure>
+        <div id="about-copy">
+          <p class="kicker">Who’s behind the quests</p>
+          <h2>Xeno Trunks.</h2>
+          <p>Not the Trunks you know. Mine’s a Time Patroller from a timeline you haven’t seen yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="hire">
+      <div class="wrap">
+        <div class="heading" id="hire-heading">
+          <p class="kicker">Commissions · Work with me</p>
+          <h2>Your quest, scripted.</h2>
+          <p class="status-pill">Enquiries only. Not yet open for bookings.</p>
+        </div>
+        <div id="hire-root">
+          <p>Commissions are not open yet. No prices, bookings or payments are offered on this site.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="patreon" class="section-alt">
+      <div class="wrap">
+        <div class="mods-band">
+          <img id="patreon-image" src="assets/xeno-trunks-portrait.jpg" width="900" height="900" alt="Illustrated portrait of Xeno Trunks (custom character)." loading="lazy">
+          <div id="patreon-copy">
+            <p class="kicker">Support the work</p>
+            <h2>Join the Patreon.</h2>
+            <p>Patreon is how you back the next quest.</p>
+          </div>
+        </div>
+        <div class="tiers" id="patreon-tiers"></div>
+        <p class="tier-notes" id="patreon-notes"></p>
+        <div class="patreon-cta" id="patreon-cta"></div>
+        <div class="support-grid">
+          <!-- PayPal is controlled by content/settings.json → paypal.enabled (off). Do not hard-code a payment link here. No PayPal script is ever loaded. -->
+          <div class="paypal-off" id="paypal">
+            <p><b>PayPal:</b> PayPal support will be added once the Business account is verified. There is no payment link yet.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="support-patreon">
+    <section id="products" class="products" hidden>
       <div class="wrap">
-        <div class="mods-band">
-          <img id="patreon-image" src="assets/xeno-trunks-portrait.jpg" width="900" height="900" alt="Illustrated portrait of Xeno Trunks (custom character)." loading="lazy">
-          <div id="patreon-copy">
-            <p class="kicker">Support the workshop</p>
-            <h2>Patreon.</h2>
-            <p>Get early access, install guides and behind-the-scenes updates on new mods and quests from Xeno Trunks on Patreon.</p>
-            <a class="btn" href="https://www.patreon.com/XenoTrunks" target="_blank" rel="noopener noreferrer">Join the Patreon</a>
-          </div>
+        <div class="heading" id="products-root">
+          <p class="kicker">Coming later</p>
+          <h2>Guides &amp; scripting resources.</h2>
         </div>
-        <div class="support-grid">
-          <!-- PayPal is controlled by content/settings.json → paypal.enabled (off). Do not hard-code a payment link here. No PayPal script is ever loaded. -->
-          <div class="paypal-soon" id="paypal">
-            <p class="kicker">PayPal</p>
-            <h3>Support coming soon</h3>
-            <p>A PayPal option will be added here once the Business account is verified. There is no payment link yet.</p>
-            <span class="btn outline" aria-disabled="true">Coming soon</span>
-          </div>
+      </div>
+    </section>
+
+    <section id="youtube">
+      <div class="wrap">
+        <div class="heading" id="yt-heading">
+          <p class="kicker">Xeno Trunks YouTube</p>
+          <h2>Mod Trailers.</h2>
         </div>
+        <div class="yt-grid" id="yt-root"></div>
+        <p style="margin-top:22px"><a class="btn outline" id="yt-channel" href="https://www.youtube.com/@Xeno_Trunks" target="_blank" rel="noopener noreferrer">Open the channel</a></p>
       </div>
     </section>
 
@@ -441,28 +590,25 @@
         <div class="heading" id="community-heading">
           <p class="kicker">Community</p>
           <h2>Join the Time Patrol.</h2>
-          <p>Whether you’re new to Xenoverse 2 or already running mods, this is where the patrol meets.</p>
         </div>
         <div class="split">
           <a class="panel-link" id="community-discord" href="https://dsc.gg/xenotimepatrol" target="_blank" rel="noopener noreferrer">
             <div class="panel-shot">
-              <img src="assets/uploads/discord-invite-bg-web.jpg" width="1600" height="900" alt="Xeno Time Patrol Discord invite artwork: Trunks, the words Join the Time Patrol, and the TP logo." loading="lazy">
+              <img src="assets/uploads/discord-invite-bg-web.jpg" width="1600" height="900" alt="Xeno Time Patrol Discord invite artwork." loading="lazy">
             </div>
             <div class="panel-copy">
               <p class="kicker">Discord</p>
               <h3>Xeno Time Patrol</h3>
-              <p>Raid alerts, install help, sneak peeks and a place to talk Xenoverse 2.</p>
               <span class="go">Join the Discord ↗</span>
             </div>
           </a>
           <a class="panel-link" id="community-group" href="https://www.facebook.com/groups/dbxv2mods" target="_blank" rel="noopener noreferrer">
             <div class="panel-shot">
-              <img src="assets/uploads/fb-group-cover-v6-1-web.jpg" width="1600" height="900" alt="dbxv2mods Facebook group cover: Xeno Trunks (custom character) at the centre, with Crimson-Masked Saiyan, Ultra Instinct Goku, Ultra Ego Vegeta and Black Frieza, titled Dragon Ball Xenoverse 2 Mods by Xeno Trunks." loading="lazy">
+              <img src="assets/uploads/fb-group-cover-v6-1-web.jpg" width="1600" height="900" alt="dbxv2mods Facebook group cover." loading="lazy">
             </div>
             <div class="panel-copy">
               <p class="kicker">Facebook group</p>
               <h3>Xenoverse 2 Mods</h3>
-              <p>The public workshop for sharing, finding and talking about XV2 mods.</p>
               <span class="go">Open the group ↗</span>
             </div>
           </a>
@@ -470,23 +616,14 @@
       </div>
     </section>
 
-    <section id="connect">
+    <section id="news">
       <div class="wrap">
-        <div class="heading" id="connect-heading">
-          <p class="kicker">Official channels</p>
-          <h2>Find Xeno Trunks.</h2>
-          <p>Follow the existing channels for videos, updates and Time Patrol posts.</p>
+        <div class="heading" id="news-heading">
+          <p class="kicker">Xenoverse 2 news</p>
+          <h2>This week in the Time Patrol.</h2>
+          <p>Official raids and events, in short. Full details are at each official source.</p>
         </div>
-        <div class="socials" id="socials-root">
-          <a class="social" href="https://www.youtube.com/@Xeno_Trunks" target="_blank" rel="noopener noreferrer"><span>YouTube<small>@Xeno_Trunks</small></span><span class="arr" aria-hidden="true">↗</span></a>
-          <a class="social" href="https://x.com/TheXenoTrunks" target="_blank" rel="noopener noreferrer"><span>X<small>@TheXenoTrunks</small></span><span class="arr" aria-hidden="true">↗</span></a>
-          <a class="social" href="https://www.tiktok.com/@xenotrunksofficial" target="_blank" rel="noopener noreferrer"><span>TikTok<small>@xenotrunksofficial</small></span><span class="arr" aria-hidden="true">↗</span></a>
-          <a class="social" href="https://www.instagram.com/xeno_trunks_ig/" target="_blank" rel="noopener noreferrer"><span>Instagram<small>@xeno_trunks_ig</small></span><span class="arr" aria-hidden="true">↗</span></a>
-          <a class="social" href="https://www.patreon.com/XenoTrunks" target="_blank" rel="noopener noreferrer"><span>Patreon<small>XenoTrunks</small></span><span class="arr" aria-hidden="true">↗</span></a>
-          <a class="social" href="https://dsc.gg/xenotimepatrol" target="_blank" rel="noopener noreferrer"><span>Discord<small>dsc.gg/xenotimepatrol</small></span><span class="arr" aria-hidden="true">↗</span></a>
-          <a class="social" href="https://www.facebook.com/profile.php?id=61595489698900" target="_blank" rel="noopener noreferrer"><span>Facebook Page<small>Xeno Time Patrol</small></span><span class="arr" aria-hidden="true">↗</span></a>
-          <a class="social" href="https://www.facebook.com/profile.php?id=61566764950511" target="_blank" rel="noopener noreferrer"><span>Facebook<small>Xeno Trunks</small></span><span class="arr" aria-hidden="true">↗</span></a>
-        </div>
+        <div class="news-list" id="news-root"></div>
       </div>
     </section>
   </main>
@@ -498,11 +635,15 @@
           <img src="assets/logo-tp-sm.png" width="36" height="36" loading="lazy" alt="" id="footer-logo">
           <span id="footer-name">XENO TRUNKS</span>
         </div>
-        <div id="footer-tagline">Protect the timeline. Join the Time Patrol.</div>
+        <div id="footer-tagline">Custom quests for the Time Patrol.</div>
+        <ul class="foot-socials" id="socials-root" aria-label="Follow Xeno Trunks">
+          <li><a href="https://www.youtube.com/@Xeno_Trunks" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li><a href="https://x.com/TheXenoTrunks" target="_blank" rel="noopener noreferrer">X</a></li>
+          <li><a href="https://www.patreon.com/XenoTrunks" target="_blank" rel="noopener noreferrer">Patreon</a></li>
+          <li><a href="https://dsc.gg/xenotimepatrol" target="_blank" rel="noopener noreferrer">Discord</a></li>
+        </ul>
         <small id="footer-disclaimer">
-          Independent fan community. Not affiliated with or endorsed by Bandai Namco Entertainment, Toei Animation, Shueisha or other Dragon Ball rights holders.
-          Dragon Ball and Xenoverse names and official game imagery belong to their respective owners. Official Xenoverse 2 imagery © Bandai Namco Entertainment.
-          Character portraits of Xeno Trunks on this site are Xeno Trunks (custom character), except where a caption credits official Xenoverse 2 Festival artwork.
+          Independent fan creator. Not affiliated with or endorsed by Bandai Namco Entertainment, Toei Animation, Shueisha, Bird Studio or the Revamp team.
         </small>
       </div>
       <a class="to-top" href="#top">Back to top ↑</a>

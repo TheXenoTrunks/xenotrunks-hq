@@ -1,0 +1,136 @@
+{
+  "kicker": "Commissions · Work with me",
+  "title": "Your quest, scripted.",
+  "status": "Enquiries only. Not yet open for bookings.",
+  "intro": "Got a what-if you want to play? Custom Parallel Quest scripting for Xenoverse 2 on PC is a paid service. Every commission is quoted individually, after I’ve reviewed the scope and the licensing and IP requirements: whose assets it would use and whether their authors allow it. For now, send me your idea and I’ll tell you if I can build it.",
+  "service": {
+    "name": "Custom Parallel Quest",
+    "tagline": "A playable quest built from your idea, scripted and tested by me.",
+    "includes": [
+      {
+        "text": "Quest design from your idea: story, stages, enemies and allies"
+      },
+      {
+        "text": "Scripting: dialogue, events, win and lose conditions, rewards set up"
+      },
+      {
+        "text": "Built with existing game characters, your CaC, or free mods whose authors allow it"
+      },
+      {
+        "text": "Tested on my setup, delivered as an .x2m with install notes"
+      },
+      {
+        "text": "A short bug-fix window after delivery"
+      }
+    ],
+    "provide": [
+      {
+        "text": "Your idea, characters and any reference pictures"
+      },
+      {
+        "text": "Whether it stays private or can be released publicly, with credit to you"
+      },
+      {
+        "text": "Your setup: PC, XV2 Patcher version, and whether you use Revamp"
+      }
+    ],
+    "excludes": [
+      {
+        "text": "Selling or reuploading official game files, ripped models or other modders’ work"
+      },
+      {
+        "text": "Paywalling someone else’s free mod"
+      },
+      {
+        "text": "Console versions, online-only or cheat content"
+      },
+      {
+        "text": "NSFW or hateful content"
+      }
+    ],
+    "facts": [
+      {
+        "label": "Turnaround",
+        "value": "Agreed per quest [to confirm]"
+      },
+      {
+        "label": "Revisions",
+        "value": "[to confirm] rounds of small changes"
+      },
+      {
+        "label": "Platform",
+        "value": "PC, XV2 Patcher"
+      },
+      {
+        "label": "Price",
+        "value": "Quoted individually after I review scope and licensing. No payment is taken through this site."
+      }
+    ]
+  },
+  "rules": "Fan-made work: you’re paying for my time and skills, not for Dragon Ball or Xenoverse assets. Every asset author gets credited, and I only use mods whose authors allow it. Not affiliated with Bandai Namco, Toei Animation or the Revamp team.",
+  "steps": [
+    {
+      "title": "Send your enquiry",
+      "text": "Fill in the form below. It writes the message for you to copy and send me on Discord."
+    },
+    {
+      "title": "I review scope and licensing",
+      "text": "I check what it needs, which assets it would use and whether their authors allow it. Then I tell you if I can build it and roughly how long it would take."
+    },
+    {
+      "title": "Nothing is booked or paid yet",
+      "text": "Commissions aren’t open. No booking is made and no payment is taken through this site."
+    }
+  ],
+  "button_label": "Open Discord to send it",
+  "button_url": "https://dsc.gg/xenotimepatrol",
+  "button_note": "Opens the Xeno Time Patrol Discord. Paste your enquiry in a direct message to Xeno Trunks. Never send passwords or payment details.",
+  "form": {
+    "enabled": true,
+    "title": "Send an enquiry",
+    "intro": "Takes about two minutes. Nothing is sent from this page: it writes your enquiry so you can copy it and send it to me yourself.",
+    "contact_email": "",
+    "email_label": "Email it instead",
+    "copy_label": "Copy enquiry",
+    "agree_text": "I understand this is fan-made work. No official game files, ripped models or other modders’ work will be sold, and nothing is booked or paid yet."
+  },
+  "time_note": {
+    "title": "Why custom work takes time",
+    "text": "A custom quest isn’t a quick edit. Each one is scripted by hand, then debugged, tested and revised, often with a lot of trial and error, until it plays right. Timeframes are agreed per project once I’ve reviewed the scope."
+  },
+  "portfolio": {
+    "enabled": true,
+    "kicker": "Portfolio",
+    "title": "Past commission work",
+    "intro": "Quests I’ve built for clients, shown as examples of my work. Client projects aren’t distributed here. A file is only shared if the client has agreed to a public release.",
+    "items": [
+      {
+        "title": "Banana Blitz Showdown",
+        "client": "YouTuber Simply Platano",
+        "role": "Commissioned 1v1 Parallel Quest: quest design, scripting, the Complex Banana boss in 3 forms (Base, SSG and SSB) and testing. Trailer on my channel.",
+        "year": "2024",
+        "trailer_url": "https://www.youtube.com/watch?v=xTJidaa_GkE",
+        "status": "confirmed",
+        "hidden": false
+      },
+      {
+        "title": "Goku Day Pack: Goku’s Blazing Spirit Duo Duel",
+        "client": "BlazingSpirit (YouTuber)",
+        "role": "2v1 online Parallel Quest: quest design, scripting and testing.",
+        "year": "2024",
+        "trailer_url": "https://www.youtube.com/watch?v=BLg2lDzucoc",
+        "status": "to_confirm",
+        "hidden": false
+      },
+      {
+        "title": "itsErichDUH’s Corruption Crisis!",
+        "client": "YouTuber itsErichDUH",
+        "role": "1v1 Parallel Quest: quest design, scripting and testing.",
+        "year": "2024",
+        "trailer_url": "https://www.youtube.com/watch?v=VCiOIS7yiaE",
+        "status": "to_confirm",
+        "hidden": false
+      }
+    ]
+  }
+}

@@ -4,14 +4,24 @@
   var menu = document.getElementById("menu");
   var nav = document.getElementById("navigation");
   if (menu && nav) {
-    function setOpen(open) {
+    function setOpen(open, focusBack) {
       nav.classList.toggle("open", open);
       menu.setAttribute("aria-expanded", String(open));
       menu.textContent = open ? "Close" : "Menu";
+      if (!open && focusBack) menu.focus();
     }
     menu.addEventListener("click", function () { setOpen(!nav.classList.contains("open")); });
     nav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () { setOpen(false); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("open")) setOpen(false, true);
+    });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("open") && !nav.contains(e.target) && !menu.contains(e.target)) setOpen(false);
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 820 && nav.classList.contains("open")) setOpen(false);
     });
   }
 
@@ -84,6 +94,23 @@
     if (!href) return "";
     return '<a href="' + esc(href) + '" target="_blank" rel="noopener noreferrer">' + esc(label || "Source") + " ↗</a>";
   }
+  // Internal links (#section) open in the same tab; external links open in a new tab.
+  function linkAttrs(u) {
+    u = safeUrl(u);
+    if (!u) return "";
+    if (u.charAt(0) === "#") return 'href="' + esc(u) + '"';
+    return 'href="' + esc(u) + '" target="_blank" rel="noopener noreferrer"';
+  }
+  // Escape text, then show "[to confirm]" markers as a visible tag (for preview review).
+  function txt(s) {
+    return esc(s).replace(/\[to confirm\]/gi, '<mark class="tbc">to confirm</mark>');
+  }
+  function ticks(items, cls) {
+    if (!items || !items.length) return "";
+    return '<ul class="ticks' + (cls ? " " + cls : "") + '">' + items.map(function (i) {
+      return "<li>" + txt(typeof i === "string" ? i : i.text) + "</li>";
+    }).join("") + "</ul>";
+  }
   function setText(id, value, html) {
     var el = document.getElementById(id);
     if (!el || value == null || value === "") return el;
@@ -115,7 +142,12 @@
     }
     if (s.nav_cta && s.nav_cta.url) {
       var cta = document.getElementById("nav-cta");
-      if (cta) { cta.href = s.nav_cta.url; cta.textContent = s.nav_cta.label || "Join Discord"; }
+      if (cta) {
+        cta.href = safeUrl(s.nav_cta.url) || "#hire";
+        cta.textContent = s.nav_cta.label || "Work with me";
+        if (cta.getAttribute("href").charAt(0) === "#") { cta.removeAttribute("target"); cta.removeAttribute("rel"); }
+        else { cta.target = "_blank"; cta.rel = "noopener noreferrer"; }
+      }
     }
     setImg("hero-image", hero.image, hero.image_alt);
     setText("hero-kicker", hero.kicker);
@@ -128,7 +160,7 @@
       if (actions) {
         actions.innerHTML = hero.buttons.map(function (b) {
           var cls = b.style === "outline" ? "btn outline" : "btn";
-          return '<a class="' + cls + '" href="' + esc(safeUrl(b.url)) + '" target="_blank" rel="noopener noreferrer">' + esc(b.label) + "</a>";
+          return '<a class="' + cls + '" ' + linkAttrs(b.url) + ">" + esc(b.label) + "</a>";
         }).join("");
       }
     }
@@ -149,8 +181,18 @@
         if (p.enabled && p.url) {
           btn = '<a class="btn" href="' + esc(safeUrl(p.url)) + '" target="_blank" rel="noopener noreferrer">' + esc(p.button_label || "Join the Patreon") + "</a>";
         }
-        copy.innerHTML = '<p class="kicker">' + esc(p.kicker || "") + "</p><h2>" + esc(p.title || "Patreon.") + "</h2><p>" + esc(p.text || "") + "</p>" + btn;
+        copy.innerHTML = '<p class="kicker">' + esc(p.kicker || "") + "</p><h2>" + esc(p.title || "Patreon.") + "</h2><p>" + txt(p.text || "") + "</p>" + (p.tiers && p.tiers.length ? "" : btn);
       }
+      var tiersEl = document.getElementById("patreon-tiers");
+      if (tiersEl) {
+        tiersEl.innerHTML = (p.tiers || []).filter(function (t) { return t && !t.hidden; }).map(function (t) {
+          return '<article class="tier' + (t.note && /popular/i.test(t.note) ? " hot" : "") + '">' + (t.note ? '<span class="tnote">' + txt(t.note) + "</span>" : "") + "<h3>" + esc(t.name) + '</h3><p class="price">' + txt(t.price || "") + "</p>" + ticks((t.perks || []).filter(function (k) { return k && k.verified !== false; })) + "</article>";
+        }).join("");
+      }
+      var notesEl = document.getElementById("patreon-notes");
+      if (notesEl) notesEl.innerHTML = [p.free_note, p.price_note].filter(Boolean).map(txt).join(" ");
+      var pcta = document.getElementById("patreon-cta");
+      if (pcta) pcta.innerHTML = p.tiers && p.tiers.length ? btn : "";
     }
     if (s.paypal) {
       var pay = s.paypal;
@@ -167,10 +209,23 @@
           text = pay.live_text || text;
           payBtn = '<a class="btn" href="' + esc(payUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(pay.live_button_label || "Support Xeno Trunks on PayPal") + "</a>";
         } else {
-          payBtn = '<span class="btn outline" aria-disabled="true">' + esc(pay.button_label || "Coming soon") + "</span>";
+          payBtn = "";
         }
-        box.innerHTML = '<p class="kicker">' + esc(pay.kicker || "PayPal") + "</p><h3>" + esc(title) + "</h3><p>" + esc(text) + "</p>" + payBtn;
+        if (payOk) {
+          box.className = "paypal-soon";
+          box.innerHTML = '<p class="kicker">' + esc(pay.kicker || "PayPal") + "</p><h3>" + esc(title) + "</h3><p>" + esc(text) + "</p>" + payBtn;
+        } else {
+          // Disabled: one short text line, no button and no link.
+          box.className = "paypal-off";
+          box.innerHTML = "<p><b>" + esc(pay.kicker || "PayPal") + ":</b> " + esc(text) + "</p>";
+        }
       }
+    }
+    if (s.about) {
+      var a = s.about;
+      setImg("about-image", a.image, a.image_alt);
+      var ac = document.getElementById("about-copy");
+      if (ac) ac.innerHTML = '<p class="kicker">' + esc(a.kicker || "") + "</p><h2>" + esc(a.title || "") + "</h2><p>" + txt(a.text || "") + "</p>" + ticks(a.points);
     }
     if (s.community) {
       var ch = document.getElementById("community-heading");
@@ -204,7 +259,8 @@
       var root = document.getElementById("socials-root");
       if (root) {
         root.innerHTML = s.socials.map(function (item) {
-          return '<a class="social" href="' + esc(safeUrl(item.url)) + '" target="_blank" rel="noopener noreferrer"><span>' + esc(item.name) + "<small>" + esc(item.handle || "") + '</small></span><span class="arr" aria-hidden="true">↗</span></a>';
+          if (item.hidden || !safeUrl(item.url)) return "";
+          return "<li><a " + linkAttrs(item.url) + ">" + esc(item.name) + "</a></li>";
         }).join("");
       }
     }
@@ -230,6 +286,11 @@
   function renderNews(data) {
     var root = document.getElementById("news-root");
     if (!root || !data || !data.items) return;
+    var nh = document.getElementById("news-heading");
+    if (nh && (data.title || data.kicker)) {
+      nh.innerHTML = '<p class="kicker">' + esc(data.kicker || "") + "</p><h2>" + esc(data.title || "") + "</h2>" + (data.intro ? "<p>" + esc(data.intro) + "</p>" : "");
+    }
+    var showImages = data.show_images === true;
     var now = new Date();
     var groups = { live: [], upcoming: [], recent: [], announcement: [] };
     var labels = { live: "Live now", upcoming: "Upcoming", recent: "Past events", announcement: "Announcements" };
@@ -254,7 +315,7 @@
         if (item.weeks_note) weeks += '<p style="margin-top:8px;font-size:0.88rem">' + esc(item.weeks_note) + "</p>";
       }
       var src = extLink(item.source_url, item.source_label || "Source");
-      var img = mediaPath(item.image);
+      var img = showImages ? mediaPath(item.image) : "";
       var media = "";
       if (img) {
         media = '<figure class="news-media"><img src="' + esc(img) + '" alt="' + esc(item.image_alt || "") + '" width="1600" height="900" loading="lazy" decoding="async">' +
@@ -428,8 +489,258 @@
           return "<li>" + (u.date ? "<b>" + esc(u.date) + "</b> — " : "") + esc(u.text || "") + "</li>";
         }).join("") + "</ul>";
       }
-      actions.innerHTML = extra + actionBtn(data.trailer_url, data.trailer_label || "Trailer — coming when released") + actionBtn(data.download_url, data.download_label || "Download — coming when released");
+      var links = (data.links || []).filter(function (l) { return l && safeUrl(l.url); }).map(function (l, i) {
+        return '<a class="btn' + (i ? " outline" : "") + '" ' + linkAttrs(l.url) + ">" + esc(l.label || "Open") + "</a>";
+      }).join("");
+      var later = "";
+      if (safeUrl(data.trailer_url)) links += actionBtn(data.trailer_url, data.trailer_label || "Watch the 2.0 trailer");
+      if (safeUrl(data.download_url)) links += actionBtn(data.download_url, data.download_label || "Download 2.0");
+      else if (data.coming_note) later = '<p class="coming-note">' + esc(data.coming_note) + "</p>";
+      actions.innerHTML = extra + links + later;
     }
+  }
+
+  function renderWork(data) {
+    var root = document.getElementById("work-root");
+    if (!root || !data) return;
+    var head = document.getElementById("work-heading");
+    if (head && data.title) head.innerHTML = '<p class="kicker">' + esc(data.kicker || "") + "</p><h2>" + esc(data.title) + "</h2>" + (data.intro ? "<p>" + txt(data.intro) + "</p>" : "") + (data.download_note ? '<p class="free-note">' + txt(data.download_note) + "</p>" : "") + (data.future_note ? '<p class="future-note">' + txt(data.future_note) + "</p>" : "");
+    root.innerHTML = (data.items || []).filter(function (w) { return w && !w.hidden && w.title; }).map(function (w) {
+      var links = [];
+      // Only real, checked links render. An empty URL hides the button (no dead or guessed links).
+      // show_download: false hides the download (e.g. a client project that isn't cleared for public release).
+      var dl = w.show_download !== false && safeUrl(w.download_url);
+      if (dl) links.push('<a class="work-dl" ' + linkAttrs(w.download_url) + ' aria-label="Free download: ' + esc(w.title) + (w.download_host ? " (" + esc(w.download_host) + ")" : "") + ', opens in a new tab">Free download ↗</a>');
+      if (safeUrl(w.trailer_url)) links.push('<a class="work-tr" ' + linkAttrs(w.trailer_url) + ' aria-label="Trailer: ' + esc(w.title) + ', opens YouTube">▶ Trailer</a>');
+      var img = mediaPath(w.image);
+      var tile = img
+        ? '<div class="work-tile" style="padding:0"><img src="' + esc(img) + '" alt="' + esc(w.image_alt || "") + '" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>'
+        : '<div class="work-tile" aria-hidden="true"><span class="wt-type">' + esc(w.type || "") + '</span><span class="wt-year">' + esc(w.year || "") + "</span></div>";
+      var meta = [];
+      if (img && w.type) meta.push(esc(w.type));
+      if (img && w.year) meta.push(esc(w.year));
+      if (w.version) meta.push("v" + esc(String(w.version).replace(/^v/i, "")));
+      if (w.commission === true) meta.unshift("Commission");
+      var tags = '<p class="work-meta">' + (dl ? '<span class="free-tag">Free</span>' : "") + meta.map(function (m) { return "<span>" + m + "</span>"; }).join("") + "</p>";
+      return '<article class="work-card">' + tile + '<div class="work-body">' + tags + "<h3>" + esc(w.title) + "</h3>" + (w.summary ? "<p>" + txt(w.summary) + "</p>" : "") +
+        (w.requirements ? '<p class="req"><b>Needs:</b> ' + txt(w.requirements) + "</p>" : "") +
+        (w.credit ? '<p class="credit">' + txt(w.credit) + "</p>" : "") +
+        (links.length ? '<div class="work-links">' + links.join("") + "</div>" : "") +
+        (dl && w.download_host ? '<p class="host">Hosted on ' + esc(w.download_host) + "</p>" : "") + "</div></article>";
+    }).join("");
+  }
+
+  // Portfolio of past commission work. Only entries with status "confirmed" (and not hidden) are shown.
+  // Never renders a download link: title, client, role, year and trailer only.
+  function portfolioHtml(pf) {
+    if (!pf || pf.enabled === false) return "";
+    var items = (pf.items || []).filter(function (it) { return it && it.title && !it.hidden && it.status === "confirmed"; });
+    if (!items.length) return "";
+    return '<div class="portfolio" id="portfolio"><p class="kicker" style="margin:0 0 6px">' + esc(pf.kicker || "Portfolio") + "</p><h3>" + esc(pf.title || "Past commission work") + "</h3>" + (pf.intro ? '<p class="pf-intro">' + txt(pf.intro) + "</p>" : "") +
+      '<div class="work-grid pf-grid">' + items.map(function (it) {
+        var tr = safeUrl(it.trailer_url);
+        return '<article class="work-card"><div class="work-body"><p class="work-meta"><span>Commission</span>' + (it.year ? "<span>" + esc(it.year) + "</span>" : "") + "</p><h3>" + esc(it.title) + "</h3>" +
+          (it.client ? '<p class="credit">For ' + esc(it.client) + "</p>" : "") + (it.role ? "<p>" + txt(it.role) + "</p>" : "") +
+          (tr ? '<div class="work-links"><a class="work-tr" ' + linkAttrs(tr) + ' aria-label="Trailer: ' + esc(it.title) + ', opens YouTube">▶ Trailer</a></div>' : "") + "</div></article>";
+      }).join("") + "</div></div>";
+  }
+
+  // "Coming later" digital products teaser. No products, prices or buy buttons are rendered.
+  function renderProducts(data) {
+    var sec = document.getElementById("products");
+    if (!sec) return;
+    if (!data || data.enabled === false) { sec.hidden = true; return; }
+    var root = document.getElementById("products-root");
+    if (root) root.innerHTML = '<p class="kicker">' + esc(data.kicker || "Coming later") + "</p><h2>" + esc(data.title || "") + "</h2>" + (data.intro ? "<p>" + txt(data.intro) + "</p>" : "") + (data.rights_note ? '<p class="rights-note">' + txt(data.rights_note) + "</p>" : "");
+    sec.hidden = false;
+  }
+
+  function renderHire(data) {
+    var root = document.getElementById("hire-root");
+    if (!root || !data) return;
+    var head = document.getElementById("hire-heading");
+    if (head) head.innerHTML = '<p class="kicker">' + esc(data.kicker || "Commissions") + "</p><h2>" + esc(data.title || "") + "</h2>" + (data.status ? '<p class="status-pill">' + txt(data.status) + "</p>" : "") + (data.intro ? "<p>" + txt(data.intro) + "</p>" : "");
+    var sv = data.service || {};
+    var facts = (sv.facts || []).map(function (f) { return "<div><dt>" + esc(f.label) + "</dt><dd>" + txt(f.value) + "</dd></div>"; }).join("");
+    var steps = (data.steps || []).map(function (st) { return "<li><h4>" + esc(st.title) + "</h4><p>" + txt(st.text) + "</p></li>"; }).join("");
+    var f = data.form || {};
+    var discordUrl = safeUrl(data.button_url);
+    // Optional email button: only when a valid address is set in the CMS (content/hire.json → form.contact_email). Empty by default.
+    var email = String(f.contact_email || "").trim();
+    if (!/^[^\s@<>"]+@[^\s@<>"]+\.[a-z]{2,}$/i.test(email)) email = "";
+    var formHtml = "";
+    if (f.enabled !== false) {
+      formHtml = '<div class="enquiry" id="enquiry">' +
+        '<h3 class="enq-title">' + esc(f.title || "Send an enquiry") + "</h3>" + (f.intro ? '<p class="enq-intro">' + txt(f.intro) + "</p>" : "") +
+        '<form id="enquiry-form" novalidate>' +
+        '<div class="fgrid">' +
+          field("enq-name", "Your name or handle", '<input id="enq-name" name="name" type="text" autocomplete="nickname" maxlength="80" required>', true) +
+          field("enq-method", "Best way to reach you", '<select id="enq-method" name="method" required><option value="Discord">Discord</option><option value="Email">Email</option><option value="X (Twitter)">X (Twitter)</option><option value="Other">Other</option></select>', true) +
+          field("enq-contact", "Your Discord username or email", '<input id="enq-contact" name="contact" type="text" autocomplete="off" maxlength="120" required>', true, "So I know who to reply to, e.g. yourname on Discord.") +
+          field("enq-platform", "Platform", '<select id="enq-platform" name="platform" required><option value="PC (XV2 Patcher)">PC (XV2 Patcher)</option><option value="PC, not sure about the patcher">PC, not sure about the patcher</option></select>', true, "Quests need the PC version. Console isn’t supported.") +
+        "</div>" +
+        field("enq-idea", "Your quest idea", '<textarea id="enq-idea" name="idea" rows="5" maxlength="1500" required></textarea>', true, "The what-if, the fight, how it should end. A few sentences is fine.") +
+        '<div class="fgrid">' +
+          field("enq-chars", "Characters", '<input id="enq-chars" name="characters" type="text" maxlength="200">', false, "Game characters, your CaC, or free mods.") +
+          field("enq-release", "Release", '<select id="enq-release" name="release"><option value="Not sure yet">Not sure yet</option><option value="Private, just for me">Private, just for me</option><option value="Public release, with credit to me">Public release, with credit to me</option></select>', false) +
+          field("enq-deadline", "Deadline", '<input id="enq-deadline" name="deadline" type="text" maxlength="80" placeholder="No rush">', false) +
+          field("enq-budget", "Budget", '<input id="enq-budget" name="budget" type="text" maxlength="80" placeholder="To discuss">', false, "Optional. Nothing is paid now.") +
+        "</div>" +
+        '<div class="fcheck"><input id="enq-agree" name="agree" type="checkbox" required aria-describedby="enq-agree-err"><label for="enq-agree">' + txt(f.agree_text || "I understand the IP and modding rules, and that nothing is booked or paid yet.") + ' <span class="req-star" aria-hidden="true">*</span></label><p class="ferr" id="enq-agree-err" hidden></p></div>' +
+        '<p class="fnote"><span aria-hidden="true">*</span> Required. Please don’t include passwords or payment details.</p>' +
+        '<button class="btn" type="submit">Write my enquiry</button>' +
+        "</form>" +
+        '<div class="enq-out" id="enq-out" hidden>' +
+          '<label for="enq-message" class="flabel">Your enquiry (you can edit it before sending)</label>' +
+          '<textarea id="enq-message" rows="12" spellcheck="false"></textarea>' +
+          '<div class="enq-actions">' +
+            '<button class="btn" type="button" id="enq-copy">' + esc(f.copy_label || "Copy enquiry") + "</button>" +
+            (discordUrl ? '<a class="btn outline" id="enq-discord" href="' + esc(discordUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(data.button_label || "Open Discord to send it") + "</a>" : "") +
+            (email ? '<a class="btn outline" id="enq-email" href="mailto:' + esc(email) + '">' + esc(f.email_label || "Email it instead") + "</a>" : "") +
+          "</div>" +
+          '<p class="enq-status" id="enq-status" role="status" aria-live="polite"></p>' +
+          (data.button_note ? '<p class="fnote">' + txt(data.button_note) + "</p>" : "") +
+        "</div>" +
+      "</div>";
+    } else if (discordUrl) {
+      formHtml = '<div class="hire-cta"><a class="btn" ' + linkAttrs(discordUrl) + ">" + esc(data.button_label || "Send an enquiry") + "</a>" + (data.button_note ? "<small>" + txt(data.button_note) + "</small>" : "") + "</div>";
+    }
+    root.innerHTML = '<div class="service"><div class="service-head"><div><p class="kicker" style="margin:0 0 6px">The service</p><h3>' + esc(sv.name || "") + "</h3>" + (sv.tagline ? "<p>" + txt(sv.tagline) + "</p>" : "") + "</div></div>" +
+      '<div class="service-cols"><div><h4>What you get</h4>' + ticks(sv.includes) + "</div><div><h4>What you send me</h4>" + ticks(sv.provide) + '</div><div><h4>What I won’t do</h4>' + ticks(sv.excludes, "cross") + "</div></div>" +
+      (facts ? '<dl class="facts">' + facts + "</dl>" : "") +
+      (data.time_note && data.time_note.text ? '<div class="time-note">' + (data.time_note.title ? "<h4>" + esc(data.time_note.title) + "</h4>" : "") + "<p>" + txt(data.time_note.text) + "</p></div>" : "") + "</div>" +
+      portfolioHtml(data.portfolio) +
+      (steps ? '<h3 class="steps-title">How it works</h3><ol class="hire-steps">' + steps + "</ol>" : "") +
+      formHtml +
+      (data.rules ? '<p class="rules">' + txt(data.rules) + "</p>" : "");
+    if (f.enabled !== false) bindEnquiry(email);
+
+    function field(id, label, control, required, hint) {
+      return '<div class="field"><label class="flabel" for="' + id + '">' + esc(label) + (required ? ' <span class="req-star" aria-hidden="true">*</span>' : ' <span class="opt">(optional)</span>') + "</label>" +
+        (hint ? '<p class="fhint" id="' + id + '-hint">' + esc(hint) + "</p>" : "") +
+        control.replace(/^<(\w+) id="([^"]+)"/, function (m, tag, cid) {
+          return "<" + tag + ' id="' + cid + '" aria-describedby="' + (hint ? cid + "-hint " : "") + cid + '-err"';
+        }) +
+        '<p class="ferr" id="' + id + '-err" hidden></p></div>';
+    }
+  }
+
+  function bindEnquiry(email) {
+    var form = document.getElementById("enquiry-form");
+    if (!form) return;
+    var out = document.getElementById("enq-out");
+    var msg = document.getElementById("enq-message");
+    var status = document.getElementById("enq-status");
+    var copyBtn = document.getElementById("enq-copy");
+    var discord = document.getElementById("enq-discord");
+    var mail = document.getElementById("enq-email");
+    var method = document.getElementById("enq-method");
+    var contact = document.getElementById("enq-contact");
+    var contactLabel = form.querySelector('label[for="enq-contact"]');
+    function val(id) { var el = document.getElementById(id); return el ? String(el.value || "").trim() : ""; }
+    function updateContactLabel() {
+      var m = method.value;
+      var t = m === "Email" ? "Your email address" : m === "Discord" ? "Your Discord username" : m === "X (Twitter)" ? "Your X handle" : "How to reach you";
+      contactLabel.innerHTML = esc(t) + ' <span class="req-star" aria-hidden="true">*</span>';
+      contact.type = m === "Email" ? "email" : "text";
+      contact.autocomplete = m === "Email" ? "email" : "off";
+    }
+    method.addEventListener("change", updateContactLabel);
+    updateContactLabel();
+    function setErr(id, text) {
+      var el = document.getElementById(id);
+      var err = document.getElementById(id + "-err");
+      if (!el || !err) return;
+      if (text) { el.setAttribute("aria-invalid", "true"); err.textContent = text; err.hidden = false; }
+      else { el.removeAttribute("aria-invalid"); err.textContent = ""; err.hidden = true; }
+    }
+    function validate() {
+      var errs = [];
+      function check(id, ok, text) { setErr(id, ok ? "" : text); if (!ok) errs.push(id); }
+      check("enq-name", val("enq-name").length >= 2, "Add your name or handle.");
+      var c = val("enq-contact");
+      var cOk = c.length >= 2 && (method.value !== "Email" || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c));
+      check("enq-contact", cOk, method.value === "Email" ? "Add a valid email address." : "Add how I can reach you.");
+      check("enq-idea", val("enq-idea").length >= 20, "Tell me a bit more about your idea (at least 20 characters).");
+      check("enq-agree", document.getElementById("enq-agree").checked, "Please tick to confirm you understand the rules.");
+      return errs;
+    }
+    form.querySelectorAll("input, textarea, select").forEach(function (el) {
+      el.addEventListener("input", function () { if (el.getAttribute("aria-invalid")) validate(); });
+      el.addEventListener("change", function () { if (el.getAttribute("aria-invalid")) validate(); });
+    });
+    function build() {
+      var lines = [
+        "Commission enquiry for Xeno Trunks (Custom Parallel Quest)",
+        "",
+        "Name / handle: " + val("enq-name"),
+        "Contact: " + method.value + ", " + val("enq-contact"),
+        "Platform: " + val("enq-platform"),
+        "",
+        "Quest idea:",
+        val("enq-idea"),
+        "",
+        "Characters: " + (val("enq-chars") || "Not specified"),
+        "Release: " + val("enq-release"),
+        "Deadline: " + (val("enq-deadline") || "No rush"),
+        "Budget: " + (val("enq-budget") || "To discuss"),
+        "",
+        "I understand this is fan-made work, no official game files, ripped models or other modders’ work will be sold, and nothing is booked or paid yet.",
+        "(Sent from the enquiry form on Xeno Trunks HQ)"
+      ];
+      return lines.join("\n");
+    }
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var errs = validate();
+      if (errs.length) {
+        var first = document.getElementById(errs[0]);
+        if (first) first.focus();
+        return;
+      }
+      msg.value = build();
+      out.hidden = false;
+      status.textContent = "Your enquiry is ready. Copy it, then send it to me on Discord.";
+      status.className = "enq-status";
+      if (copyBtn) copyBtn.textContent = copyBtn.getAttribute("data-label") || copyBtn.textContent;
+      if (mail) mail.href = "mailto:" + email + "?subject=" + encodeURIComponent("Commission enquiry: " + val("enq-name")) + "&body=" + encodeURIComponent(msg.value);
+      out.scrollIntoView({ behavior: "smooth", block: "start" });
+      msg.focus({ preventScroll: true });
+    });
+    msg.addEventListener("input", function () {
+      if (mail) mail.href = "mailto:" + email + "?subject=" + encodeURIComponent("Commission enquiry: " + val("enq-name")) + "&body=" + encodeURIComponent(msg.value);
+    });
+    function legacyCopy(text) {
+      msg.focus(); msg.select();
+      try { return document.execCommand("copy"); } catch (err) { return false; }
+    }
+    function copy(after) {
+      var text = msg.value;
+      var done = function (ok) {
+        if (ok) {
+          copyBtn.textContent = "Copied ✓";
+          copyBtn.classList.add("copied");
+          status.textContent = after || "Copied. Now open Discord and paste it in a direct message to Xeno Trunks.";
+          status.className = "enq-status ok";
+        } else {
+          status.textContent = "Couldn’t copy automatically. Select the text above and copy it yourself.";
+          status.className = "enq-status warn";
+          msg.focus(); msg.select();
+        }
+        setTimeout(function () { copyBtn.textContent = copyBtn.getAttribute("data-label"); copyBtn.classList.remove("copied"); }, 4000);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(legacyCopy(text)); });
+      } else {
+        done(legacyCopy(text));
+      }
+    }
+    if (copyBtn) {
+      copyBtn.setAttribute("data-label", copyBtn.textContent);
+      copyBtn.addEventListener("click", function () { copy(); });
+    }
+    // Opening Discord also copies the enquiry, so it's ready to paste.
+    if (discord) discord.addEventListener("click", function () { copy("Copied and opening Discord. Paste it in a direct message to Xeno Trunks."); });
   }
 
   function loadJSON(path, fallback) {
@@ -445,13 +756,19 @@
     loadJSON("content/videos.json", fb.videos || null),
     loadJSON("content/videos-auto.json", fb.videos_auto || window.YT_FALLBACK || null),
     loadJSON("content/mods.json", fb.mods || null),
-    loadJSON("content/fn.json", fb.fn || null)
+    loadJSON("content/fn.json", fb.fn || null),
+    loadJSON("content/work.json", fb.work || null),
+    loadJSON("content/hire.json", fb.hire || null),
+    loadJSON("content/products.json", fb.products || null)
   ]).then(function (all) {
     applySettings(all[0]);
     renderNews(all[1]);
     renderVideos(all[2], all[3]);
     renderMods(all[4]);
     renderFn(all[5]);
+    renderWork(all[6]);
+    renderHire(all[7]);
+    renderProducts(all[8]);
   });
   }
   // Online, content comes from content/*.json. When the page is opened as a local file

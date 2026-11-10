@@ -45,3 +45,38 @@ The v2 design, palette, typography, custom Xeno Trunks artwork and section layou
 - **PayPal** is still inactive. It is now a CMS toggle (`paypal.enabled`). While that flag is off, no payment link is rendered, even if a URL is stored.
 - **GitHub Action prepared but disabled:** `.github/workflows/refresh-youtube.yml` is `workflow_dispatch` only. The daily schedule is commented out. No secrets are required. It was not enabled.
 - Docs added/updated: `PUBLISHING.md`, `MAINTAINING.md`, `content/README.md`, this file and `MISSING.md`.
+
+## Update 3 (PREVIEW ONLY, 10 Nov 2026) — creator homepage restructure
+
+Not live. Needs Xeno Trunks' approval before merging preview → main.
+
+- Homepage reordered around Xeno Trunks as a creator: hero → Frieza's Nightmare (featured) → My quests (new `content/work.json`) → About → Commissions (new `content/hire.json`, enquiries only) → Patreon ranks → Mod Trailers → Community → Xenoverse 2 news (text-only, compact) → footer.
+- Frieza's Nightmare now uses his own gameplay still `assets/fn-turles-slug.jpg` instead of the official trailer thumbnail; buttons for the free 1.7 trailer and download.
+- Commissions: one service (Custom Parallel Quest). No prices, no booking, no payment. Status line "Enquiries only. Not yet open for bookings." Items marked [to confirm] show as a pink tag until decided.
+- Patreon: rank cards copied from the 16 Oct 2026 tier copy (A$5 / A$10 / A$22). Must be re-checked against the live Patreon page before going live.
+- Socials: the 8 big link tiles are gone; one compact Follow row in the footer. Hero/nav no longer push Discord first.
+- News: moved to the bottom, images off (`news.json → show_images: false`).
+- PayPal unchanged and still disabled.
+- `.pages.yml`: new "My quests" and "Commissions" collections; About, Patreon ranks, news heading and FN buttons are editable.
+
+## Update 4 (PREVIEW ONLY, 10 Nov 2026) — functional pass (no redesign)
+
+Not live. Needs Xeno Trunks' approval before merging preview → main. Layout and look of the approved "Rewrite the timeline" homepage are unchanged.
+
+- **My quests:** every card now shows type, year, version, a short description taken from his own trailer descriptions/mod pages, "Needs" (game update) only where the download page states it, and existing credits. Each card has one **Free download** button (his own VGM mod pages, all HTTP 200 on 10 Nov 2026; Heroes Marvellous Show points to BBVenom's Ascended Warriors VGM page, which is the link in the trailer description) and one **Trailer** link (YouTube oEmbed OK, author Xeno Trunks). Downloads no longer point at Patreon, so no free quest sits behind Patreon wording, and the Nameless Namekian shop listing isn't linked anywhere. New CMS fields: `version`, `requirements`, `download_host`, `download_note`.
+- **Work with me:** a working enquiry form (name/handle, contact method + detail, platform, idea, characters, release, deadline, budget "to discuss", rules checkbox). It validates, writes a formatted enquiry, and offers **Copy enquiry** (clipboard with a "Copied ✓" state, plus a manual-copy fallback) and **Open Discord to send it** (also copies). An **Email it instead** button appears only if `content/hire.json → form.contact_email` is filled in (empty by default). Nothing is sent from the site, there's no backend, and no price, booking or payment. 3-step "How it works".
+- **Clutter:** removed the 2 disabled "coming when released" buttons on Frieza's Nightmare (now one text line, `fn.json → coming_note`), the disabled PayPal "Coming soon" button (now one text line), the duplicate "Commissions" nav link (the "Work with me" button stays) and the duplicate personal Facebook profile in the footer (`hidden: true`, can be switched back on in the CMS).
+- **Phone:** section headings no longer sit under the sticky header (`scroll-margin-top`), the mobile menu also closes with Escape / tapping outside, tap targets are ≥ 44 px, small paragraph text is ≥ 16 px, form is single-column, no sideways scroll at 360 px.
+- **Payments:** PayPal still `enabled: false`; no prices or booking added.
+
+## Update 5 (PREVIEW ONLY, 10 Nov 2026) — creator business wording
+
+Not live. Needs Xeno Trunks' approval before merging preview → main. Design unchanged; no prices added, no release dates, no payments (PayPal still `enabled: false`), no booking.
+
+- **Released vs future quests:** My quests now says "Released quests: free to download for now", plus a line that future projects aren't promised as free releases and availability/distribution is decided per project (`work.json → download_note`, new `future_note`). Removed "Every quest I've released so far is free", "Every released quest stays a free download for everyone", "Every one is a free download", "Fan-made and free to play" and "Mods are fan-made and free to play". Frieza's Nightmare: "How 2.0 will be released is still being decided"; the default 2.0 button label is no longer "Download 2.0 free".
+- **Commissions:** described as a paid service, quoted individually after reviewing scope and licensing/IP requirements. New "Why custom work takes time" note (`hire.json → time_note`). Step 2 is now "I review scope and licensing". Enquiry form option "Free public release" → "Public release, with credit to me". Still "Enquiries only. Not yet open for bookings."
+- **Portfolio:** new "Past commission work" block inside Work with me (`hire.json → portfolio`). Shows title, client, what I did, year and trailer only; it never renders a download link. Only entries with `status: confirmed` show. Banana Blitz Showdown (commission for Simply Platano) is confirmed. Goku Day Pack and Corruption Crisis are `to_confirm` (hidden).
+- **Quest cards:** new CMS flags `commission` (adds a Commission tag) and `show_download` (off hides the download button and Free tag). All current quests keep their downloads (`show_download: true`); only Banana Blitz has `commission: true`.
+- **Patreon:** reworded as support for ongoing development. Perk wording no longer implies future public/free releases. Each perk has a `verified` flag; unverified perks are hidden publicly. Hero Society "1 small mod request a month" is `verified: false` (hidden) until checked against the live Patreon page.
+- **Digital products:** new "Coming later" teaser section (`content/products.json`, toggle `enabled`) for original guides and scripting resources. No products, prices or buy buttons. Not in the nav.
+- `.pages.yml`: new fields above + new "Digital products (coming later)" collection. `scripts/build-fallback.py` includes `products`.

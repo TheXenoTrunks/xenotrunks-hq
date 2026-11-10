@@ -1,30 +1,30 @@
 {
   "site": {
     "name": "Xeno Trunks",
-    "tagline": "Time Patrol",
-    "title": "Xeno Trunks | Xeno Time Patrol — Community HQ",
-    "description": "Independent Xenoverse 2 fan community from Xeno Trunks. Raid alerts, mods, install guides, Frieza’s Nightmare and the Time Patrol Discord.",
+    "tagline": "Custom quests · Xenoverse 2",
+    "title": "Xeno Trunks | Custom Xenoverse 2 quests, scripting & cinematics",
+    "description": "Xeno Trunks makes custom Parallel Quests for Dragon Ball Xenoverse 2: what-if stories, scripted boss fights and cutscenes. Home of Frieza’s Nightmare. Independent fan creator.",
     "canonical": "https://thexenotrunks.github.io/xenotrunks-hq/",
     "og_image": "assets/og-image.jpg",
     "logo": "assets/logo-tp-sm.png",
     "favicon": "assets/favicon-32.png"
   },
   "hero": {
-    "kicker": "Xeno Time Patrol · Community HQ",
-    "headline": "Protect the",
-    "headline_accent": "timeline.",
-    "intro": "Join the Time Patrol. Raid alerts, Xenoverse 2 mods, install guides and custom quests from Xeno Trunks, plus a community of Time Patrollers.",
+    "kicker": "Custom quest creator · Mod scripter · Cinematic storyteller",
+    "headline": "Rewrite",
+    "headline_accent": "the timeline.",
+    "intro": "I’m Xeno Trunks. I build custom Parallel Quests for Xenoverse 2: what-if stories, boss fights and cutscenes, scripted by hand and tested on my own setup. My released quests are free to download for now, and Frieza’s Nightmare 2.0 is in development.",
     "image": "assets/hero-xeno-trunks.jpg",
     "image_alt": "Xeno Trunks (custom character) in Xenoverse 2: long lavender hair, scar and beard, purple Time Patrol armour with a green undersuit, and a sword on his back.",
     "buttons": [
       {
-        "label": "Join Discord",
-        "url": "https://dsc.gg/xenotimepatrol",
+        "label": "See my quests",
+        "url": "#work",
         "style": "primary"
       },
       {
-        "label": "Watch on YouTube",
-        "url": "https://www.youtube.com/@Xeno_Trunks",
+        "label": "Work with me",
+        "url": "#hire",
         "style": "outline"
       }
     ]
@@ -32,40 +32,105 @@
   "ticker": [
     {
       "number": "01",
-      "label": "Xenoverse 2"
+      "label": "Custom Parallel Quests"
     },
     {
       "number": "02",
-      "label": "Raid alerts & events"
+      "label": "Quest scripting"
     },
     {
       "number": "03",
-      "label": "Mods & custom quests"
+      "label": "Cutscenes & trailers"
     },
     {
       "number": "04",
-      "label": "Time Patrol community"
+      "label": "PC · XV2 Patcher"
     }
   ],
   "nav_cta": {
-    "label": "Join Discord",
-    "url": "https://dsc.gg/xenotimepatrol"
+    "label": "Work with me",
+    "url": "#hire"
   },
   "patreon": {
     "enabled": true,
     "url": "https://www.patreon.com/XenoTrunks",
-    "kicker": "Support the workshop",
-    "title": "Patreon.",
-    "text": "Get early access, install guides and behind-the-scenes updates on new mods and quests from Xeno Trunks on Patreon.",
-    "button_label": "Join the Patreon",
+    "kicker": "Support the work",
+    "title": "Join the Patreon.",
+    "text": "Every custom quest takes weeks of scripting, debugging, testing and trial and error. Patreon supports that ongoing development work. Here’s what each rank gets.",
+    "button_label": "See the ranks on Patreon",
     "image": "assets/xeno-trunks-portrait.jpg",
-    "image_alt": "Illustrated portrait of Xeno Trunks (custom character)."
+    "image_alt": "Illustrated portrait of Xeno Trunks (custom character).",
+    "free_note": "My already released quests are free to download for now, with or without Patreon.",
+    "price_note": "Prices are in Australian dollars. Patreon may show the price in your own currency.",
+    "tiers": [
+      {
+        "name": "Time Patroller",
+        "price": "A$5 / month",
+        "note": "",
+        "perks": [
+          {
+            "text": "Selected Patreon releases tagged [Patroller]",
+            "verified": true
+          },
+          {
+            "text": "Patrol Logs: development updates and previews",
+            "verified": true
+          },
+          {
+            "text": "Time Patroller role in Discord",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "name": "Elite Time Patroller",
+        "price": "A$10 / month",
+        "note": "Most popular",
+        "perks": [
+          {
+            "text": "Every release in the Patreon members’ library",
+            "verified": true
+          },
+          {
+            "text": "Early access when a project is released to members first",
+            "verified": true
+          },
+          {
+            "text": "Polls: have a say in upcoming projects",
+            "verified": true
+          },
+          {
+            "text": "Patrol Logs and the Elite role in Discord",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "name": "Hero Society",
+        "price": "A$22 / month",
+        "note": "Only 5 spots",
+        "perks": [
+          {
+            "text": "Everything in Elite",
+            "verified": true
+          },
+          {
+            "text": "1 small mod request a month (about 1–2 hours of work)",
+            "verified": false
+          },
+          {
+            "text": "Your own numbered Hero Society role in Discord",
+            "verified": true
+          }
+        ]
+      }
+    ]
   },
   "paypal": {
     "enabled": false,
     "kicker": "PayPal",
     "title": "Support coming soon",
-    "text": "A PayPal option will be added here once the Business account is verified. There is no payment link yet.",
+    "text": "PayPal support will be added once the Business account is verified. There is no payment link yet.",
     "button_label": "Coming soon",
     "live_title": "Support Xeno Trunks",
     "live_text": "Help keep the mods, guides and Time Patrol events going with a one-off PayPal contribution.",
@@ -126,23 +191,45 @@
       "url": "https://dsc.gg/xenotimepatrol"
     },
     {
-      "name": "Facebook Page",
+      "name": "Facebook",
       "handle": "Xeno Time Patrol",
       "url": "https://www.facebook.com/profile.php?id=61595489698900"
     },
     {
       "name": "Facebook",
       "handle": "Xeno Trunks",
-      "url": "https://www.facebook.com/profile.php?id=61566764950511"
+      "url": "https://www.facebook.com/profile.php?id=61566764950511",
+      "hidden": true
     }
   ],
   "connect": {
-    "kicker": "Official channels",
+    "kicker": "Follow",
     "title": "Find Xeno Trunks.",
-    "intro": "Follow the existing channels for videos, updates and Time Patrol posts."
+    "intro": ""
   },
   "footer": {
-    "tagline": "Protect the timeline. Join the Time Patrol.",
-    "disclaimer": "Independent fan community. Not affiliated with or endorsed by Bandai Namco Entertainment, Toei Animation, Shueisha or other Dragon Ball rights holders. Dragon Ball and Xenoverse names and official game imagery belong to their respective owners. Official Xenoverse 2 imagery © Bandai Namco Entertainment. Character portraits of Xeno Trunks on this site are Xeno Trunks (custom character), except where a caption credits official Xenoverse 2 Festival artwork."
+    "tagline": "Custom quests for the Time Patrol.",
+    "disclaimer": "Independent fan creator. Not affiliated with or endorsed by Bandai Namco Entertainment, Toei Animation, Shueisha, Bird Studio or the Revamp team. Dragon Ball and Xenoverse names and official game imagery belong to their respective owners. Mods are fan-made. Paid work covers my time and skills and never includes selling official game assets or other modders’ work. Images of Xeno Trunks on this site are my own custom character."
+  },
+  "about": {
+    "kicker": "Who’s behind the quests",
+    "title": "Xeno Trunks.",
+    "text": "Not the Trunks you know. Mine’s a Time Patroller from a timeline you haven’t seen yet. Since 2022 I’ve been scripting custom Parallel Quests for Dragon Ball Xenoverse 2: what-if stories like Yamcha’s Resolve and Vegeta’s Humiliation, boss fights like Banana Blitz Showdown, collabs like The Heroes Marvellous Show with BBVenom, and quests built with other creators, like the Goku Day Pack with BlazingSpirit.",
+    "points": [
+      {
+        "text": "Quest design and scripting: stages, enemies, allies, dialogue, win and lose conditions."
+      },
+      {
+        "text": "Cinematic moments: transformations, mid-fight events and custom cutscenes."
+      },
+      {
+        "text": "Trailers and thumbnails for every release."
+      },
+      {
+        "text": "Fan-made, with every asset author credited."
+      }
+    ],
+    "image": "assets/uploads/7071-web.jpg",
+    "image_alt": "Xeno Trunks (custom character) drawing his sword beside the Xeno Time Patrol TP logo."
   }
 }
