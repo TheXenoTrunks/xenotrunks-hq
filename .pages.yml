@@ -640,9 +640,15 @@ content:
         type: string
         description: Leave blank until a real download is published.
       - name: trailer_label
+        label: 2.0 trailer button label (shown only once trailer_url is set)
         type: string
       - name: download_label
+        label: 2.0 download button label (shown only once download_url is set)
         type: string
+      - name: coming_note
+        label: Text line while 2.0 isn't released
+        type: string
+        description: Shown instead of buttons until download_url is filled in.
       - name: note
         type: string
 
@@ -660,6 +666,9 @@ content:
         type: string
       - name: intro
         type: text
+      - name: download_note
+        label: Free download note (green line under the heading)
+        type: string
       - name: items
         label: Quests
         type: object
@@ -676,8 +685,15 @@ content:
             type: string
           - name: year
             type: string
+          - name: version
+            label: Version (e.g. 1.1)
+            type: string
           - name: summary
             type: text
+          - name: requirements
+            label: Needs (game update / requirements)
+            type: string
+            description: Only what the download page says. Leave empty if not sure.
           - name: credit
             label: Credits (asset authors, collaborators)
             type: string
@@ -693,6 +709,10 @@ content:
             type: string
           - name: download_url
             label: Free download link
+            type: string
+            description: A free public download page only (no paid or members-only links). Leave empty to hide the button.
+          - name: download_host
+            label: Download site name (e.g. VGM)
             type: string
           - name: hidden
             type: boolean
@@ -765,9 +785,32 @@ content:
         label: IP and modding rules
         type: text
       - name: button_label
+        label: Discord button label
         type: string
       - name: button_url
-        label: Enquiry link (public link only, never an email password or payment link)
+        label: Discord link (public invite only, never a payment link)
         type: string
       - name: button_note
         type: text
+      - name: form
+        label: Enquiry form
+        type: object
+        fields:
+          - name: enabled
+            type: boolean
+            description: Off shows just the Discord button instead of the form.
+          - name: title
+            type: string
+          - name: intro
+            type: text
+          - name: contact_email
+            label: Contact email (optional)
+            type: string
+            description: Leave empty to hide the email button. If filled in, it is shown publicly. Never put a password here.
+          - name: email_label
+            type: string
+          - name: copy_label
+            type: string
+          - name: agree_text
+            label: Rules checkbox text
+            type: text

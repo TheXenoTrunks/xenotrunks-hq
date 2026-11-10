@@ -60,7 +60,7 @@
     "button_label": "See the ranks on Patreon",
     "image": "assets/xeno-trunks-portrait.jpg",
     "image_alt": "Illustrated portrait of Xeno Trunks (custom character).",
-    "free_note": "Free on Patreon: public posts, install guides and every released quest download.",
+    "free_note": "Every released quest stays a free download for everyone. Patreon is optional support.",
     "price_note": "Prices are in Australian dollars. Patreon may show the price in your own currency.",
     "tiers": [
       {
@@ -120,7 +120,7 @@
     "enabled": false,
     "kicker": "PayPal",
     "title": "Support coming soon",
-    "text": "A PayPal option will be added here once the Business account is verified. There is no payment link yet.",
+    "text": "PayPal support will be added once the Business account is verified. There is no payment link yet.",
     "button_label": "Coming soon",
     "live_title": "Support Xeno Trunks",
     "live_text": "Help keep the mods, guides and Time Patrol events going with a one-off PayPal contribution.",
@@ -181,14 +181,15 @@
       "url": "https://dsc.gg/xenotimepatrol"
     },
     {
-      "name": "Facebook Page",
+      "name": "Facebook",
       "handle": "Xeno Time Patrol",
       "url": "https://www.facebook.com/profile.php?id=61595489698900"
     },
     {
       "name": "Facebook",
       "handle": "Xeno Trunks",
-      "url": "https://www.facebook.com/profile.php?id=61566764950511"
+      "url": "https://www.facebook.com/profile.php?id=61566764950511",
+      "hidden": true
     }
   ],
   "connect": {

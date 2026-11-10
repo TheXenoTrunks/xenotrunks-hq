@@ -58,3 +58,13 @@ Not live. Needs Xeno Trunks' approval before merging preview → main.
 - News: moved to the bottom, images off (`news.json → show_images: false`).
 - PayPal unchanged and still disabled.
 - `.pages.yml`: new "My quests" and "Commissions" collections; About, Patreon ranks, news heading and FN buttons are editable.
+
+## Update 4 (PREVIEW ONLY, 10 Nov 2026) — functional pass (no redesign)
+
+Not live. Needs Xeno Trunks' approval before merging preview → main. Layout and look of the approved "Rewrite the timeline" homepage are unchanged.
+
+- **My quests:** every card now shows type, year, version, a short description taken from his own trailer descriptions/mod pages, "Needs" (game update) only where the download page states it, and existing credits. Each card has one **Free download** button (his own VGM mod pages, all HTTP 200 on 10 Nov 2026; Heroes Marvellous Show points to BBVenom's Ascended Warriors VGM page, which is the link in the trailer description) and one **Trailer** link (YouTube oEmbed OK, author Xeno Trunks). Downloads no longer point at Patreon, so no free quest sits behind Patreon wording, and the Nameless Namekian shop listing isn't linked anywhere. New CMS fields: `version`, `requirements`, `download_host`, `download_note`.
+- **Work with me:** a working enquiry form (name/handle, contact method + detail, platform, idea, characters, release, deadline, budget "to discuss", rules checkbox). It validates, writes a formatted enquiry, and offers **Copy enquiry** (clipboard with a "Copied ✓" state, plus a manual-copy fallback) and **Open Discord to send it** (also copies). An **Email it instead** button appears only if `content/hire.json → form.contact_email` is filled in (empty by default). Nothing is sent from the site, there's no backend, and no price, booking or payment. 3-step "How it works".
+- **Clutter:** removed the 2 disabled "coming when released" buttons on Frieza's Nightmare (now one text line, `fn.json → coming_note`), the disabled PayPal "Coming soon" button (now one text line), the duplicate "Commissions" nav link (the "Work with me" button stays) and the duplicate personal Facebook profile in the footer (`hidden: true`, can be switched back on in the CMS).
+- **Phone:** section headings no longer sit under the sticky header (`scroll-margin-top`), the mobile menu also closes with Escape / tapping outside, tap targets are ≥ 44 px, small paragraph text is ≥ 16 px, form is single-column, no sideways scroll at 360 px.
+- **Payments:** PayPal still `enabled: false`; no prices or booking added.

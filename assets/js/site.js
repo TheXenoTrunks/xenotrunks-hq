@@ -4,14 +4,24 @@
   var menu = document.getElementById("menu");
   var nav = document.getElementById("navigation");
   if (menu && nav) {
-    function setOpen(open) {
+    function setOpen(open, focusBack) {
       nav.classList.toggle("open", open);
       menu.setAttribute("aria-expanded", String(open));
       menu.textContent = open ? "Close" : "Menu";
+      if (!open && focusBack) menu.focus();
     }
     menu.addEventListener("click", function () { setOpen(!nav.classList.contains("open")); });
     nav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () { setOpen(false); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("open")) setOpen(false, true);
+    });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("open") && !nav.contains(e.target) && !menu.contains(e.target)) setOpen(false);
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 820 && nav.classList.contains("open")) setOpen(false);
     });
   }
 
@@ -199,9 +209,16 @@
           text = pay.live_text || text;
           payBtn = '<a class="btn" href="' + esc(payUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(pay.live_button_label || "Support Xeno Trunks on PayPal") + "</a>";
         } else {
-          payBtn = '<span class="btn outline" aria-disabled="true">' + esc(pay.button_label || "Coming soon") + "</span>";
+          payBtn = "";
         }
-        box.innerHTML = '<p class="kicker">' + esc(pay.kicker || "PayPal") + "</p><h3>" + esc(title) + "</h3><p>" + esc(text) + "</p>" + payBtn;
+        if (payOk) {
+          box.className = "paypal-soon";
+          box.innerHTML = '<p class="kicker">' + esc(pay.kicker || "PayPal") + "</p><h3>" + esc(title) + "</h3><p>" + esc(text) + "</p>" + payBtn;
+        } else {
+          // Disabled: one short text line, no button and no link.
+          box.className = "paypal-off";
+          box.innerHTML = "<p><b>" + esc(pay.kicker || "PayPal") + ":</b> " + esc(text) + "</p>";
+        }
       }
     }
     if (s.about) {
@@ -475,7 +492,11 @@
       var links = (data.links || []).filter(function (l) { return l && safeUrl(l.url); }).map(function (l, i) {
         return '<a class="btn' + (i ? " outline" : "") + '" ' + linkAttrs(l.url) + ">" + esc(l.label || "Open") + "</a>";
       }).join("");
-      actions.innerHTML = extra + links + actionBtn(data.trailer_url, data.trailer_label || "Trailer — coming when released") + actionBtn(data.download_url, data.download_label || "Download — coming when released");
+      var later = "";
+      if (safeUrl(data.trailer_url)) links += actionBtn(data.trailer_url, data.trailer_label || "Watch the 2.0 trailer");
+      if (safeUrl(data.download_url)) links += actionBtn(data.download_url, data.download_label || "Download 2.0 free");
+      else if (data.coming_note) later = '<p class="coming-note">' + esc(data.coming_note) + "</p>";
+      actions.innerHTML = extra + links + later;
     }
   }
 
@@ -483,16 +504,26 @@
     var root = document.getElementById("work-root");
     if (!root || !data) return;
     var head = document.getElementById("work-heading");
-    if (head && data.title) head.innerHTML = '<p class="kicker">' + esc(data.kicker || "") + "</p><h2>" + esc(data.title) + "</h2>" + (data.intro ? "<p>" + txt(data.intro) + "</p>" : "");
+    if (head && data.title) head.innerHTML = '<p class="kicker">' + esc(data.kicker || "") + "</p><h2>" + esc(data.title) + "</h2>" + (data.intro ? "<p>" + txt(data.intro) + "</p>" : "") + (data.download_note ? '<p class="free-note">' + txt(data.download_note) + "</p>" : "");
     root.innerHTML = (data.items || []).filter(function (w) { return w && !w.hidden && w.title; }).map(function (w) {
       var links = [];
-      if (safeUrl(w.trailer_url)) links.push("<a " + linkAttrs(w.trailer_url) + ">▶ Trailer</a>");
-      if (safeUrl(w.download_url)) links.push("<a " + linkAttrs(w.download_url) + ">Free download ↗</a>");
+      // Only real, checked links render. An empty URL hides the button (no dead or guessed links).
+      if (safeUrl(w.download_url)) links.push('<a class="work-dl" ' + linkAttrs(w.download_url) + ' aria-label="Free download: ' + esc(w.title) + (w.download_host ? " (" + esc(w.download_host) + ")" : "") + ', opens in a new tab">Free download ↗</a>');
+      if (safeUrl(w.trailer_url)) links.push('<a class="work-tr" ' + linkAttrs(w.trailer_url) + ' aria-label="Trailer: ' + esc(w.title) + ', opens YouTube">▶ Trailer</a>');
       var img = mediaPath(w.image);
       var tile = img
         ? '<div class="work-tile" style="padding:0"><img src="' + esc(img) + '" alt="' + esc(w.image_alt || "") + '" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>'
         : '<div class="work-tile" aria-hidden="true"><span class="wt-type">' + esc(w.type || "") + '</span><span class="wt-year">' + esc(w.year || "") + "</span></div>";
-      return '<article class="work-card">' + tile + '<div class="work-body">' + (img ? '<span class="kicker" style="margin:0">' + esc(w.type || "") + (w.year ? " · " + esc(w.year) : "") + "</span>" : "") + "<h3>" + esc(w.title) + "</h3>" + (w.summary ? "<p>" + txt(w.summary) + "</p>" : "") + (w.credit ? '<p class="credit">' + txt(w.credit) + "</p>" : "") + (links.length ? '<div class="work-links">' + links.join("") + "</div>" : "") + "</div></article>";
+      var meta = [];
+      if (img && w.type) meta.push(esc(w.type));
+      if (img && w.year) meta.push(esc(w.year));
+      if (w.version) meta.push("v" + esc(String(w.version).replace(/^v/i, "")));
+      var tags = '<p class="work-meta"><span class="free-tag">Free</span>' + meta.map(function (m) { return "<span>" + m + "</span>"; }).join("") + "</p>";
+      return '<article class="work-card">' + tile + '<div class="work-body">' + tags + "<h3>" + esc(w.title) + "</h3>" + (w.summary ? "<p>" + txt(w.summary) + "</p>" : "") +
+        (w.requirements ? '<p class="req"><b>Needs:</b> ' + txt(w.requirements) + "</p>" : "") +
+        (w.credit ? '<p class="credit">' + txt(w.credit) + "</p>" : "") +
+        (links.length ? '<div class="work-links">' + links.join("") + "</div>" : "") +
+        (safeUrl(w.download_url) && w.download_host ? '<p class="host">Hosted on ' + esc(w.download_host) + "</p>" : "") + "</div></article>";
     }).join("");
   }
 
@@ -504,13 +535,182 @@
     var sv = data.service || {};
     var facts = (sv.facts || []).map(function (f) { return "<div><dt>" + esc(f.label) + "</dt><dd>" + txt(f.value) + "</dd></div>"; }).join("");
     var steps = (data.steps || []).map(function (st) { return "<li><h4>" + esc(st.title) + "</h4><p>" + txt(st.text) + "</p></li>"; }).join("");
-    var btn = safeUrl(data.button_url) ? '<a class="btn" ' + linkAttrs(data.button_url) + ">" + esc(data.button_label || "Send an enquiry") + "</a>" : "";
+    var f = data.form || {};
+    var discordUrl = safeUrl(data.button_url);
+    // Optional email button: only when a valid address is set in the CMS (content/hire.json → form.contact_email). Empty by default.
+    var email = String(f.contact_email || "").trim();
+    if (!/^[^\s@<>"]+@[^\s@<>"]+\.[a-z]{2,}$/i.test(email)) email = "";
+    var formHtml = "";
+    if (f.enabled !== false) {
+      formHtml = '<div class="enquiry" id="enquiry">' +
+        '<h3 class="enq-title">' + esc(f.title || "Send an enquiry") + "</h3>" + (f.intro ? '<p class="enq-intro">' + txt(f.intro) + "</p>" : "") +
+        '<form id="enquiry-form" novalidate>' +
+        '<div class="fgrid">' +
+          field("enq-name", "Your name or handle", '<input id="enq-name" name="name" type="text" autocomplete="nickname" maxlength="80" required>', true) +
+          field("enq-method", "Best way to reach you", '<select id="enq-method" name="method" required><option value="Discord">Discord</option><option value="Email">Email</option><option value="X (Twitter)">X (Twitter)</option><option value="Other">Other</option></select>', true) +
+          field("enq-contact", "Your Discord username or email", '<input id="enq-contact" name="contact" type="text" autocomplete="off" maxlength="120" required>', true, "So I know who to reply to, e.g. yourname on Discord.") +
+          field("enq-platform", "Platform", '<select id="enq-platform" name="platform" required><option value="PC (XV2 Patcher)">PC (XV2 Patcher)</option><option value="PC, not sure about the patcher">PC, not sure about the patcher</option></select>', true, "Quests need the PC version. Console isn’t supported.") +
+        "</div>" +
+        field("enq-idea", "Your quest idea", '<textarea id="enq-idea" name="idea" rows="5" maxlength="1500" required></textarea>', true, "The what-if, the fight, how it should end. A few sentences is fine.") +
+        '<div class="fgrid">' +
+          field("enq-chars", "Characters", '<input id="enq-chars" name="characters" type="text" maxlength="200">', false, "Game characters, your CaC, or free mods.") +
+          field("enq-release", "Release", '<select id="enq-release" name="release"><option value="Not sure yet">Not sure yet</option><option value="Private, just for me">Private, just for me</option><option value="Free public release, with credit to me">Free public release, with credit to me</option></select>', false) +
+          field("enq-deadline", "Deadline", '<input id="enq-deadline" name="deadline" type="text" maxlength="80" placeholder="No rush">', false) +
+          field("enq-budget", "Budget", '<input id="enq-budget" name="budget" type="text" maxlength="80" placeholder="To discuss">', false, "Optional. Nothing is paid now.") +
+        "</div>" +
+        '<div class="fcheck"><input id="enq-agree" name="agree" type="checkbox" required aria-describedby="enq-agree-err"><label for="enq-agree">' + txt(f.agree_text || "I understand the IP and modding rules, and that nothing is booked or paid yet.") + ' <span class="req-star" aria-hidden="true">*</span></label><p class="ferr" id="enq-agree-err" hidden></p></div>' +
+        '<p class="fnote"><span aria-hidden="true">*</span> Required. Please don’t include passwords or payment details.</p>' +
+        '<button class="btn" type="submit">Write my enquiry</button>' +
+        "</form>" +
+        '<div class="enq-out" id="enq-out" hidden>' +
+          '<label for="enq-message" class="flabel">Your enquiry (you can edit it before sending)</label>' +
+          '<textarea id="enq-message" rows="12" spellcheck="false"></textarea>' +
+          '<div class="enq-actions">' +
+            '<button class="btn" type="button" id="enq-copy">' + esc(f.copy_label || "Copy enquiry") + "</button>" +
+            (discordUrl ? '<a class="btn outline" id="enq-discord" href="' + esc(discordUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(data.button_label || "Open Discord to send it") + "</a>" : "") +
+            (email ? '<a class="btn outline" id="enq-email" href="mailto:' + esc(email) + '">' + esc(f.email_label || "Email it instead") + "</a>" : "") +
+          "</div>" +
+          '<p class="enq-status" id="enq-status" role="status" aria-live="polite"></p>' +
+          (data.button_note ? '<p class="fnote">' + txt(data.button_note) + "</p>" : "") +
+        "</div>" +
+      "</div>";
+    } else if (discordUrl) {
+      formHtml = '<div class="hire-cta"><a class="btn" ' + linkAttrs(discordUrl) + ">" + esc(data.button_label || "Send an enquiry") + "</a>" + (data.button_note ? "<small>" + txt(data.button_note) + "</small>" : "") + "</div>";
+    }
     root.innerHTML = '<div class="service"><div class="service-head"><div><p class="kicker" style="margin:0 0 6px">The service</p><h3>' + esc(sv.name || "") + "</h3>" + (sv.tagline ? "<p>" + txt(sv.tagline) + "</p>" : "") + "</div></div>" +
       '<div class="service-cols"><div><h4>What you get</h4>' + ticks(sv.includes) + "</div><div><h4>What you send me</h4>" + ticks(sv.provide) + '</div><div><h4>What I won’t do</h4>' + ticks(sv.excludes, "cross") + "</div></div>" +
       (facts ? '<dl class="facts">' + facts + "</dl>" : "") + "</div>" +
-      (steps ? '<ol class="hire-steps">' + steps + "</ol>" : "") +
-      '<div class="hire-cta">' + btn + (data.button_note ? "<small>" + txt(data.button_note) + "</small>" : "") + "</div>" +
+      (steps ? '<h3 class="steps-title">How it works</h3><ol class="hire-steps">' + steps + "</ol>" : "") +
+      formHtml +
       (data.rules ? '<p class="rules">' + txt(data.rules) + "</p>" : "");
+    if (f.enabled !== false) bindEnquiry(email);
+
+    function field(id, label, control, required, hint) {
+      return '<div class="field"><label class="flabel" for="' + id + '">' + esc(label) + (required ? ' <span class="req-star" aria-hidden="true">*</span>' : ' <span class="opt">(optional)</span>') + "</label>" +
+        (hint ? '<p class="fhint" id="' + id + '-hint">' + esc(hint) + "</p>" : "") +
+        control.replace(/^<(\w+) id="([^"]+)"/, function (m, tag, cid) {
+          return "<" + tag + ' id="' + cid + '" aria-describedby="' + (hint ? cid + "-hint " : "") + cid + '-err"';
+        }) +
+        '<p class="ferr" id="' + id + '-err" hidden></p></div>';
+    }
+  }
+
+  function bindEnquiry(email) {
+    var form = document.getElementById("enquiry-form");
+    if (!form) return;
+    var out = document.getElementById("enq-out");
+    var msg = document.getElementById("enq-message");
+    var status = document.getElementById("enq-status");
+    var copyBtn = document.getElementById("enq-copy");
+    var discord = document.getElementById("enq-discord");
+    var mail = document.getElementById("enq-email");
+    var method = document.getElementById("enq-method");
+    var contact = document.getElementById("enq-contact");
+    var contactLabel = form.querySelector('label[for="enq-contact"]');
+    function val(id) { var el = document.getElementById(id); return el ? String(el.value || "").trim() : ""; }
+    function updateContactLabel() {
+      var m = method.value;
+      var t = m === "Email" ? "Your email address" : m === "Discord" ? "Your Discord username" : m === "X (Twitter)" ? "Your X handle" : "How to reach you";
+      contactLabel.innerHTML = esc(t) + ' <span class="req-star" aria-hidden="true">*</span>';
+      contact.type = m === "Email" ? "email" : "text";
+      contact.autocomplete = m === "Email" ? "email" : "off";
+    }
+    method.addEventListener("change", updateContactLabel);
+    updateContactLabel();
+    function setErr(id, text) {
+      var el = document.getElementById(id);
+      var err = document.getElementById(id + "-err");
+      if (!el || !err) return;
+      if (text) { el.setAttribute("aria-invalid", "true"); err.textContent = text; err.hidden = false; }
+      else { el.removeAttribute("aria-invalid"); err.textContent = ""; err.hidden = true; }
+    }
+    function validate() {
+      var errs = [];
+      function check(id, ok, text) { setErr(id, ok ? "" : text); if (!ok) errs.push(id); }
+      check("enq-name", val("enq-name").length >= 2, "Add your name or handle.");
+      var c = val("enq-contact");
+      var cOk = c.length >= 2 && (method.value !== "Email" || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c));
+      check("enq-contact", cOk, method.value === "Email" ? "Add a valid email address." : "Add how I can reach you.");
+      check("enq-idea", val("enq-idea").length >= 20, "Tell me a bit more about your idea (at least 20 characters).");
+      check("enq-agree", document.getElementById("enq-agree").checked, "Please tick to confirm you understand the rules.");
+      return errs;
+    }
+    form.querySelectorAll("input, textarea, select").forEach(function (el) {
+      el.addEventListener("input", function () { if (el.getAttribute("aria-invalid")) validate(); });
+      el.addEventListener("change", function () { if (el.getAttribute("aria-invalid")) validate(); });
+    });
+    function build() {
+      var lines = [
+        "Commission enquiry for Xeno Trunks (Custom Parallel Quest)",
+        "",
+        "Name / handle: " + val("enq-name"),
+        "Contact: " + method.value + ", " + val("enq-contact"),
+        "Platform: " + val("enq-platform"),
+        "",
+        "Quest idea:",
+        val("enq-idea"),
+        "",
+        "Characters: " + (val("enq-chars") || "Not specified"),
+        "Release: " + val("enq-release"),
+        "Deadline: " + (val("enq-deadline") || "No rush"),
+        "Budget: " + (val("enq-budget") || "To discuss"),
+        "",
+        "I understand this is fan-made work, no official game files, ripped models or other modders’ work will be sold, and nothing is booked or paid yet.",
+        "(Sent from the enquiry form on Xeno Trunks HQ)"
+      ];
+      return lines.join("\n");
+    }
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var errs = validate();
+      if (errs.length) {
+        var first = document.getElementById(errs[0]);
+        if (first) first.focus();
+        return;
+      }
+      msg.value = build();
+      out.hidden = false;
+      status.textContent = "Your enquiry is ready. Copy it, then send it to me on Discord.";
+      status.className = "enq-status";
+      if (copyBtn) copyBtn.textContent = copyBtn.getAttribute("data-label") || copyBtn.textContent;
+      if (mail) mail.href = "mailto:" + email + "?subject=" + encodeURIComponent("Commission enquiry: " + val("enq-name")) + "&body=" + encodeURIComponent(msg.value);
+      out.scrollIntoView({ behavior: "smooth", block: "start" });
+      msg.focus({ preventScroll: true });
+    });
+    msg.addEventListener("input", function () {
+      if (mail) mail.href = "mailto:" + email + "?subject=" + encodeURIComponent("Commission enquiry: " + val("enq-name")) + "&body=" + encodeURIComponent(msg.value);
+    });
+    function legacyCopy(text) {
+      msg.focus(); msg.select();
+      try { return document.execCommand("copy"); } catch (err) { return false; }
+    }
+    function copy(after) {
+      var text = msg.value;
+      var done = function (ok) {
+        if (ok) {
+          copyBtn.textContent = "Copied ✓";
+          copyBtn.classList.add("copied");
+          status.textContent = after || "Copied. Now open Discord and paste it in a direct message to Xeno Trunks.";
+          status.className = "enq-status ok";
+        } else {
+          status.textContent = "Couldn’t copy automatically. Select the text above and copy it yourself.";
+          status.className = "enq-status warn";
+          msg.focus(); msg.select();
+        }
+        setTimeout(function () { copyBtn.textContent = copyBtn.getAttribute("data-label"); copyBtn.classList.remove("copied"); }, 4000);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(legacyCopy(text)); });
+      } else {
+        done(legacyCopy(text));
+      }
+    }
+    if (copyBtn) {
+      copyBtn.setAttribute("data-label", copyBtn.textContent);
+      copyBtn.addEventListener("click", function () { copy(); });
+    }
+    // Opening Discord also copies the enquiry, so it's ready to paste.
+    if (discord) discord.addEventListener("click", function () { copy("Copied and opening Discord. Paste it in a direct message to Xeno Trunks."); });
   }
 
   function loadJSON(path, fallback) {

@@ -23,8 +23,6 @@
       "hidden": false
     }
   ],
-  "trailer_label": "2.0 trailer: coming when released",
-  "download_label": "2.0 download: coming when released",
   "note": "No release date yet. Version 1.7 is free to play right now.",
   "links": [
     {
@@ -35,5 +33,6 @@
       "label": "Play 1.7 free",
       "url": "https://www.patreon.com/posts/friezas-my-1st-1-73964937"
     }
-  ]
+  ],
+  "coming_note": "2.0 trailer and download: coming when it’s released."
 }

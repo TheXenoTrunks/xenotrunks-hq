@@ -2,7 +2,7 @@
   "kicker": "Commissions · Work with me",
   "title": "Your quest, scripted.",
   "status": "Enquiries only. Not yet open for bookings.",
-  "intro": "Got a what-if you want to play? I script custom Parallel Quests for Xenoverse 2 on PC. Commissions aren’t open yet, but you can send me your idea now and I’ll tell you if I can build it.",
+  "intro": "Got a what-if you want to play? I script custom Parallel Quests for Xenoverse 2 on PC. This is a paid service once bookings open, and it’s separate from my free quest downloads. For now, send me your idea and I’ll tell you if I can build it.",
   "service": {
     "name": "Custom Parallel Quest",
     "tagline": "A playable quest built from your idea, scripted and tested by me.",
@@ -70,19 +70,28 @@
   "rules": "Fan-made work: you’re paying for my time and skills, not for Dragon Ball or Xenoverse assets. Every asset author gets credited, and I only use mods whose authors allow it. Not affiliated with Bandai Namco, Toei Animation or the Revamp team.",
   "steps": [
     {
-      "title": "Send your idea",
-      "text": "Message me on the Time Patrol Discord with your idea and setup."
+      "title": "Send your enquiry",
+      "text": "Fill in the form below. It writes the message for you to copy and send me on Discord."
     },
     {
-      "title": "I reply",
-      "text": "I’ll tell you if I can build it and what it would involve."
+      "title": "I reply to talk scope",
+      "text": "I’ll tell you if I can build it, what it would involve and roughly how long it would take."
     },
     {
-      "title": "Bookings later",
-      "text": "When commissions open, enquiries get first look. Nothing is booked or paid yet."
+      "title": "Nothing is booked or paid yet",
+      "text": "Commissions aren’t open. No booking is made and no payment is taken through this site."
     }
   ],
-  "button_label": "Send an enquiry on Discord",
+  "button_label": "Open Discord to send it",
   "button_url": "https://dsc.gg/xenotimepatrol",
-  "button_note": "Opens the Xeno Time Patrol Discord. Message Xeno Trunks directly. Please don’t send passwords or payment details."
+  "button_note": "Opens the Xeno Time Patrol Discord. Paste your enquiry in a direct message to Xeno Trunks. Never send passwords or payment details.",
+  "form": {
+    "enabled": true,
+    "title": "Send an enquiry",
+    "intro": "Takes about two minutes. Nothing is sent from this page: it writes your enquiry so you can copy it and send it to me yourself.",
+    "contact_email": "",
+    "email_label": "Email it instead",
+    "copy_label": "Copy enquiry",
+    "agree_text": "I understand this is fan-made work. No official game files, ripped models or other modders’ work will be sold, and nothing is booked or paid yet."
+  }
 }
