@@ -10,6 +10,9 @@ What it does
 - Reads the channel uploads feed (latest ~15 videos and Shorts).
 - Also reads the channel's Shorts playlist feed (UUSH...) when YouTube serves it,
   so Shorts are labelled even if the main feed links them as /watch.
+- If YouTube's RSS feeds are down (they returned 404 for every channel on
+  10 Nov 2026), falls back to the public channel pages (/videos and /shorts tabs)
+  and reads each video's public watch page for its exact title and date.
 - Removes duplicates by video ID, newest first, and keeps older entries that are
   already in the file (so the list does not shrink) up to MAX_ITEMS.
 - Thumbnails: https://i.ytimg.com/vi/<ID>/hqdefault.jpg (saved to assets/yt/<ID>.jpg).
@@ -39,6 +42,13 @@ FEED_FALLBACKS = [
 SHORTS_FEED = f"https://www.youtube.com/feeds/videos.xml?playlist_id=UUSH{TAIL}"
 LONG_FEED = f"https://www.youtube.com/feeds/videos.xml?playlist_id=UULF{TAIL}"
 MAX_ITEMS = 12
+PER_TAB = 8
+CHANNEL_PAGE = f"https://www.youtube.com/channel/{CHANNEL_ID}"
+BROWSER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Cookie": "CONSENT=YES+1",
+}
 ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
 NS = {
     "atom": "http://www.w3.org/2005/Atom",
@@ -51,14 +61,12 @@ def site_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
-def fetch(url: str, timeout: int = 30) -> bytes:
-    req = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0 (compatible; XenoTrunksHQ-RSS/4.0)",
-            "Accept": "application/atom+xml, application/xml, text/xml, */*",
-        },
-    )
+def fetch(url: str, timeout: int = 30, browser: bool = False) -> bytes:
+    headers = dict(BROWSER_HEADERS) if browser else {
+        "User-Agent": "Mozilla/5.0 (compatible; XenoTrunksHQ-RSS/4.0)",
+        "Accept": "application/atom+xml, application/xml, text/xml, */*",
+    }
+    req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=timeout, context=ssl.create_default_context()) as res:
         return res.read()
 
@@ -107,6 +115,74 @@ def parse_feed(xml_bytes: bytes) -> list[dict]:
     return items
 
 
+def _initial_data(html: str) -> dict | None:
+    m = re.search(r"var ytInitialData = (\{.*?\});</script>", html, re.S)
+    if not m:
+        return None
+    try:
+        return json.loads(m.group(1))
+    except json.JSONDecodeError:
+        return None
+
+
+def _ids_in(obj, out: list) -> None:
+    if isinstance(obj, dict):
+        vid = obj.get("videoId")
+        if isinstance(vid, str) and ID_RE.match(vid):
+            out.append(vid)
+        for v in obj.values():
+            _ids_in(v, out)
+    elif isinstance(obj, list):
+        for v in obj:
+            _ids_in(v, out)
+
+
+def tab_ids(tab: str) -> list[str]:
+    try:
+        html = fetch(f"{CHANNEL_PAGE}/{tab}", browser=True).decode("utf-8", "replace")
+    except Exception as exc:
+        print(f"  channel page unavailable: {tab} ({exc})", file=sys.stderr)
+        return []
+    data = _initial_data(html)
+    if not data:
+        print(f"  channel page had no video data: {tab}", file=sys.stderr)
+        return []
+    ids: list[str] = []
+    _ids_in(data, ids)
+    return list(dict.fromkeys(ids))[:PER_TAB]
+
+
+def watch_details(vid: str) -> tuple[str, str, str] | None:
+    """Return (title, publish date, channel id) from the public watch page."""
+    try:
+        html = fetch(f"https://www.youtube.com/watch?v={vid}", browser=True).decode("utf-8", "replace")
+    except Exception as exc:
+        print(f"  watch page unavailable: {vid} ({exc})", file=sys.stderr)
+        return None
+    title = re.search(r'<meta name="title" content="([^"]*)"', html)
+    date = re.search(r'"publishDate":"([^"]+)"', html) or re.search(r'<meta itemprop="datePublished" content="([^"]+)"', html)
+    chan = re.search(r'"channelId":"(UC[A-Za-z0-9_-]{22})"', html)
+    if not title:
+        return None
+    import html as _h
+    return _h.unescape(title.group(1)).strip(), (date.group(1) if date else ""), (chan.group(1) if chan else "")
+
+
+def from_channel_pages() -> list[dict]:
+    items = []
+    for tab, is_short in (("videos", False), ("shorts", True)):
+        for vid in tab_ids(tab):
+            det = watch_details(vid)
+            if not det:
+                continue
+            title, published, chan = det
+            if chan and chan != CHANNEL_ID:  # never import someone else's video
+                print(f"  skipped {vid}: belongs to another channel", file=sys.stderr)
+                continue
+            items.append(make_item(vid, title, published, is_short))
+    return items
+
+
 def dedupe(items: list[dict]) -> tuple[list[dict], list[str]]:
     seen, out, dups = set(), [], []
     for it in items:
@@ -137,12 +213,19 @@ def main() -> int:
             if feed_items:
                 used = alt
                 break
+    shorts: list[dict] = []
+    longs: list[dict] = []
+    if feed_items:
+        shorts = fetch_feed(SHORTS_FEED) or []
+        longs = fetch_feed(LONG_FEED) or []
+    else:
+        print("RSS unavailable; reading the public channel pages instead…")
+        feed_items = from_channel_pages()
+        used = f"{CHANNEL_PAGE}/videos + /shorts (RSS fallback)"
     if not feed_items:
-        print("ERROR: no YouTube feed could be read. Nothing was changed.", file=sys.stderr)
+        print("ERROR: no YouTube source could be read. Nothing was changed.", file=sys.stderr)
         return 2
 
-    shorts = fetch_feed(SHORTS_FEED) or []
-    longs = fetch_feed(LONG_FEED) or []
     short_ids = {i["id"] for i in shorts}
     long_ids = {i["id"] for i in longs}
     for it in feed_items:
