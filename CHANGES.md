@@ -1,3 +1,13 @@
+# Update 8 (12 Nov 2026, preview branch)
+
+Not live. Needs Xeno Trunks' approval before merging preview → main. The approved homepage layout is unchanged (Frieza’s Nightmare and My quests stay first; news stays a secondary section at the bottom). No prices, payments or release promises were added.
+
+- News was re-checked on 12 Nov 2026, Australia/Perth (UTC+8), against the official Japanese information listing and official @dbgame_official / @dragonballgames posts.
+- **Still on:** Final Festival of Universes through 15 February 2027, 8:59 AM JST (7:59 AM Perth — the previous “9:59 AM Perth” conversion was corrected). Week 2, Cross Versus, is still the current Time Patrol week (9–15 November). The 10th-anniversary login bonus is still running, until 16 November 2026, 11:59 PM JST (10:59 PM Perth).
+- **Ended:** the vs Broly (Full Power Super Saiyan) Lite raid (id1853). The last platform window closed at 12 November, 2:00 PM Perth. The card is kept and will sit in **Past events** automatically. The summary is now in the past tense. No newer official raid had been posted on the information listing when this was checked.
+- **Added:** the 10th anniversary repost-campaign result (1,010 reposts reached; special loading screen for all Patrollers), announced 10 November 2026. Also added a short announcement that free Update #23 (the 10th-anniversary update and official trailer) has been out since 27 October 2026. FUTURE SAGA Chapter 4 and the Xenoverse 3 announcement are unchanged. The 3x EXP & Zeni boost (ended 5 November 2026, 2:59 PM UTC) was not added, because it has already ended.
+- News card images are on again (`show_images: true`) so the Time Patrol raid picture and the other current news cards can show and fit the 16:9 slot on desktop and phone. Images are the existing tp_a 1600×900 WebP cards (navy, cyan and magenta), plus a new `repost-campaign-goal.webp` in the same style. Not plain official Bandai stills.
+
 # Update 7 (10 Nov 2026, preview branch)
 
 - Every card in **My quests** now has a picture, framed in a new **Xeno Time Patrol** card style: a cyan and magenta edge, a black-and-white grunge overlay, the TP logo in the corner, and the quest title on a coloured bar (CSS, not baked into the images). The approved homepage layout is unchanged.

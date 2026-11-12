@@ -27,6 +27,10 @@ These images are Xeno Trunks’s own custom character (long lavender hair, scar 
 
 - Bandai Namco: [Celebrate the 10th anniversary of DRAGON BALL XENOVERSE 2](https://www.bandainamcoent.com/news/dragon-ball-xenoverse-2-celebrate-the-10th-anniversary)
 - Official XV2 information: [Broly (Full Power Super Saiyan) Lite raid, id1853](https://dbx.bn-ent.net/information/#id1853)
+- Official XV2 information: [10th-anniversary login bonus, id1856](https://dbx.bn-ent.net/information/#id1856)
+- Official Dragon Ball Games on X (repost campaign result, 10 Nov 2026): [dbgame_official/status/2120079017759973466](https://x.com/dbgame_official/status/2120079017759973466) and the English post [dragonballgames/status/2120109257622229042](https://x.com/dragonballgames/status/2120109257622229042)
+- Bandai Namco (EU): [Celebrate the 10th anniversary of DRAGON BALL XENOVERSE 2](https://en.bandainamcoent.eu/dragon-ball/news/celebrate-the-10th-anniversary-of-dragon-ball-xenoverse-2) (linked from the official English 25 Oct 2026 trailer post)
+- Official XV2 information listing (re-checked 12 Nov 2026): [dbx.bn-ent.net/information](https://dbx.bn-ent.net/information/)
 - Bandai Namco: [FUTURE SAGA Chapter 4](https://www.bandainamcoent.com/news/dragon-ball-xenoverse-2-final-dlc-future-saga-chapter-4-is-available-now)
 - Bandai Namco: [Xenoverse 3 announcement](https://www.bandainamcoent.com/news/dragon-ball-xenoverse-3-unveiling-headlines-news-and-reveals-at-dragon-ball-games-battle-hour-2026)
 - YouTube RSS: `https://www.youtube.com/feeds/videos.xml?channel_id=UCFpwz174y2HmOdL1DUCLjCw`
@@ -60,3 +64,7 @@ Quest card pictures are Xeno Trunks’ own work, shown in a CSS Xeno Time Patrol
 - `assets/quests/yamcha-resolve.jpg`: Yamcha at Capsule Corporation, frame from https://www.youtube.com/watch?v=HUdlUZ0_x6k.
 - `assets/quests/couples-division.jpg`: crop of Xeno Trunks’ 2023 World Tournament Couple’s Division poster (Android 18, Krillin, Videl, Gohan and the TP logo). Official Xenoverse 2 logos, ratings and store marks were cropped out.
 - `assets/xtp-grunge.jpg`: black-and-white grunge overlay used only as a CSS blend on the card frame (not a photograph of official art).
+
+## Update 8 (12 Nov 2026)
+
+- `assets/uploads/repost-campaign-goal.webp` (1600×900 WebP, under 250 KB): Xeno Time Patrol tp_a frame around the official 10th-anniversary repost-campaign loading-screen illustration (Conton City regulars and instructors). Official source image: https://pbs.twimg.com/media/HWrPccdbkAAaouP.jpg (from https://x.com/dbgame_official/status/2120079017759973466). Official copyright line at the bottom-right was removed from the frame; the official 10th-anniversary logos on the artwork were kept.
