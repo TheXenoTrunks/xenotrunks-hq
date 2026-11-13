@@ -7,6 +7,22 @@
   "updated_note": "Checked 13 Nov 2026, Australia/Perth (UTC+8). Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
   "items": [
     {
+      "id": "festival-shop-lineup-20261113",
+      "kind": "event",
+      "hidden": false,
+      "kicker": "Festival Shop",
+      "title": "Festival Shop item lineup update",
+      "date_label": "From Week 3 · 16 Nov 2026, 00:00 UTC – 28 Mar 2027, 23:59 UTC",
+      "starts_at": "2026-11-16T00:00:00+00:00",
+      "ends_at": "2027-03-28T23:59:00+00:00",
+      "summary": "Bandai Namco Europe announced on 13 November 2026 that, from Week 3 of the Final Festival, the Festival Shop lineup expands so Time Patrollers can buy a variety of items that have appeared in the past, in exchange for Star Coins. Items rotate on a set schedule. The official lineup graphic prints the rotation in UTC (it does not print the year). Week 3, Shop List A: 16 Nov, 00:00 – 22 Nov, 23:59 UTC. Week 4 to Week 5, Shop List B: 23 Nov, 00:00 – 6 Dec, 23:59 UTC. Week 6 to Week 7, Shop List C: 7 Dec 2026, 00:00 – 20 Dec, 23:59 UTC. Week 8 to Week 9, Shop List A: 21 Dec 2026, 00:00 – 3 Jan 2027, 23:59 UTC. Week 10 to Week 11, Shop List B: 4 Jan 2027, 00:00 – 17 Jan 2027, 23:59 UTC. Week 12 to Week 13, Shop List C: 18 Jan 2027, 00:00 – 31 Jan 2027, 23:59 UTC. Week 14 to Week 15, Shop List A: 1 Feb 2027, 00:00 – 14 Feb 2027, 23:59 UTC. Post-Final Period 1, Shop List B: 15 Feb 2027, 00:00 – 28 Feb 2027, 23:59 UTC. Post-Final Period 2, Shop List C: 1 Mar 2027, 00:00 – 14 Mar 2027, 23:59 UTC. Post-Final Period 3, Shop List A: 15 Mar 2027, 00:00 – 28 Mar 2027, 23:59 UTC. January–March windows are 2027, inferred from the 13 November 2026 article and Week 3 starting 16 November. Individual item names and Star Coin prices are only on the official graphic and have not been retyped here.",
+      "source_label": "Bandai Namco Europe (13 Nov 2026)",
+      "source_url": "https://en.bandainamcoent.eu/dragon-ball/news/dragon-ball-xenoverse-2-festival-shop-item-lineup-update",
+      "image": "assets/uploads/festival-shop-lineup-20261113.webp",
+      "image_alt": "Xeno Time Patrol card: Festival of Universes logo over the official Final Festival of Universes stage, titled Past items return, from 16 Nov 2026, 00:00 UTC.",
+      "image_credit": "Xeno Time Patrol design; character art © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
+    },
+    {
       "id": "event-world-tournament-id1854",
       "kind": "event",
       "hidden": false,
