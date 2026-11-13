@@ -3,9 +3,37 @@
   "title": "This week in the Time Patrol.",
   "intro": "Official raids and events, in short. Full details are at each official source.",
   "show_images": true,
-  "updated": "2026-11-12",
-  "updated_note": "Checked 12 Nov 2026, Australia/Perth (UTC+8). Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
+  "updated": "2026-11-13",
+  "updated_note": "Checked 13 Nov 2026, Australia/Perth (UTC+8). Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
   "items": [
+    {
+      "id": "event-world-tournament-id1854",
+      "kind": "event",
+      "hidden": false,
+      "kicker": "Online event",
+      "title": "Themed World Tournament: 「ドラゴンボール超限定一武道会」",
+      "date_label": "14–15 Nov 2026 (platform windows)",
+      "starts_at": "2026-11-14T01:00:00+00:00",
+      "ends_at": "2026-11-16T05:00:00+08:00",
+      "summary": "Official themed World Tournament (online ranked PvP), announced 13 November 2026 in Bandai's information post id1854. PlayStation, Nintendo Switch and Steam: 14 Nov, 9:00 AM – 15 Nov, 9:00 PM Perth (UTC+8). Xbox: 14 Nov, 5:00 PM – 16 Nov, 5:00 AM Perth (UTC+8). Your rank is your total points from the Character and Themed World Tournament ranked matches during the event. Everyone who takes part gets 50 TP Medals; the top 50 also win TP and STP Medals, and the top 5 get a Street Name plus a full set of the 7 Dragon Balls. Enter via the World Tournament reception desk in Conton City; you need the Saiyan and Namek arcs cleared in Time Patrol, an online connection and a multiplayer lobby login. Leaving rooms straight after matching, or farming the same player, can lose you your rewards. Schedule and rewards may change without notice.",
+      "source_label": "Official Xenoverse 2 information (id1854)",
+      "source_url": "https://dbx.bn-ent.net/information/#id1854",
+      "windows": [
+        {
+          "platforms": "PlayStation, Nintendo Switch and Steam",
+          "starts_at": "2026-11-14T10:00:00+09:00",
+          "ends_at": "2026-11-15T22:00:00+09:00"
+        },
+        {
+          "platforms": "Xbox",
+          "starts_at": "2026-11-14T18:00:00+09:00",
+          "ends_at": "2026-11-16T06:00:00+09:00"
+        }
+      ],
+      "image": "assets/uploads/event-world-tournament-id1854.webp",
+      "image_alt": "Xeno Time Patrol card: the Conton City World Tournament arena, titled Themed World Tournament, 14–15 Nov 2026.",
+      "image_credit": "Xeno Time Patrol design; in-game screenshot © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
+    },
     {
       "id": "festival-week-2",
       "kind": "event",
