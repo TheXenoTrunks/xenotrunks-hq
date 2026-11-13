@@ -68,7 +68,7 @@ Quest card pictures are Xeno Trunks’ own work, shown in a CSS Xeno Time Patrol
 
 ## Update 10 (13 Nov 2026)
 
-- `assets/uploads/festival-shop-lineup-20261113.webp` (1600×900 WebP, under 250 KB): Xeno Time Patrol tp_a frame around official Bandai Namco Xenoverse 2 Super Saiyan Goku key art from the Festival Shop Item Lineup Update notice. Official source image: https://static.bandainamcoent.eu/high/dragon-ball/dragonball-xenoverse-2/03-news/DBXV2-Festival-Shop/DBXV2_Festival_Shop_Thumbnail.png (from https://en.bandainamcoent.eu/dragon-ball/news/dragon-ball-xenoverse-2-festival-shop-item-lineup-update). Title on the card: Item lineup update, from 16 Nov 2026, 00:00 UTC.
+- `assets/uploads/festival-shop-lineup-20261113.webp` (1600×900 WebP, under 250 KB): Xeno Time Patrol tp_a frame around the official in-game Final Festival of Universes / Last World Tournament stage (two Time Patrollers, festival screen and golden statue). Official source image: https://dbx.bn-ent.net/02/maintenance/img/15578eddece559c18b5ed30c7a3765c08a8f5989.png (from official information post id1857, https://dbx.bn-ent.net/information/#id1857). The official bottom copyright line was inpainted; the TP logo, title (Item lineup update) and UTC date (from 16 Nov 2026, 00:00 UTC) sit in the frame. This replaced the earlier generic Super Saiyan Goku key-art thumbnail from the Europe Festival Shop article.
 
 ## Update 9 (13 Nov 2026)
 
