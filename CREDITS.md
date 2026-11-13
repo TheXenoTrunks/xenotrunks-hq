@@ -65,6 +65,10 @@ Quest card pictures are Xeno Trunks’ own work, shown in a CSS Xeno Time Patrol
 - `assets/quests/couples-division.jpg`: crop of Xeno Trunks’ 2023 World Tournament Couple’s Division poster (Android 18, Krillin, Videl, Gohan and the TP logo). Official Xenoverse 2 logos, ratings and store marks were cropped out.
 - `assets/xtp-grunge.jpg`: black-and-white grunge overlay used only as a CSS blend on the card frame (not a photograph of official art).
 
+## Update 9 (13 Nov 2026)
+
+- `assets/uploads/event-world-tournament-id1854.webp` (1600×900 WebP, under 250 KB): Xeno Time Patrol tp_a frame around an in-game screenshot of the Conton City World Tournament arena, taken by Xeno Trunks. Title on the card: Dragon Ball Super Limited Tournament, with the official Japanese name 「ドラゴンボール超限定一武道会」 and the dates 14–16 Nov 2026. In-game screenshot © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation.
+
 ## Update 8 (12 Nov 2026)
 
 - `assets/uploads/repost-campaign-goal.webp` (1600×900 WebP, under 250 KB): Xeno Time Patrol tp_a frame around the official 10th-anniversary repost-campaign loading-screen illustration (Conton City regulars and instructors). Official source image: https://pbs.twimg.com/media/HWrPccdbkAAaouP.jpg (from https://x.com/dbgame_official/status/2120079017759973466). Official copyright line at the bottom-right was removed from the frame; the official 10th-anniversary logos on the artwork were kept.

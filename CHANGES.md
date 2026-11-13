@@ -1,3 +1,7 @@
+# Update 9 (13 Nov 2026, preview branch)
+
+News card for the official themed World Tournament (id1854, 14–16 Nov 2026) now uses the approved English title **Dragon Ball Super Limited Tournament**, with the official Japanese name 「ドラゴンボール超限定一武道会」 as a small subtitle in the date line and on the card image. The top-5 Street Name is Exceed (「イクシード」). Times in the summary are shown in JST (from the official notice) and UTC, in line with the event-alert format; they are not shown in Perth time. The approved homepage layout is unchanged (news stays a secondary section). No prices, payments or release promises were added.
+
 # Update 8 (12 Nov 2026, preview branch)
 
 Not live. Needs Xeno Trunks' approval before merging preview → main. The approved homepage layout is unchanged (Frieza’s Nightmare and My quests stay first; news stays a secondary section at the bottom). No prices, payments or release promises were added.
