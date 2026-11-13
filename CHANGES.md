@@ -4,6 +4,7 @@ Not live. Needs Xeno Trunks' approval before merging preview → main. The appro
 
 - **Added:** official Bandai Namco Europe news of 13 November 2026, [Festival Shop Item Lineup Update](https://en.bandainamcoent.eu/dragon-ball/news/dragon-ball-xenoverse-2-festival-shop-item-lineup-update). From Week 3 of the Final Festival, the Festival Shop expands with past items for Star Coins, rotating on a set schedule. The card uses a new Time Patrol (theme tp_a) 1600×900 WebP image. Rotation dates were read from the official lineup graphic (times in UTC). The graphic does not print the year; Week 3 starts 16 Nov 2026, and the January–March windows are 2027. Individual item names were not retyped. The shop rotation runs through Post-Final Period 3, ending 28 Mar 2027, 23:59 UTC. News card images stay on.
 - **Image update:** the Festival Shop card now uses the official in-game Final Festival of Universes stage (Bandai Namco information id1857: two Time Patrollers on the festival stage), not the generic Super Saiyan Goku key-art thumbnail from the Europe article. Title and UTC date line are unchanged.
+- **Image update:** the Festival Shop card now uses the Festival of Universes logo over the official Final Festival stage (id1857). The title on the card is “Past items return”. The UTC date line (From 16 Nov 2026, 00:00 UTC) is unchanged. No Perth times were added.
 
 # Update 9 (13 Nov 2026, preview branch)
 
