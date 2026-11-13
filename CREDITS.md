@@ -34,6 +34,7 @@ These images are Xeno Trunks’s own custom character (long lavender hair, scar 
 - Bandai Namco: [FUTURE SAGA Chapter 4](https://www.bandainamcoent.com/news/dragon-ball-xenoverse-2-final-dlc-future-saga-chapter-4-is-available-now)
 - Bandai Namco: [Xenoverse 3 announcement](https://www.bandainamcoent.com/news/dragon-ball-xenoverse-3-unveiling-headlines-news-and-reveals-at-dragon-ball-games-battle-hour-2026)
 - YouTube RSS: `https://www.youtube.com/feeds/videos.xml?channel_id=UCFpwz174y2HmOdL1DUCLjCw`
+- Bandai Namco (EU): [Festival Shop Item Lineup Update](https://en.bandainamcoent.eu/dragon-ball/news/dragon-ball-xenoverse-2-festival-shop-item-lineup-update) (13 Nov 2026)
 
 ## Licensing caveat
 
@@ -64,6 +65,10 @@ Quest card pictures are Xeno Trunks’ own work, shown in a CSS Xeno Time Patrol
 - `assets/quests/yamcha-resolve.jpg`: Yamcha at Capsule Corporation, frame from https://www.youtube.com/watch?v=HUdlUZ0_x6k.
 - `assets/quests/couples-division.jpg`: crop of Xeno Trunks’ 2023 World Tournament Couple’s Division poster (Android 18, Krillin, Videl, Gohan and the TP logo). Official Xenoverse 2 logos, ratings and store marks were cropped out.
 - `assets/xtp-grunge.jpg`: black-and-white grunge overlay used only as a CSS blend on the card frame (not a photograph of official art).
+
+## Update 10 (13 Nov 2026)
+
+- `assets/uploads/festival-shop-lineup-20261113.webp` (1600×900 WebP, under 250 KB): Xeno Time Patrol tp_a frame around official Bandai Namco Xenoverse 2 Super Saiyan Goku key art from the Festival Shop Item Lineup Update notice. Official source image: https://static.bandainamcoent.eu/high/dragon-ball/dragonball-xenoverse-2/03-news/DBXV2-Festival-Shop/DBXV2_Festival_Shop_Thumbnail.png (from https://en.bandainamcoent.eu/dragon-ball/news/dragon-ball-xenoverse-2-festival-shop-item-lineup-update). Title on the card: Item lineup update, from 16 Nov 2026, 00:00 UTC.
 
 ## Update 9 (13 Nov 2026)
 
