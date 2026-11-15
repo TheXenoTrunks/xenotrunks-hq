@@ -644,6 +644,21 @@ content:
               - name: size
                 label: File size
                 type: string
+          - name: nexus_url
+            label: Nexus Mods mirror link (optional)
+            type: string
+          - name: nexus_label
+            label: Nexus button text (optional)
+            type: string
+          - name: facts_source
+            label: Where the facts came from (shown as "not yet confirmed")
+            type: object
+            list: true
+            fields:
+              - name: label
+                type: string
+              - name: url
+                type: string
           - name: youtube_id
             label: Trailer YouTube ID
             type: string
@@ -804,6 +819,9 @@ content:
             label: Show the download button
             type: boolean
             description: Off hides the download (e.g. a client project not cleared for public release). The card and trailer stay.
+          - name: nexus_url
+            label: Nexus Mods mirror link (optional)
+            type: string
           - name: slug
             label: Page address (quest.html?q=…)
             type: string
@@ -855,6 +873,15 @@ content:
                     type: string
                   - name: size
                     label: File size
+                    type: string
+              - name: facts_source
+                label: Where the facts came from (shown as "not yet confirmed")
+                type: object
+                list: true
+                fields:
+                  - name: label
+                    type: string
+                  - name: url
                     type: string
               - name: youtube_id
                 label: Trailer YouTube ID

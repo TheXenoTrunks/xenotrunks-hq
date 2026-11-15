@@ -75,7 +75,7 @@ mark.tbc { background: rgba(240,98,168,0.16); color: var(--pink); border: 1px so
 .q-changelog li::before { content: ""; position: absolute; left: -7px; top: 10px; width: 12px; height: 12px; border-radius: 50%; background: var(--magenta); box-shadow: 0 0 0 3px rgba(196,44,116,0.3); }
 .q-changelog b { display: block; color: var(--ink); font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; letter-spacing: 0.04em; }
 .q-media { padding: 56px 0 !important; }
-.q-media-grid { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 12px; margin-top: 8px; }
+.q-media-grid { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 12px; margin-top: 8px; }
 .q-media-grid a { display: flex; flex-direction: column; justify-content: center; gap: 4px; min-height: 92px; padding: 16px 18px; border-radius: 10px; text-decoration: none; color: #fff; border: 1px solid rgba(255,255,255,0.12); transition: transform .15s ease, filter .15s ease; }
 .q-media-grid a:hover { transform: translateY(-3px); filter: brightness(1.1); }
 .q-media-grid a b { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1; }
@@ -85,6 +85,9 @@ mark.tbc { background: rgba(240,98,168,0.16); color: var(--pink); border: 1px so
 .m-patreon { background: linear-gradient(135deg, var(--magenta), #6E1842); }
 .m-facebook { background: linear-gradient(135deg, #1877F2, #0E4AA0); }
 .m-x { background: linear-gradient(135deg, #1B2333, #05080F); }
+.m-nexus { background: linear-gradient(135deg, #D98F40, #8A4E14); }
+.q-src { margin: 12px 0 0; font-size: 0.8rem; line-height: 1.5; color: rgba(167,180,200,0.8); font-style: italic; }
+.q-src a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
 .q-disclaimer { margin-top: 24px; padding: 18px 20px; border: 1px dashed rgba(167,180,200,0.35); border-radius: 10px; font-size: 0.95rem; color: var(--muted); }
 .q-disclaimer p { margin: 0 0 8px; } .q-disclaimer b { color: var(--ink); }
 .q-more { padding: 56px 0 64px !important; }
@@ -96,7 +99,7 @@ mark.tbc { background: rgba(240,98,168,0.16); color: var(--pink); border: 1px so
 @media (max-width: 960px) {
   .q-grid { grid-template-columns: 1fr; }
   .q-side { position: static; }
-  .q-media-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .q-media-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .g-two { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
@@ -107,6 +110,7 @@ mark.tbc { background: rgba(240,98,168,0.16); color: var(--pink); border: 1px so
   .g-steps li, .g-uninstall { grid-template-columns: 1fr; gap: 12px; padding: 14px; }
   .g-part > summary { padding: 16px; }
   .q-gallery { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .q-media-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .q-media-grid a { min-height: 80px; }
 }
 @media (prefers-reduced-motion: reduce) {

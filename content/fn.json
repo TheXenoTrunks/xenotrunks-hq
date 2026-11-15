@@ -50,12 +50,12 @@
     ],
     "facts": {
       "version": "1.7 (free) · 2.0 in development",
-      "updated": "1.7 trailer: 25 Sep 2023",
-      "released": "2022",
-      "game": "TBC",
+      "updated": "Nexus v1.5: 10 Sep 2023 · Patreon 1.7: TBC",
+      "released": "30 Oct 2022 (Patreon)",
+      "game": "No DLC required (Nexus listing)",
       "tested_game": "TBC",
       "patcher": "TBC",
-      "size": "TBC",
+      "size": "5.5 MB (Nexus v1.5 .zip) · 1.7 file: TBC",
       "mode": "Hard difficulty Parallel Quest"
     },
     "download_url": "https://www.patreon.com/posts/friezas-my-1st-1-73964937",
@@ -76,8 +76,48 @@
       },
       {
         "version": "1.7",
-        "notes": "Bug fixes, hard difficulty, better rewards, better dialogue and smarter AI."
+        "notes": "Various bug fixes, updated AI, stats fixes."
+      },
+      {
+        "version": "1.6",
+        "notes": "Bug fixes, improved cutscenes, better rewards, updated AI, stats and position fixes, more endings."
+      },
+      {
+        "version": "1.5",
+        "notes": "Bug fixes, hard difficulty, removed timer, better rewards, updated trailer, smarter AI, stats and position fixes."
+      },
+      {
+        "version": "1.4",
+        "notes": "Bug fixes, standard medium difficulty, better dialogue, smarter AI and custom cutscenes."
+      },
+      {
+        "version": "1.3",
+        "notes": "Bug fixes, cutscenes added, AI level and stats fixes."
+      },
+      {
+        "version": "1.2",
+        "notes": "Dialogue and portrait fixes, smarter ally AI."
+      },
+      {
+        "version": "1.0",
+        "notes": "Official public release."
+      },
+      {
+        "version": "Beta",
+        "notes": "Patreon supporter release."
       }
-    ]
+    ],
+    "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/151",
+    "facts_source": [
+      {
+        "label": "Patreon (1.7)",
+        "url": "https://www.patreon.com/posts/friezas-my-1st-1-73964937"
+      },
+      {
+        "label": "Nexus (v1.5)",
+        "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/151"
+      }
+    ],
+    "nexus_label": "Older v1.5 on Nexus Mods"
   }
 }

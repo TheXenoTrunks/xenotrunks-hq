@@ -32,7 +32,7 @@
         "facts": {
           "version": "1.1",
           "updated": "24 May 2024",
-          "released": "9 May 2024",
+          "released": "9 May 2024 (VGM) · Patreon 8 May 2024",
           "game": "No paid DLC. Game updated to at least the DLC 7 patch.",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -60,8 +60,19 @@
             "version": "Beta",
             "notes": "Early access for Patreon supporters."
           }
+        ],
+        "facts_source": [
+          {
+            "label": "VGM",
+            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/goku-day-pack"
+          },
+          {
+            "label": "Patreon",
+            "url": "https://www.patreon.com/posts/103713229"
+          }
         ]
-      }
+      },
+      "nexus_url": ""
     },
     {
       "title": "The Heroes Marvellous Show",
@@ -112,8 +123,15 @@
             "version": "Pack 1.4",
             "notes": "Compatibility with game version 1.26.01 (BBVenom’s pack)."
           }
+        ],
+        "facts_source": [
+          {
+            "label": "VGM (BBVenom’s Ascended Warriors pack)",
+            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/ascended-warriors"
+          }
         ]
-      }
+      },
+      "nexus_url": ""
     },
     {
       "title": "itsErichDUH’s Corruption Crisis!",
@@ -144,7 +162,7 @@
         "facts": {
           "version": "1.0",
           "updated": "24 May 2024",
-          "released": "9 Apr 2024",
+          "released": "9 Apr 2024 (VGM) · Patreon 4 Apr 2024",
           "game": "TBC",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -168,8 +186,19 @@
             "version": "Beta",
             "notes": "Patreon supporter release."
           }
+        ],
+        "facts_source": [
+          {
+            "label": "VGM",
+            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/itserichduhs-corruption-crisis-parrellel-quest-1v1"
+          },
+          {
+            "label": "Patreon",
+            "url": "https://www.patreon.com/posts/itserichduhs-101678530"
+          }
         ]
-      }
+      },
+      "nexus_url": ""
     },
     {
       "title": "Banana Blitz Showdown",
@@ -200,7 +229,7 @@
         "facts": {
           "version": "1.3",
           "updated": "7 May 2026",
-          "released": "5 Apr 2024",
+          "released": "5 Apr 2024 (VGM) · Patreon 4 Apr 2024",
           "game": "No paid DLC. Game updated to at least the DLC 14 patch.",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -236,8 +265,23 @@
             "version": "Beta",
             "notes": "Patreon supporter release."
           }
+        ],
+        "facts_source": [
+          {
+            "label": "VGM",
+            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/banana-blitz-showdown-parrellel-quest-1v1"
+          },
+          {
+            "label": "Nexus",
+            "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/287"
+          },
+          {
+            "label": "Patreon",
+            "url": "https://www.patreon.com/posts/banana-blitz-101690520"
+          }
         ]
-      }
+      },
+      "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/287"
     },
     {
       "title": "The Nameless Namekian",
@@ -268,11 +312,11 @@
         "facts": {
           "version": "1.4",
           "updated": "30 Aug 2024",
-          "released": "31 Aug 2023",
+          "released": "31 Aug 2023 (VGM) · Patreon 27 Aug 2023",
           "game": "No paid DLC. Game updated to at least the DLC 16 patch (1.36).",
           "tested_game": "TBC",
           "patcher": "TBC",
-          "size": "7.1 MB (.x2m)",
+          "size": "7.1 MB (.x2m, VGM) · 6.9 MB (Nexus)",
           "mode": "1v1 custom Parallel Quest"
         },
         "gallery": [
@@ -304,8 +348,23 @@
             "version": "1.0",
             "notes": "Official public release."
           }
+        ],
+        "facts_source": [
+          {
+            "label": "VGM",
+            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/the-nameless-namekian-custom-parallel-quest"
+          },
+          {
+            "label": "Nexus",
+            "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/204"
+          },
+          {
+            "label": "Patreon",
+            "url": "https://www.patreon.com/posts/88491809"
+          }
         ]
-      }
+      },
+      "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/204"
     },
     {
       "title": "Vegeta’s Humiliation?!",
@@ -336,7 +395,7 @@
         "facts": {
           "version": "1.0 (+ 4-star PQ fix file)",
           "updated": "7 Aug 2023",
-          "released": "29 Jun 2023",
+          "released": "29 Jun 2023 (VGM) · Patreon 4 Jun 2023",
           "game": "No paid DLC. Game updated to at least the DLC 1 patch (1.05).",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -360,8 +419,23 @@
             "version": "1.0",
             "notes": "Official public release."
           }
+        ],
+        "facts_source": [
+          {
+            "label": "VGM",
+            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/vegetas-humiliation-what-if-parallel-quest"
+          },
+          {
+            "label": "Nexus",
+            "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/189"
+          },
+          {
+            "label": "Patreon",
+            "url": "https://www.patreon.com/posts/84082437"
+          }
         ]
-      }
+      },
+      "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/189"
     },
     {
       "title": "Yamcha’s Resolve!?",
@@ -392,7 +466,7 @@
         "facts": {
           "version": "1.0",
           "updated": "31 Aug 2023",
-          "released": "28 Apr 2023",
+          "released": "28 Apr 2023 (VGM) · Patreon 12 Mar 2023",
           "game": "TBC",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -416,8 +490,23 @@
             "version": "Beta",
             "notes": "Early access for Patreon supporters."
           }
+        ],
+        "facts_source": [
+          {
+            "label": "VGM",
+            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/yamchas-resolve-what-if-parallel-quest"
+          },
+          {
+            "label": "Nexus",
+            "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/155"
+          },
+          {
+            "label": "Patreon",
+            "url": "https://www.patreon.com/posts/yamchas-resolve-79948001"
+          }
         ]
-      }
+      },
+      "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/155"
     },
     {
       "title": "The World Tournament: Couple’s Division",
@@ -448,7 +537,7 @@
         "facts": {
           "version": "1.1",
           "updated": "31 Aug 2023",
-          "released": "10 Feb 2023",
+          "released": "10 Feb 2023 (VGM) · Patreon 8 Feb 2023",
           "game": "No paid DLC. Game updated to at least the DLC 1 patch (1.05).",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -472,8 +561,23 @@
             "version": "1.0",
             "notes": "Official public release: custom dialogue, 4-star Parallel Quest, up to 3 players, items usable."
           }
+        ],
+        "facts_source": [
+          {
+            "label": "VGM",
+            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/world-tournament-couples-division-what-if-pq"
+          },
+          {
+            "label": "Nexus",
+            "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/152"
+          },
+          {
+            "label": "Patreon",
+            "url": "https://www.patreon.com/posts/world-tournament-78441534"
+          }
         ]
-      }
+      },
+      "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/152"
     }
   ],
   "download_note": "Released quests: free to download for now. No account or membership needed.",

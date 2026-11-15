@@ -33,7 +33,7 @@
       var p = fn.page;
       list.push({ slug: fn.slug, title: "Frieza’s Nightmare", type: p.facts && p.facts.mode, status: "fn", tagline: p.tagline, hype: p.hype, facts: p.facts,
         download_url: p.download_url, download_host: p.download_host, download_label: p.download_label, youtube_id: p.youtube_id, trailer_label: p.trailer_label,
-        gallery: p.gallery, changelog: p.changelog, clip_mp4: "assets/fn2-teaser.mp4", clip_webm: "assets/fn2-teaser.webm", clip_poster: "assets/fn2-teaser-poster.jpg",
+        gallery: p.gallery, changelog: p.changelog, nexus_url: p.nexus_url, nexus_label: p.nexus_label, facts_source: p.facts_source, clip_mp4: "assets/fn2-teaser.mp4", clip_webm: "assets/fn2-teaser.webm", clip_poster: "assets/fn2-teaser-poster.jpg",
         card: "assets/fn2-teaser-poster.jpg", note: fn.note, requirements: "", credit: "" });
     }
     ((work && work.items) || []).forEach(function (w) {
@@ -42,7 +42,7 @@
       list.push({ slug: w.slug, title: w.title, type: w.type, year: w.year, status: "released", tagline: p.tagline, hype: p.hype || [w.summary], facts: p.facts || {},
         download_url: w.show_download !== false ? w.download_url : "", download_host: w.download_host, youtube_id: p.youtube_id, gallery: p.gallery, changelog: p.changelog,
         clip_mp4: w.clip_mp4, clip_webm: w.clip_webm, clip_poster: w.clip_poster, card: w.clip_poster || w.image, requirements: w.requirements, credit: w.credit,
-        summary: w.summary, install_note: p.install_note, commission: w.commission });
+        summary: w.summary, install_note: p.install_note, commission: w.commission, nexus_url: w.nexus_url, facts_source: p.facts_source });
     });
     return list;
   }
@@ -90,6 +90,8 @@
     $("download").innerHTML = dl
       ? '<a class="btn" href="' + esc(dl) + '" target="_blank" rel="noopener noreferrer">' + esc(dlLabel) + ' ↗</a><p class="host">Hosted on ' + esc(host.replace(/^VGM\b/, "Videogamemods (VGM)")) + "</p>"
       : '<span class="btn outline" aria-disabled="true">Download coming later</span>';
+    var nx = safeUrl(q.nexus_url);
+    if (nx) $("download").innerHTML += '<a class="btn outline" href="' + esc(nx) + '" target="_blank" rel="noopener noreferrer">' + esc(q.nexus_label || "Mirror: Nexus Mods") + ' ↗</a><p class="host">Nexus needs a free account to download. Some Nexus files come as a .zip: unzip it to get the .x2m.</p>';
 
     // Overview
     $("q-hype").innerHTML = (q.hype || []).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("");
@@ -109,6 +111,9 @@
     var hasTbc = false;
     $("q-facts").innerHTML = rows.map(function (r) { var h = val(r[1]); if (h.indexOf("tbc") > -1) hasTbc = true; return "<dt>" + esc(r[0]) + "</dt><dd>" + h + "</dd>"; }).join("");
     $("q-tbc-note").hidden = !hasTbc;
+    var srcs = (q.facts_source || []).filter(function (s) { return s && safeUrl(s.url); });
+    var sn = $("q-src");
+    if (sn && srcs.length) { sn.hidden = false; sn.innerHTML = "Info from listings, not yet confirmed: " + srcs.map(function (s) { return '<a href="' + esc(safeUrl(s.url)) + '" target="_blank" rel="noopener noreferrer">' + esc(s.label || "source") + "</a>"; }).join(" · "); }
 
     // Trailer: click-to-load (no YouTube request until the visitor asks)
     var tr = $("q-trailer");
@@ -154,7 +159,7 @@
     $("q-changelog").innerHTML = cl.length ? cl.map(function (c) { return "<li><b>" + esc(c.version) + "</b>" + esc(c.notes) + "</li>"; }).join("") : "<li><b>Coming soon</b>Patch notes for this quest will be added here.</li>";
 
     // Media buttons
-    var want = { Discord: ["m-discord", "Join the Time Patrol"], YouTube: ["m-youtube", "Trailers & reveals"], Patreon: ["m-patreon", "Support the next quest"], Facebook: ["m-facebook", "News & updates"], X: ["m-x", "Quick updates"] };
+    var want = { "Nexus Mods": ["m-nexus", "Mirror downloads"], Discord: ["m-discord", "Join the Time Patrol"], YouTube: ["m-youtube", "Trailers & reveals"], Patreon: ["m-patreon", "Support the next quest"], Facebook: ["m-facebook", "News & updates"], X: ["m-x", "Quick updates"] };
     var socials = (settings && (settings.socials || settings.social)) || [];
     var seen = {};
     var media = socials.filter(function (s) { return s && !s.hidden && want[s.name] && !seen[s.name] && (seen[s.name] = 1) && safeUrl(s.url); }).map(function (s) {
