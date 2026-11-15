@@ -528,7 +528,9 @@
       // Only real, checked links render. An empty URL hides the button (no dead or guessed links).
       // show_download: false hides the download (e.g. a client project that isn't cleared for public release).
       var dl = w.show_download !== false && safeUrl(w.download_url);
-      if (dl) links.push('<a class="work-dl" ' + linkAttrs(w.download_url) + ' aria-label="Free download: ' + esc(w.title) + (w.download_host ? " (" + esc(w.download_host) + ")" : "") + ', opens in a new tab">Free download ↗</a>');
+      if (dl && /videogamemods\.com|nexusmods\.com/i.test(dl)) dl = "";
+      if (dl) links.push('<a class="work-dl" ' + linkAttrs(dl) + ' aria-label="Download ' + esc(w.title) + (w.download_host ? " on " + esc(w.download_host) : "") + ', opens in a new tab">Download' + (w.download_host ? " on " + esc(w.download_host) : "") + ' ↗</a>');
+      else if (w.download_soon) links.push('<span class="work-soon" aria-disabled="true">Download coming to this site soon</span>');
       if (safeUrl(w.trailer_url)) links.push('<a class="work-tr" ' + linkAttrs(w.trailer_url) + ' aria-label="Trailer: ' + esc(w.title) + ', opens YouTube">▶ Trailer</a>');
       var img = mediaPath(w.image);
       var page = w.slug ? "quest.html?q=" + encodeURIComponent(w.slug) : "";
