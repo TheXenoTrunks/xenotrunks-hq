@@ -2,25 +2,29 @@
   "kicker": "Featured project",
   "title": "Frieza’s Nightmare 2.0",
   "badge": "In development",
-  "intro": "My first custom Parallel Quest, now being rebuilt. Frieza’s Nightmare started in 2022 as a what-if quest. Version 2.0 adds new villain encounters, branching Super Saiyan paths and custom cutscenes.",
+  "intro": "My first custom Parallel Quest, rebuilt from the ground up. Frieza’s Nightmare began in 2022 as a what-if quest. Version 2.0 goes bigger and darker, and this time the path is yours to choose.",
   "image": "assets/fn-frieza-trailer.jpg",
   "image_alt": "A furious, battle-damaged Frieza, from the Frieza’s Nightmare 2.0 teaser.",
   "video_poster": "assets/fn2-teaser-poster.jpg",
   "progress": [
     {
-      "item": "Turles and Slug (XFN043 intro)",
+      "item": "Old enemies return from the shadows.",
       "hidden": false
     },
     {
-      "item": "Cooler enters the fight",
+      "item": "A new threat no one saw coming.",
       "hidden": false
     },
     {
-      "item": "Goku and Vegeta branching Super Saiyan paths",
+      "item": "Choose your path. Your choices change the fight.",
       "hidden": false
     },
     {
-      "item": "Custom cutscenes",
+      "item": "New cinematic cutscenes.",
+      "hidden": false
+    },
+    {
+      "item": "Frieza’s worst nightmare is just beginning.",
       "hidden": false
     }
   ],
