@@ -10,6 +10,11 @@ All routine site copy lives in this folder. Edit these JSON files in [Pages CMS]
 | `videos-auto.json` | Xenoverse 2 mod trailers from the channel (optional GitHub Action filters to trailers only; you can also edit this list) |
 | `mods.json` | Workshop items: title, image, description, download link, tutorial link, status |
 | `fn.json` | Frieza’s Nightmare progress, optional percents, updates, trailer and download URLs (leave URLs blank until a release exists) |
+| `install-guide.json` | The step-by-step install guide, troubleshooting and FAQ shown on every quest page (`quest.html?q=<slug>`) |
 | `fallback.js` | Copy of the JSON used when the page is opened as a local `file://` preview. Rebuild with `python3 scripts/build-fallback.py`. The live GitHub Pages site loads the JSON files directly, so this is optional once the site is online. |
 
 Media uploaded through Pages CMS lands in `assets/uploads/`. Keep large mod downloads on Patreon, Google Drive or GitHub Releases — GitHub Pages has a 100 MB file limit and repos should stay well under ~1 GB.
+
+## Quest pages
+
+Each quest in `work.json` (and Frieza’s Nightmare in `fn.json`) has a `slug` and a `page` block (tagline, description, facts box, trailer ID, gallery, changelog). The page is `quest.html?q=<slug>`. Write **TBC** for any fact you’re not sure of. Card loop videos live in `assets/quests/clips/`, trailer stills in `assets/quests/gallery/`, guide screenshots in `assets/guide/`. If you change styles in `index.html`, run `python3 scripts/build-quest-css.py` so quest pages match.

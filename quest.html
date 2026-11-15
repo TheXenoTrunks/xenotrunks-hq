@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0A1222">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://i.ytimg.com data:; font-src 'self'; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Quest | Xeno Trunks</title>
+  <meta name="description" content="Custom Parallel Quest for Dragon Ball Xenoverse 2 by Xeno Trunks: trailer, facts, download and a step-by-step install guide.">
+  <meta property="og:site_name" content="Xeno Trunks HQ">
+  <meta property="og:image" content="https://thexenotrunks.github.io/xenotrunks-hq/assets/og-image.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/quest.css">
+</head>
+<body class="quest-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Xeno Trunks home">
+        <span class="brand-mark">
+          <span class="brand-ring" aria-hidden="true"></span>
+          <img src="assets/logo-tp-sm.png" width="44" height="44" alt="">
+        </span>
+        <span class="brand-name">XENO TRUNKS<small>CUSTOM QUESTS · XENOVERSE 2</small></span>
+      </a>
+      <button class="menu-btn" id="menu" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navigation">Menu</button>
+      <nav class="navlinks" id="navigation" aria-label="Main">
+        <a href="#overview">Overview</a>
+        <a href="#facts">Facts</a>
+        <a href="#install">Install guide</a>
+        <a href="index.html#work">All quests</a>
+        <a class="btn nav-cta" id="nav-dl" href="#download">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="q-hero" id="top">
+      <div class="q-hero-media" aria-hidden="true" id="q-hero-media"></div>
+      <div class="wrap q-hero-copy">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <a href="index.html#work">Quests</a> <span>/</span> <b id="q-crumb">Quest</b></nav>
+        <div class="q-badges" id="q-badges"></div>
+        <h1 id="q-title">Loading quest…</h1>
+        <p class="q-tagline" id="q-tagline"></p>
+        <div class="actions" id="q-actions"></div>
+      </div>
+    </section>
+
+    <section class="q-body" id="overview">
+      <div class="wrap q-grid">
+        <div class="q-main">
+          <div class="q-panel">
+            <p class="kicker">The quest</p>
+            <h2 class="q-h2">Overview</h2>
+            <div id="q-hype"></div>
+            <p class="q-credit" id="q-credit"></p>
+            <div class="q-note" id="q-note" hidden></div>
+          </div>
+          <div class="q-panel" id="trailer">
+            <p class="kicker">Watch</p>
+            <h2 class="q-h2" id="q-trailer-title">Trailer</h2>
+            <div class="q-video" id="q-trailer"></div>
+          </div>
+          <div class="q-panel" id="gallery">
+            <p class="kicker">Screens</p>
+            <h2 class="q-h2">Gallery</h2>
+            <div class="q-gallery" id="q-gallery"></div>
+            <p class="q-small">Stills from the official trailer.</p>
+          </div>
+        </div>
+        <aside class="q-side" id="facts" aria-label="Quest facts">
+          <div class="q-facts">
+            <p class="kicker">Quest facts</p>
+            <dl id="q-facts"></dl>
+            <div id="download" class="q-dl"></div>
+            <p class="q-small" id="q-tbc-note" hidden><mark class="tbc">TBC</mark> means not confirmed yet. Check the download page for the latest details.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="q-guide section-alt" id="install">
+      <div class="wrap">
+        <div class="heading">
+          <p class="kicker">Step by step · PC</p>
+          <h2 id="g-title">How to install</h2>
+          <p id="g-intro"></p>
+        </div>
+        <div class="g-req q-panel" id="g-req"></div>
+        <div id="g-quest-note"></div>
+        <details class="g-part" id="g-setup">
+          <summary><span class="g-num">1</span><span><b>First-Time Setup</b><small>Only once. Skip if your patcher and installer already work.</small></span></summary>
+          <ol class="g-steps" id="g-setup-steps"></ol>
+        </details>
+        <details class="g-part" id="g-install" open>
+          <summary><span class="g-num">2</span><span><b>Install this quest</b><small>About a minute.</small></span></summary>
+          <ol class="g-steps" id="g-install-steps"></ol>
+        </details>
+        <details class="g-part" id="g-play" open>
+          <summary><span class="g-num">3</span><span><b>Start the quest</b><small>Where to find it in game.</small></span></summary>
+          <ol class="g-steps" id="g-play-steps"></ol>
+        </details>
+        <details class="g-part" id="g-uninstall">
+          <summary><span class="g-num">✕</span><span><b>Uninstall</b><small>Remove it any time.</small></span></summary>
+          <div class="g-uninstall" id="g-uninstall-body"></div>
+        </details>
+        <div class="g-two">
+          <div class="q-panel">
+            <p class="kicker">Problems?</p>
+            <h3>Troubleshooting</h3>
+            <div class="g-qa" id="g-trouble"></div>
+          </div>
+          <div class="q-panel">
+            <p class="kicker">Questions</p>
+            <h3>FAQ</h3>
+            <div class="g-qa" id="g-faq"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="q-body" id="changelog">
+      <div class="wrap">
+        <div class="q-panel">
+          <p class="kicker">Patch notes</p>
+          <h2 class="q-h2">Changelog</h2>
+          <ol class="q-changelog" id="q-changelog"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="q-media" id="follow">
+      <div class="wrap">
+        <p class="kicker">Follow the Time Patrol</p>
+        <h2 class="q-h2">More from Xeno Trunks</h2>
+        <div class="q-media-grid" id="q-media"></div>
+        <div class="q-disclaimer">
+          <p><b>Resource disclaimer:</b> my quests, cutscenes and custom files are not resources. Please don’t reupload, repack or reuse them in other mods without asking me first. Work by other modders is credited on each quest.</p>
+          <p>Independent fan creator. Not affiliated with or endorsed by Bandai Namco Entertainment, Toei Animation, Shueisha, Bird Studio or the Revamp team.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="q-more section-alt" id="more">
+      <div class="wrap">
+        <p class="kicker">Keep playing</p>
+        <h2 class="q-h2">More quests</h2>
+        <div class="q-more-row" id="q-more"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap foot">
+      <div>
+        <div class="foot-brand"><img src="assets/logo-tp-sm.png" width="36" height="36" loading="lazy" alt=""><span>XENO TRUNKS</span></div>
+        <div>Custom quests for the Time Patrol.</div>
+      </div>
+      <a class="to-top" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+  <script src="assets/js/quest.js" defer></script>
+</body>
+</html>
