@@ -456,9 +456,25 @@
     }
   }
 
+  function setupFnVideo() {
+    var v = document.getElementById("fn-video");
+    if (!v) return;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      v.removeAttribute("autoplay");
+      v.preload = "none";
+      try { v.pause(); } catch (e) {}
+    } else {
+      v.muted = true;
+      var p = v.play && v.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+  }
+
   function renderFn(data) {
     if (!data) return;
-    setImg("fn-image", data.image, data.image_alt);
+    setImg("fn-image", data.video_poster || data.image, data.image_alt);
+    setupFnVideo();
     setText("fn-image-title", data.title);
     setText("fn-badge", data.badge);
     setText("fn-kicker", data.kicker);
