@@ -604,6 +604,73 @@ content:
         type: image
         options:
           media: images
+      - name: slug
+        label: Page address (quest.html?q=…)
+        type: string
+      - name: page
+        label: Quest page (quest.html)
+        type: object
+        fields:
+          - name: tagline
+            type: string
+            description: One hype line. Keep upcoming villains secret.
+          - name: hype
+            label: Description paragraphs
+            type: text
+            list: true
+          - name: facts
+            label: Facts box (write TBC when unknown)
+            type: object
+            fields:
+              - name: version
+                type: string
+              - name: updated
+                label: Last updated
+                type: string
+              - name: released
+                type: string
+              - name: mode
+                label: Type
+                type: string
+              - name: game
+                label: Requires (DLC / game update)
+                type: string
+              - name: tested_game
+                label: Tested game version (TBC if unknown)
+                type: string
+              - name: patcher
+                label: XV2 Patcher version (TBC if unknown)
+                type: string
+              - name: size
+                label: File size
+                type: string
+          - name: youtube_id
+            label: Trailer YouTube ID
+            type: string
+          - name: gallery
+            type: image
+            list: true
+            options:
+              media: images
+          - name: install_note
+            label: Extra install note (optional)
+            type: text
+          - name: changelog
+            type: object
+            list: true
+            fields:
+              - name: version
+                type: string
+              - name: notes
+                type: text
+          - name: download_url
+            type: string
+          - name: download_host
+            type: string
+          - name: download_label
+            type: string
+          - name: trailer_label
+            type: string
       - name: progress
         label: Progress items
         type: object
@@ -737,6 +804,77 @@ content:
             label: Show the download button
             type: boolean
             description: Off hides the download (e.g. a client project not cleared for public release). The card and trailer stay.
+          - name: slug
+            label: Page address (quest.html?q=…)
+            type: string
+            description: Lowercase-with-dashes. Changing it breaks shared links.
+          - name: clip_mp4
+            label: Card loop video (MP4)
+            type: string
+          - name: clip_webm
+            label: Card loop video (WebM)
+            type: string
+          - name: clip_poster
+            label: Card loop poster image
+            type: image
+            options:
+              media: images
+          - name: page
+            label: Quest page (quest.html)
+            type: object
+            fields:
+              - name: tagline
+                type: string
+                description: One hype line. Keep upcoming villains secret.
+              - name: hype
+                label: Description paragraphs
+                type: text
+                list: true
+              - name: facts
+                label: Facts box (write TBC when unknown)
+                type: object
+                fields:
+                  - name: version
+                    type: string
+                  - name: updated
+                    label: Last updated
+                    type: string
+                  - name: released
+                    type: string
+                  - name: mode
+                    label: Type
+                    type: string
+                  - name: game
+                    label: Requires (DLC / game update)
+                    type: string
+                  - name: tested_game
+                    label: Tested game version (TBC if unknown)
+                    type: string
+                  - name: patcher
+                    label: XV2 Patcher version (TBC if unknown)
+                    type: string
+                  - name: size
+                    label: File size
+                    type: string
+              - name: youtube_id
+                label: Trailer YouTube ID
+                type: string
+              - name: gallery
+                type: image
+                list: true
+                options:
+                  media: images
+              - name: install_note
+                label: Extra install note (optional)
+                type: text
+              - name: changelog
+                type: object
+                list: true
+                fields:
+                  - name: version
+                    type: string
+                  - name: notes
+                    type: text
           - name: hidden
             type: boolean
 
@@ -909,3 +1047,89 @@ content:
       - name: rights_note
         label: Rights note
         type: text
+
+  - name: install_guide
+    label: Install guide (quest pages)
+    type: file
+    path: content/install-guide.json
+    format: json
+    fields:
+      - name: title
+        type: string
+      - name: intro
+        type: text
+      - name: requirements
+        type: string
+        list: true
+      - name: tools_url
+        label: Eternity Tools link
+        type: string
+      - name: setup
+        type: object
+        list: true
+        fields:
+          - name: title
+            type: string
+          - name: text
+            type: text
+          - name: image
+            type: image
+            options:
+              media: images
+      - name: install
+        type: object
+        list: true
+        fields:
+          - name: title
+            type: string
+          - name: text
+            type: text
+          - name: image
+            type: image
+            options:
+              media: images
+          - name: text_patreon
+            label: Text when the quest is on Patreon
+            type: text
+          - name: image_patreon
+            type: image
+            options:
+              media: images
+      - name: play
+        type: object
+        list: true
+        fields:
+          - name: title
+            type: string
+          - name: text
+            type: text
+          - name: image
+            type: image
+            options:
+              media: images
+      - name: uninstall
+        type: text
+      - name: uninstall_image
+        type: image
+        options:
+          media: images
+      - name: troubleshooting
+        type: object
+        list: true
+        fields:
+          - name: q
+            label: Problem
+            type: string
+          - name: a
+            label: Fix
+            type: text
+      - name: faq
+        type: object
+        list: true
+        fields:
+          - name: q
+            label: Question
+            type: string
+          - name: a
+            label: Answer
+            type: text

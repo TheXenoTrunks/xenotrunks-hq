@@ -1,0 +1,153 @@
+{
+  "title": "How to install",
+  "intro": "PC (Steam) only. Do the First-Time Setup once, then install any quest in about a minute.",
+  "requirements": [
+    "Dragon Ball Xenoverse 2 on PC (Steam), updated to 1.26 or 1.26.1.",
+    "The free Eternity Tools: XV2 Patcher 4.7 (makes mods work) and XV2INS (installs mods), from the official Eternity Tools page on VGM.",
+    "WinRAR or 7-Zip (free) to open .rar files.",
+    "Any DLC or minimum game update listed in the quest’s facts box."
+  ],
+  "tools_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/eternity-tools",
+  "setup": [
+    {
+      "title": "Update the game",
+      "text": "Open Steam → Library. Make sure Xenoverse 2 doesn’t say Update. The game must be 1.26 or 1.26.1, because Patcher 4.7 only works with these.",
+      "image": "assets/guide/B-1-steam-library.webp"
+    },
+    {
+      "title": "Download the 2 tools",
+      "text": "On the Eternity Tools page, click DOWNLOAD MOD and get xv2patcher_4.7.rar and XV2INS.rar. You don’t need the other files.",
+      "image": "assets/guide/B-2-eternity-download.webp"
+    },
+    {
+      "title": "Unzip both",
+      "text": "In Downloads, right-click each file → WinRAR → Extract to… (7-Zip works too). Never run the tools from inside the .rar.",
+      "image": "assets/guide/B-3w-winrar-extract-v2.webp"
+    },
+    {
+      "title": "Open the game folder",
+      "text": "In Steam, right-click DRAGON BALL XENOVERSE 2 → Manage → Browse local files. You’ll see DB Xenoverse 2 with a bin folder inside.",
+      "image": "assets/guide/B-3-steam-game-folder-v3.webp"
+    },
+    {
+      "title": "Install the patcher",
+      "text": "From xv2patcher_4.7, copy the bin and XV2PATCHER folders into DB Xenoverse 2. Click Replace if asked. Check that xinput1_3.dll now sits next to DBXV2.exe in bin.",
+      "image": "assets/guide/B-5-bin-xinput-check.webp"
+    },
+    {
+      "title": "Check the patcher folder",
+      "text": "You should now also see an XV2PATCHER folder inside DB Xenoverse 2.",
+      "image": "assets/guide/B-5b-xv2patcher-folder.webp"
+    },
+    {
+      "title": "Put the installer somewhere easy",
+      "text": "Move the XV2INS folder somewhere easy, like your Desktop. Inside is xv2ins.exe, which you’ll use for every mod.",
+      "image": "assets/guide/B-6-xv2ins-folder-badged.webp"
+    },
+    {
+      "title": "Open the installer once",
+      "text": "Double-click xv2ins.exe. If it asks for DBXV2.exe, pick DB Xenoverse 2\\bin\\DBXV2.exe.",
+      "image": "assets/guide/B-7-installer-open.webp"
+    },
+    {
+      "title": "Start the game",
+      "text": "Always start the game from DB Xenoverse 2\\bin\\DBXV2.exe.",
+      "image": "assets/guide/B-8-start-game.webp"
+    }
+  ],
+  "install": [
+    {
+      "title": "Download the quest",
+      "text": "Click the download button on this page, then press DOWNLOAD MOD on VGM. The .x2m file lands in your Downloads folder, no unzipping needed.",
+      "image": "assets/guide/A-1b-vgm-download.webp",
+      "image_patreon": "assets/guide/A-1c-patreon-download.webp",
+      "text_patreon": "Click the download button on this page. On the Patreon post, scroll to the bottom and click the file under Attachments. The .x2m file lands in your Downloads folder, no unzipping needed."
+    },
+    {
+      "title": "Open the installer",
+      "text": "Close the game. Open your XV2INS folder and double-click xv2ins.exe.",
+      "image": "assets/guide/A-3-xv2ins-icon-x2m.webp"
+    },
+    {
+      "title": "Add the quest",
+      "text": "Click the folder icon with the green + (top left) and pick the .x2m file.",
+      "image": "assets/guide/A-3b-installer-open-x2m.webp"
+    },
+    {
+      "title": "Confirm",
+      "text": "When asked “Do you want to install the following mod?”, click Yes.",
+      "image": "assets/guide/A-4a-install-confirm-x2m.webp"
+    },
+    {
+      "title": "Done",
+      "text": "You’ll see “Mod successfully installed.” Click OK. The quest now shows in the installer list.",
+      "image": "assets/guide/A-5-install-done-x2m.webp"
+    }
+  ],
+  "play": [
+    {
+      "title": "Start the game",
+      "text": "Launch DB Xenoverse 2\\bin\\DBXV2.exe (not the Steam button).",
+      "image": "assets/guide/A-6-bin-dbxv2.webp"
+    },
+    {
+      "title": "Find the quest",
+      "text": "Go to Parallel Quests → New PQs. Your quest is waiting there.",
+      "image": "assets/guide/A-7-new-pqs.webp"
+    }
+  ],
+  "uninstall": "Close the game, open xv2ins.exe, select the quest, click the red X (top left), then OK.",
+  "uninstall_image": "assets/guide/A-U1-uninstall-select.webp",
+  "troubleshooting": [
+    {
+      "q": "“This program needs xv2patcher to be installed”",
+      "a": "The patcher isn’t set up. Redo setup step 5 and check xinput1_3.dll is in bin."
+    },
+    {
+      "q": "“Needs xv2patcher 4.7 or greater” / “Failed to apply patch”",
+      "a": "Old patcher, or the game and patcher don’t match. Patcher 4.7 only works with game 1.26 / 1.26.1."
+    },
+    {
+      "q": "Steam updated the game and mods broke",
+      "a": "Wait for new Eternity Tools, then redo the First-Time Setup. Check the patcher-status channel on Discord."
+    },
+    {
+      "q": "Quest isn’t under New PQs",
+      "a": "Open xv2ins and check the quest is listed. Finish the tutorial quest “Being a Time Patroller” first, and start the game from bin\\DBXV2.exe."
+    },
+    {
+      "q": "Antivirus deleted a file",
+      "a": "Mod tools are often flagged by mistake. Re-download from the official Eternity Tools page only, allow the file, and redo the step."
+    },
+    {
+      "q": "Controller stopped working",
+      "a": "From the patcher’s “-- alternative dll --” folder, copy dinput8.dll into bin and delete xinput1_3.dll. Never keep both."
+    },
+    {
+      "q": "Using Revamp?",
+      "a": "Revamp 5.1.1 needs game 1.25.02 with patcher 4.64, so Patcher 4.7 won’t work with it. Ask in the Revamp Discord."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Does this work on PS, Xbox or Switch?",
+      "a": "No. Custom quests are PC (Steam) only."
+    },
+    {
+      "q": "Is it free?",
+      "a": "Each quest page shows where it’s hosted. The released quests on this site are free to download right now; future projects may be released differently, and each page will say so."
+    },
+    {
+      "q": "Will it affect my save?",
+      "a": "Mods install through the official XV2INS tool and can be uninstalled at any time. Backing up your save before modding is always a good idea."
+    },
+    {
+      "q": "Can I use it online?",
+      "a": "Some quests are built for online play (it says so in the facts box). Only play modded content with people who have the same mods installed."
+    },
+    {
+      "q": "Still stuck?",
+      "a": "Post in #help on the Xeno Time Patrol Discord with your game version, patcher version, which quest, and a screenshot of the error."
+    }
+  ]
+}

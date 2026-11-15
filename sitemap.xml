@@ -5,4 +5,49 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://thexenotrunks.github.io/xenotrunks-hq/quest.html?q=friezas-nightmare</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thexenotrunks.github.io/xenotrunks-hq/quest.html?q=goku-day-pack</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thexenotrunks.github.io/xenotrunks-hq/quest.html?q=heroes-marvellous-show</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thexenotrunks.github.io/xenotrunks-hq/quest.html?q=corruption-crisis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thexenotrunks.github.io/xenotrunks-hq/quest.html?q=banana-blitz-showdown</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thexenotrunks.github.io/xenotrunks-hq/quest.html?q=nameless-namekian</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thexenotrunks.github.io/xenotrunks-hq/quest.html?q=vegetas-humiliation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thexenotrunks.github.io/xenotrunks-hq/quest.html?q=yamchas-resolve</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thexenotrunks.github.io/xenotrunks-hq/quest.html?q=couples-division</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

@@ -39,5 +39,45 @@
       "url": "https://www.patreon.com/posts/friezas-my-1st-1-73964937"
     }
   ],
-  "coming_note": "2.0 trailer and release details: shared when it’s ready."
+  "coming_note": "2.0 trailer and release details: shared when it’s ready.",
+  "slug": "friezas-nightmare",
+  "page": {
+    "tagline": "Frieza’s worst nightmare starts here.",
+    "hype": [
+      "My first custom Parallel Quest, and the one that started it all. A hard-difficulty gauntlet where the fights keep coming and Frieza has to survive every one.",
+      "Who you face next depends on who you defeat first.",
+      "Version 1.7 is free to play now. Version 2.0 is being rebuilt from the ground up."
+    ],
+    "facts": {
+      "version": "1.7 (free) · 2.0 in development",
+      "updated": "1.7 trailer: 25 Sep 2023",
+      "released": "2022",
+      "game": "TBC",
+      "tested_game": "TBC",
+      "patcher": "TBC",
+      "size": "TBC",
+      "mode": "Hard difficulty Parallel Quest"
+    },
+    "download_url": "https://www.patreon.com/posts/friezas-my-1st-1-73964937",
+    "download_host": "Patreon (free post)",
+    "download_label": "Play 1.7 free",
+    "youtube_id": "KXJkr4EVsHo",
+    "trailer_label": "1.7 trailer",
+    "gallery": [
+      "assets/quests/gallery/friezas-nightmare-1.webp",
+      "assets/quests/gallery/friezas-nightmare-2.webp",
+      "assets/quests/gallery/friezas-nightmare-3.webp",
+      "assets/quests/gallery/friezas-nightmare-4.webp"
+    ],
+    "changelog": [
+      {
+        "version": "2.0",
+        "notes": "In development. No release date yet, and how 2.0 will be released is still being decided."
+      },
+      {
+        "version": "1.7",
+        "notes": "Bug fixes, hard difficulty, better rewards, better dialogue and smarter AI."
+      }
+    ]
+  }
 }

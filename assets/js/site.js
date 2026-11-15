@@ -513,6 +513,7 @@
       if (safeUrl(data.trailer_url)) links += actionBtn(data.trailer_url, data.trailer_label || "Watch the 2.0 trailer");
       if (safeUrl(data.download_url)) links += actionBtn(data.download_url, data.download_label || "Download 2.0");
       else if (data.coming_note) later = '<p class="coming-note">' + esc(data.coming_note) + "</p>";
+      if (data.slug) links += '<a class="btn outline" href="quest.html?q=' + encodeURIComponent(data.slug) + '">Quest page &amp; install guide</a>';
       actions.innerHTML = extra + links + later;
     }
   }
@@ -530,8 +531,15 @@
       if (dl) links.push('<a class="work-dl" ' + linkAttrs(w.download_url) + ' aria-label="Free download: ' + esc(w.title) + (w.download_host ? " (" + esc(w.download_host) + ")" : "") + ', opens in a new tab">Free download ↗</a>');
       if (safeUrl(w.trailer_url)) links.push('<a class="work-tr" ' + linkAttrs(w.trailer_url) + ' aria-label="Trailer: ' + esc(w.title) + ', opens YouTube">▶ Trailer</a>');
       var img = mediaPath(w.image);
+      var page = w.slug ? "quest.html?q=" + encodeURIComponent(w.slug) : "";
+      if (page) links.unshift('<a class="work-page" href="' + esc(page) + '" aria-label="Quest page and install guide: ' + esc(w.title) + '">Quest page →</a>');
+      var clip = mediaPath(w.clip_mp4), clipW = mediaPath(w.clip_webm), poster = mediaPath(w.clip_poster);
+      var media = '<img src="' + esc(img) + '" alt="' + esc(w.image_alt || "") + '" width="1600" height="900" loading="lazy" decoding="async"' + (clip ? ' class="wt-still"' : "") + ">";
+      if (clip) media = '<video class="wt-clip" muted loop playsinline preload="none" poster="' + esc(poster || img) + '" width="1280" height="720" aria-hidden="true" data-lazy-clip>' +
+        (clipW ? '<source data-src="' + esc(clipW) + '" type="video/webm">' : "") + '<source data-src="' + esc(clip) + '" type="video/mp4"></video>' + media;
+      var tileInner = media + '<span class="xtp-logo" aria-hidden="true"></span><span class="xtp-bar">' + esc(w.title) + "</span>";
       var tile = img
-        ? '<div class="work-tile xtp-frame"><img src="' + esc(img) + '" alt="' + esc(w.image_alt || "") + '" width="1600" height="900" loading="lazy" decoding="async"><span class="xtp-logo" aria-hidden="true"></span><span class="xtp-bar">' + esc(w.title) + "</span></div>"
+        ? (page ? '<a class="work-tile xtp-frame" href="' + esc(page) + '" tabindex="-1" aria-hidden="true">' + tileInner + "</a>" : '<div class="work-tile xtp-frame">' + tileInner + "</div>")
         : '<div class="work-tile xtp-frame xtp-placeholder" aria-hidden="true"><span class="xtp-logo"></span><span class="wt-type">' + esc(w.type || "") + '</span><span class="wt-year">' + esc(w.year || "") + '</span><span class="xtp-bar">' + esc(w.title) + "</span></div>";
       var meta = [];
       if (img && w.type) meta.push(esc(w.type));
@@ -545,6 +553,35 @@
         (links.length ? '<div class="work-links">' + links.join("") + "</div>" : "") +
         (dl && w.download_host ? '<p class="host">Hosted on ' + esc(w.download_host) + "</p>" : "") + "</div></article>";
     }).join("");
+    lazyClips(root);
+  }
+
+  // Quest card loops: load and play only while on screen; never autoplay with reduced motion.
+  function lazyClips(root) {
+    var vids = root.querySelectorAll("video[data-lazy-clip]");
+    if (!vids.length) return;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || !("IntersectionObserver" in window)) return;
+    function load(v) {
+      if (v.dataset.loaded) return;
+      v.querySelectorAll("source[data-src]").forEach(function (s) { s.src = s.getAttribute("data-src"); });
+      v.dataset.loaded = "1";
+      v.load();
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) {
+          load(v);
+          v.closest(".work-tile").classList.add("is-playing");
+          var p = v.play();
+          if (p && p.catch) p.catch(function () {});
+        } else if (!v.paused) {
+          v.pause();
+        }
+      });
+    }, { rootMargin: "120px 0px", threshold: 0.25 });
+    vids.forEach(function (v) { io.observe(v); });
   }
 
   // Portfolio of past commission work. Only entries with status "confirmed" (and not hidden) are shown.
