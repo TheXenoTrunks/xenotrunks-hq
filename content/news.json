@@ -3,8 +3,8 @@
   "title": "This week in the Time Patrol.",
   "intro": "Official raids and events, in short. Full details are at each official source.",
   "show_images": true,
-  "updated": "2026-11-13",
-  "updated_note": "Checked 13 Nov 2026, Australia/Perth (UTC+8). Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
+  "updated": "2026-11-15",
+  "updated_note": "Checked 15 Nov 2026, Australia/Perth (UTC+8). Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
   "items": [
     {
       "id": "festival-shop-lineup-20261113",
@@ -21,6 +21,34 @@
       "image": "assets/uploads/festival-shop-lineup-20261113.webp",
       "image_alt": "Xeno Time Patrol card: Festival of Universes logo over the official Final Festival of Universes stage, titled Past items return, from 16 Nov 2026, 00:00 UTC.",
       "image_credit": "Xeno Time Patrol design; character art © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
+    },
+    {
+      "id": "event-conton-city-tournament-id1855",
+      "kind": "event",
+      "hidden": false,
+      "kicker": "Online event",
+      "title": "Conton City Tournament",
+      "date_label": "「コントン都一武道会」 · 16–19 Nov 2026 (platform windows)",
+      "starts_at": "2026-11-16T10:00:00+09:00",
+      "ends_at": "2026-11-19T06:00:00+09:00",
+      "summary": "Official recurring online event, announced 15 November 2026 in Bandai's information post id1855. PlayStation, Nintendo Switch and Steam: 16 Nov, 10:00 – 18 Nov, 22:00 JST (16 Nov, 01:00 – 18 Nov, 13:00 UTC). Xbox: 16 Nov, 18:00 – 19 Nov, 06:00 JST (16 Nov, 09:00 – 18 Nov, 21:00 UTC). Clear rewards, one per clear: 1st clear, loading-screen artwork; 2nd clear, the Supreme Kai of Time as a playable character; 3rd clear, a Supreme Kai of Time custom skill. You need to have cleared the story and be logged into a multiplayer lobby; Old Conton City does not run online events. Item names are translated from the Japanese notice, so in-game English names may differ. Schedule and rewards may change without notice.",
+      "source_label": "Official Xenoverse 2 information (id1855)",
+      "source_url": "https://dbx.bn-ent.net/information/#id1855",
+      "windows": [
+        {
+          "platforms": "PlayStation, Nintendo Switch and Steam",
+          "starts_at": "2026-11-16T10:00:00+09:00",
+          "ends_at": "2026-11-18T22:00:00+09:00"
+        },
+        {
+          "platforms": "Xbox",
+          "starts_at": "2026-11-16T18:00:00+09:00",
+          "ends_at": "2026-11-19T06:00:00+09:00"
+        }
+      ],
+      "image": "assets/uploads/event-conton-city-tournament-id1855.webp",
+      "image_alt": "Xeno Time Patrol card: the Supreme Kai of Time in front of the Conton City tournament arena, titled Conton City Tournament, 16–19 Nov 2026.",
+      "image_credit": "Xeno Time Patrol design; official art © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
     },
     {
       "id": "event-world-tournament-id1854",

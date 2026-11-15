@@ -112,3 +112,6 @@ Not live. Needs Xeno Trunks' approval before merging preview → main. Design un
 - **Patreon:** reworded as support for ongoing development. Perk wording no longer implies future public/free releases. Each perk has a `verified` flag; unverified perks are hidden publicly. Hero Society "1 small mod request a month" is `verified: false` (hidden) until checked against the live Patreon page.
 - **Digital products:** new "Coming later" teaser section (`content/products.json`, toggle `enabled`) for original guides and scripting resources. No products, prices or buy buttons. Not in the nav.
 - `.pages.yml`: new fields above + new "Digital products (coming later)" collection. `scripts/build-fallback.py` includes `products`.
+
+## Preview — 15 Nov 2026
+Added a news card for the official Conton City Tournament (id1855, recurring online event, 16–19 Nov 2026 platform windows) with a Xeno Time Patrol card image. Times are shown in JST and UTC only. No prices, payments or release promises. Homepage layout unchanged; not merged to live.
