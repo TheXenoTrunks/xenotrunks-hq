@@ -85,7 +85,6 @@ mark.tbc { background: rgba(240,98,168,0.16); color: var(--pink); border: 1px so
 .m-patreon { background: linear-gradient(135deg, var(--magenta), #6E1842); }
 .m-facebook { background: linear-gradient(135deg, #1877F2, #0E4AA0); }
 .m-x { background: linear-gradient(135deg, #1B2333, #05080F); }
-.m-nexus { background: linear-gradient(135deg, #D98F40, #8A4E14); }
 .q-src { margin: 12px 0 0; font-size: 0.8rem; line-height: 1.5; color: rgba(167,180,200,0.8); font-style: italic; }
 .q-src a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
 .q-disclaimer { margin-top: 24px; padding: 18px 20px; border: 1px dashed rgba(167,180,200,0.35); border-radius: 10px; font-size: 0.95rem; color: var(--muted); }

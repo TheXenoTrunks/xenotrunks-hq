@@ -644,12 +644,6 @@ content:
               - name: size
                 label: File size
                 type: string
-          - name: nexus_url
-            label: Nexus Mods mirror link (optional)
-            type: string
-          - name: nexus_label
-            label: Nexus button text (optional)
-            type: string
           - name: facts_source
             label: Where the facts came from (shown as "not yet confirmed")
             type: object
@@ -659,6 +653,9 @@ content:
                 type: string
               - name: url
                 type: string
+          - name: pq_menu
+            label: Parallel Quests menu it appears in (leave empty for New PQs)
+            type: string
           - name: youtube_id
             label: Trailer YouTube ID
             type: string
@@ -819,9 +816,10 @@ content:
             label: Show the download button
             type: boolean
             description: Off hides the download (e.g. a client project not cleared for public release). The card and trailer stay.
-          - name: nexus_url
-            label: Nexus Mods mirror link (optional)
-            type: string
+          - name: download_soon
+            label: Show 'Download coming to this site soon'
+            type: boolean
+            description: On when there's no download link yet.
           - name: slug
             label: Page address (quest.html?q=…)
             type: string
@@ -883,6 +881,9 @@ content:
                     type: string
                   - name: url
                     type: string
+              - name: pq_menu
+                label: Parallel Quests menu it appears in (leave empty for New PQs)
+                type: string
               - name: youtube_id
                 label: Trailer YouTube ID
                 type: string
@@ -1091,6 +1092,9 @@ content:
       - name: tools_url
         label: Eternity Tools link
         type: string
+      - name: menu_default
+        label: Default Parallel Quests menu (used as {menu} in steps)
+        type: string
       - name: setup
         type: object
         list: true
@@ -1134,6 +1138,9 @@ content:
             type: image
             options:
               media: images
+          - name: menu_image
+            label: Hide this picture when a quest uses a different menu
+            type: boolean
       - name: uninstall
         type: text
       - name: uninstall_image

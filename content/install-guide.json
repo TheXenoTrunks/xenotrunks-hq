@@ -58,10 +58,8 @@
   "install": [
     {
       "title": "Download the quest",
-      "text": "Click the download button on this page, then press DOWNLOAD MOD on VGM. The .x2m file lands in your Downloads folder, no unzipping needed.",
-      "image": "assets/guide/A-1b-vgm-download.webp",
-      "image_patreon": "assets/guide/A-1c-patreon-download.webp",
-      "text_patreon": "Click the download button on this page. On the Patreon post, scroll to the bottom and click the file under Attachments. The .x2m file lands in your Downloads folder, no unzipping needed."
+      "text": "Click the download button on this page. On the Patreon post, scroll to the bottom and click the file under Attachments. The .x2m file lands in your Downloads folder, no unzipping needed.",
+      "image": "assets/guide/A-1c-patreon-download.webp"
     },
     {
       "title": "Open the installer",
@@ -92,8 +90,9 @@
     },
     {
       "title": "Find the quest",
-      "text": "Go to Parallel Quests → New PQs. Your quest is waiting there.",
-      "image": "assets/guide/A-7-new-pqs.webp"
+      "text": "Go to Parallel Quests → {menu}. Your quest is waiting there.",
+      "image": "assets/guide/A-7-new-pqs.webp",
+      "menu_image": true
     }
   ],
   "uninstall": "Close the game, open xv2ins.exe, select the quest, click the red X (top left), then OK.",
@@ -112,8 +111,8 @@
       "a": "Wait for new Eternity Tools, then redo the First-Time Setup. Check the patcher-status channel on Discord."
     },
     {
-      "q": "Quest isn’t under New PQs",
-      "a": "Open xv2ins and check the quest is listed. Finish the tutorial quest “Being a Time Patroller” first, and start the game from bin\\DBXV2.exe."
+      "q": "Quest isn’t showing in Parallel Quests",
+      "a": "Open xv2ins and check the quest is listed. Finish the tutorial quest “Being a Time Patroller” first, start the game from bin\\DBXV2.exe, and check the menu named in step 3 of this guide."
     },
     {
       "q": "Antivirus deleted a file",
@@ -149,5 +148,6 @@
       "q": "Still stuck?",
       "a": "Post in #help on the Xeno Time Patrol Discord with your game version, patcher version, which quest, and a screenshot of the error."
     }
-  ]
+  ],
+  "menu_default": "New PQs"
 }

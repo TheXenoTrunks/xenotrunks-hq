@@ -50,12 +50,12 @@
     ],
     "facts": {
       "version": "1.7 (free) · 2.0 in development",
-      "updated": "Nexus v1.5: 10 Sep 2023 · Patreon 1.7: TBC",
+      "updated": "10 Sep 2023 (v1.5) · 1.7: TBC",
       "released": "30 Oct 2022 (Patreon)",
-      "game": "No DLC required (Nexus listing)",
+      "game": "No DLC required",
       "tested_game": "TBC",
       "patcher": "TBC",
-      "size": "5.5 MB (Nexus v1.5 .zip) · 1.7 file: TBC",
+      "size": "5.5 MB (v1.5 .zip) · 1.7 file: TBC",
       "mode": "Hard difficulty Parallel Quest"
     },
     "download_url": "https://www.patreon.com/posts/friezas-my-1st-1-73964937",
@@ -107,17 +107,12 @@
         "notes": "Patreon supporter release."
       }
     ],
-    "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/151",
     "facts_source": [
       {
-        "label": "Patreon (1.7)",
+        "label": "Patreon",
         "url": "https://www.patreon.com/posts/friezas-my-1st-1-73964937"
-      },
-      {
-        "label": "Nexus (v1.5)",
-        "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/151"
       }
     ],
-    "nexus_label": "Older v1.5 on Nexus Mods"
+    "pq_menu": "Event Quests (bottom of the list)"
   }
 }

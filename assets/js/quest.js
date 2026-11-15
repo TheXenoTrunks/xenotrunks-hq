@@ -14,7 +14,7 @@
   function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
   function safeUrl(u) {
     if (u == null) return ""; u = String(u).trim(); if (!u) return "";
-    if (/^https?:\/\//i.test(u)) return u;
+    if (/^https?:\/\//i.test(u)) return /videogamemods\.com|nexusmods\.com/i.test(u) && !/eternity-tools/i.test(u) ? "" : u;
     if (/^[a-z][a-z0-9+.-]*:/i.test(u) || u.indexOf("//") === 0) return "";
     return u.replace(/^\//, "");
   }
@@ -33,7 +33,7 @@
       var p = fn.page;
       list.push({ slug: fn.slug, title: "Frieza’s Nightmare", type: p.facts && p.facts.mode, status: "fn", tagline: p.tagline, hype: p.hype, facts: p.facts,
         download_url: p.download_url, download_host: p.download_host, download_label: p.download_label, youtube_id: p.youtube_id, trailer_label: p.trailer_label,
-        gallery: p.gallery, changelog: p.changelog, nexus_url: p.nexus_url, nexus_label: p.nexus_label, facts_source: p.facts_source, clip_mp4: "assets/fn2-teaser.mp4", clip_webm: "assets/fn2-teaser.webm", clip_poster: "assets/fn2-teaser-poster.jpg",
+        gallery: p.gallery, changelog: p.changelog, facts_source: p.facts_source, pq_menu: p.pq_menu, clip_mp4: "assets/fn2-teaser.mp4", clip_webm: "assets/fn2-teaser.webm", clip_poster: "assets/fn2-teaser-poster.jpg",
         card: "assets/fn2-teaser-poster.jpg", note: fn.note, requirements: "", credit: "" });
     }
     ((work && work.items) || []).forEach(function (w) {
@@ -42,7 +42,7 @@
       list.push({ slug: w.slug, title: w.title, type: w.type, year: w.year, status: "released", tagline: p.tagline, hype: p.hype || [w.summary], facts: p.facts || {},
         download_url: w.show_download !== false ? w.download_url : "", download_host: w.download_host, youtube_id: p.youtube_id, gallery: p.gallery, changelog: p.changelog,
         clip_mp4: w.clip_mp4, clip_webm: w.clip_webm, clip_poster: w.clip_poster, card: w.clip_poster || w.image, requirements: w.requirements, credit: w.credit,
-        summary: w.summary, install_note: p.install_note, commission: w.commission, nexus_url: w.nexus_url, facts_source: p.facts_source });
+        summary: w.summary, install_note: p.install_note, commission: w.commission, download_soon: w.download_soon, facts_source: p.facts_source, pq_menu: p.pq_menu });
     });
     return list;
   }
@@ -78,7 +78,7 @@
 
     // Actions + download box
     var dl = safeUrl(q.download_url);
-    var dlLabel = q.download_label || (dl ? "Free download" : "");
+    var dlLabel = q.download_label || (dl ? (q.download_host ? "Download on " + q.download_host : "Download") : "");
     var host = q.download_host ? String(q.download_host) : "";
     var acts = [];
     if (dl) acts.push('<a class="btn" href="' + esc(dl) + '" target="_blank" rel="noopener noreferrer">' + esc(dlLabel) + " ↗</a>");
@@ -88,10 +88,8 @@
     var navdl = $("nav-dl");
     if (navdl) { if (dl) { navdl.href = dl; navdl.target = "_blank"; navdl.rel = "noopener noreferrer"; navdl.textContent = q.status === "fn" ? "Play 1.7 free" : "Download"; } else navdl.remove(); }
     $("download").innerHTML = dl
-      ? '<a class="btn" href="' + esc(dl) + '" target="_blank" rel="noopener noreferrer">' + esc(dlLabel) + ' ↗</a><p class="host">Hosted on ' + esc(host.replace(/^VGM\b/, "Videogamemods (VGM)")) + "</p>"
-      : '<span class="btn outline" aria-disabled="true">Download coming later</span>';
-    var nx = safeUrl(q.nexus_url);
-    if (nx) $("download").innerHTML += '<a class="btn outline" href="' + esc(nx) + '" target="_blank" rel="noopener noreferrer">' + esc(q.nexus_label || "Mirror: Nexus Mods") + ' ↗</a><p class="host">Nexus needs a free account to download. Some Nexus files come as a .zip: unzip it to get the .x2m.</p>';
+      ? '<a class="btn" href="' + esc(dl) + '" target="_blank" rel="noopener noreferrer">' + esc(dlLabel) + ' ↗</a><p class="host">Hosted on ' + esc(host) + "</p>"
+      : '<span class="btn outline" aria-disabled="true">Download coming to this site soon</span>';
 
     // Overview
     $("q-hype").innerHTML = (q.hype || []).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("");
@@ -106,14 +104,14 @@
     var rows = [
       ["Version", f.version], ["Last updated", f.updated], ["Released", f.released], ["Type", f.mode || q.type],
       ["Requires", f.game || q.requirements], ["Tested game version", f.tested_game], ["XV2 Patcher", f.patcher],
-      ["Platform", "PC (Steam)"], ["File size", f.size], ["Download", host ? host.replace(/^VGM\b/, "Videogamemods (VGM)") : ""]
+      ["Platform", "PC (Steam)"], ["File size", f.size], ["Download", host ? host : "Coming to this site soon"]
     ];
     var hasTbc = false;
     $("q-facts").innerHTML = rows.map(function (r) { var h = val(r[1]); if (h.indexOf("tbc") > -1) hasTbc = true; return "<dt>" + esc(r[0]) + "</dt><dd>" + h + "</dd>"; }).join("");
     $("q-tbc-note").hidden = !hasTbc;
     var srcs = (q.facts_source || []).filter(function (s) { return s && safeUrl(s.url); });
     var sn = $("q-src");
-    if (sn && srcs.length) { sn.hidden = false; sn.innerHTML = "Info from listings, not yet confirmed: " + srcs.map(function (s) { return '<a href="' + esc(safeUrl(s.url)) + '" target="_blank" rel="noopener noreferrer">' + esc(s.label || "source") + "</a>"; }).join(" · "); }
+    if (sn) { sn.hidden = false; sn.innerHTML = "Info not yet confirmed." + (srcs.length ? " Source: " + srcs.map(function (s) { return '<a href="' + esc(safeUrl(s.url)) + '" target="_blank" rel="noopener noreferrer">' + esc(s.label || "source") + "</a>"; }).join(" · ") : ""); }
 
     // Trailer: click-to-load (no YouTube request until the visitor asks)
     var tr = $("q-trailer");
@@ -139,10 +137,12 @@
         (guide.tools_url ? '<p style="margin:14px 0 0"><a class="btn outline" href="' + esc(safeUrl(guide.tools_url)) + '" target="_blank" rel="noopener noreferrer">Get Eternity Tools (VGM) ↗</a></p>' : "");
       if (q.install_note) $("g-quest-note").innerHTML = '<div class="q-note" style="margin:0 0 16px">' + esc(q.install_note) + "</div>";
       var patreon = /patreon/i.test(host);
+      var menu = q.pq_menu || guide.menu_default || "New PQs";
+      var customMenu = !!q.pq_menu && q.pq_menu !== guide.menu_default;
       function steps(arr) {
         return (arr || []).map(function (s) {
-          var img = safeUrl(patreon && s.image_patreon ? s.image_patreon : s.image);
-          return "<li><div><h4>" + esc(s.title) + "</h4><p>" + esc(patreon && s.text_patreon ? s.text_patreon : s.text) + "</p></div>" + (img ? '<img src="' + esc(img) + '" alt="Screenshot: ' + esc(s.title) + '" loading="lazy" decoding="async">' : "") + "</li>";
+          var img = s.menu_image && customMenu ? "" : safeUrl(patreon && s.image_patreon ? s.image_patreon : s.image);
+          return "<li><div><h4>" + esc(s.title) + "</h4><p>" + esc(String(patreon && s.text_patreon ? s.text_patreon : s.text).replace(/\{menu\}/g, menu)) + "</p></div>" + (img ? '<img src="' + esc(img) + '" alt="Screenshot: ' + esc(s.title) + '" loading="lazy" decoding="async">' : "") + "</li>";
         }).join("");
       }
       $("g-setup-steps").innerHTML = steps(guide.setup);
@@ -159,7 +159,7 @@
     $("q-changelog").innerHTML = cl.length ? cl.map(function (c) { return "<li><b>" + esc(c.version) + "</b>" + esc(c.notes) + "</li>"; }).join("") : "<li><b>Coming soon</b>Patch notes for this quest will be added here.</li>";
 
     // Media buttons
-    var want = { "Nexus Mods": ["m-nexus", "Mirror downloads"], Discord: ["m-discord", "Join the Time Patrol"], YouTube: ["m-youtube", "Trailers & reveals"], Patreon: ["m-patreon", "Support the next quest"], Facebook: ["m-facebook", "News & updates"], X: ["m-x", "Quick updates"] };
+    var want = { Discord: ["m-discord", "Join the Time Patrol"], YouTube: ["m-youtube", "Trailers & reveals"], Patreon: ["m-patreon", "Support the next quest"], Facebook: ["m-facebook", "News & updates"], X: ["m-x", "Quick updates"] };
     var socials = (settings && (settings.socials || settings.social)) || [];
     var seen = {};
     var media = socials.filter(function (s) { return s && !s.hidden && want[s.name] && !seen[s.name] && (seen[s.name] = 1) && safeUrl(s.url); }).map(function (s) {

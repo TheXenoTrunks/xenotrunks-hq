@@ -12,8 +12,8 @@
       "requirements": "No paid DLC needed. Game updated to at least the DLC 7 patch.",
       "credit": "With BlazingSpirit, Unleashed (skills) and BBVenom",
       "trailer_url": "https://www.youtube.com/watch?v=BLg2lDzucoc",
-      "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/goku-day-pack",
-      "download_host": "VGM",
+      "download_url": "https://www.patreon.com/posts/103713229",
+      "download_host": "Patreon",
       "hidden": false,
       "commission": false,
       "show_download": true,
@@ -32,7 +32,7 @@
         "facts": {
           "version": "1.1",
           "updated": "24 May 2024",
-          "released": "9 May 2024 (VGM) · Patreon 8 May 2024",
+          "released": "8 May 2024 (Patreon) · public 9 May 2024",
           "game": "No paid DLC. Game updated to at least the DLC 7 patch.",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -63,16 +63,12 @@
         ],
         "facts_source": [
           {
-            "label": "VGM",
-            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/goku-day-pack"
-          },
-          {
             "label": "Patreon",
             "url": "https://www.patreon.com/posts/103713229"
           }
         ]
       },
-      "nexus_url": ""
+      "download_soon": false
     },
     {
       "title": "The Heroes Marvellous Show",
@@ -83,8 +79,8 @@
       "requirements": "",
       "credit": "Co-created with BBVenom",
       "trailer_url": "https://www.youtube.com/watch?v=82E0QS-yvz4",
-      "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/ascended-warriors",
-      "download_host": "VGM · in BBVenom’s Ascended Warriors",
+      "download_url": "",
+      "download_host": "",
       "hidden": false,
       "commission": false,
       "show_download": true,
@@ -98,13 +94,13 @@
         "tagline": "The world needs a hero. It got the Champ.",
         "hype": [
           "An unlikely saviour steps into the spotlight when a familiar-looking threat comes calling.",
-          "A collab with BBVenom, shipped inside his Ascended Warriors pack on VGM."
+          "A collab with BBVenom, currently shipped inside his Ascended Warriors pack."
         ],
         "facts": {
           "version": "TBC (pack is v1.4)",
           "updated": "27 Sep 2026 (pack)",
           "released": "May 2024 (trailer)",
-          "game": "Pack 1.4 notes: compatible with game 1.26.01",
+          "game": "Pack notes: compatible with game 1.26.01",
           "tested_game": "1.26.01 (pack notes)",
           "patcher": "TBC",
           "size": "26.4 MB (.rar, in the pack)",
@@ -117,21 +113,16 @@
           "assets/quests/gallery/heroes-marvellous-show-4.webp"
         ],
         "youtube_id": "82E0QS-yvz4",
-        "install_note": "This quest ships inside BBVenom’s Ascended Warriors pack as a .rar. Follow the instructions on that VGM page for the pack files.",
+        "install_note": "This quest currently ships inside BBVenom’s Ascended Warriors pack as a .rar. A standalone download is coming to this site soon.",
         "changelog": [
           {
             "version": "Pack 1.4",
             "notes": "Compatibility with game version 1.26.01 (BBVenom’s pack)."
           }
         ],
-        "facts_source": [
-          {
-            "label": "VGM (BBVenom’s Ascended Warriors pack)",
-            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/ascended-warriors"
-          }
-        ]
+        "facts_source": []
       },
-      "nexus_url": ""
+      "download_soon": true
     },
     {
       "title": "itsErichDUH’s Corruption Crisis!",
@@ -142,8 +133,8 @@
       "requirements": "",
       "credit": "Starring itsErichDUH",
       "trailer_url": "https://www.youtube.com/watch?v=VCiOIS7yiaE",
-      "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/itserichduhs-corruption-crisis-parrellel-quest-1v1",
-      "download_host": "VGM",
+      "download_url": "https://www.patreon.com/posts/itserichduhs-101678530",
+      "download_host": "Patreon",
       "hidden": false,
       "commission": false,
       "show_download": true,
@@ -162,7 +153,7 @@
         "facts": {
           "version": "1.0",
           "updated": "24 May 2024",
-          "released": "9 Apr 2024 (VGM) · Patreon 4 Apr 2024",
+          "released": "4 Apr 2024 (Patreon) · public 9 Apr 2024",
           "game": "TBC",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -189,16 +180,12 @@
         ],
         "facts_source": [
           {
-            "label": "VGM",
-            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/itserichduhs-corruption-crisis-parrellel-quest-1v1"
-          },
-          {
             "label": "Patreon",
             "url": "https://www.patreon.com/posts/itserichduhs-101678530"
           }
         ]
       },
-      "nexus_url": ""
+      "download_soon": false
     },
     {
       "title": "Banana Blitz Showdown",
@@ -209,8 +196,8 @@
       "requirements": "No paid DLC needed. Game updated to at least the DLC 14 patch.",
       "credit": "With BBVenom and Nevox",
       "trailer_url": "https://www.youtube.com/watch?v=xTJidaa_GkE",
-      "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/banana-blitz-showdown-parrellel-quest-1v1",
-      "download_host": "VGM",
+      "download_url": "https://www.patreon.com/posts/banana-blitz-101690520",
+      "download_host": "Patreon",
       "hidden": false,
       "commission": true,
       "show_download": true,
@@ -229,7 +216,7 @@
         "facts": {
           "version": "1.3",
           "updated": "7 May 2026",
-          "released": "5 Apr 2024 (VGM) · Patreon 4 Apr 2024",
+          "released": "4 Apr 2024 (Patreon) · public 5 Apr 2024",
           "game": "No paid DLC. Game updated to at least the DLC 14 patch.",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -268,20 +255,12 @@
         ],
         "facts_source": [
           {
-            "label": "VGM",
-            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/banana-blitz-showdown-parrellel-quest-1v1"
-          },
-          {
-            "label": "Nexus",
-            "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/287"
-          },
-          {
             "label": "Patreon",
             "url": "https://www.patreon.com/posts/banana-blitz-101690520"
           }
         ]
       },
-      "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/287"
+      "download_soon": false
     },
     {
       "title": "The Nameless Namekian",
@@ -292,8 +271,8 @@
       "requirements": "No paid DLC needed. Game updated to at least the DLC 16 patch (1.36).",
       "credit": "Giant Orange Piccolo model by AleWarrior89, used with permission",
       "trailer_url": "https://www.youtube.com/watch?v=ypOqf89fiyE",
-      "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/the-nameless-namekian-custom-parallel-quest",
-      "download_host": "VGM",
+      "download_url": "https://www.patreon.com/posts/88491809",
+      "download_host": "Patreon",
       "hidden": false,
       "commission": false,
       "show_download": true,
@@ -312,11 +291,11 @@
         "facts": {
           "version": "1.4",
           "updated": "30 Aug 2024",
-          "released": "31 Aug 2023 (VGM) · Patreon 27 Aug 2023",
+          "released": "27 Aug 2023 (Patreon) · public 31 Aug 2023",
           "game": "No paid DLC. Game updated to at least the DLC 16 patch (1.36).",
           "tested_game": "TBC",
           "patcher": "TBC",
-          "size": "7.1 MB (.x2m, VGM) · 6.9 MB (Nexus)",
+          "size": "7.1 MB (.x2m)",
           "mode": "1v1 custom Parallel Quest"
         },
         "gallery": [
@@ -351,20 +330,12 @@
         ],
         "facts_source": [
           {
-            "label": "VGM",
-            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/the-nameless-namekian-custom-parallel-quest"
-          },
-          {
-            "label": "Nexus",
-            "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/204"
-          },
-          {
             "label": "Patreon",
             "url": "https://www.patreon.com/posts/88491809"
           }
         ]
       },
-      "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/204"
+      "download_soon": false
     },
     {
       "title": "Vegeta’s Humiliation?!",
@@ -375,8 +346,8 @@
       "requirements": "No paid DLC needed. Game updated to at least the DLC 1 patch (1.05).",
       "credit": "",
       "trailer_url": "https://www.youtube.com/watch?v=O3eTbgvBXMI",
-      "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/vegetas-humiliation-what-if-parallel-quest",
-      "download_host": "VGM",
+      "download_url": "https://www.patreon.com/posts/84082437",
+      "download_host": "Patreon",
       "hidden": false,
       "commission": false,
       "show_download": true,
@@ -395,7 +366,7 @@
         "facts": {
           "version": "1.0 (+ 4-star PQ fix file)",
           "updated": "7 Aug 2023",
-          "released": "29 Jun 2023 (VGM) · Patreon 4 Jun 2023",
+          "released": "4 Jun 2023 (Patreon) · public 29 Jun 2023",
           "game": "No paid DLC. Game updated to at least the DLC 1 patch (1.05).",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -422,20 +393,12 @@
         ],
         "facts_source": [
           {
-            "label": "VGM",
-            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/vegetas-humiliation-what-if-parallel-quest"
-          },
-          {
-            "label": "Nexus",
-            "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/189"
-          },
-          {
             "label": "Patreon",
             "url": "https://www.patreon.com/posts/84082437"
           }
         ]
       },
-      "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/189"
+      "download_soon": false
     },
     {
       "title": "Yamcha’s Resolve!?",
@@ -446,8 +409,8 @@
       "requirements": "",
       "credit": "",
       "trailer_url": "https://www.youtube.com/watch?v=HUdlUZ0_x6k",
-      "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/yamchas-resolve-what-if-parallel-quest",
-      "download_host": "VGM",
+      "download_url": "https://www.patreon.com/posts/yamchas-resolve-79948001",
+      "download_host": "Patreon",
       "hidden": false,
       "commission": false,
       "show_download": true,
@@ -466,7 +429,7 @@
         "facts": {
           "version": "1.0",
           "updated": "31 Aug 2023",
-          "released": "28 Apr 2023 (VGM) · Patreon 12 Mar 2023",
+          "released": "12 Mar 2023 (Patreon) · public 28 Apr 2023",
           "game": "TBC",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -493,20 +456,12 @@
         ],
         "facts_source": [
           {
-            "label": "VGM",
-            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/yamchas-resolve-what-if-parallel-quest"
-          },
-          {
-            "label": "Nexus",
-            "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/155"
-          },
-          {
             "label": "Patreon",
             "url": "https://www.patreon.com/posts/yamchas-resolve-79948001"
           }
         ]
       },
-      "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/155"
+      "download_soon": false
     },
     {
       "title": "The World Tournament: Couple’s Division",
@@ -517,8 +472,8 @@
       "requirements": "No paid DLC needed. Game updated to at least the DLC 1 patch (1.05).",
       "credit": "",
       "trailer_url": "https://www.youtube.com/watch?v=SlewJfIDFxA",
-      "download_url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/world-tournament-couples-division-what-if-pq",
-      "download_host": "VGM",
+      "download_url": "https://www.patreon.com/posts/world-tournament-78441534",
+      "download_host": "Patreon",
       "hidden": false,
       "commission": false,
       "show_download": true,
@@ -537,7 +492,7 @@
         "facts": {
           "version": "1.1",
           "updated": "31 Aug 2023",
-          "released": "10 Feb 2023 (VGM) · Patreon 8 Feb 2023",
+          "released": "8 Feb 2023 (Patreon) · public 10 Feb 2023",
           "game": "No paid DLC. Game updated to at least the DLC 1 patch (1.05).",
           "tested_game": "TBC",
           "patcher": "TBC",
@@ -564,20 +519,12 @@
         ],
         "facts_source": [
           {
-            "label": "VGM",
-            "url": "https://videogamemods.com/the-citadel/dragon-ball-xenoverse-2/mods/world-tournament-couples-division-what-if-pq"
-          },
-          {
-            "label": "Nexus",
-            "url": "https://www.nexusmods.com/dragonballxenoverse2/mods/152"
-          },
-          {
             "label": "Patreon",
             "url": "https://www.patreon.com/posts/world-tournament-78441534"
           }
         ]
       },
-      "nexus_url": "https://www.nexusmods.com/dragonballxenoverse2/mods/152"
+      "download_soon": false
     }
   ],
   "download_note": "Released quests: free to download for now. No account or membership needed.",
