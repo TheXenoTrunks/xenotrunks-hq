@@ -599,6 +599,11 @@ content:
           media: images
       - name: image_alt
         type: string
+      - name: video_poster
+        label: Teaser video poster (still frame; the looping teaser video files are assets/fn2-teaser.mp4 / .webm)
+        type: image
+        options:
+          media: images
       - name: progress
         label: Progress items
         type: object

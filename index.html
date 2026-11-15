@@ -441,6 +441,23 @@
     .feature-art.xtp-frame > img { object-position: center center; }
     .feature-art.xtp-frame .xtp-bar { font-size: clamp(1.05rem, 2.2vw, 1.7rem); padding: 0.5em 0.85em 0.55em; }
     .feature-art.xtp-frame .xtp-logo { max-width: 88px; top: 14px; right: 14px; }
+    .xtp-frame > video { width: 100%; height: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center center; display: block; background: var(--frame); }
+    .feature-art .fn-still { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .feature-art .fn-video { display: none; }
+      .feature-art .fn-still { display: block; }
+    }
+    .devlog-card { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 26px; align-items: start; }
+    .devlog-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; color: var(--muted); font-size: 0.86rem; }
+    .devlog-meta img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--cyan); background: var(--frame); object-fit: contain; }
+    .devlog-meta b { color: var(--ink); display: block; font-size: 0.95rem; }
+    .devlog-card h3 { margin: 4px 0 10px; }
+    .devlog-card p { color: var(--muted); }
+    .devlog-media { margin: 0; }
+    .devlog-media video, .devlog-media img { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid rgba(76,165,221,0.35); background: var(--frame); }
+    .devlog-media figcaption { margin-top: 6px; font-size: 0.74rem; letter-spacing: 0.04em; color: var(--muted); }
+    .devlog-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); }
+    @media (max-width: 860px) { .devlog-card { grid-template-columns: 1fr; } }
     @media (max-width: 680px) {
       .work-tile.xtp-frame { aspect-ratio: 16/9; }
       .xtp-bar { font-size: 1rem; padding: 0.5em 0.75em 0.55em; }
@@ -461,6 +478,7 @@
       <button class="menu-btn" id="menu" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navigation">Menu</button>
       <nav class="navlinks" id="navigation" aria-label="Main">
         <a href="#nightmare">Frieza’s Nightmare</a>
+        <a href="#devlog">Dev updates</a>
         <a href="#work">Quests</a>
         <a href="#patreon">Patreon</a>
         <a href="#news">News</a>
@@ -510,7 +528,11 @@
     <section id="nightmare" class="feature">
       <div class="wrap feature-grid">
         <figure class="feature-art xtp-frame">
-          <img id="fn-image" src="assets/fn-frieza-trailer.jpg" width="1600" height="900" alt="Frieza pointing, from Frieza’s Nightmare trailer." loading="lazy">
+          <video id="fn-video" class="fn-video" autoplay muted loop playsinline preload="metadata" poster="assets/fn2-teaser-poster.jpg" width="1280" height="720" aria-label="Frieza’s Nightmare 2.0 teaser: a furious, battle-damaged Frieza.">
+            <source src="assets/fn2-teaser.webm" type="video/webm">
+            <source src="assets/fn2-teaser.mp4" type="video/mp4">
+          </video>
+          <img id="fn-image" class="fn-still" src="assets/fn2-teaser-poster.jpg" width="1280" height="720" alt="A furious, battle-damaged Frieza, from the Frieza’s Nightmare 2.0 teaser." loading="lazy">
           <span class="xtp-logo" aria-hidden="true"></span>
           <span class="xtp-bar" id="fn-image-title">Frieza’s Nightmare 2.0</span>
         </figure>
@@ -523,6 +545,36 @@
           <p class="aside-note" id="fn-note">No release date yet.</p>
           <div class="coming" id="fn-actions"></div>
         </div>
+      </div>
+    </section>
+
+    <section id="devlog" class="section-alt">
+      <div class="wrap">
+        <div class="heading" id="devlog-heading">
+          <p class="kicker">Dev updates</p>
+          <h2>From the workshop.</h2>
+          <p>Work-in-progress looks at what I’m building. Everything here is in development and may change before release.</p>
+        </div>
+        <article class="news-card devlog-card" id="devlog-fn2-teaser">
+          <figure class="devlog-media">
+            <video controls muted loop playsinline preload="none" poster="assets/fn2-teaser-poster.jpg" width="1280" height="720" aria-label="Frieza’s Nightmare 2.0 teaser clip.">
+              <source src="assets/fn2-teaser.webm" type="video/webm">
+              <source src="assets/fn2-teaser.mp4" type="video/mp4">
+            </video>
+            <figcaption>Work-in-progress footage. Not final.</figcaption>
+          </figure>
+          <div>
+            <div class="devlog-meta">
+              <img src="assets/logo-tp-sm.png" width="40" height="40" alt="">
+              <span><b>Xeno Trunks</b><time datetime="2026-11-15">15 Nov 2026</time></span>
+            </div>
+            <span class="devlog-tag">Frieza’s Nightmare 2.0 · Teaser</span>
+            <h3>Dev Update #1: Frieza is not happy.</h3>
+            <p>A first short look at Frieza’s Nightmare 2.0. This rebuild of my first custom Parallel Quest is in development, with new villain encounters, branching Super Saiyan paths and custom cutscenes on the way.</p>
+            <p>There’s no release date yet, and how 2.0 will be released is still being decided. Version 1.7 is free to play now.</p>
+            <p><a class="btn outline" href="#nightmare">See the project</a></p>
+          </div>
+        </article>
       </div>
     </section>
 
