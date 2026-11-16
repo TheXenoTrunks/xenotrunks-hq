@@ -112,3 +112,10 @@ Not live. Needs Xeno Trunks' approval before merging preview → main. Design un
 - **Patreon:** reworded as support for ongoing development. Perk wording no longer implies future public/free releases. Each perk has a `verified` flag; unverified perks are hidden publicly. Hero Society "1 small mod request a month" is `verified: false` (hidden) until checked against the live Patreon page.
 - **Digital products:** new "Coming later" teaser section (`content/products.json`, toggle `enabled`) for original guides and scripting resources. No products, prices or buy buttons. Not in the nav.
 - `.pages.yml`: new fields above + new "Digital products (coming later)" collection. `scripts/build-fallback.py` includes `products`.
+
+## Preview — 15 Nov 2026
+Added a news card for the official Conton City Tournament (id1855, recurring online event, 16–19 Nov 2026 platform windows) with a Xeno Time Patrol card image. Times are shown in JST and UTC only. No prices, payments or release promises. Homepage layout unchanged; not merged to live.
+
+## Preview — 16 Nov 2026
+Added a Final Festival Week 3 news card (Fu in Conton City; Super Saiyan 4 Suit (Goku, Custom) at 2500 Star Coins per piece on Festival Shop lists A/B/C) with a Xeno Time Patrol card image. Times in UTC/JST. Checked that the World Tournament (id1854) and the 10th anniversary login bonus move to Past events automatically via ends_at; no data change needed. No prices beyond the in-game Star Coin cost, no payments, no release promises. Not merged to live.
+- **Image update:** the Week 3 card now also shows a two-image gallery under the Time Patrol hero: cleaned official Fu reward artwork (white frame caption “Thank you! Good bye!!” removed; balloons and characters kept edge to edge) and the official Bandai Namco Festival trailer still, cropped to the 16:9 in-game scene (black letterbox, purple frame and “Celebrate the Final Tournament…” captions removed; dialogue box kept). Both gallery tiles now use the Xeno Time Patrol tp_a frame (navy lower-third or right-side label, magenta hairline, TP logo), matching the Week 3 hero. Original Bandai credits are kept. No Perth times added.

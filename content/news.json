@@ -3,9 +3,36 @@
   "title": "This week in the Time Patrol.",
   "intro": "Official raids and events, in short. Full details are at each official source.",
   "show_images": true,
-  "updated": "2026-11-13",
-  "updated_note": "Checked 13 Nov 2026, Australia/Perth (UTC+8). Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
+  "updated": "2026-11-16",
+  "updated_note": "Checked 16 Nov 2026, Australia/Perth (UTC+8). Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
   "items": [
+    {
+      "id": "festival-final-week-3",
+      "kind": "event",
+      "hidden": false,
+      "kicker": "Festival of Universes",
+      "title": "Final Festival — Week 3: Fu arrives in Conton City",
+      "date_label": "Week 3 · 16–22 Nov 2026, 00:00 – 23:59 UTC (Festival Shop List A)",
+      "starts_at": "2026-11-16T00:00:00+00:00",
+      "ends_at": "2026-11-22T23:59:00+00:00",
+      "summary": "Week 3 of the Final Festival started on 16 November 2026 (00:00 UTC; 09:00 JST) and runs to 22 November, 23:59 UTC (23 November, 08:59 JST). Fu has arrived in Conton City. The Festival Shop is on Shop List A this week, and the Super Saiyan 4 Suit (Goku, Custom) is back for 2500 Star Coins per piece (Upper Body, Lower Body, Hands and Feet). The suit is on Shop Lists A, B and C, so it stays in the Festival Shop through every published rotation window (to 28 March 2027, 23:59 UTC, per the 13 November lineup announcement; 2027 dates inferred from that article). Fu and the suit were confirmed in-game on 16 November 2026; the dates come from the official Bandai Namco Europe lineup article.",
+      "source_label": "Bandai Namco Europe (13 Nov 2026)",
+      "source_url": "https://en.bandainamcoent.eu/dragon-ball/news/dragon-ball-xenoverse-2-festival-shop-item-lineup-update",
+      "image": "assets/uploads/festival-final-week-3.webp",
+      "image_alt": "Xeno Time Patrol card: Fu and a Super Saiyan 4 Suit Time Patroller standing in festival-decorated Conton City, titled Fu has arrived in Conton City, Final Festival Week 3.",
+      "image_credit": "Xeno Time Patrol design; in-game screenshot © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation",
+      "gallery": [
+        {
+          "image": "assets/uploads/festival-week-3-fu-artwork.webp",
+          "alt": "Official artwork of Fu reaching forward, with Trunks and Supreme Kai of Time running through festival balloons and confetti."
+        },
+        {
+          "image": "assets/uploads/festival-week-3-fu-official.webp",
+          "alt": "Official Bandai Namco trailer still: Fu talking to a Time Patroller in Conton City, with the in-game dialogue box visible."
+        }
+      ],
+      "gallery_credit": "Xeno Time Patrol design; official artwork and Festival trailer still © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
+    },
     {
       "id": "festival-shop-lineup-20261113",
       "kind": "event",
@@ -21,6 +48,34 @@
       "image": "assets/uploads/festival-shop-lineup-20261113.webp",
       "image_alt": "Xeno Time Patrol card: Festival of Universes logo over the official Final Festival of Universes stage, titled Past items return, from 16 Nov 2026, 00:00 UTC.",
       "image_credit": "Xeno Time Patrol design; character art © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
+    },
+    {
+      "id": "event-conton-city-tournament-id1855",
+      "kind": "event",
+      "hidden": false,
+      "kicker": "Online event",
+      "title": "Conton City Tournament",
+      "date_label": "「コントン都一武道会」 · 16–19 Nov 2026 (platform windows)",
+      "starts_at": "2026-11-16T10:00:00+09:00",
+      "ends_at": "2026-11-19T06:00:00+09:00",
+      "summary": "Official recurring online event, announced 15 November 2026 in Bandai's information post id1855. PlayStation, Nintendo Switch and Steam: 16 Nov, 10:00 – 18 Nov, 22:00 JST (16 Nov, 01:00 – 18 Nov, 13:00 UTC). Xbox: 16 Nov, 18:00 – 19 Nov, 06:00 JST (16 Nov, 09:00 – 18 Nov, 21:00 UTC). Rewards: your first full clear unlocks loading-screen Artworks 01, 29 and 66; your second clear unlocks the Supreme Kai of Time as a playable character. After that, replaying matches can drop her custom skills at random (Temporal Holy Ray, Kairos Cannon, Holy Inscription, Chaos Wall, Timespace Impact and Godly Chronos Cannon). You need to have cleared the story and be logged into a multiplayer lobby; Old Conton City does not run online events. Item names are translated from the Japanese notice, so in-game English names may differ. Schedule and rewards may change without notice.",
+      "source_label": "Official Xenoverse 2 information (id1855)",
+      "source_url": "https://dbx.bn-ent.net/information/#id1855",
+      "windows": [
+        {
+          "platforms": "PlayStation, Nintendo Switch and Steam",
+          "starts_at": "2026-11-16T10:00:00+09:00",
+          "ends_at": "2026-11-18T22:00:00+09:00"
+        },
+        {
+          "platforms": "Xbox",
+          "starts_at": "2026-11-16T18:00:00+09:00",
+          "ends_at": "2026-11-19T06:00:00+09:00"
+        }
+      ],
+      "image": "assets/uploads/event-conton-city-tournament-id1855.webp",
+      "image_alt": "Xeno Time Patrol card: the Supreme Kai of Time in front of the Conton City tournament arena, titled Conton City Tournament, 16–19 Nov 2026.",
+      "image_credit": "Xeno Time Patrol design; official art © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
     },
     {
       "id": "event-world-tournament-id1854",
@@ -56,10 +111,10 @@
       "hidden": false,
       "kicker": "Festival of Universes",
       "title": "Final Festival — Week 2: Cross Versus",
-      "date_label": "9–15 Nov 2026 (Game Mode of the Week)",
+      "date_label": "30 Oct 2026 – 15 Feb 2027 (Game Mode of the Week timetable)",
       "starts_at": "2026-10-30T00:00:00+08:00",
       "ends_at": "2027-02-15T08:59:00+09:00",
-      "summary": "The official Final Festival of Universes (Last World Tournament) is still underway (re-checked 12 November 2026 against the official Japanese information post). It started on 30 October 2026, after a free 10th-anniversary update on 27 October. This week’s Time Patrol game mode is Cross Versus (9–15 November). Raise camaraderie with Trunks, the Supreme Kai of Time or Fu to unlock special illustrations. A commemorative Gi and medal from the festival can unlock related items in Xenoverse 3 (2027) through Bandai Namco ID linkage. The official Japanese information post lists the in-game event through 15 February 2027, 8:59 AM JST (7:59 AM Perth), and states that the maximum Star Coins obtainable is about 25 times the previous tournament.",
+      "summary": "The official Final Festival of Universes (Last World Tournament) is still underway (re-checked 12 November 2026 against the official Japanese information post). It started on 30 October 2026, after a free 10th-anniversary update on 27 October. The Time Patrol game mode changes weekly (Week 2 was Cross Versus, 9–15 November; Week 3 is Elite Patroller Match, 16–22 November; see the timetable below). Raise camaraderie with Trunks, the Supreme Kai of Time or Fu to unlock special illustrations. A commemorative Gi and medal from the festival can unlock related items in Xenoverse 3 (2027) through Bandai Namco ID linkage. The official Japanese information post lists the in-game event through 15 February 2027, 8:59 AM JST (7:59 AM Perth), and states that the maximum Star Coins obtainable is about 25 times the previous tournament.",
       "source_label": "Bandai Namco Entertainment",
       "source_url": "https://www.bandainamcoent.com/news/dragon-ball-xenoverse-2-celebrate-the-10th-anniversary",
       "weeks_note": "Game Mode of the Week timetable as posted by Xeno Time Patrol for the official Final Festival. Week badges update automatically from the dates below.",

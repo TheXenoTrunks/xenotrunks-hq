@@ -321,7 +321,15 @@
         media = '<figure class="news-media"><img src="' + esc(img) + '" alt="' + esc(item.image_alt || "") + '" width="1600" height="900" loading="lazy" decoding="async">' +
           (item.image_credit ? "<figcaption>" + esc(item.image_credit) + "</figcaption>" : "") + "</figure>";
       }
-      return '<article class="news-card' + (media ? " has-media" : "") + '">' + media + '<div class="news-body"><div class="news-meta"><span class="badge ' + badgeClass[state] + '">' + badgeText[state] + "</span><span>" + esc(item.kicker || "") + "</span><span>" + esc(item.date_label || "") + "</span></div><h3>" + esc(displayTitle(item, state, now)) + "</h3><p>" + esc(item.summary) + "</p>" + (media ? "</div><div class=\"news-extra\">" : "") + weeks + src + "</div></article>";
+      var gallery = "";
+      if (showImages && item.gallery && item.gallery.length) {
+        gallery = '<div class="news-gallery">' + item.gallery.map(function (g) {
+          var gsrc = mediaPath(g.image || g.src || "");
+          if (!gsrc) return "";
+          return '<figure><a href="' + esc(gsrc) + '" target="_blank" rel="noopener"><img src="' + esc(gsrc) + '" alt="' + esc(g.alt || g.image_alt || "") + '" loading="lazy" decoding="async"></a></figure>';
+        }).join("") + (item.gallery_credit ? '<p class="news-gallery-credit">' + esc(item.gallery_credit) + "</p>" : "") + "</div>";
+      }
+      return '<article class="news-card' + (media ? " has-media" : "") + '">' + media + '<div class="news-body"><div class="news-meta"><span class="badge ' + badgeClass[state] + '">' + badgeText[state] + "</span><span>" + esc(item.kicker || "") + "</span><span>" + esc(item.date_label || "") + "</span></div><h3>" + esc(displayTitle(item, state, now)) + "</h3><p>" + esc(item.summary) + "</p>" + (media ? "</div><div class=\"news-extra\">" : "") + gallery + weeks + src + "</div></article>";
     }
     function endTime(e) {
       var it = e.item, ends = [];
