@@ -115,3 +115,6 @@ Not live. Needs Xeno Trunks' approval before merging preview → main. Design un
 
 ## Preview — 15 Nov 2026
 Added a news card for the official Conton City Tournament (id1855, recurring online event, 16–19 Nov 2026 platform windows) with a Xeno Time Patrol card image. Times are shown in JST and UTC only. No prices, payments or release promises. Homepage layout unchanged; not merged to live.
+
+## Preview — 16 Nov 2026
+Added a Final Festival Week 3 news card (Fu in Conton City; Super Saiyan 4 Suit (Goku, Custom) at 2500 Star Coins per piece on Festival Shop lists A/B/C) with a Xeno Time Patrol card image. Times in UTC/JST. Checked that the World Tournament (id1854) and the 10th anniversary login bonus move to Past events automatically via ends_at; no data change needed. No prices beyond the in-game Star Coin cost, no payments, no release promises. Not merged to live.
