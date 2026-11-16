@@ -20,7 +20,18 @@
       "source_url": "https://en.bandainamcoent.eu/dragon-ball/news/dragon-ball-xenoverse-2-festival-shop-item-lineup-update",
       "image": "assets/uploads/festival-final-week-3.webp",
       "image_alt": "Xeno Time Patrol card: Fu and a Super Saiyan 4 Suit Time Patroller standing in festival-decorated Conton City, titled Fu has arrived in Conton City, Final Festival Week 3.",
-      "image_credit": "Xeno Time Patrol design; in-game screenshot © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
+      "image_credit": "Xeno Time Patrol design; in-game screenshot © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation",
+      "gallery": [
+        {
+          "image": "assets/uploads/festival-week-3-fu-artwork.webp",
+          "alt": "Official artwork of Fu reaching forward, with Trunks and Supreme Kai of Time running through festival balloons and confetti."
+        },
+        {
+          "image": "assets/uploads/festival-week-3-fu-official.webp",
+          "alt": "Official Bandai Namco trailer still: Fu talking to a Time Patroller in Conton City, with the line Celebrate the Final Tournament with the allies who accompanied you on your journey."
+        }
+      ],
+      "gallery_credit": "Official artwork and Festival trailer still © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
     },
     {
       "id": "festival-shop-lineup-20261113",

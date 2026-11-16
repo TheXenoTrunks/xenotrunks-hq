@@ -118,3 +118,4 @@ Added a news card for the official Conton City Tournament (id1855, recurring onl
 
 ## Preview — 16 Nov 2026
 Added a Final Festival Week 3 news card (Fu in Conton City; Super Saiyan 4 Suit (Goku, Custom) at 2500 Star Coins per piece on Festival Shop lists A/B/C) with a Xeno Time Patrol card image. Times in UTC/JST. Checked that the World Tournament (id1854) and the 10th anniversary login bonus move to Past events automatically via ends_at; no data change needed. No prices beyond the in-game Star Coin cost, no payments, no release promises. Not merged to live.
+- **Image update:** the Week 3 card now also shows a two-image gallery under the Time Patrol hero: cleaned official Fu reward artwork (white frame caption “Thank you! Good bye!!” removed; balloons and characters kept edge to edge) and the official Bandai Namco Festival trailer still (resized only). Both credited to Bandai Namco. No Perth times added.
