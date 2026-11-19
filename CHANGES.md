@@ -1,3 +1,10 @@
+# Update 11 (19 Nov 2026, preview branch)
+
+Not live. Needs Xeno Trunks' approval before merging preview → main. Layout unchanged (news stays a secondary section). No prices, payments, release promises, Perth times, or Nexus/VGM links.
+
+- **Added:** raid news card for the official Gohan (Beast) Lite raid (Bandai information post id1859, published 18 Nov 2026). Windows are stored in `windows` (PlayStation/Switch/Steam 19 Nov 8:00 PM – 25 Nov 10:00 PM PT; Xbox 20 Nov 4:00 AM – 26 Nov 6:00 AM JST) with `starts_at` / `ends_at` so it shows Live now / Upcoming and moves to Past events by itself. Card image `raid-gohan-beast-lite.webp` is a Time Patrol theme tp_a (navy, cyan, magenta) 1600×900 WebP built with the same renderer as `raid-broly-fpssj-lite.webp`, from the in-game raid still the raid alert used (official credit mark removed, credit shown on the page).
+- **Ended:** the Conton City Tournament (id1855, ended 19 Nov 06:00 JST), the Dragon Ball Super Limited Tournament (id1854) and the 10th-anniversary login bonus now use past-tense wording. All three already had `ends_at`, so they sit in Past events automatically. Festival Week 3 (to 22 Nov, 23:59 UTC) and the Festival Shop lineup have not ended and are unchanged.
+
 # Update 10 (13 Nov 2026, preview branch)
 
 Not live. Needs Xeno Trunks' approval before merging preview → main. The approved homepage layout is unchanged (news stays a secondary section). No prices, payments or release promises were added. No Perth times were added.

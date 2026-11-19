@@ -3,9 +3,37 @@
   "title": "This week in the Time Patrol.",
   "intro": "Official raids and events, in short. Full details are at each official source.",
   "show_images": true,
-  "updated": "2026-11-16",
-  "updated_note": "Checked 16 Nov 2026, Australia/Perth (UTC+8). Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
+  "updated": "2026-11-19",
+  "updated_note": "Checked 19 Nov 2026. Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
   "items": [
+    {
+      "id": "raid-gohan-beast-lite",
+      "kind": "raid",
+      "hidden": false,
+      "kicker": "Raid",
+      "title": "RAID: vs Gohan (Beast) (Lite)",
+      "date_label": "19–26 Nov 2026 (platform windows)",
+      "starts_at": "2026-11-19T19:00:00+00:00",
+      "ends_at": "2026-11-26T06:00:00+00:00",
+      "summary": "New official raid, published 18 November 2026 in Bandai's information post id1859. PlayStation, Nintendo Switch and Steam run 19 Nov, 8:00 PM – 25 Nov, 10:00 PM PT (20 Nov, 04:00 UTC – 26 Nov, 06:00 UTC). Xbox (official Japanese clock) runs 20 Nov, 4:00 AM – 26 Nov, 6:00 AM JST (19 Nov, 19:00 UTC – 25 Nov, 21:00 UTC). Participation rewards are Hercule Badge (Common) ×1 and TP Medals ×50. Higher damage tiers also award more TP and STP Medals, the Street Names “More” (5,000 damage) and “Avenger” (100,000 damage), and Artwork 1038 (50,000 damage); see the official post for the full list. Entry is via the Time Rift (big blue hole) on the west side of the Shop Area. The official post says schedule and rewards may change without notice.",
+      "source_label": "Official Xenoverse 2 information (id1859)",
+      "source_url": "https://dbx.bn-ent.net/information/#id1859",
+      "windows": [
+        {
+          "platforms": "PlayStation, Nintendo Switch and Steam",
+          "starts_at": "2026-11-19T20:00:00-08:00",
+          "ends_at": "2026-11-25T22:00:00-08:00"
+        },
+        {
+          "platforms": "Xbox",
+          "starts_at": "2026-11-20T04:00:00+09:00",
+          "ends_at": "2026-11-26T06:00:00+09:00"
+        }
+      ],
+      "image": "assets/uploads/raid-gohan-beast-lite.webp",
+      "image_alt": "Xeno Time Patrol card: Beast Gohan with silver hair and a pink energy blast fighting Time Patrollers, titled vs Gohan (Beast) Lite, 19–25 Nov 2026.",
+      "image_credit": "Xeno Time Patrol design; in-game screenshot © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
+    },
     {
       "id": "festival-final-week-3",
       "kind": "event",
@@ -58,7 +86,7 @@
       "date_label": "「コントン都一武道会」 · 16–19 Nov 2026 (platform windows)",
       "starts_at": "2026-11-16T10:00:00+09:00",
       "ends_at": "2026-11-19T06:00:00+09:00",
-      "summary": "Official recurring online event, announced 15 November 2026 in Bandai's information post id1855. PlayStation, Nintendo Switch and Steam: 16 Nov, 10:00 – 18 Nov, 22:00 JST (16 Nov, 01:00 – 18 Nov, 13:00 UTC). Xbox: 16 Nov, 18:00 – 19 Nov, 06:00 JST (16 Nov, 09:00 – 18 Nov, 21:00 UTC). Rewards: your first full clear unlocks loading-screen Artworks 01, 29 and 66; your second clear unlocks the Supreme Kai of Time as a playable character. After that, replaying matches can drop her custom skills at random (Temporal Holy Ray, Kairos Cannon, Holy Inscription, Chaos Wall, Timespace Impact and Godly Chronos Cannon). You need to have cleared the story and be logged into a multiplayer lobby; Old Conton City does not run online events. Item names are translated from the Japanese notice, so in-game English names may differ. Schedule and rewards may change without notice.",
+      "summary": "This official recurring online event has ended (checked 19 November 2026 against Bandai's information post id1855, announced 15 November 2026). The last platform window closed on 19 Nov at 06:00 JST (18 Nov, 21:00 UTC). PlayStation, Nintendo Switch and Steam ran 16 Nov, 10:00 – 18 Nov, 22:00 JST (16 Nov, 01:00 – 18 Nov, 13:00 UTC). Xbox ran 16 Nov, 18:00 – 19 Nov, 06:00 JST (16 Nov, 09:00 – 18 Nov, 21:00 UTC). Rewards were: your first full clear unlocked loading-screen Artworks 01, 29 and 66; your second clear unlocked the Supreme Kai of Time as a playable character. After that, replaying matches could drop her custom skills at random (Temporal Holy Ray, Kairos Cannon, Holy Inscription, Chaos Wall, Timespace Impact and Godly Chronos Cannon). Item names are translated from the Japanese notice, so in-game English names may differ.",
       "source_label": "Official Xenoverse 2 information (id1855)",
       "source_url": "https://dbx.bn-ent.net/information/#id1855",
       "windows": [
@@ -86,7 +114,7 @@
       "date_label": "「ドラゴンボール超限定一武道会」 · 14–16 Nov 2026 (platform windows)",
       "starts_at": "2026-11-14T01:00:00+00:00",
       "ends_at": "2026-11-16T05:00:00+08:00",
-      "summary": "Official themed World Tournament (online ranked PvP), announced 13 November 2026 in Bandai's information post id1854. PlayStation, Nintendo Switch and Steam: 14 Nov, 10:00 – 15 Nov, 22:00 JST (14 Nov, 01:00 – 15 Nov, 13:00 UTC). Xbox: 14 Nov, 18:00 – 16 Nov, 06:00 JST (14 Nov, 09:00 – 15 Nov, 21:00 UTC). Your rank is your total points from the Character and Themed World Tournament ranked matches during the event. Everyone who takes part gets 50 TP Medals; the top 50 also win TP and STP Medals, and the top 5 get the Street Name Exceed (「イクシード」) plus a full set of the 7 Dragon Balls. Enter via the World Tournament reception desk in Conton City; you need the Saiyan and Namek arcs cleared in Time Patrol, an online connection and a multiplayer lobby login. Leaving rooms straight after matching, or farming the same player, can lose you your rewards. Schedule and rewards may change without notice.",
+      "summary": "This official themed World Tournament (online ranked PvP) has ended (checked 19 November 2026; announced 13 November 2026 in Bandai's information post id1854). The last platform window closed on 16 Nov at 06:00 JST (15 Nov, 21:00 UTC). PlayStation, Nintendo Switch and Steam ran 14 Nov, 10:00 – 15 Nov, 22:00 JST (14 Nov, 01:00 – 15 Nov, 13:00 UTC). Xbox ran 14 Nov, 18:00 – 16 Nov, 06:00 JST (14 Nov, 09:00 – 15 Nov, 21:00 UTC). Rank was your total points from the Character and Themed World Tournament ranked matches during the event. Everyone who took part got 50 TP Medals; the top 50 also won TP and STP Medals, and the top 5 got the Street Name Exceed (「イクシード」) plus a full set of the 7 Dragon Balls.",
       "source_label": "Official Xenoverse 2 information (id1854)",
       "source_url": "https://dbx.bn-ent.net/information/#id1854",
       "windows": [
@@ -169,7 +197,7 @@
       "date_label": "27 Oct – 16 Nov 2026, 11:59 PM JST",
       "starts_at": "2026-10-27T19:00:00+09:00",
       "ends_at": "2026-11-16T23:59:00+09:00",
-      "summary": "A limited login bonus bundled with the 27 October free update (update #23) is still running (re-checked 12 November 2026 against the official Japanese information post). It ends on 16 November 2026 at 11:59 PM JST (10:59 PM Perth). Official rewards listed on the information post include loading-screen artwork, STP Medals and the Xenoverse 2 10th Anniversary celebration cake hat.",
+      "summary": "This limited login bonus, bundled with the 27 October free update (update #23), has ended (checked 19 November 2026 against the official Japanese information post). It ran to 16 November 2026 at 11:59 PM JST. Official rewards listed on the information post included loading-screen artwork, STP Medals and the Xenoverse 2 10th Anniversary celebration cake hat.",
       "source_label": "Official Xenoverse 2 information (id1856)",
       "source_url": "https://dbx.bn-ent.net/information/#id1856",
       "image": "assets/uploads/login-bonus-10th-anniversary.webp",
