@@ -1,3 +1,10 @@
+# Update 12 (24 Nov 2026, preview branch)
+
+Not live. Needs Xeno Trunks' approval before merging preview → main. Layout unchanged. No prices, payments or release promises.
+
+- **Ended:** Final Festival Week 3 (ended 22 Nov, 23:59 UTC) now uses past-tense wording and "ended" in its date line. It already had `ends_at`, so it sits in Past events automatically. The Festival Shop lineup card (to 28 Mar 2027) and the Gohan (Beast) Lite raid (ends 26 Nov JST) are still current and unchanged.
+- **Checked, nothing new:** Bandai XV2 information list (newest is id1859, already on the site), @dbgame_official, @dragonballgames. No verified Week 4 announcement found, so none was added.
+
 # Update 11 (19 Nov 2026, preview branch)
 
 Not live. Needs Xeno Trunks' approval before merging preview → main. Layout unchanged (news stays a secondary section). No prices, payments, release promises, Perth times, or Nexus/VGM links.
