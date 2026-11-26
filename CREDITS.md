@@ -86,3 +86,7 @@ Quest card pictures are Xeno Trunks’ own work, shown in a CSS Xeno Time Patrol
 ## Update 11 (19 Nov 2026)
 
 - `assets/uploads/raid-gohan-beast-lite.webp` (1600×900, theme tp_a): Xeno Time Patrol design built from the official in-game raid still for post id1859 (https://dbx.bn-ent.net/information/#id1859), with the printed ©B/S·T ©BNEI mark removed from the image and the credit shown on the page. © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation.
+
+## Update 13 (25 Nov 2026)
+
+- `assets/uploads/raid-super-17-lite.webp` (1600×900, theme tp_a): Xeno Time Patrol design built from the official in-game raid image for post id1860 (https://dbx.bn-ent.net/information/#id1860), with the printed ©B/S·T ©BNEI mark removed from the image and the credit shown on the page. © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation.

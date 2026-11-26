@@ -1,3 +1,17 @@
+# Update 14 (26 Nov 2026, preview branch)
+
+Not live. Needs Xeno Trunks' approval before merging preview → main. Layout unchanged. No prices, payments or release promises.
+
+- **Ended:** the Gohan (Beast) Lite raid (id1859) closed on 26 Nov (last window 06:00 UTC, 2:00 PM Perth), so its card now uses past-tense wording and "ended" in its date line. It already had `ends_at`, so it sits in Past events.
+- **Unchanged:** Super 17 (Lite) raid (live to 3 Dec UTC), Festival Shop lineup, Final Festival Week 3 (ended).
+
+# Update 13 (25 Nov 2026, preview branch)
+
+Not live. Needs Xeno Trunks' approval before merging preview → main. Layout unchanged (news stays a secondary section). No prices, payments, release promises, Perth times, or Nexus/VGM links.
+
+- **Added:** raid news card for the official Super 17 (Lite) raid (Bandai information post id1860, published 25 Nov 2026). Windows: PlayStation/Switch/Steam 26 Nov 8:00 PM – 2 Dec 10:00 PM PT (read as US Pacific, same as the Gohan card; the official page lists the wall clocks without a zone label); Xbox 27 Nov 4:00 AM – 3 Dec 6:00 AM JST. `starts_at` / `ends_at` are 26 Nov 19:00 UTC – 3 Dec 06:00 UTC, so it shows Live now / Upcoming and moves to Past events by itself. Card image `raid-super-17-lite.webp` is a Time Patrol tp_a 1600×900 WebP built from the official image on the post, with the printed credit mark removed.
+- **Checked, unchanged:** Final Festival Week 3 and the Festival Shop lineup card (Week 4–5 Shop List B, 23 Nov – 6 Dec UTC, is already in the lineup summary). The Gohan (Beast) Lite raid is unchanged (ends 26 Nov 06:00 UTC).
+
 # Update 12 (24 Nov 2026, preview branch)
 
 Not live. Needs Xeno Trunks' approval before merging preview → main. Layout unchanged. No prices, payments or release promises.

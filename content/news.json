@@ -3,19 +3,47 @@
   "title": "This week in the Time Patrol.",
   "intro": "Official raids and events, in short. Full details are at each official source.",
   "show_images": true,
-  "updated": "2026-11-19",
-  "updated_note": "Checked 19 Nov 2026. Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
+  "updated": "2026-11-25",
+  "updated_note": "Checked 25 Nov 2026. Status badges are computed from starts_at / ends_at (and platform windows) in the visitor’s current time. Ended raids and events move to Past events automatically. Announcements with no end date stay visible.",
   "items": [
+    {
+      "id": "raid-super-17-lite",
+      "kind": "raid",
+      "hidden": false,
+      "kicker": "Raid",
+      "title": "RAID: vs Super 17 (Lite)",
+      "date_label": "26 Nov – 3 Dec 2026 (platform windows)",
+      "starts_at": "2026-11-26T19:00:00+00:00",
+      "ends_at": "2026-12-03T06:00:00+00:00",
+      "summary": "New official raid, published 25 November 2026 in Bandai's information post id1860. PlayStation, Nintendo Switch and Steam run 26 Nov, 8:00 PM – 2 Dec, 10:00 PM PT (27 Nov, 04:00 UTC – 3 Dec, 06:00 UTC). Xbox (official Japanese clock) runs 27 Nov, 4:00 AM – 3 Dec, 6:00 AM JST (26 Nov, 19:00 UTC – 2 Dec, 21:00 UTC). Participation rewards are Satan Badge (Common) ×1 and TP Medals ×50. Higher damage tiers also award more TP and STP Medals, Super 17 clothing pieces, Camo Bikini pieces, Super Souls, the Street Names “More” (5,000 damage) and “Avenger” (100,000 damage), and Artwork 179 (50,000 damage); see the official post for the full list. Entry is via the Time Rift (big blue hole) on the west side of the Shop Area. The official post says schedule and rewards may change without notice.",
+      "source_label": "Official Xenoverse 2 information (id1860)",
+      "source_url": "https://dbx.bn-ent.net/information/#id1860",
+      "windows": [
+        {
+          "platforms": "PlayStation, Nintendo Switch and Steam",
+          "starts_at": "2026-11-26T20:00:00-08:00",
+          "ends_at": "2026-12-02T22:00:00-08:00"
+        },
+        {
+          "platforms": "Xbox",
+          "starts_at": "2026-11-27T04:00:00+09:00",
+          "ends_at": "2026-12-03T06:00:00+09:00"
+        }
+      ],
+      "image": "assets/uploads/raid-super-17-lite.webp",
+      "image_alt": "Xeno Time Patrol card: Super 17 with glowing purple eyes thrusting a dark red energy sphere forward, titled vs Super 17 Lite, 26 Nov – 2 Dec 2026.",
+      "image_credit": "Xeno Time Patrol design; in-game screenshot © Bandai Namco Entertainment Inc. / Bird Studio, Shueisha, Toei Animation"
+    },
     {
       "id": "raid-gohan-beast-lite",
       "kind": "raid",
       "hidden": false,
       "kicker": "Raid",
       "title": "RAID: vs Gohan (Beast) (Lite)",
-      "date_label": "19–26 Nov 2026 (platform windows)",
+      "date_label": "19–26 Nov 2026 (ended)",
       "starts_at": "2026-11-19T19:00:00+00:00",
       "ends_at": "2026-11-26T06:00:00+00:00",
-      "summary": "New official raid, published 18 November 2026 in Bandai's information post id1859. PlayStation, Nintendo Switch and Steam run 19 Nov, 8:00 PM – 25 Nov, 10:00 PM PT (20 Nov, 04:00 UTC – 26 Nov, 06:00 UTC). Xbox (official Japanese clock) runs 20 Nov, 4:00 AM – 26 Nov, 6:00 AM JST (19 Nov, 19:00 UTC – 25 Nov, 21:00 UTC). Participation rewards are Hercule Badge (Common) ×1 and TP Medals ×50. Higher damage tiers also award more TP and STP Medals, the Street Names “More” (5,000 damage) and “Avenger” (100,000 damage), and Artwork 1038 (50,000 damage); see the official post for the full list. Entry is via the Time Rift (big blue hole) on the west side of the Shop Area. The official post says schedule and rewards may change without notice.",
+      "summary": "This official raid has ended (re-checked 26 November 2026 against the official information post id1859, published 18 November 2026). The last platform window closed at 26 November, 2:00 PM Perth. PlayStation, Nintendo Switch and Steam ran 19 Nov, 8:00 PM – 25 Nov, 10:00 PM PT (20 Nov, 04:00 UTC – 26 Nov, 06:00 UTC). Xbox (official Japanese clock) ran 20 Nov, 4:00 AM – 26 Nov, 6:00 AM JST (19 Nov, 19:00 UTC – 25 Nov, 21:00 UTC). Participation rewards were Hercule Badge (Common) ×1 and TP Medals ×50. Higher damage tiers also awarded more TP and STP Medals, the Street Names “More” (5,000 damage) and “Avenger” (100,000 damage), and Artwork 1038 (50,000 damage); see the official post for the full list. Entry was via the Time Rift (big blue hole) on the west side of the Shop Area.",
       "source_label": "Official Xenoverse 2 information (id1859)",
       "source_url": "https://dbx.bn-ent.net/information/#id1859",
       "windows": [
