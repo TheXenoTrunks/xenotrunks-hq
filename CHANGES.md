@@ -1,3 +1,10 @@
+# Update 14 (26 Nov 2026, preview branch)
+
+Not live. Needs Xeno Trunks' approval before merging preview → main. Layout unchanged. No prices, payments or release promises.
+
+- **Ended:** the Gohan (Beast) Lite raid (id1859) closed on 26 Nov (last window 06:00 UTC, 2:00 PM Perth), so its card now uses past-tense wording and "ended" in its date line. It already had `ends_at`, so it sits in Past events.
+- **Unchanged:** Super 17 (Lite) raid (live to 3 Dec UTC), Festival Shop lineup, Final Festival Week 3 (ended).
+
 # Update 13 (25 Nov 2026, preview branch)
 
 Not live. Needs Xeno Trunks' approval before merging preview → main. Layout unchanged (news stays a secondary section). No prices, payments, release promises, Perth times, or Nexus/VGM links.
