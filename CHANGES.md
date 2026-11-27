@@ -1,3 +1,10 @@
+# Update 15 (27 Nov 2026, preview branch)
+
+Not live. Needs Xeno Trunks approval before merging preview to main. Layout unchanged. No prices, payments or release promises.
+
+- **Corrected:** Super 17 (Lite) raid card now says "Hercule Badge" (the English in-game name) instead of "Satan Badge", matching the Gohan card. Checked-on date moved to 27 Nov.
+- **Checked, unchanged:** no new raid or XV2 announcement beyond id1860.
+
 # Update 14 (26 Nov 2026, preview branch)
 
 Not live. Needs Xeno Trunks' approval before merging preview → main. Layout unchanged. No prices, payments or release promises.
